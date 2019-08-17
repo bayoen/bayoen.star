@@ -1,0 +1,16 @@
+﻿<windows:BaseWindow x:Class="bayoen.star.Windows.MainWindow"                    
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"                                       
+                    xmlns:windows="clr-namespace:bayoen.library.Metro.Windows"
+                    
+                    Title="bayoen-star"
+                    
+                    Height="450" Width="800"
+                    
+                    ResizeMode="NoResize">
+    
+    <Grid>
+        
+    </Grid>
+    
+</windows:BaseWindow>

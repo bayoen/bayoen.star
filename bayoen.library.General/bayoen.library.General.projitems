@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>ceb7a0f0-faac-477b-9669-01b8b7de0482</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>bayoen.library.General</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ChromaKeys.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\GoalTypes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\MiniScoreOrientation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\RestartingModes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\Score2PanelTypes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ExtendedMethods\System.Windows.Controls.Image.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Memories\ProcessMemory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Memories\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Utilities\" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bayoen.star", "bayoen.star\bayoen.star.csproj", "{CB832682-39DC-4BE3-8324-AE18177D3ABC}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "bayoen.library.Metro", "bayoen.library.Metro\bayoen.library.Metro.shproj", "{761C31E7-C1B7-4C29-B994-ADA86F16A372}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bayoen.star.Launcher", "bayoen.star.Launcher\bayoen.star.Launcher.csproj", "{24514D63-12EC-4462-B0B8-08119C58AFCF}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "bayoen.library.General", "bayoen.library.General\bayoen.library.General.shproj", "{CEB7A0F0-FAAC-477B-9669-01B8B7DE0482}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		bayoen.library.Metro\bayoen.library.Metro.projitems*{761c31e7-c1b7-4c29-b994-ada86f16a372}*SharedItemsImports = 13
+		bayoen.library.General\bayoen.library.General.projitems*{cb832682-39dc-4be3-8324-ae18177d3abc}*SharedItemsImports = 4
+		bayoen.library.Metro\bayoen.library.Metro.projitems*{cb832682-39dc-4be3-8324-ae18177d3abc}*SharedItemsImports = 4
+		bayoen.library.General\bayoen.library.General.projitems*{ceb7a0f0-faac-477b-9669-01b8b7de0482}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CB832682-39DC-4BE3-8324-AE18177D3ABC}.Debug|x64.ActiveCfg = Debug|x64
+		{CB832682-39DC-4BE3-8324-AE18177D3ABC}.Debug|x64.Build.0 = Debug|x64
+		{CB832682-39DC-4BE3-8324-AE18177D3ABC}.Release|x64.ActiveCfg = Release|x64
+		{CB832682-39DC-4BE3-8324-AE18177D3ABC}.Release|x64.Build.0 = Release|x64
+		{24514D63-12EC-4462-B0B8-08119C58AFCF}.Debug|x64.ActiveCfg = Debug|x64
+		{24514D63-12EC-4462-B0B8-08119C58AFCF}.Debug|x64.Build.0 = Debug|x64
+		{24514D63-12EC-4462-B0B8-08119C58AFCF}.Release|x64.ActiveCfg = Release|x64
+		{24514D63-12EC-4462-B0B8-08119C58AFCF}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E81F91D2-BEF4-4642-8A17-4FB9C11B812B}
+	EndGlobalSection
+EndGlobal

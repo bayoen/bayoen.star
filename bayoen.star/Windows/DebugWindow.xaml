@@ -1,0 +1,43 @@
+﻿<windows:BaseWindow x:Class="bayoen.star.Windows.DebugWindow"                    
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"                                       
+                    xmlns:windows="clr-namespace:bayoen.library.Metro.Windows"
+                    xmlns:controls="clr-namespace:bayoen.star.Controls"
+                    xmlns:metroControls="clr-namespace:bayoen.library.Metro.Controls"
+                    Title="Debug"
+                    
+                    Height="800" Width="800">
+
+    <windows:BaseWindow.Resources>
+        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource MetroTextBlock}">
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+    </windows:BaseWindow.Resources>
+
+    <ScrollViewer>
+        <Grid>
+            <WrapPanel Orientation="Vertical" Margin="12">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="TextOut1"/>
+                    <TextBlock x:Name="TextOut2"/>
+                    <TextBlock x:Name="TextOut3"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="- 2 Players"/>
+                    <controls:MiniScorePanel PlayerNumber="2"/>
+                    <TextBlock Text="- 3 Players"/>
+                    <controls:MiniScorePanel PlayerNumber="3"/>
+                    <TextBlock Text="- 4 Players"/>
+                    <controls:MiniScorePanel PlayerNumber="4"/>
+                    <TextBlock Text="- Mini Score Containers"/>
+                    <controls:MiniScoreContainer MiniScoreOrientation="Left"/>
+                    <controls:MiniScoreContainer MiniScoreOrientation="Right"/>
+                    <TextBlock Text="- Metro Button"/>
+                    <metroControls:MetroButton Text="Button"/>
+                </StackPanel>
+                
+            </WrapPanel>
+        </Grid>
+    </ScrollViewer>
+
+</windows:BaseWindow>
