@@ -2,8 +2,8 @@
 {
     public enum GoalTypes : int
     {
-        None = 0,
-        Star = 1,
-        Game = 2,
+        None,
+        First,
+        Total,
     }
 }

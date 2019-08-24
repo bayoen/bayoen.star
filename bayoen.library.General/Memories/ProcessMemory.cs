@@ -5,6 +5,9 @@ using System.Text;
 
 namespace bayoen.library.General.Memories
 {
+    /// <summary>
+    /// ProcessMemory (edited by SemiR4in)
+    /// </summary>
     public class ProcessMemory
     {
         [DllImport("kernel32.dll", SetLastError = true)]
@@ -38,60 +41,53 @@ namespace bayoen.library.General.Memories
         [DllImport("kernel32.dll")]
         private static extern int ResumeThread(IntPtr hThread);
 
-        private IntPtr _baseAddress;
-        public long BaseAddress
+        public IntPtr GetBaseAddress()
         {
-            get
-            {
-                _baseAddress = (IntPtr)0;
-                processModule = mainProcess[0].MainModule;
-                _baseAddress = processModule.BaseAddress;
-                return (long)_baseAddress;
-            }
+            //IntPtr baseAddress = (IntPtr)0;
+            //ProcessModule processModule = this.mainProcess[0].MainModule;
+            //baseAddress = processModule.BaseAddress;
+            //return baseAddress;
+
+            if (this.mainProcess.Length == 0) return IntPtr.Zero;
+            return this.mainProcess[0].MainModule.BaseAddress;
         }
 
-        public string ProcessName;
-        public bool TrustProcess;
-        private bool _opened;
-        private ProcessModule processModule;
+        public string ProcessName;        
         private Process[] mainProcess;
         private IntPtr processHandle = IntPtr.Zero;
 
-        public ProcessMemory(string param, bool trust = false)
+        public ProcessMemory(string param)
         {
-            ProcessName = param;
-            TrustProcess = trust;
+            this.ProcessName = param;
         }
 
         public bool CheckProcess()
         {
-            if (TrustProcess && _opened) return true;
-            if (ProcessName == null) return false;
+            if (this.ProcessName == null) return false;
 
-            bool success = GetExitCodeProcess(processHandle, out uint code);
+            bool success = GetExitCodeProcess(this.processHandle, out uint code);
 
             if (success && code != 259)
             {
-                CloseHandle(processHandle);
-                processHandle = IntPtr.Zero;
+                ProcessMemory.CloseHandle(this.processHandle);
+                this.processHandle = IntPtr.Zero;
             }
 
-            if (processHandle == IntPtr.Zero)
+            if (this.processHandle == IntPtr.Zero)
             {
-                mainProcess = Process.GetProcessesByName(ProcessName);
-                if (mainProcess.Length == 0) return false;
+                this.mainProcess = Process.GetProcessesByName(this.ProcessName);
+                if (this.mainProcess.Length == 0) return false;
 
-                processHandle = OpenProcess(0x001F0FFF, false, mainProcess[0].Id);
-                if (processHandle == IntPtr.Zero) return false;
+                this.processHandle = OpenProcess(0x001F0FFF, false, this.mainProcess[0].Id);
+                if (this.processHandle == IntPtr.Zero) return false;
             }
 
-            if (TrustProcess) _opened = true;
             return true;
         }
 
         public void Suspend()
         {
-            foreach (ProcessThread pT in mainProcess[0].Threads)
+            foreach (ProcessThread pT in this.mainProcess[0].Threads)
             {
                 IntPtr pOpenThread = OpenThread(0x02 /* suspend/resume */, false, (uint)pT.Id);
 
@@ -100,15 +96,14 @@ namespace bayoen.library.General.Memories
                     continue;
                 }
 
-                SuspendThread(pOpenThread);
-
-                CloseHandle(pOpenThread);
+                ProcessMemory.SuspendThread(pOpenThread);
+                ProcessMemory.CloseHandle(pOpenThread);
             }
         }
 
         public void Resume()
         {
-            foreach (ProcessThread pT in mainProcess[0].Threads)
+            foreach (ProcessThread pT in this.mainProcess[0].Threads)
             {
                 IntPtr pOpenThread = OpenThread(0x02 /* suspend/resume */, false, (uint)pT.Id);
 
@@ -123,7 +118,7 @@ namespace bayoen.library.General.Memories
                     suspendCount = ResumeThread(pOpenThread);
                 } while (suspendCount > 0);
 
-                CloseHandle(pOpenThread);
+                ProcessMemory.CloseHandle(pOpenThread);
             }
         }
 
@@ -144,13 +139,13 @@ namespace bayoen.library.General.Memories
         {
             if (CheckProcess())
             {
-                VirtualProtectEx(processHandle, pOffset, (UIntPtr)pSize, 0x04 /* rw */, out uint flNewProtect);
+                VirtualProtectEx(this.processHandle, pOffset, (UIntPtr)pSize, 0x04 /* rw */, out uint flNewProtect);
 
                 byte[] array = new byte[pSize];
-                ReadProcessMemory(processHandle, pOffset, array, pSize, 0u);
+                ReadProcessMemory(this.processHandle, pOffset, array, pSize, 0u);
 
-                VirtualProtectEx(processHandle, pOffset, (UIntPtr)pSize, flNewProtect, out flNewProtect);
-                //CloseHandle(processHandle);
+                VirtualProtectEx(this.processHandle, pOffset, (UIntPtr)pSize, flNewProtect, out flNewProtect);
+                //ProcessMemory.CloseHandle(this.processHandle);
                 return array;
 
             }
@@ -227,11 +222,11 @@ namespace bayoen.library.General.Memories
         {
             if (CheckProcess())
             {
-                VirtualProtectEx(processHandle, pOffset, (UIntPtr)pBytes.Length, 0x04 /* rw */, out uint flNewProtect);
+                VirtualProtectEx(this.processHandle, pOffset, (UIntPtr)pBytes.Length, 0x04 /* rw */, out uint flNewProtect);
 
-                bool flag = WriteProcessMemory(processHandle, pOffset, pBytes, (uint)pBytes.Length, 0u);
+                bool flag = WriteProcessMemory(this.processHandle, pOffset, pBytes, (uint)pBytes.Length, 0u);
 
-                VirtualProtectEx(processHandle, pOffset, (UIntPtr)pBytes.Length, flNewProtect, out flNewProtect);
+                VirtualProtectEx(this.processHandle, pOffset, (UIntPtr)pBytes.Length, flNewProtect, out flNewProtect);
                 return flag;
 
             }

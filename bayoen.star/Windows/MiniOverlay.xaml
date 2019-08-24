@@ -6,13 +6,13 @@
                     xmlns:controls="clr-namespace:bayoen.star.Controls"
                     
                     Title="Overlay"
-                    
-                    
-                    MinHeight="160" Height="160" Width="525"
+                                        
+                    MinHeight="140" Height="140" Width="525"
                     
                     ResizeMode="NoResize" AllowsTransparency="True" Background="Transparent"
                     TitlebarHeight="0" BorderThickness="0"
-                    Topmost="True">
+                    Topmost="True"
+                    Padding="0,10,0,0">
 
     <controls:MiniScorePanel x:Name="Score2Panel"/>
 

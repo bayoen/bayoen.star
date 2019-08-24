@@ -2,8 +2,8 @@
 {
     public enum RestartingModes : int
     {
-        None = 0,
-        RestartOnly = 1,
-        RestartWithSetting = 2,
+        None,
+        RestartOnly,
+        RestartWithSetting,
     }
 }

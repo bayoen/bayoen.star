@@ -22,6 +22,6 @@ namespace bayoen.star.Windows
         {
             this.InitializeComponent();
             this.Title = $"{Config.AssemblyTitle}";
-        }
+        }        
     }
 }

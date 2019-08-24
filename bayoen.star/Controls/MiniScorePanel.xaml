@@ -10,40 +10,44 @@
         </Style>
     </Grid.Resources>
 
+    <!--Image-->
     <controls:MetroImage x:Name="PanelImage"
-                         Height="68" Width="406" Margin="0"
+                         Height="70" Width="480" Margin="0"
                          VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
-    <TextBlock x:Name="DashBlock"
-               Text=":"
-               FontSize="30" Margin="0,0,0,8"
-               VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    <!--Score-->
+    <StackPanel x:Name="ContainerPanel"
+                Orientation="Horizontal"
+                VerticalAlignment="Center" HorizontalAlignment="Center">
+        
+    </StackPanel>
 
     <!--Goal-->
     <Grid x:Name="GoalGrid"
           Margin="0,0,0,92"
-          VerticalAlignment="Center" HorizontalAlignment="Center">
+          VerticalAlignment="Center" HorizontalAlignment="Center"
+          Visibility="Hidden">
         
         <controls:MetroImage x:Name="GoalPanelImage"
-                             Height="29" Width="180" Margin="0,0,0,4"
+                             Height="29" Width="200" Margin="0,0,0,4"
                              VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
         <StackPanel Orientation="Horizontal"
-                    Margin="0,3,0,0"
+                    Margin="0,1,0,0"
                     VerticalAlignment="Center" HorizontalAlignment="Center">
 
             <TextBlock x:Name="GoalTypeBlock"
                        Text="GOAL"
-                       FontSize="20" Margin="3,0,6,0"
+                       FontSize="19" Margin="3,0,6,0"
                        VerticalAlignment="Center"/>
 
-            <controls:MetroImage x:Name="GoalTypeImage"
+            <controls:MetroImage x:Name="GoalCounterImage"
                                  Height="20" Width="20" Margin="0,0,0,2"
                                  VerticalAlignment="Center"/>
             
             <TextBlock x:Name="GoalScoreBlock"
-                       Text="9999"
-                       FontSize="20" Margin="6,0,0,0"
+                       Text="-"
+                       FontSize="19" Margin="6,0,0,0"
                        VerticalAlignment="Center"/>
 
         </StackPanel>

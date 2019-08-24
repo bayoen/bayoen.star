@@ -24,15 +24,15 @@ namespace bayoen.star.Windows
             this.Title += $": {Config.AssemblyTitle}";
         }
 
-        private GoalTypes _goalType;
-        public GoalTypes GoalType
+        private GoalCounters _goalType;
+        public GoalCounters GoalType
         {
             get => this._goalType;
             set
             {
                 if (this._goalType == value) return;
 
-                this.Score2Panel.GoalType = value;
+                this.Score2Panel.GoalCounter = value;
 
                 this._goalType = value;
             }

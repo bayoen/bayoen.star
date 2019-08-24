@@ -10,10 +10,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Enums\ChromaKeys.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\DisplayModes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\GameModes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\GoalCounters.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\GoalTypes.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Enums\MiniScoreOrientation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\MainStates.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ScoreOrientation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\RestartingModes.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Enums\Score2PanelTypes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ScorePanelLength.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ScoreTypes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\SubStates.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ExtendedMethods\bayoen.library.General.Memories.ProcessMemory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ExtendedMethods\System.Windows.Controls.Image.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Memories\ProcessMemory.cs" />
   </ItemGroup>

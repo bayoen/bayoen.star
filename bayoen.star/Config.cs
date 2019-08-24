@@ -21,8 +21,10 @@ namespace bayoen.star
         public static readonly Assembly Assembly = System.Reflection.Assembly.GetExecutingAssembly();
         public static readonly string AssemblyTitle = Assembly.GetExecutingAssembly().GetCustomAttribute<AssemblyTitleAttribute>().Title;
 
-        //
-
+        // Properties
+        public static readonly string PPTName = "puyopuyotetris";
+        public static readonly TimeSpan MainInterval = new TimeSpan(0, 0, 0, 0, 5);    // 5 ms
+        public static readonly TimeSpan GameInterval = new TimeSpan(0, 0, 0, 0, 5);     // 5 ms
         public static readonly List<Tuple<ChromaKeys, Brush>> ChromaSets = new List<Tuple<ChromaKeys, Brush>>()
         {
             new Tuple<ChromaKeys, Brush>(ChromaKeys.None,  new SolidColorBrush(Color.FromRgb(37, 37, 37))),
@@ -33,7 +35,7 @@ namespace bayoen.star
 
 
         // File Names
-        public const string SettingDataFileName = "setting.json";
+        public const string ProjectDataFileName = "data.json";
         public static readonly Encoding TextEncoding = Encoding.Unicode;
         public static readonly JsonSerializerSettings JsonSerializerSetting = new JsonSerializerSettings()
         {

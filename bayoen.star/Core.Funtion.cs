@@ -14,15 +14,17 @@ namespace bayoen.star
     {
         public static void Initialize()
         {
-            Core.Setting.Version = Config.Assembly.GetName().Version;
+            Core.ProjectData.Version = Config.Assembly.GetName().Version;
             Core.TrayIcon.Visibility = Visibility.Visible;
 
             Core.MainWindow.Show();
+            Core.MainWorker.Initiate();
 
+            Core.IsPPTOn = false;
 #if DEBUG
             Core.DebugWindow.Show();
             Core.MiniWindow.Show();
-            Core.MiniOverlay.Show();
+            //Core.MiniOverlay.Show();
             Core.SettingWindow.Show();
 #endif
         }
@@ -33,8 +35,8 @@ namespace bayoen.star
         /// <param name="mode"></param>
         public static void Restart(RestartingModes mode)
         {
-            Core.Setting.RestartingMode = mode;
-            Core.Setting.Save();
+            Core.ProjectData.RestartingMode = mode;
+            Core.ProjectData.Save();
             Core.TrayIcon.Terminate();
 
             Process.Start(Application.ResourceAssembly.Location);
@@ -43,7 +45,7 @@ namespace bayoen.star
 
         public static void Save()
         {
-            Core.Setting.Save();
+            Core.ProjectData.Save();
         }
 
         public static void Terminate()

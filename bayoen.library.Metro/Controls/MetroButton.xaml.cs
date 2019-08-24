@@ -12,6 +12,12 @@ namespace bayoen.library.Metro.Controls
             set { SetValue(TextProperty, value); }
         }
 
+        public UIElement Icon
+        {
+            get { return GetValue(IconProperty) as UIElement; }
+            set { SetValue(IconProperty, value); }
+        }
+
         public new double FontSize
         {
             get => this.TextBlock.FontSize;
@@ -39,11 +45,16 @@ namespace bayoen.library.Metro.Controls
             typeof(string),
             typeof(MetroButton));
 
+        public static readonly DependencyProperty IconProperty = DependencyProperty.Register(
+            "Icon",
+            typeof(UIElement),
+            typeof(MetroButton));
+
         public MetroButton()
         {
             this.InitializeComponent();
             
-            this.FontSize = 12;
+            this.FontSize = 18;
             this.FontWeight = FontWeights.Bold;
         }
     }

@@ -4,13 +4,16 @@
                     xmlns:windows="clr-namespace:bayoen.library.Metro.Windows"
                     xmlns:controls="clr-namespace:bayoen.star.Controls"
                     xmlns:metroControls="clr-namespace:bayoen.library.Metro.Controls"
+                    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                    
                     Title="Debug"
                     
                     Height="800" Width="800">
 
     <windows:BaseWindow.Resources>
         <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource MetroTextBlock}">
-            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="10"/>
         </Style>
     </windows:BaseWindow.Resources>
 
@@ -22,22 +25,43 @@
                     <TextBlock x:Name="TextOut2"/>
                     <TextBlock x:Name="TextOut3"/>
                 </StackPanel>
+                
                 <StackPanel Orientation="Vertical">
                     <TextBlock Text="- 2 Players"/>
-                    <controls:MiniScorePanel PlayerNumber="2"/>
+                    <controls:MiniScorePanel PlayerNumber="2" GoalType="Total" GoalCounter="Game" GoalScore="5" DisplayMode="Game_only" IsFit="True"/>
+                    <controls:MiniScorePanel PlayerNumber="2" DisplayMode="Star_Plus_only" PanelLength="Short"/>
+                    <controls:MiniScorePanel PlayerNumber="2" GoalType="First" GoalCounter="Star" GoalScore="15" DisplayMode="Star_Plus_and_Star" IsFit="True"/>
+                    <controls:MiniScorePanel PlayerNumber="2" DisplayMode="Game_and_Star" PanelLength="Long"/>
                     <TextBlock Text="- 3 Players"/>
                     <controls:MiniScorePanel PlayerNumber="3"/>
                     <TextBlock Text="- 4 Players"/>
-                    <controls:MiniScorePanel PlayerNumber="4"/>
+                    <controls:MiniScorePanel PlayerNumber="4" GoalCounter="Game"/>
                     <TextBlock Text="- Mini Score Containers"/>
-                    <controls:MiniScoreContainer MiniScoreOrientation="Left"/>
-                    <controls:MiniScoreContainer MiniScoreOrientation="Right"/>
+                    <controls:MiniScoreContainer ScoreOrientation="Left" ScoreType="CountedGame" Score="-1"/>
+                    <controls:MiniScoreContainer ScoreOrientation="Left" ScoreType="CurrentStar" Score="0"/>
+                    <controls:MiniScoreContainer ScoreOrientation="Right" Score="88"/>
+                    <controls:MiniScoreContainer ScoreOrientation="Right" Score="111"/>
+                    <controls:MiniScoreContainer ScoreOrientation="Left" Score="555"/>
+                    <controls:MiniScoreContainer ScoreOrientation="Left" Score="9999"/>
+                    <controls:MiniScoreContainer/>
                     <TextBlock Text="- Metro Button"/>
-                    <metroControls:MetroButton Text="Button"/>
+
+                    <metroControls:MetroButton Text="TF20">
+                        <metroControls:MetroButton.Icon>
+                            <iconPacks:PackIconMaterial Kind="ImageAreaClose" />
+                        </metroControls:MetroButton.Icon>
+                    </metroControls:MetroButton>
+                    <metroControls:MetroButton Text="15선승 (사용자설정가능)">
+                        <metroControls:MetroButton.Icon>
+                            <iconPacks:PackIconOcticons Kind="ChevronDown" />
+                        </metroControls:MetroButton.Icon>
+                    </metroControls:MetroButton>
+
                 </StackPanel>
-                
+
             </WrapPanel>
         </Grid>
     </ScrollViewer>
+
 
 </windows:BaseWindow>

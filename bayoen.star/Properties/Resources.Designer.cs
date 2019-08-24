@@ -93,6 +93,16 @@ namespace bayoen.star.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Score2LongImage {
+            get {
+                object obj = ResourceManager.GetObject("Score2LongImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Score2ShortImage {
             get {
                 object obj = ResourceManager.GetObject("Score2ShortImage", resourceCulture);

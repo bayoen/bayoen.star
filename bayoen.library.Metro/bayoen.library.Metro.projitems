@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Controls\MetroButton.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\MetroImage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyToggleSwitch.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Windows\BaseWindow.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -18,10 +19,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\PropertyToggleSwitch.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Update="D:\Work\project-bayoen\bayoen.star\bayoen.library.Metro\Controls\MetroButton.xaml.cs">
       <DependentUpon>MetroButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="D:\Work\project-bayoen\bayoen.star\bayoen.library.Metro\Controls\PropertyToggleSwitch.xaml.cs">
+      <DependentUpon>PropertyToggleSwitch.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>

@@ -11,34 +11,21 @@ namespace bayoen.star
 {
     public static partial class Core
     {
-        private static ChromaKeys _miniChromaKey;
-        public static ChromaKeys MiniChromaKey
+        private static bool _isPPTOn;
+        public static bool IsPPTOn
         {
-            get => Core._miniChromaKey;
+            get => Core._isPPTOn;
             set
             {
-                if (Core._miniChromaKey == value) return;
+                if (Core._isPPTOn == value) return;
 
-                Core.MiniWindow.Background = Config.ChromaSets.Find(x => x.Item1 == value).Item2;
-                Core.MiniWindow.BorderThickness = new Thickness(Convert.ToInt32(value == ChromaKeys.None));
+                Core.MainWindow.PPTOffIconPanel.Visibility = value ? Visibility.Hidden : Visibility.Visible;
+                Core.MainWindow.PPTOnIconPanel.Visibility = value ? Visibility.Visible : Visibility.Hidden;
 
-                Core._miniChromaKey = value;
+                Core._isPPTOn = value;
             }
         }
 
-        private static GoalTypes _goalType;
-        public static GoalTypes GoalType
-        {
-            get => Core._goalType;
-            set
-            {
-                if (Core._goalType == value) return;
 
-                Core.MiniWindow.GoalType = value;
-                Core.MiniOverlay.GoalType = value;
-
-                Core._goalType = value;
-            }
-        }
     }
 }

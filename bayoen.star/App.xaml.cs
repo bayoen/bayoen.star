@@ -16,11 +16,11 @@ namespace bayoen.star
             overlappedProcesses.RemoveAll(x => x.Id == Process.GetCurrentProcess().Id);
 
             if (overlappedProcesses.Count == 0) { Core.Initialize(); }
-            else if (Core.Setting.RestartingMode > RestartingModes.None)
+            else if (Core.ProjectData.RestartingMode > RestartingModes.None)
             {
-                bool settingFlag = (Core.Setting.RestartingMode == RestartingModes.RestartWithSetting);
-                Core.Setting.RestartingMode = RestartingModes.None;
-                Core.Setting.Save();
+                bool settingFlag = (Core.ProjectData.RestartingMode == RestartingModes.RestartWithSetting);
+                Core.ProjectData.RestartingMode = RestartingModes.None;
+                Core.ProjectData.Save();
 
                 Core.Initialize();
                 if (settingFlag) Core.SettingWindow.Show();

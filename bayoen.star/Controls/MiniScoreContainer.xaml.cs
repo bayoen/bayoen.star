@@ -14,30 +14,37 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using bayoen.library.General.Enums;
+using bayoen.library.General.ExtendedMethods;
 
 namespace bayoen.star.Controls
 {
-    public partial class MiniScoreContainer : Grid
+    public partial class MiniScoreContainer : StackPanel
     {
         public MiniScoreContainer()
         {
             this.InitializeComponent();
 
-            this._miniScoreOrientation = MiniScoreOrientation.Right;
+            this._scoreOrientation = ScoreOrientation.Right;
+
+            this._scoreTypes = ScoreTypes.None;
+            this.ScoreType = ScoreTypes.CountedStar;
+
+            this._score = -1;
+            this.Score = 0;
         }
 
-        private MiniScoreOrientation _miniScoreOrientation;
-        public MiniScoreOrientation MiniScoreOrientation
+        private ScoreOrientation _scoreOrientation;
+        public ScoreOrientation ScoreOrientation
         {
-            get => this._miniScoreOrientation;
+            get => this._scoreOrientation;
             set
             {
-                if (this._miniScoreOrientation == value) return;
+                if (this._scoreOrientation == value) return;
                 
-                this.ScorePanel.Children.Remove(this.ScoreBlock);
-                this.ScorePanel.Children.Insert((value == MiniScoreOrientation.Right) ? 0 : 1, this.ScoreBlock);
+                this.Children.Remove(this.ScoreBlock);
+                this.Children.Insert((value == ScoreOrientation.Left) ? 0 : 1, this.ScoreBlock);
 
-                this._miniScoreOrientation = value;
+                this._scoreOrientation = value;
             }
         }
 
@@ -49,12 +56,14 @@ namespace bayoen.star.Controls
             {
                 if (this._score == value) return;
 
+                int score = Math.Min(Math.Max(value, -1), 9999);
+
                 // FontSize adjustment
-                if (value >= 1000)
+                if (score >= 1000)
                 {
                     this.ScoreBlock.FontSize = 15;
                 }
-                else if (value >= 100)
+                else if (score >= 100)
                 {
                     this.ScoreBlock.FontSize = 20;
                 }
@@ -63,22 +72,37 @@ namespace bayoen.star.Controls
                     this.ScoreBlock.FontSize = 30;
                 }
 
-                // Display value adjustment
-                if (value >= 9999)
-                {
-                    this.ScoreBlock.Text = "9999";
-                    this._score = 9999;
+                this.ScoreBlock.Text = (score == -1) ? "-" : value.ToString();
+                this._score = score;                
+            }
+        }
+
+        private ScoreTypes _scoreTypes;
+        public ScoreTypes ScoreType
+        {
+            get => this._scoreTypes;
+            set
+            {
+                if (this._scoreTypes == value) return;
+
+                this.SymbolImage.Visibility = (value == ScoreTypes.None) ? Visibility.Collapsed : Visibility.Visible;
+
+                switch (value)
+                {                    
+                    case ScoreTypes.CurrentStar:
+                        this.SymbolImage.SetBitmap(bayoen.star.Properties.Resources.StarPlainImage);
+                        break;
+                    case ScoreTypes.CountedStar:
+                        this.SymbolImage.SetBitmap(bayoen.star.Properties.Resources.StarPlusImage);
+                        break;
+                    case ScoreTypes.CountedGame:
+                        this.SymbolImage.SetBitmap(bayoen.star.Properties.Resources.CrownLightImage);
+                        break;
+                    default:
+                        break;
                 }
-                else if (value > -1)
-                {
-                    this.ScoreBlock.Text = value.ToString();
-                    this._score = value;
-                }
-                else
-                {
-                    this.ScoreBlock.Text = "-";
-                    this._score = -1;
-                }
+
+                this._scoreTypes = value;
             }
         }
     }

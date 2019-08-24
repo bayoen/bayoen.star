@@ -2,13 +2,130 @@
                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"                                       
                     xmlns:windows="clr-namespace:bayoen.library.Metro.Windows"
-                    
+                    xmlns:metroControls="clr-namespace:bayoen.library.Metro.Controls"
+                    xmlns:mtc="http://metro.mahapps.com/winfx/xaml/controls"
                     Title="Setting"
                     
-                    Height="450" Width="800">
+                    WindowTitleBrush="#191919"
+                    Height="450" Width="800"
+                    MinHeight="400" MinWidth="600"
+                    >
 
     <Grid>
+        <Grid 
+            Width="128"
+            Background="#191919"
+            HorizontalAlignment="Left">
+            
+        </Grid>
 
+        <mtc:MetroAnimatedTabControl x:Name="Tab"
+                                     TabStripPlacement="Left"
+                                     Background="Transparent"
+                                     TabStripMargin="0,5,0,0"
+                                     Focusable="False">
+            
+            <mtc:MetroAnimatedTabControl.Resources>
+                
+                <Style TargetType="{x:Type mtc:MetroTabItem}">
+                    <Setter Property="HeaderTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <TextBlock Style="{StaticResource MetroTextBlock}"                                           
+                                           FontSize="14" FontWeight="Bold" TextAlignment="Left" Text="{Binding}"
+                                           Margin="15,5,15,0">
+                                </TextBlock>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+
+                <Style x:Key="TabSeparator" TargetType="{x:Type mtc:MetroTabItem}">
+                    <Setter Property="IsEnabled" Value="False"/>
+                    <Setter Property="HeaderTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <Grid Background="Transparent" Height="20">
+                                    <Line Height="0.2"
+                                          X1="0" X2="90" Y1="0" Y2="0" Stroke="White"
+                                          Margin="10,5,10,0"
+                                          VerticalAlignment="Center"/>
+                                </Grid>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+
+                <Style TargetType="{x:Type ScrollViewer}" BasedOn="{StaticResource MetroScrollViewer}">
+                    <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+                </Style>
+
+                <Style TargetType="{x:Type Grid}">
+                    <Setter Property="Margin" Value="5,0,0,0"/>
+                </Style>
+
+                <Style x:Key="TextBlockSeparator" TargetType="{x:Type TextBlock}">
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="FontWeight" Value="ExtraBold"/>
+                    <Setter Property="Margin" Value="7,2,7,8"/>
+                </Style>
+
+                <Style x:Key="ContainerStackPanel" TargetType="{x:Type StackPanel}">
+                    <Setter Property="Orientation" Value="Vertical"/>
+                    <Setter Property="Margin" Value="5,5,5,0"/>
+                </Style>
+
+            </mtc:MetroAnimatedTabControl.Resources>
+
+            <mtc:MetroTabItem x:Name="GeneralTabItem"
+                              Header="General">
+                <ScrollViewer>
+                    <StackPanel Style="{StaticResource ContainerStackPanel}">
+                        
+                        <TextBlock Style="{StaticResource TextBlockSeparator}"
+                                   Text="Main"/>
+
+                        <metroControls:PropertyToggleSwitch x:Name="TopmostSwitch"
+                                                            Path="Topmost"                                      
+                                                            Header="Always on Top"
+                                                            Detail="Always keep the main window on top"
+                                                            TrueLabel="Yes"
+                                                            FalseLabel="No"/>
+                        
+                        <metroControls:PropertyToggleSwitch x:Name="AutoUpdateSwitch"
+                                                            Path="IsAutoUpdate" 
+                                                            Header="Auto Update"
+                                                            Detail="Always keep 'bayoen-star' up-to-date version"
+                                                            TrueLabel="Yes"
+                                                            FalseLabel="No"/>
+                        
+                    </StackPanel>
+                </ScrollViewer>
+            </mtc:MetroTabItem>
+
+            <mtc:MetroTabItem x:Name="StreamingTabItem"
+                              Header="Streaming">
+                <ScrollViewer>
+                    <Grid>
+                        
+                    </Grid>
+                </ScrollViewer>
+            </mtc:MetroTabItem>
+            
+            <mtc:MetroTabItem Style="{StaticResource TabSeparator}"/>
+
+            <mtc:MetroTabItem x:Name="AdvancedTabItem"
+                              Header="Advanced">
+                <ScrollViewer>
+                    <Grid>
+
+                    </Grid>
+                </ScrollViewer>
+            </mtc:MetroTabItem>
+            
+        </mtc:MetroAnimatedTabControl>
+        
+        
     </Grid>
 
 </windows:BaseWindow>

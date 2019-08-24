@@ -9,6 +9,7 @@ using System.Windows.Threading;
 
 using bayoen.star.Variables;
 using bayoen.star.Windows;
+using bayoen.star.Workers;
 
 namespace bayoen.star
 {
@@ -22,9 +23,15 @@ namespace bayoen.star
 
         private static MainWindow _mainWindow;
         /// <summary>
-        /// Main window of application. <see cref="MainWindow"/> contains .
+        /// Main window of application. <see cref="MainWindow"/> contains @@@.
         /// </summary>
         public static MainWindow MainWindow => _mainWindow ?? (_mainWindow = new MainWindow());
+
+        /// <summary>
+        /// Main worker of 'bayoen-star'
+        /// </summary>
+        private static MainWorker _mainWorker;
+        public static MainWorker MainWorker => _mainWorker ?? (_mainWorker = new MainWorker());        
 
         private static SettingWindow _settingWindow;
         /// <summary>
@@ -32,11 +39,11 @@ namespace bayoen.star
         /// </summary>
         public static SettingWindow SettingWindow => _settingWindow ?? (_settingWindow = new SettingWindow());
 
-        private static SettingData _setting;
+        private static ProjectData _projectData;
         /// <summary>
         /// Setting data of 'bayoen-star'
         /// </summary>
-        public static SettingData Setting => _setting ?? (_setting = SettingData.Load());
+        public static ProjectData ProjectData => _projectData ?? (_projectData = ProjectData.Load());
 
         private static MiniWindow _miniWindow;
         /// <summary>

@@ -5,6 +5,7 @@
                     xmlns:iconPacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks"
                     xmlns:metroControls="clr-namespace:bayoen.library.Metro.Controls"
                     xmlns:controls="clr-namespace:bayoen.star.Controls"
+                    xmlns:mtc="http://metro.mahapps.com/winfx/xaml/controls"
                     
                     Title="Mini"
                     
@@ -19,5 +20,36 @@
     <Grid x:Name="TopGrid" x:FieldModifier="private">
         <controls:MiniScorePanel x:Name="Score2Panel"/>
     </Grid>
+
+    <windows:BaseWindow.RightWindowCommands>
+        <mtc:WindowCommands>
+            <mtc:WindowCommands.Resources>
+                <Style TargetType="Rectangle">
+                    <Setter Property="Width" Value="15"/>
+                    <Setter Property="Height" Value="15"/>
+                    <Setter Property="Margin" Value="7"/>
+                    <Setter Property="Fill" Value="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                </Style>
+
+                <Style BasedOn="{StaticResource {x:Type TextBlock}}" TargetType="TextBlock">
+                    <Setter Property="Margin" Value="2,3,2,3"/>
+                    <Setter Property="TextAlignment" Value="Left"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="FontSize" Value="12"/>
+                </Style>
+            </mtc:WindowCommands.Resources>
+
+            <Button x:Name ="MenuButton" Background="Transparent">
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconMaterial Kind="SettingsOutline"
+                                                VerticalAlignment="Center"/>
+                    <TextBlock Text="Menu" FontWeight="Bold"
+                               VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+        </mtc:WindowCommands>
+    </windows:BaseWindow.RightWindowCommands>
 
 </windows:BaseWindow>
