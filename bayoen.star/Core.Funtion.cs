@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
 using bayoen.library.General.Enums;
+using bayoen.star.Localizations;
 
 namespace bayoen.star
 {
@@ -14,6 +16,14 @@ namespace bayoen.star
     {
         public static void Initialize()
         {
+            if (!Config.CultureCodes.Contains(Core.ProjectData.CultureCode))
+            {
+                string cultureCode = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName.ToUpper();
+                if (!Config.CultureCodes.Contains(cultureCode)) cultureCode = Config.CultureCodes[0];
+                Core.ProjectData.CultureCode = cultureCode;
+            }
+            Culture.Set(Core.ProjectData.CultureCode);
+
             Core.ProjectData.Version = Config.Assembly.GetName().Version;
             Core.TrayIcon.Visibility = Visibility.Visible;
 

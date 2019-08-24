@@ -1,0 +1,45 @@
+﻿<Button x:Class="bayoen.star.Controls.WindowCommandButton"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Button.Style>
+        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource SquareButtonStyle}">
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Foreground" Value="DarkGray"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Style.Triggers>
+                <Trigger Property ="IsMouseOver" Value="True">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <SolidColorBrush Color="White" Opacity="0.3"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property ="IsPressed" Value="True">
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="Background" Value="{StaticResource AccentBaseColorBrush}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Button.Style>
+
+    <StackPanel Orientation="Horizontal">
+        <Rectangle
+            Height="{Binding AppbarHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Button}}"
+            Width="{Binding AppbarHeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Button}}"
+            Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}"
+            Margin="{Binding AppbarMargin, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Button}}"
+            VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Rectangle.OpacityMask>
+                <VisualBrush Stretch="Uniform" Visual="{Binding AppbarBrush, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Button}}"/>
+            </Rectangle.OpacityMask>
+        </Rectangle>
+        <TextBlock Style="{StaticResource MetroTextBlock}"
+                   Text="{Binding Text, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Button}}"
+                   FontSize="12" FontWeight="DemiBold">
+
+        </TextBlock>
+    </StackPanel>
+
+</Button>

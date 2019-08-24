@@ -1,0 +1,72 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <!--Localization.EN: English-->
+    <system:String x:Key="Main-Menu-String">Menu</system:String>
+
+    <system:String x:Key="Main-Status-FreePlay-String">Free Play</system:String>
+    <system:String x:Key="Main-Status-PuzzleLeague-String">Puzzle League</system:String>
+
+    <system:String x:Key="Main-Status-Initialized-String">Initialized</system:String>
+    <system:String x:Key="Main-Status-Ready-String">Ready</system:String>
+    <system:String x:Key="Main-Status-InGame-String">In Game</system:String>
+    <system:String x:Key="Main-Status-Offline-String">Offline</system:String>
+
+    <!--Top Menu-->
+    <system:String x:Key="TopMenu-Reset-String">Reset</system:String>
+
+    <system:String x:Key="TopMenu-Mode-String">Mode...</system:String>
+    <system:String x:Key="TopMenu-Mode-1-String">1. Star+</system:String>
+    <system:String x:Key="TopMenu-Mode-2-String">2. Game</system:String>
+    <system:String x:Key="TopMenu-Mode-3-String">3. Game &amp; Star</system:String>
+    <system:String x:Key="TopMenu-Mode-4-String">4. Game &amp; Star+</system:String>
+    <system:String x:Key="TopMenu-Mode-5-String">5. Star &amp; Star+</system:String>
+
+    <system:String x:Key="TopMenu-Goal-String">Goal...</system:String>
+    <system:String x:Key="TopMenu-Goal-Set-String">Set Goals...</system:String>
+    <system:String x:Key="TopMenu-Goal-Remove-String">Remove Goals</system:String>
+
+    <system:String x:Key="TopMenu-Popup-String">Popup</system:String>
+
+    <system:String x:Key="TopMenu-Setting-String">Setting...</system:String>
+
+    <!--Setting Window-->
+    <system:String x:Key="Setting-Yes-String">Yes</system:String>
+    <system:String x:Key="Setting-No-String">No</system:String>
+
+    <system:String x:Key="Setting-General-String">General</system:String>
+    <system:String x:Key="Setting-General-TopMost-Header-String">Always on Top</system:String>
+    <system:String x:Key="Setting-General-TopMost-Detail-String">Always keep the main window on top</system:String>
+    <system:String x:Key="Setting-General-AutoUpdate-Header-String">Auto Update</system:String>
+    <system:String x:Key="Setting-General-AutoUpdate-Detail-String">Always keep 'bayoen-star' up-to-date version</system:String>
+    <system:String x:Key="Setting-General-Language-Header-String">Language</system:String>
+    <system:String x:Key="Setting-General-Language-Detail-String">Select your favorite language. If it is not on the list, please tell us [Requires restart]</system:String>
+
+    <system:String x:Key="Setting-Streaming-String">Streaming</system:String>
+    <system:String x:Key="Setting-Streaming-ChromaKey-Header-String">Set Chroma Key for Window Capture</system:String>
+    <system:String x:Key="Setting-Streaming-ChromaKey-Detail-String" xml:space="preserve">Enable a window (##Capture##) that is able to be 'window-captured' by a streaming app and set a chroma key of the capturable window.
+
+    - It's suitable to a one-computer streaming with window capture
+    - If you are using display capture or two-computers, keep it 'Disabled'</system:String>
+    <system:String x:Key="Setting-Streaming-ChromaKey-Disabled-String">Disabled</system:String>
+    <system:String x:Key="Setting-Streaming-ChromaKey-Magenta-String">Magenta</system:String>
+    <system:String x:Key="Setting-Streaming-ChromaKey-Green-String">Green</system:String>
+    <system:String x:Key="Setting-Streaming-ChromaKey-Blue-String">Blue</system:String>
+    <system:String x:Key="Setting-Streaming-ForcedEnglishDisplay-Header-String">Enable English Display</system:String>
+    <system:String x:Key="Setting-Streaming-ForcedEnglishDisplay-Detail-String">For the language option except English, you can display English text in overlays.</system:String>
+
+    <system:String x:Key="Setting-Advanced-String">Advanced</system:String>
+    <system:String x:Key="Setting-Advanced-EnableRapidMode-Header-String">Enable Rapid Mode</system:String>
+    <system:String x:Key="Setting-Advanced-EnableRapidMode-Detail-String">Change the refreshing interval to ##IntervalRapid## from ##IntervalNormal##</system:String>
+
+    <system:String x:Key="Setting-Restart-String">Restart</system:String>
+
+    <!--Tray Icon-->
+    <system:String x:Key="Tray-ShowMain-String">Show...</system:String>
+    <system:String x:Key="Tray-ExitProject-String">Exit</system:String>
+
+    <!--Dev-->
+    <system:String x:Key="Debug-Tray-ShowDebug-String">Debug...</system:String>
+    <system:String x:Key="Debug-Tray-OpenFolder-String">Folder...</system:String>
+</ResourceDictionary>

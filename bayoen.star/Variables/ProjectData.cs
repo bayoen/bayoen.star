@@ -88,6 +88,8 @@ namespace bayoen.star.Variables
             }
         }
 
+        public string CultureCode { get; internal set; }
+
         public static ProjectData Load()
         {
             return ProjectData.Load(Config.ProjectDataFileName);

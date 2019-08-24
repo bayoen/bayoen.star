@@ -46,7 +46,7 @@
                 <StackPanel Orientation="Horizontal">
                     <iconPacks:PackIconMaterial Kind="SettingsOutline"
                                                 VerticalAlignment="Center"/>
-                    <TextBlock Text="Menu" FontWeight="Bold"
+                    <TextBlock Text="{DynamicResource Main-Menu-String}" FontWeight="Bold"
                                VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>

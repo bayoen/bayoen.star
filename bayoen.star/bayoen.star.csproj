@@ -86,6 +86,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controls\WindowCommandButton.xaml.cs">
+      <DependentUpon>WindowCommandButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\MiniScorePanel.xaml.cs">
       <DependentUpon>MiniScorePanel.xaml</DependentUpon>
     </Compile>
@@ -95,6 +98,7 @@
     <Compile Include="Core.Funtion.cs" />
     <Compile Include="Core.Helper.cs" />
     <Compile Include="Functions\FncToJson.cs" />
+    <Compile Include="Localizations\Culture.cs" />
     <Compile Include="PPTMemory.cs" />
     <Compile Include="Variables\GameData.cs" />
     <Compile Include="Variables\GameStates.cs" />
@@ -158,6 +162,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Controls\WindowCommandButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\MiniScorePanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -165,6 +173,18 @@
     <Page Include="Controls\MiniScoreContainer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Localizations\Localization.EN.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Localizations\Localization.JA.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Localizations\Localization.KO.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="TrayIcon.xaml">
       <SubType>Designer</SubType>
@@ -218,9 +238,7 @@
   <ItemGroup>
     <None Include="Resources\Score2Long.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Localizations\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="..\bayoen.library.Metro\bayoen.library.Metro.projitems" Label="Shared" />
   <Import Project="..\bayoen.library.General\bayoen.library.General.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

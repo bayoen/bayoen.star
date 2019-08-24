@@ -25,6 +25,7 @@ namespace bayoen.star
         public static readonly string PPTName = "puyopuyotetris";
         public static readonly TimeSpan MainInterval = new TimeSpan(0, 0, 0, 0, 5);    // 5 ms
         public static readonly TimeSpan GameInterval = new TimeSpan(0, 0, 0, 0, 5);     // 5 ms
+        public static readonly string[] CultureCodes = { "EN", "KO", "JA" };
         public static readonly List<Tuple<ChromaKeys, Brush>> ChromaSets = new List<Tuple<ChromaKeys, Brush>>()
         {
             new Tuple<ChromaKeys, Brush>(ChromaKeys.None,  new SolidColorBrush(Color.FromRgb(37, 37, 37))),

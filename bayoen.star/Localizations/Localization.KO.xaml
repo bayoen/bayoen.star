@@ -1,0 +1,73 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"                    
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <!--Localization.KO: Korean-->
+    <system:String x:Key="Main-Menu-String">메뉴</system:String>
+
+    <system:String x:Key="Main-Status-FreePlay-String">프리 플레이</system:String>
+    <system:String x:Key="Main-Status-PuzzleLeague-String">퍼즐 리그</system:String>
+
+    <system:String x:Key="Main-Status-Initialized-String">초기화</system:String>
+    <system:String x:Key="Main-Status-Ready-String">준비</system:String>
+    <system:String x:Key="Main-Status-InGame-String">게임 중</system:String>
+    <system:String x:Key="Main-Status-Offline-String">오프라인</system:String>
+    
+    <!--Top Menu-->
+    <system:String x:Key="TopMenu-Reset-String">초기화</system:String>
+    
+    <system:String x:Key="TopMenu-Mode-String">모드...</system:String>
+    <system:String x:Key="TopMenu-Mode-1-String">1. 별+</system:String>
+    <system:String x:Key="TopMenu-Mode-2-String">2. 게임</system:String>
+    <system:String x:Key="TopMenu-Mode-3-String">3. 게임 &amp; 별</system:String>
+    <system:String x:Key="TopMenu-Mode-4-String">4. 게임 &amp; 별+</system:String>
+    <system:String x:Key="TopMenu-Mode-5-String">5. 별 &amp; 별+</system:String>
+    
+    <system:String x:Key="TopMenu-Goal-String">목표...</system:String>
+    <system:String x:Key="TopMenu-Goal-Set-String">목표설정...</system:String>
+    <system:String x:Key="TopMenu-Goal-Remove-String">목표제거</system:String>
+    
+    <system:String x:Key="TopMenu-Popup-String">팝업</system:String>
+
+    <system:String x:Key="TopMenu-Setting-String">설정...</system:String>
+
+    <!--Setting Window-->
+    <system:String x:Key="Setting-Yes-String">ㅇㅇ</system:String>
+    <system:String x:Key="Setting-No-String">ㄴㄴ</system:String>
+
+    <system:String x:Key="Setting-General-String">일반</system:String>
+    <system:String x:Key="Setting-General-TopMost-Header-String">항상 위에</system:String>
+    <system:String x:Key="Setting-General-TopMost-Detail-String">메인 창을 항상 위에 둡니다</system:String>
+    <system:String x:Key="Setting-General-AutoUpdate-Header-String">자동 업데이트</system:String>
+    <system:String x:Key="Setting-General-AutoUpdate-Detail-String">'바요엔-스타'를 항상 최신 버전으로 유지합니다</system:String>
+    <system:String x:Key="Setting-General-Language-Header-String">언어 (Language)</system:String>
+    <system:String x:Key="Setting-General-Language-Detail-String">원하는 언어를 고르세요. 목록에 없다면, 저희에게 알려주세요 [재시작 필요]</system:String>
+
+    <system:String x:Key="Setting-Streaming-String">스트리밍</system:String>
+    <system:String x:Key="Setting-Streaming-ChromaKey-Header-String">윈도우 캡처 크로마키 선택</system:String>
+    <system:String x:Key="Setting-Streaming-ChromaKey-Detail-String" xml:space="preserve">스트리밍 프로그램에서 '윈도우 캡처'할 수 있는 창(##Capture##)을 활성화 하고, 윈도우 캡처를 위한 크로마키를 설정할 수 있습니다.
+
+    - 윈도우 캡처를 사용하는 1대 컴퓨터 방송에 적합합니다
+    - 디스플레이 캡처를 사용하거나 2대 컴퓨터 방송일 경우에는 '사용 안 함'이 좋습니다 </system:String>
+    <system:String x:Key="Setting-Streaming-ChromaKey-Disabled-String">사용 안 함</system:String>
+    <system:String x:Key="Setting-Streaming-ChromaKey-Magenta-String">자홍색</system:String>
+    <system:String x:Key="Setting-Streaming-ChromaKey-Green-String">초록색</system:String>
+    <system:String x:Key="Setting-Streaming-ChromaKey-Blue-String">파랑색</system:String>
+    <system:String x:Key="Setting-Streaming-ForcedEnglishDisplay-Header-String">영어로 표시하기</system:String>
+    <system:String x:Key="Setting-Streaming-ForcedEnglishDisplay-Detail-String">영어가 아닌 다른 언어설정일 때, 오버레이에 영어로 표시할 수 있습니다.</system:String>
+    
+    <system:String x:Key="Setting-Advanced-String">고급</system:String>
+    <system:String x:Key="Setting-Advanced-EnableRapidMode-Header-String">고속 모드 활성화</system:String>
+    <system:String x:Key="Setting-Advanced-EnableRapidMode-Detail-String">갱신주기를 ##IntervalNormal##에서 ##IntervalRapid##로 바꿉니다.</system:String>
+
+    <system:String x:Key="Setting-Restart-String">재시작</system:String>
+
+    <!--Tray Icon-->
+    <system:String x:Key="Tray-ShowMain-String">표시...</system:String>
+    <system:String x:Key="Tray-ExitProject-String">종료</system:String>
+    
+    <!--Debug-->
+    <system:String x:Key="Debug-Tray-ShowDebug-String">디버그...</system:String>
+    <system:String x:Key="Debug-Tray-OpenFolder-String">폴더...</system:String>
+
+</ResourceDictionary>
