@@ -1,67 +1,69 @@
 ﻿<windows:BaseWindow x:Class="bayoen.star.Windows.DebugWindow"                    
                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"                                       
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mtc="http://metro.mahapps.com/winfx/xaml/controls"
+                    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                    
                     xmlns:windows="clr-namespace:bayoen.library.Metro.Windows"
                     xmlns:controls="clr-namespace:bayoen.star.Controls"
                     xmlns:metroControls="clr-namespace:bayoen.library.Metro.Controls"
-                    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
                     
                     Title="Debug"
                     
-                    Height="800" Width="800">
+                    FontFamily="D2Coding ligature"
+                    FontSize="14"
+                    
+                    Height="900" Width="1200">
 
     <windows:BaseWindow.Resources>
         <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource MetroTextBlock}">
-            <Setter Property="FontSize" Value="14"/>
             <Setter Property="Margin" Value="10"/>
+        </Style>
+
+        <Style TargetType="{x:Type GroupBox}" BasedOn="{StaticResource MetroGroupBox}">
+            <Setter Property="mtc:ControlsHelper.ContentCharacterCasing" Value="Normal"/>
+            <Setter Property="mtc:ControlsHelper.HeaderFontSize" Value="16"/>
+            <Setter Property="Margin" Value="4"/>
         </Style>
     </windows:BaseWindow.Resources>
 
-    <ScrollViewer>
-        <Grid>
-            <WrapPanel Orientation="Vertical" Margin="12">
+    <Grid VerticalAlignment="Top" HorizontalAlignment="Left">
+        <WrapPanel Orientation="Horizontal" Margin="4">
+            <GroupBox Header="Textout">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock x:Name="TextOut1"/>
                     <TextBlock x:Name="TextOut2"/>
                     <TextBlock x:Name="TextOut3"/>
                 </StackPanel>
-                
-                <StackPanel Orientation="Vertical">
-                    <TextBlock Text="- 2 Players"/>
-                    <controls:MiniScorePanel PlayerNumber="2" GoalType="Total" GoalCounter="Game" GoalScore="5" DisplayMode="Game_only" IsFit="True"/>
-                    <controls:MiniScorePanel PlayerNumber="2" DisplayMode="Star_Plus_only" PanelLength="Short"/>
-                    <controls:MiniScorePanel PlayerNumber="2" GoalType="First" GoalCounter="Star" GoalScore="15" DisplayMode="Star_Plus_and_Star" IsFit="True"/>
-                    <controls:MiniScorePanel PlayerNumber="2" DisplayMode="Game_and_Star" PanelLength="Long"/>
-                    <TextBlock Text="- 3 Players"/>
-                    <controls:MiniScorePanel PlayerNumber="3"/>
-                    <TextBlock Text="- 4 Players"/>
-                    <controls:MiniScorePanel PlayerNumber="4" GoalCounter="Game"/>
-                    <TextBlock Text="- Mini Score Containers"/>
-                    <controls:MiniScoreContainer ScoreOrientation="Left" ScoreType="CountedGame" Score="-1"/>
-                    <controls:MiniScoreContainer ScoreOrientation="Left" ScoreType="CurrentStar" Score="0"/>
-                    <controls:MiniScoreContainer ScoreOrientation="Right" Score="88"/>
-                    <controls:MiniScoreContainer ScoreOrientation="Right" Score="111"/>
-                    <controls:MiniScoreContainer ScoreOrientation="Left" Score="555"/>
-                    <controls:MiniScoreContainer ScoreOrientation="Left" Score="9999"/>
-                    <controls:MiniScoreContainer/>
-                    <TextBlock Text="- Metro Button"/>
+            </GroupBox>
 
-                    <metroControls:MetroButton Text="TF20">
-                        <metroControls:MetroButton.Icon>
-                            <iconPacks:PackIconMaterial Kind="ImageAreaClose" />
-                        </metroControls:MetroButton.Icon>
-                    </metroControls:MetroButton>
-                    <metroControls:MetroButton Text="15선승 (사용자설정가능)">
-                        <metroControls:MetroButton.Icon>
-                            <iconPacks:PackIconOcticons Kind="ChevronDown" />
-                        </metroControls:MetroButton.Icon>
-                    </metroControls:MetroButton>
-
+            <GroupBox Header="MainWorker">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="MainWorkerDataBlock"/>
                 </StackPanel>
+            </GroupBox>
 
-            </WrapPanel>
-        </Grid>
-    </ScrollViewer>
+            <GroupBox Header="Project Data">
+                <TextBlock x:Name="ProjectDataBlock"/>
+            </GroupBox>
+
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="- 2 Players"/>
+                <controls:MiniScorePanel PlayerNumber="2" GoalType="Total" GoalCounter="Game" GoalScore="5" DisplayMode="Game_only" IsFit="True"/>
+                <controls:MiniScorePanel PlayerNumber="2" DisplayMode="Star_Plus_only" PanelLength="Short"/>
+                <controls:MiniScorePanel PlayerNumber="2" GoalType="First" GoalCounter="Star" GoalScore="15" DisplayMode="Star_Plus_and_Star" IsFit="True"/>
+                <TextBlock Text="- 3 Players"/>
+                <controls:MiniScorePanel PlayerNumber="3" PanelLength="Short"/>
+                <controls:MiniScorePanel PlayerNumber="3" PanelLength="Fit"/>
+                <TextBlock Text="- 4 Players"/>
+                <controls:MiniScorePanel PlayerNumber="4" GoalCounter="Game"/>
+                <!--<TextBlock Text="- Mini Score Containers"/>
+                <controls:MiniScoreContainer ScoreOrientation="Left" Score="9999"/>
+                <controls:MiniScoreContainer/>-->
+            </StackPanel>
+
+        </WrapPanel>
+    </Grid>
 
 
 </windows:BaseWindow>

@@ -13,10 +13,10 @@
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Orange.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseDark.xaml" />
 
-                <!--Lang 0--> <!--<ResourceDictionary Source="../Localization/Localization.EN.xaml" />-->
-                <!--Lang 1--> <ResourceDictionary Source="../Localizations/Localization.KO.xaml" />
-                <!--Lang 2--> <ResourceDictionary Source="../Localizations/Localization.JA.xaml" />
-                <ResourceDictionary Source="../Localizations/Localization.EN.xaml" /> <!--Default is the last-->
+                <!--Lang 0--> <!--<ResourceDictionary Source="../Localization/Localization.en.xaml" />-->
+                <!--Lang 1--> <ResourceDictionary Source="../Localizations/Localization.ko.xaml" />
+                <!--Lang 2--> <ResourceDictionary Source="../Localizations/Localization.ja.xaml" />
+                <ResourceDictionary Source="../Localizations/Localization.en.xaml" /> <!--Default is the last-->
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

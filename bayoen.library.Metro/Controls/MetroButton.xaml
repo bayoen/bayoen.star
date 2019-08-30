@@ -1,22 +1,23 @@
 ﻿<Button x:Class="bayoen.library.Metro.Controls.MetroButton"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:mtc="http://metro.mahapps.com/winfx/xaml/controls">
+        xmlns:mtc="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:local="clr-namespace:bayoen.library.Metro.Controls"
+        
+        Margin="0"
+        mtc:ButtonHelper.PreserveTextCase="True"
+        Style="{StaticResource SquareButtonStyle}">
 
-    <Button.Style>
-        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource SquareButtonStyle}">
-            <Setter Property="Margin" Value="0"/>
-            <Setter Property="mtc:ButtonHelper.PreserveTextCase" Value="True"/>
-        </Style>
-    </Button.Style>
-
-    <StackPanel Orientation="Horizontal">
-        <ContentPresenter Content="{Binding Icon, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Button}}"
-                          Margin="3"
+    <StackPanel Orientation="Horizontal"
+                Margin="{Binding Padding, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MetroButton}}">
+        <ContentPresenter Content="{Binding Icon, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MetroButton}}"
+                          Margin="0"
                           VerticalAlignment="Center"/>
         <TextBlock x:Name="TextBlock"
                    Style="{StaticResource MetroTextBlock}"
-                   Text="{Binding Text, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Button}}"
+                   Text="{Binding Text, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MetroButton}}"
+                   FontSize="{Binding FontSize, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MetroButton}}"
+                   FontWeight="{Binding FontWeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MetroButton}}"
                    VerticalAlignment="Center">
         </TextBlock>
     </StackPanel>

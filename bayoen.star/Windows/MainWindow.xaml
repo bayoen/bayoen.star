@@ -1,55 +1,139 @@
 ﻿<windows:BaseWindow x:Class="bayoen.star.Windows.MainWindow"                    
                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"                                       
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
                     xmlns:windows="clr-namespace:bayoen.library.Metro.Windows"
                     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
                     xmlns:mtc="http://metro.mahapps.com/winfx/xaml/controls"
+                    xmlns:controls="clr-namespace:bayoen.star.Controls"
+                    xmlns:metroControls="clr-namespace:bayoen.library.Metro.Controls"
                     
                     Title="bayoen-star"
                     
-                    Height="450" Width="800"                    
-                    ResizeMode="NoResize">
+                    Height="450" Width="800">
 
-    <Grid>
-        <StackPanel x:Name="PPTOnIconPanel" Orientation="Horizontal" Visibility="Hidden">
-            <iconPacks:PackIconModern Height="18" Width="18" Margin="4" Kind="CameraFlashSelected" VerticalAlignment="Center"/>
-            <TextBlock Text="PPT On"  VerticalAlignment="Center"/>
-        </StackPanel>
-        <StackPanel x:Name="PPTOffIconPanel" Orientation="Horizontal" Visibility="Visible">
-            <iconPacks:PackIconModern Height="18" Width="18" Margin="4" Kind="CameraFlashOffSelected" VerticalAlignment="Center"/>
-            <TextBlock Text="PPT Off" VerticalAlignment="Center"/>
-        </StackPanel>
+    <windows:BaseWindow.Resources>
+        <Thickness x:Key="ControlGap">4</Thickness>
+
+        <Style TargetType="{x:Type GroupBox}" BasedOn="{StaticResource MetroGroupBox}">
+            <Setter Property="mtc:ControlsHelper.ContentCharacterCasing" Value="Normal"/>
+            <!--<Setter Property="mtc:ControlsHelper.HeaderFontSize" Value="14"/>-->
+            <Setter Property="Margin" Value="{StaticResource ControlGap}"/>
+        </Style>
+    </windows:BaseWindow.Resources>
+
+    <Grid Margin="{StaticResource ControlGap}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+            <!--<RowDefinition Height="{Binding Height, ElementName=StatusBorder}"/>-->
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{Binding Width, ElementName=MatchListGrid}"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <!-- Row 0 // Column 0 -->
+        <Grid Grid.Row="0" Grid.Column="0"
+              x:Name="MatchListGrid">
+            
+            <GroupBox Header="Event List">
+
+            </GroupBox>
+            
+        </Grid>
+        
+
+        <!-- Row 0 // Column 1 -->
+        <Grid Grid.Row="0" Grid.Column="1"
+              x:Name="ControlPanelGrid">
+            
+            <GroupBox Header="Control Panel">
+                <Grid>
+                    <StackPanel x:Name="PPTOnIconPanel" Orientation="Horizontal" Visibility="Hidden">
+                        <iconPacks:PackIconModern Height="18" Width="18" Margin="4" Kind="CameraFlashSelected" VerticalAlignment="Center"/>
+                        <TextBlock Text="PPT On"  VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel x:Name="PPTOffIconPanel" Orientation="Horizontal" Visibility="Visible">
+                        <iconPacks:PackIconModern Height="18" Width="18" Margin="4" Kind="CameraFlashOffSelected" VerticalAlignment="Center"/>
+                        <TextBlock Text="PPT Off" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Grid>
+            </GroupBox>
+            
+        </Grid>
+
+
         
     </Grid>
 
     <windows:BaseWindow.RightWindowCommands>
         <mtc:WindowCommands>
-            <mtc:WindowCommands.Resources>
-                <Style TargetType="Rectangle">
-                    <Setter Property="Width" Value="15"/>
-                    <Setter Property="Height" Value="15"/>
-                    <Setter Property="Margin" Value="7"/>
-                    <Setter Property="Fill" Value="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}"/>
-                    <Setter Property="VerticalAlignment" Value="Center"/>
-                    <Setter Property="HorizontalAlignment" Value="Center"/>
-                </Style>
 
-                <Style BasedOn="{StaticResource {x:Type TextBlock}}" TargetType="TextBlock">
-                    <Setter Property="Margin" Value="2,3,2,3"/>
-                    <Setter Property="TextAlignment" Value="Left"/>
-                    <Setter Property="VerticalAlignment" Value="Center"/>
-                    <Setter Property="FontSize" Value="12"/>
-                </Style>
-            </mtc:WindowCommands.Resources>
+            <metroControls:WindowCommandButton x:Name="MenuButton"
+                                          Text="{DynamicResource Main-Menu-String}"
+                                          FontSize="14"
+                                          Margin="0,0,0,0"
+                                          
+                                          Click="MenuButton_Click">
+                <metroControls:WindowCommandButton.Icon>
+                    <iconPacks:PackIconOcticons Kind="ThreeBars" Height="16" Width="16" Margin="2,1,6,0"/>
+                </metroControls:WindowCommandButton.Icon>
+                
+                <metroControls:WindowCommandButton.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="{DynamicResource TopMenu-Reset-String}"
+                                  Click="ResetMeniItem_Click">
+                            <MenuItem.Icon>
+                                <iconPacks:PackIconModern Kind="New" Height="14" Width="14" Margin="7,0,0,0" VerticalAlignment="Center"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="{DynamicResource TopMenu-Mode-String}">
+                            
+                            <MenuItem.Icon>
+                                <iconPacks:PackIconMaterial Kind="Checkerboard" Height="14" Width="14" Margin="7,0,0,0" VerticalAlignment="Center"/>
+                            </MenuItem.Icon>
 
-            <Button x:Name ="MenuButton" Background="Transparent">
-                <StackPanel Orientation="Horizontal">
-                    <iconPacks:PackIconMaterial Kind="SettingsOutline"
-                                                VerticalAlignment="Center"/>
-                    <TextBlock Text="{DynamicResource Main-Menu-String}" FontWeight="Bold"
-                               VerticalAlignment="Center"/>
-                </StackPanel>
-            </Button>
+                            <MenuItem Header="{DynamicResource TopMenu-Mode-1-String}" 
+                                      IsCheckable="True"
+                                      Click="ModeSubMenuItem_Click">
+                            </MenuItem>
+
+                            <MenuItem Header="{DynamicResource TopMenu-Mode-2-String}" 
+                                      IsCheckable="True"
+                                      Click="ModeSubMenuItem_Click">
+                            </MenuItem>
+
+                            <MenuItem Header="{DynamicResource TopMenu-Mode-3-String}" 
+                                      IsCheckable="True"
+                                      Click="ModeSubMenuItem_Click">
+                            </MenuItem>
+
+                            <MenuItem Header="{DynamicResource TopMenu-Mode-4-String}" 
+                                      IsCheckable="True"
+                                      Click="ModeSubMenuItem_Click">
+                            </MenuItem>
+
+                            <MenuItem Header="{DynamicResource TopMenu-Mode-5-String}" 
+                                      IsCheckable="True"
+                                      Click="ModeSubMenuItem_Click">
+                            </MenuItem>
+                                                        
+
+                        </MenuItem>
+                        <MenuItem Header="{DynamicResource TopMenu-Setting-String}"
+                                  Click="SettingMenuItem_Click">
+                            <MenuItem.Icon>
+                                <iconPacks:PackIconMaterial Kind="SettingsOutline" Height="14" Width="14" Margin="7,0,0,0" VerticalAlignment="Center"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </ContextMenu>
+                </metroControls:WindowCommandButton.ContextMenu>
+
+            </metroControls:WindowCommandButton>
+
         </mtc:WindowCommands>
     </windows:BaseWindow.RightWindowCommands>
 

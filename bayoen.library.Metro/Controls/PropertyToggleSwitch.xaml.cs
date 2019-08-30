@@ -17,10 +17,24 @@ namespace bayoen.library.Metro.Controls
 {
     public partial class PropertyToggleSwitch : Grid
     {
-        public string Path { get; set; }
-        public string Header { get; set; }
+        public string Property { get; set; }
+        public string Header
+        {
+            get { return this.GetValue(HeaderProperty) as string; }
+            set { this.SetValue(HeaderProperty, value); }
+        }
 
-        private string _detail;
+        public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register(
+            "Header",
+            typeof(string),
+            typeof(PropertyToggleSwitch),
+            new FrameworkPropertyMetadata(string.Empty));
+
+        private string _detail
+        {
+            get { return this.GetValue(DetailProperty) as string; }
+            set { this.SetValue(DetailProperty, value); }
+        }
         public string Detail
         {
             get => this._detail;
@@ -44,18 +58,53 @@ namespace bayoen.library.Metro.Controls
                 this._detail = value;
             }
         }
+        public static readonly DependencyProperty DetailProperty = DependencyProperty.Register(
+            "Detail",
+            typeof(string),
+            typeof(PropertyToggleSwitch),
+            new FrameworkPropertyMetadata(string.Empty));
 
-        public bool Value { get; set; }
-        public string TrueLabel { get; set; }
-        public string FalseLabel { get; set; }
+
+        public bool Value
+        {
+            get { return (bool)this.GetValue(ValueProperty); }
+            set { this.SetValue(ValueProperty, value); }
+        }
+        public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(
+            "Value",
+            typeof(bool),
+            typeof(PropertyToggleSwitch),
+            new FrameworkPropertyMetadata(false));
+
+        public string TrueLabel
+        {
+            get { return this.GetValue(TrueLabelProperty) as string; }
+            set { this.SetValue(TrueLabelProperty, value); }
+        }
+        public static readonly DependencyProperty TrueLabelProperty = DependencyProperty.Register(
+            "TrueLabel",
+            typeof(string),
+            typeof(PropertyToggleSwitch),
+            new FrameworkPropertyMetadata(string.Empty));
+
+        public string FalseLabel
+        {
+            get { return this.GetValue(FalseLabelProperty) as string; }
+            set { this.SetValue(FalseLabelProperty, value); }
+        }
+        public static readonly DependencyProperty FalseLabelProperty = DependencyProperty.Register(
+            "FalseLabel",
+            typeof(string),
+            typeof(PropertyToggleSwitch),
+            new FrameworkPropertyMetadata(string.Empty));
 
         public PropertyToggleSwitch()
         {
             this.InitializeComponent();
 
-            this.Path = "Property";
+            this.Property = "Property";
             this.Header = "Header";
-            this.Detail = "";
+            this.Detail = "Detail";
 
             this.Value = false;
             this.TrueLabel = "True";

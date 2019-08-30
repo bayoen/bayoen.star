@@ -10,11 +10,11 @@ using bayoen.library.General.ExtendedMethods;
 using bayoen.library.General.Memories;
 using bayoen.star.Variables;
 
-namespace bayoen.star
+namespace bayoen.star.Workers
 {
-    public class PPTMemory : ProcessMemory
+    public class GameMemory : ProcessMemory
     {
-        public PPTMemory(string name) : base(name)
+        public GameMemory(string name) : base(name)
         {
             this.MenuID = -1;
             this.MainID = 1;
@@ -25,6 +25,20 @@ namespace bayoen.star
                 this.BaseAddress = (IntPtr)this.GetBaseAddress();
             }
         }
+
+        public int RootFrame => this.ReadInt32(this.BaseAddress + 0x461B7C);
+        public int SceneFrame => this.ReadInt32(this.BaseAddress + 0x460C08, 0x18, 0x268, 0x140, 0x58);
+        public int GameFrame => this.ReadInt32(this.BaseAddress + 0x461B20, 0x424);
+        public int PauseFrame => this.ReadInt32(this.BaseAddress + 0x461B38, 0xE4);
+
+        private IntPtr _scoreAddress;
+        public IntPtr ScoreAddress => this._scoreAddress = new IntPtr(this.ReadInt32(this.BaseAddress + 0x57F048) + 0x38);
+
+        private IntPtr _playerAddress;
+        public IntPtr PlayerAddress => this._playerAddress = new IntPtr(this.ReadInt32(this.BaseAddress + 0x473760, 0x20) + 0xD8);
+
+        private IntPtr _leagueAddress;
+        public IntPtr LeagueAddress => this._leagueAddress = new IntPtr(this.ReadInt32(this.BaseAddress + 0x473760, 0x68, 0x20, 0x970) - 0x38);
 
         public Process Process { get; private set; }
         public IntPtr BaseAddress { get; private set; }
@@ -64,11 +78,22 @@ namespace bayoen.star
             }
         }
 
-        private int Star(int index) => this.ReadInt32(this.BaseAddress + 0x57F048, index * 0x04 + 0x38);
+        public int LobbySize => this.ReadInt32(this.BaseAddress + 0x473760, 0x20, 0xB4);
+        public int LobbySizeInGame => this.ReadInt32(this.BaseAddress + 0x460690, 0xCC);
+        public int LobbyMax => this.ReadInt32(this.BaseAddress + 0x473760, 0x20, 0xB8);
 
+        private int Star(int index) => this.ReadInt32(this.BaseAddress + 0x57F048, index * 0x04 + 0x38);
         public List<int> Stars => Enumerable.Range(0, 4).Select(x => Star(x)).ToList();
 
-        public string PlayerNameLocal(int index) => this.ReadValidString(new IntPtr((long)this.BaseAddress + 0x598BD4 + index * 0x68), PlayerNameSize);
+        public int WinCount => this.ReadInt32(this._scoreAddress + 0x10);
+        public int WinCountForced => this.ReadInt32(this.ScoreAddress + 0x10);
+
+        public int PlayerSteamID32(int index) => this.ReadInt32(this._playerAddress + index * 0x50 + 0x40);
+        public int PlayerSteamID32Forced(int index) => this.ReadInt32(this.PlayerAddress + index * 0x50 + 0x40);
+
+        public string PlayerName(int index) => this.ReadValidString(this._playerAddress + index * 0x50, PlayerNameSize);
+        public string PlayerNameForced(int index) => this.ReadValidString(this.PlayerAddress + index * 0x50, PlayerNameSize);
+        public string PlayerNameLocal(int index) => this.ReadValidString(new IntPtr(0x140598BD4 + index * 0x68), PlayerNameSize);
 
         public void CheckMenuID()
         {

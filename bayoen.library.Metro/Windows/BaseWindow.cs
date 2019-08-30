@@ -17,11 +17,15 @@ namespace bayoen.library.Metro.Windows
         {
             this.TitleCharacterCasing = CharacterCasing.Normal;
             this.ShowIconOnTitleBar = false;
-            this.MinHeight = this.MinWidth = 400;
+            this.MinHeight = this.MinWidth = 250;
+            this.Background = new SolidColorBrush(Color.FromRgb(30, 30, 30));
             this.BorderThickness = new Thickness(1);
             this.WindowTitleBrush = Brushes.Transparent;
+            
+
             this.MouseLeftButtonDown += BaseWindow_MouseLeftButtonDown;
             this.Closing += BaseWindow_Closing;
+
             this.CloseToMinimize = false;
             this.IsWindowDraggable = true;
             this.IsFixed = false;

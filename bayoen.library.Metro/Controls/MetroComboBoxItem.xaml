@@ -1,0 +1,26 @@
+﻿<ComboBoxItem x:Class="bayoen.library.Metro.Controls.MetroComboBoxItem"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+              xmlns:local="clr-namespace:bayoen.library.Metro.Controls"
+              
+              Background="Black">
+
+    <ComboBoxItem.Content>
+        <StackPanel Orientation="Horizontal"
+                Margin="0">
+
+            <iconPacks:PackIconModern Kind="_3dObj"
+                                      Height="12" Width="12" Margin="5,0"
+                                      Foreground="{Binding IconForeground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MetroComboBoxItem}}"
+                                      VerticalAlignment="Center"/>
+
+            <TextBlock Foreground="White"
+                       Text="{Binding Text, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MetroComboBoxItem}}"
+                       Margin="2"
+                       VerticalAlignment="Center"/>
+
+        </StackPanel>
+    </ComboBoxItem.Content>
+
+</ComboBoxItem>

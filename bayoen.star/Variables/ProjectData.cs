@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,10 +11,12 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 using bayoen.library.General.Enums;
+using bayoen.star.Localizations;
+using bayoen.star.Functions;
 
 namespace bayoen.star.Variables
 {
-    public class ProjectData
+    public class ProjectData : FncToJson
     {
         public ProjectData()
         {
@@ -23,41 +26,144 @@ namespace bayoen.star.Variables
             this._goalCounter = GoalCounters.Game;
             this.GoalCounter = GoalCounters.Star;
 
-            this._miniChromaKey = ChromaKeys.Magenta;
-            this.MiniChromaKey = ChromaKeys.None;
+            this.AutoUpdate = true;
+            this.EnglishDisplay = false;
+
+            this._enableSlowMode = true;
+            this.EnableSlowMode = false;
         }
 
-        public Version Version;
-        public RestartingModes RestartingMode;
+        //// From Configurations
+        public Version Version { get; set; }        
 
-        private GoalCounters _goalCounter;
-        public GoalCounters GoalCounter
+        //// From Setting Window
+        /// General
+        private bool _topMost;
+        public bool TopMost
         {
-            get => this._goalCounter;
+            get => this._topMost;
             set
             {
-                if (this._goalCounter == value) return;
+                if (this._topMost == value) return;
 
-                Core.MiniWindow.GoalType = value;
-                Core.MiniOverlay.GoalType = value;
+                Core.MainWindow.Topmost = value;
 
-                this._goalCounter = value;
+                this._topMost = value;
             }
         }
 
-        private ChromaKeys _miniChromaKey;
-        public ChromaKeys MiniChromaKey
+        private bool _autoUpdate;
+        public bool AutoUpdate
         {
-            get => this._miniChromaKey;
+            get => this._autoUpdate;
             set
             {
-                if (this._miniChromaKey == value) return;
+                if (this._autoUpdate == value) return;
 
-                Core.MiniWindow.Background = Config.ChromaSets.Find(x => x.Item1 == value).Item2;
-                Core.MiniWindow.BorderThickness = new Thickness(Convert.ToInt32(value == ChromaKeys.None));
 
-                this._miniChromaKey = value;
+                this._autoUpdate = value;
+            }
+        }
+
+        private string _languageCode;
+        public string LanguageCode
+        {
+            get
+            {
+                if (this._languageCode != null)
+                {
+                    if (Config.CultureCodes.Contains(this._languageCode))
+                    {
+                        return this._languageCode;
+                    }
+                }
+
+                string cultureCode = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+                if (!Config.CultureCodes.Contains(cultureCode)) cultureCode = Config.CultureCodes[0];
+                return cultureCode;
+            }
+            set
+            {
+                if (this._languageCode == value) return;
+
+                Culture.Set(value);
+
+                this._languageCode = value;
                 this.Save();
+            }
+        }
+
+        private bool _englishDisplay;
+        public bool EnglishDisplay
+        {
+            get => this._englishDisplay;
+            set
+            {
+                if (this._englishDisplay == value) return;
+
+                this._englishDisplay = value;
+                this.Save();
+            }
+        }
+
+        /// Streaming
+        private ChromaKeys _chromaKey;
+        public ChromaKeys ChromaKey
+        {
+            get => this._chromaKey;
+            set
+            {
+                if (this._chromaKey == value) return;
+
+                //int chromaKeyIndex = Config.ChromaKeySets.FindIndex(x => x.Item1 == value);
+                //if (chromaKeyIndex > 0)
+                //{
+                //    Core.CapturableWindow.Background = Config.ChromaKeySets[chromaKeyIndex].Item2;
+                //}
+
+                this._chromaKey = value;
+            }
+        }
+
+        /// Advanced
+        private bool _enableSlowMode;
+        public bool EnableSlowMode
+        {
+            get => this._enableSlowMode;
+            set
+            {
+                if (this._enableSlowMode == value) return;
+
+                if (!Core.MainWorker.IsEnabled) Core.MainWorker.Initiate();
+                Core.MainWorker.Stop();
+
+                Core.MainWorker.Interval = value ? Config.SlowInterval : Config.NormalInterval;
+
+                Core.MainWorker.Start();
+
+                this._enableSlowMode = value;
+                this.Save();
+            }
+        }
+
+        
+
+
+
+        //// For Operation
+        public RestartingModes RestartingMode { get; set; }
+
+        private DisplayModes _displayModes;
+        public DisplayModes DisplayMode
+        {
+            get => this._displayModes;
+            set
+            {
+                if (this._displayModes == value) return;
+
+
+
+                this._displayModes = value;
             }
         }
 
@@ -69,6 +175,9 @@ namespace bayoen.star.Variables
             {
                 if (value != null && this._countedStars != null)
                     if (value.SequenceEqual(this._countedStars)) return;
+
+                Core.MiniWindow.MiniScorePanel.Stars = value;
+                Core.MiniOverlay.MiniScorePanel.Stars = value;
 
                 this._countedStars = value;
                 this.Save();
@@ -84,11 +193,56 @@ namespace bayoen.star.Variables
                 if (value != null && this._countedGames != null)
                     if (value.SequenceEqual(this._countedGames)) return;
 
+                Core.MiniWindow.MiniScorePanel.Games = value;
+                Core.MiniOverlay.MiniScorePanel.Games = value;
+
                 this._countedGames = value;
+                this.Save();
             }
         }
 
-        public string CultureCode { get; internal set; }
+        private GoalTypes _goalType;
+        public GoalTypes GoalType
+        {
+            get => this._goalType;
+            set
+            {
+                if (this._goalType == value) return;
+
+                
+
+                this._goalType = value;
+            }
+        }
+
+        private GoalCounters _goalCounter;
+        public GoalCounters GoalCounter
+        {
+            get => this._goalCounter;
+            set
+            {
+                if (this._goalCounter == value) return;
+
+                Core.MiniWindow.GoalCounter = value;
+                Core.MiniOverlay.GoalCounter = value;
+
+                this._goalCounter = value;
+            }
+        }
+
+        private int _goalScore;
+        public int GoalScore
+        {
+            get => this._goalScore;
+            set
+            {
+                if (this._goalScore == value) return;
+
+
+
+                this._goalScore = value;
+            }
+        }
 
         public static ProjectData Load()
         {
@@ -129,12 +283,6 @@ namespace bayoen.star.Variables
             return settingData;
         }
 
-        public static ProjectData FromJson(JObject json)
-        {
-            try { return JsonConvert.DeserializeObject<ProjectData>(json.ToString()); }
-            catch { return null; }
-        }
-
         public void Save()
         {
             this.Save(Config.ProjectDataFileName);
@@ -145,29 +293,5 @@ namespace bayoen.star.Variables
             string jsonString = JsonConvert.SerializeObject(this, Formatting.Indented, Config.JsonSerializerSetting);
             File.WriteAllText(path, jsonString, Config.TextEncoding);
         }
-
-        public JObject ToJson()
-        {
-            return this.ToJson(Config.JsonSerializerSetting, false);
-        }
-
-        public JObject ToJson(JsonSerializerSettings serializerSettings)
-        {
-            return this.ToJson(serializerSettings, false);
-        }
-
-        public JObject ToJson(bool isIndented)
-        {
-            return this.ToJson(Config.JsonSerializerSetting, isIndented);
-        }
-
-        public JObject ToJson(JsonSerializerSettings serializerSettings, bool isIndented)
-        {
-            string jsonString = JsonConvert.SerializeObject(this, (isIndented ? Formatting.Indented : Formatting.None), serializerSettings);
-
-            try { return JObject.Parse(jsonString); }
-            catch { return null; }
-        }
-
     }
 }

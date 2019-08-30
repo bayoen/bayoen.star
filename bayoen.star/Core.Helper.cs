@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 
 using bayoen.library.General.Enums;
+using bayoen.library.Metro.Controls;
 
 namespace bayoen.star
 {
@@ -26,6 +27,21 @@ namespace bayoen.star
             }
         }
 
+        public static List<MetroComboBoxItem> GetChromaComboBoxItemList()
+        {
+            List<MetroComboBoxItem> ChromaComboBoxItemList = new List<MetroComboBoxItem>();
+            for (int chromaIndex = 0; chromaIndex < Config.ChromaSets.Count; chromaIndex++)
+            {
+                MetroComboBoxItem TokenChroma = new MetroComboBoxItem()
+                {
+                    IconForeground = Config.ChromaSets[chromaIndex].Item2,
+                };
+                TokenChroma.SetResourceReference(MetroComboBoxItem.TextProperty, $"Setting-Streaming-ChromaKey-{chromaIndex}-String");
 
+                ChromaComboBoxItemList.Add(TokenChroma);
+            }
+
+            return ChromaComboBoxItemList;
+        }
     }
 }

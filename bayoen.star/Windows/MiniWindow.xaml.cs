@@ -48,19 +48,34 @@ namespace bayoen.star.Windows
         }
 
         private GoalCounters _goalType;
-        public GoalCounters GoalType
+        public GoalCounters GoalCounter
         {
             get => this._goalType;
             set
             {
                 if (this._goalType == value) return;
 
-                this.Score2Panel.GoalCounter = value;
+                this.MiniScorePanel.GoalCounter = value;
 
                 this._goalType = value;
             }
         }
 
         private const int MetroTitlebarHeight = 30;
+
+        private void MenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.MenuButton.ContextMenu.IsOpen = true;
+        }
+
+        private void ResetMeniItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ModeSubMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
-    <!--Localization.EN: English-->
+    <!--Localization.en: English-->
     <system:String x:Key="Main-Menu-String">Menu</system:String>
 
     <system:String x:Key="Main-Status-FreePlay-String">Free Play</system:String>
@@ -16,7 +16,7 @@
     <!--Top Menu-->
     <system:String x:Key="TopMenu-Reset-String">Reset</system:String>
 
-    <system:String x:Key="TopMenu-Mode-String">Mode...</system:String>
+    <system:String x:Key="TopMenu-Mode-String">Mode</system:String>
     <system:String x:Key="TopMenu-Mode-1-String">1. Star+</system:String>
     <system:String x:Key="TopMenu-Mode-2-String">2. Game</system:String>
     <system:String x:Key="TopMenu-Mode-3-String">3. Game &amp; Star</system:String>
@@ -36,37 +36,43 @@
     <system:String x:Key="Setting-No-String">No</system:String>
 
     <system:String x:Key="Setting-General-String">General</system:String>
+    <system:String x:Key="Setting-General-MainHeader-String">Main Settings</system:String>
     <system:String x:Key="Setting-General-TopMost-Header-String">Always on Top</system:String>
     <system:String x:Key="Setting-General-TopMost-Detail-String">Always keep the main window on top</system:String>
     <system:String x:Key="Setting-General-AutoUpdate-Header-String">Auto Update</system:String>
     <system:String x:Key="Setting-General-AutoUpdate-Detail-String">Always keep 'bayoen-star' up-to-date version</system:String>
     <system:String x:Key="Setting-General-Language-Header-String">Language</system:String>
-    <system:String x:Key="Setting-General-Language-Detail-String">Select your favorite language. If it is not on the list, please tell us [Requires restart]</system:String>
+    <system:String x:Key="Setting-General-Language-Detail-String">Select your favorite language. If it is not on the list, please let us and help us to make it</system:String>
+    <system:String x:Key="Setting-General-EnglishDisplay-Header-String">Forced English Display</system:String>
+    <system:String x:Key="Setting-General-EnglishDisplay-Detail-String">Set the language of displaying panels English not the selected language. The interface of bayoen-star remains by the selected language.</system:String>
 
     <system:String x:Key="Setting-Streaming-String">Streaming</system:String>
-    <system:String x:Key="Setting-Streaming-ChromaKey-Header-String">Set Chroma Key for Window Capture</system:String>
-    <system:String x:Key="Setting-Streaming-ChromaKey-Detail-String" xml:space="preserve">Enable a window (##Capture##) that is able to be 'window-captured' by a streaming app and set a chroma key of the capturable window.
+    <system:String x:Key="Setting-Streaming-CaptureHeader-String">Streaming Capture</system:String>
+    <system:String x:Key="Setting-Streaming-ChromaKey-Header-String">Chroma Key</system:String>
+    <system:String x:Key="Setting-Streaming-ChromaKey-Detail-String" xml:space="preserve">Set chroma key for 'window capture'. Enable windows that be able to be 'window-captured' by a streaming app and set a chroma key of the capturable window.
 
     - It's suitable to a one-computer streaming with window capture
     - If you are using display capture or two-computers, keep it 'Disabled'</system:String>
-    <system:String x:Key="Setting-Streaming-ChromaKey-Disabled-String">Disabled</system:String>
-    <system:String x:Key="Setting-Streaming-ChromaKey-Magenta-String">Magenta</system:String>
-    <system:String x:Key="Setting-Streaming-ChromaKey-Green-String">Green</system:String>
-    <system:String x:Key="Setting-Streaming-ChromaKey-Blue-String">Blue</system:String>
+    <system:String x:Key="Setting-Streaming-ChromaKey-0-String">Disabled</system:String>
+    <system:String x:Key="Setting-Streaming-ChromaKey-1-String">Magenta</system:String>
+    <system:String x:Key="Setting-Streaming-ChromaKey-2-String">Green</system:String>
+    <system:String x:Key="Setting-Streaming-ChromaKey-3-String">Blue</system:String>
     <system:String x:Key="Setting-Streaming-ForcedEnglishDisplay-Header-String">Enable English Display</system:String>
     <system:String x:Key="Setting-Streaming-ForcedEnglishDisplay-Detail-String">For the language option except English, you can display English text in overlays.</system:String>
 
     <system:String x:Key="Setting-Advanced-String">Advanced</system:String>
-    <system:String x:Key="Setting-Advanced-EnableRapidMode-Header-String">Enable Rapid Mode</system:String>
-    <system:String x:Key="Setting-Advanced-EnableRapidMode-Detail-String">Change the refreshing interval to ##IntervalRapid## from ##IntervalNormal##</system:String>
+    <system:String x:Key="Setting-Advanced-PerformanceHeader-String">Performance</system:String>
+    <system:String x:Key="Setting-Advanced-EnableSlowMode-Header-String">Enable Slow Mode</system:String>
+    <system:String x:Key="Setting-Advanced-EnableSlowMode-Detail-String">Change the refreshing interval to ##IntervalSlow## from ##IntervalNormal##. We recommend you to use this option for low performance computer</system:String>
 
     <system:String x:Key="Setting-Restart-String">Restart</system:String>
 
     <!--Tray Icon-->
-    <system:String x:Key="Tray-ShowMain-String">Show...</system:String>
-    <system:String x:Key="Tray-ExitProject-String">Exit</system:String>
+    <system:String x:Key="Tray-ShowMain-String">_Show...</system:String>
+    <system:String x:Key="Tray-ExitProject-String">_Exit</system:String>
 
-    <!--Dev-->
-    <system:String x:Key="Debug-Tray-ShowDebug-String">Debug...</system:String>
-    <system:String x:Key="Debug-Tray-OpenFolder-String">Folder...</system:String>
+    <!--Debug-->
+    <system:String x:Key="Debug-Tray-Debug-String">_Debug</system:String>
+    <system:String x:Key="Debug-Tray-Debug-Show-String">_Show Debug</system:String>
+    <system:String x:Key="Debug-Tray-Debug-Folder-String">_Open Folder...</system:String>
 </ResourceDictionary>

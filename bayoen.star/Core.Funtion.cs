@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
 using bayoen.library.General.Enums;
 using bayoen.star.Localizations;
+using bayoen.star.Windows;
 
 namespace bayoen.star
 {
@@ -16,27 +19,29 @@ namespace bayoen.star
     {
         public static void Initialize()
         {
-            if (!Config.CultureCodes.Contains(Core.ProjectData.CultureCode))
-            {
-                string cultureCode = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName.ToUpper();
-                if (!Config.CultureCodes.Contains(cultureCode)) cultureCode = Config.CultureCodes[0];
-                Core.ProjectData.CultureCode = cultureCode;
-            }
-            Culture.Set(Core.ProjectData.CultureCode);
+            Culture.Set(Core.ProjectData.LanguageCode);
 
             Core.ProjectData.Version = Config.Assembly.GetName().Version;
             Core.TrayIcon.Visibility = Visibility.Visible;
+            Core._settingWindow = new SettingWindow();
 
+            if (!Core.MainWorker.IsEnabled) Core.MainWorker.Initiate();
             Core.MainWindow.Show();
-            Core.MainWorker.Initiate();
 
             Core.IsPPTOn = false;
 #if DEBUG
             Core.DebugWindow.Show();
+            Core.DashboardWindow.Show();
             Core.MiniWindow.Show();
-            //Core.MiniOverlay.Show();
+            Core.MiniOverlay.Show();
             Core.SettingWindow.Show();
 #endif
+        }
+
+        public static void ResetScore()
+        {
+            Core.ProjectData.CountedStars = new List<int>(4) { 0, 0, 0, 0 };
+            Core.ProjectData.CountedGames = new List<int>(4) { 0, 0, 0, 0 };
         }
 
         /// <summary>
@@ -56,6 +61,11 @@ namespace bayoen.star
         public static void Save()
         {
             Core.ProjectData.Save();
+        }
+
+        public static void ShowFolder()
+        {
+            Process.Start(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
         }
 
         public static void Terminate()

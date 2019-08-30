@@ -22,6 +22,42 @@ namespace bayoen.star.Windows
         {
             this.InitializeComponent();
             this.Title = $"{Config.AssemblyTitle}";
-        }        
+#if DEBUG
+            this.Title += " [DEBUG]";
+#endif
+
+            this.MenuButton.ContextMenu.PlacementTarget = this.MenuButton;
+        }
+
+        private void MenuButton_Click(object sender, RoutedEventArgs e)
+        {            
+            this.MenuButton.ContextMenu.IsOpen = true;
+        }
+
+        private void ResetMeniItem_Click(object sender, RoutedEventArgs e)
+        {
+            Core.ResetScore();
+        }
+
+        private void SettingMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Core.SettingWindow.Show();
+        }
+
+        private void ModeSubMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            MenuItem SelectedSubModeMenuItem = sender as MenuItem;
+            MenuItem ModeMenuItem = SelectedSubModeMenuItem.Parent as MenuItem;
+
+            foreach (MenuItem item in ModeMenuItem.Items)
+            {
+                item.IsChecked = false;
+            }
+            SelectedSubModeMenuItem.IsChecked = true;
+
+            int seledtedIndex = ModeMenuItem.Items.IndexOf(SelectedSubModeMenuItem);
+        }
+
+        
     }
 }

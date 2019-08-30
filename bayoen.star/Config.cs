@@ -23,12 +23,14 @@ namespace bayoen.star
 
         // Properties
         public static readonly string PPTName = "puyopuyotetris";
-        public static readonly TimeSpan MainInterval = new TimeSpan(0, 0, 0, 0, 5);    // 5 ms
+        public static readonly TimeSpan NormalInterval = new TimeSpan(0, 0, 0, 0, 50);    // 50 ms
+        public static readonly TimeSpan SlowInterval = new TimeSpan(0, 0, 0, 0, 300);    // 300 ms
         public static readonly TimeSpan GameInterval = new TimeSpan(0, 0, 0, 0, 5);     // 5 ms
-        public static readonly string[] CultureCodes = { "EN", "KO", "JA" };
+        public static readonly List<string> CultureCodes = new List<string>() { "en", "ko" };
+        //public static readonly List<string> CultureCodes = new List<string>() { "en", "ko", "ja" };
         public static readonly List<Tuple<ChromaKeys, Brush>> ChromaSets = new List<Tuple<ChromaKeys, Brush>>()
         {
-            new Tuple<ChromaKeys, Brush>(ChromaKeys.None,  new SolidColorBrush(Color.FromRgb(37, 37, 37))),
+            new Tuple<ChromaKeys, Brush>(ChromaKeys.None,  new SolidColorBrush(Color.FromRgb(120, 120, 120))),
             new Tuple<ChromaKeys, Brush>(ChromaKeys.Magenta, Brushes.Magenta),
             new Tuple<ChromaKeys, Brush>(ChromaKeys.Green, Brushes.Green),
             new Tuple<ChromaKeys, Brush>(ChromaKeys.Blue, Brushes.Blue),

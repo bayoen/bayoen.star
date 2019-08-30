@@ -58,6 +58,18 @@ namespace bayoen.star
         public static MiniOverlay MiniOverlay => _miniOverlay ?? (_miniOverlay = new MiniOverlay());
 
 #if DEBUG
+        private static DashboardWindow _dashboardWindow;
+        /// <summary>
+        /// Dashboard window of 'bayoen-star' from its initial version
+        /// </summary>
+        public static DashboardWindow DashboardWindow => _dashboardWindow ?? (_dashboardWindow = new DashboardWindow());
+
+        private static DispatcherTimer _dashboardTimer;
+        /// <summary>
+        /// Dashboard window of 'bayoen-star' from its initial version
+        /// </summary>
+        public static DispatcherTimer DashboardTimer => _dashboardTimer ?? (_dashboardTimer = new DispatcherTimer());
+
         private static DebugWindow _debugWindow;
         /// <summary>
         /// Mini window of 'bayoen-star' from its initial version

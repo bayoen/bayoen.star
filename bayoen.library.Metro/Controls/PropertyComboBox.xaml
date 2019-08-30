@@ -1,4 +1,4 @@
-﻿<Grid x:Class="bayoen.library.Metro.Controls.PropertyToggleSwitch"
+﻿<Grid x:Class="bayoen.library.Metro.Controls.PropertyComboBox"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mtc="http://metro.mahapps.com/winfx/xaml/controls"
@@ -24,19 +24,20 @@
     <TextBlock x:Name="HeaderTextBlock" Grid.Row="0" Grid.Column="0"
                FontSize="16" FontWeight="ExtraBold"
                Margin="10,10,5,2.5"
-               Text="{Binding Header, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyToggleSwitch}}"/>
+               Text="{Binding Header, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyComboBox}}"/>
 
     <TextBlock x:Name="DetailTextBlock" Grid.Row="1" Grid.Column="0"
                FontFamily="12"
-               Text="{Binding Detail, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyToggleSwitch}}"
+               Text="{Binding Detail, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyComboBox}}"
                Margin="10,2.5,5,10"/>
 
-    <mtc:ToggleSwitch x:Name="ToggleSwitch" Grid.Row="0" Grid.Column="1"
-                      IsChecked="{Binding Value, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyToggleSwitch}}"
-                      OnLabel="{Binding TrueLabel, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyToggleSwitch}}"
-                      OffLabel="{Binding FalseLabel, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyToggleSwitch}}"
-                      Margin="5,10,10,10"
-                      VerticalAlignment="Center"
-                      IsCheckedChanged="ToggleSwitch_IsCheckedChanged"/>
+    <ComboBox x:Name="ComboBox" x:FieldModifier="private" Grid.Row="0" Grid.Column="1"
+              SelectedIndex="{Binding SelectedIndex, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyComboBox}}"
+              MinWidth="{Binding ComboBoxMinWidth, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyComboBox}}"
+              Background="{Binding ComboBoxBackground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyComboBox}}"
+              Margin="5,10,17,10"
+              VerticalAlignment="Center"              
+              SelectionChanged="ComboBox_SelectionChanged">
+    </ComboBox>
 
 </Grid>

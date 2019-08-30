@@ -27,7 +27,7 @@ namespace bayoen.star.Localizations
             if (resourceDictionary == null)
             {
                 //If not found, select our default language.
-                requestedCulture = "Localization.EN.xaml";
+                requestedCulture = "Localization.en.xaml";
                 resourceDictionary = dictionaryList.
                     FirstOrDefault(d => d.Source.OriginalString == requestedCulture);
                 return;

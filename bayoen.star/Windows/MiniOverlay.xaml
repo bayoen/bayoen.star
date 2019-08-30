@@ -7,14 +7,18 @@
                     
                     Title="Overlay"
                                         
-                    MinHeight="140" Height="140" Width="525"
+                    MinHeight="10" MinWidth="10"
+                    Height="140" Width="525"
                     
-                    ResizeMode="NoResize" AllowsTransparency="True" Background="Transparent"
-                    TitlebarHeight="0" BorderThickness="0"
+                    ResizeMode="NoResize" AllowsTransparency="True" 
+                    
+                    TitlebarHeight="0" BorderThickness="0" Background="Transparent"
                     Topmost="True"
-                    Padding="0,10,0,0">
+                    Padding="0,10,0,0"
+                    
+                    PreviewMouseWheel="MiniOverlay_PreviewMouseWheel">
 
-    <controls:MiniScorePanel x:Name="Score2Panel"/>
+    <controls:MiniScorePanel x:Name="MiniScorePanel"/>
 
     <windows:BaseWindow.ContextMenu>
         <ContextMenu>

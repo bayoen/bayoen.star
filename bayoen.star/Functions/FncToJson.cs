@@ -13,25 +13,40 @@ namespace bayoen.star.Functions
     {
         public JObject ToJson()
         {
-            return this.ToJson(Config.JsonSerializerSetting, false);
+            return this.ToJson(Config.JsonSerializerSetting);
         }
 
         public JObject ToJson(JsonSerializerSettings serializerSettings)
         {
-            return this.ToJson(serializerSettings, false);
-        }
-
-        public JObject ToJson(bool isIndented)
-        {
-            return this.ToJson(Config.JsonSerializerSetting, isIndented);
-        }
-
-        public JObject ToJson(JsonSerializerSettings serializerSettings, bool isIndented)
-        {
-            string jsonString = JsonConvert.SerializeObject(this, (isIndented ? Formatting.Indented : Formatting.None), serializerSettings);
-
-            try { return JObject.Parse(jsonString); }
+            try { return JObject.Parse(this.Serialize(serializerSettings, false)); }
             catch { return null; }
+        }
+
+        public string Serialize()
+        {
+            return this.Serialize(Config.JsonSerializerSetting, true);
+        }
+
+        public string Serialize(JsonSerializerSettings serializerSettings)
+        {
+            return this.Serialize(serializerSettings, true);
+        }
+
+        public string Serialize(bool isIndented)
+        {
+            return this.Serialize(Config.JsonSerializerSetting, isIndented);
+        }
+
+        public string Serialize(JsonSerializerSettings serializerSettings, bool isIndented)
+        {
+            try { return JsonConvert.SerializeObject(this, (isIndented ? Formatting.Indented : Formatting.None), serializerSettings); }            
+            catch { return null; }
+        }
+
+        public static T FromJson<T>(JObject json)
+        {
+            try { return JsonConvert.DeserializeObject<T>(json.ToString()); }
+            catch { return default; }
         }
     }
 }

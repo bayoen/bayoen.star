@@ -23,9 +23,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)ExtendedMethods\bayoen.library.General.Memories.ProcessMemory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ExtendedMethods\System.Windows.Controls.Image.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Memories\ProcessMemory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\Converters\StringFormatConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\Localization\Localization.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Memories\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Utilities\" />
   </ItemGroup>
 </Project>
