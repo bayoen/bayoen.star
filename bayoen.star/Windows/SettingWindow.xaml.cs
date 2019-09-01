@@ -93,6 +93,15 @@ namespace bayoen.star.Windows
             Core.ProjectData.EnglishDisplay = this.EnglishDisplaySwitch.Value;
         }
 
+        private void CaptureModeComboBox_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            int selectedIndex = this.CaptureModeComboBox.SelectedIndex;
+            if (selectedIndex > -1)
+            {
+                Core.ProjectData.ChromaKey = Config.ChromaSets[selectedIndex].Item1;
+            }
+        }
+
         private void ChromaKeyComboBox_SelectionChanged(object sender, RoutedEventArgs e)
         {
             int selectedIndex = this.ChromaKeyComboBox.SelectedIndex;

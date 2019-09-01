@@ -18,7 +18,7 @@ namespace bayoen.library.Metro.Windows
             this.TitleCharacterCasing = CharacterCasing.Normal;
             this.ShowIconOnTitleBar = false;
             this.MinHeight = this.MinWidth = 250;
-            this.Background = new SolidColorBrush(Color.FromRgb(30, 30, 30));
+            this.SetResourceReference(Control.BackgroundProperty, "WindowBackgroundBrush");
             this.BorderThickness = new Thickness(1);
             this.WindowTitleBrush = Brushes.Transparent;
             

@@ -47,7 +47,27 @@
                 <TextBlock x:Name="ProjectDataBlock"/>
             </GroupBox>
 
+            
+
             <StackPanel Orientation="Vertical">
+
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <ToggleButton Style="{DynamicResource MetroCircleToggleButtonStyle}"
+                                  Height="45" Width="45" Margin="5">
+                        <iconPacks:PackIconMaterial Kind="Crown" Height="30" Width="30">
+                            <iconPacks:PackIconMaterial.RenderTransform>
+                                <ScaleTransform ScaleX="1" ScaleY="0.7" CenterX="15" CenterY="15"/>
+                            </iconPacks:PackIconMaterial.RenderTransform>
+                        </iconPacks:PackIconMaterial>
+                    </ToggleButton>
+
+                    <ToggleButton Style="{DynamicResource MetroCircleToggleButtonStyle}"
+                                  Height="45" Width="45" Margin="5">
+                        <iconPacks:PackIconMaterial Kind="Star" Height="25" Width="25" Margin="0,0,0,2"/>
+                    </ToggleButton>
+                </StackPanel>
+                               
+                
                 <TextBlock Text="- 2 Players"/>
                 <controls:MiniScorePanel PlayerNumber="2" GoalType="Total" GoalCounter="Game" GoalScore="5" DisplayMode="Game_only" IsFit="True"/>
                 <controls:MiniScorePanel PlayerNumber="2" DisplayMode="Star_Plus_only" PanelLength="Short"/>

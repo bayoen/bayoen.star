@@ -13,6 +13,7 @@ using Newtonsoft.Json.Linq;
 using bayoen.library.General.Enums;
 using bayoen.star.Localizations;
 using bayoen.star.Functions;
+using System.Windows.Controls;
 
 namespace bayoen.star.Variables
 {
@@ -153,17 +154,56 @@ namespace bayoen.star.Variables
         //// For Operation
         public RestartingModes RestartingMode { get; set; }
 
-        private DisplayModes _displayModes;
-        public DisplayModes DisplayMode
+        private TrackingModes _trackingMode;
+        public TrackingModes TrackingMode
         {
-            get => this._displayModes;
+            get => this._trackingMode;
             set
             {
-                if (this._displayModes == value) return;
+                if (this._trackingMode == value) return;                
+
+                Core.MainWindow.AlwaysTopModeButton.IsAccented = (value == TrackingModes.Always);
+                //Core.MainWindow.AlwaysTopModeButton.FontWeight = (value == TrackingModes.Always) ? FontWeights.Bold : FontWeights.Normal;
+
+                Core.MainWindow.FriendlyTopModeButton.IsAccented = (value == TrackingModes.Friendly);
+                //Core.MainWindow.FriendlyTopModeButton.FontWeight = (value == TrackingModes.Friendly) ? FontWeights.Bold : FontWeights.Normal;
+
+                Core.MainWindow.LeagueTopModeButton.IsAccented = (value == TrackingModes.League);
+                //Core.MainWindow.LeagueTopModeButton.FontWeight = (value == TrackingModes.League) ? FontWeights.Bold : FontWeights.Normal;
+
+                Core.MainWindow.NoneTopModeButton.IsAccented = (value == TrackingModes.None);
+                //Core.MainWindow.NoneTopModeButton.FontWeight = (value == TrackingModes.None) ? FontWeights.Bold : FontWeights.Normal;
+
+                this._trackingMode = value;
+                this.Save();
+            }
+        }
+
+        private MatchTypes _matchType;
+        public MatchTypes MatchType
+        {
+            get => this._matchType;
+            set
+            {
+                if (this._matchType == value) return;
 
 
 
-                this._displayModes = value;
+                this._matchType = value;
+            }
+        }
+
+        private ScoreDisplayModes _displayMode;
+        public ScoreDisplayModes DisplayMode
+        {
+            get => this._displayMode;
+            set
+            {
+                if (this._displayMode == value) return;
+
+
+
+                this._displayMode = value;
             }
         }
 
@@ -223,8 +263,13 @@ namespace bayoen.star.Variables
             {
                 if (this._goalCounter == value) return;
 
+                Core.MainWindow.GoalStarButton.IsAccented = (value == GoalCounters.Star);
+                Core.MainWindow.GoalGameButton.IsAccented = (value == GoalCounters.Game);
+                    
+
                 Core.MiniWindow.GoalCounter = value;
                 Core.MiniOverlay.GoalCounter = value;
+
 
                 this._goalCounter = value;
             }
@@ -243,6 +288,23 @@ namespace bayoen.star.Variables
                 this._goalScore = value;
             }
         }
+       
+        private RecordDisplayModes _recordDisplayMode;
+        public RecordDisplayModes RecordDisplayMode
+        {
+            get => this._recordDisplayMode;
+            set
+            {
+                if (this._recordDisplayMode == value) return;
+
+                Core.MainWindow.EventListModeButton.IsAccented = (value == RecordDisplayModes.Event);
+                Core.MainWindow.MatchListModeButton.IsAccented = (value == RecordDisplayModes.Match);                
+
+                this._recordDisplayMode = value;
+                this.Save();
+            }
+        }
+
 
         public static ProjectData Load()
         {

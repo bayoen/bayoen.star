@@ -2,9 +2,9 @@
 
 namespace bayoen.star.Variables
 {
-    public class GameStates
+    public class PPTStates
     {
-        public GameStates()
+        public PPTStates()
         {
             this.Main = MainStates.None;
             this.Sub = SubStates.None;

@@ -37,7 +37,7 @@
                     VerticalAlignment="Center" HorizontalAlignment="Center">
 
             <TextBlock x:Name="GoalTypeBlock"
-                       Text="GOAL"
+                       Text="GOAL" Foreground="{DynamicResource TextBrush}"
                        FontSize="19" Margin="3,0,6,0"
                        VerticalAlignment="Center"/>
 
@@ -46,7 +46,7 @@
                                  VerticalAlignment="Center"/>
             
             <TextBlock x:Name="GoalScoreBlock"
-                       Text="-"
+                       Text="-" Foreground="{DynamicResource TextBrush}"
                        FontSize="19" Margin="6,0,0,0"
                        VerticalAlignment="Center"/>
 

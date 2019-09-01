@@ -10,48 +10,342 @@
                     
                     Title="bayoen-star"
                     
-                    Height="450" Width="800">
+                    Height="600" Width="960"
+                    MinWidth="960">
 
     <windows:BaseWindow.Resources>
-        <Thickness x:Key="ControlGap">4</Thickness>
-
-        <Style TargetType="{x:Type GroupBox}" BasedOn="{StaticResource MetroGroupBox}">
-            <Setter Property="mtc:ControlsHelper.ContentCharacterCasing" Value="Normal"/>
-            <!--<Setter Property="mtc:ControlsHelper.HeaderFontSize" Value="14"/>-->
-            <Setter Property="Margin" Value="{StaticResource ControlGap}"/>
-        </Style>
+        <Thickness x:Key="ContainerGap">3</Thickness>
+        <Thickness x:Key="ControlGap">6</Thickness>
+        <system:Double x:Key="HeaderSize">18</system:Double>
     </windows:BaseWindow.Resources>
 
-    <Grid Margin="{StaticResource ControlGap}">
+    <Grid Margin="{StaticResource ContainerGap}">
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="30"/>
-            <!--<RowDefinition Height="{Binding Height, ElementName=StatusBorder}"/>-->
-        </Grid.RowDefinitions>
+        <Grid.Resources>
+            <Style x:Key="MetroBorder" TargetType="{x:Type Border}">
+                <Setter Property="Margin" Value="{StaticResource ContainerGap}"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource GrayBrush6}"/>
+                <Setter Property="BorderThickness" Value="1"/>
+            </Style>
+
+            <Style x:Key="AccentedMetroBorder" TargetType="{x:Type Border}" BasedOn="{StaticResource MetroBorder}">
+                <Setter Property="BorderBrush" Value="{DynamicResource AccentColorBrush2}"/>
+            </Style>
+
+            <Style TargetType="{x:Type GroupBox}" BasedOn="{StaticResource MetroGroupBox}">
+                <Setter Property="mtc:ControlsHelper.ContentCharacterCasing" Value="Normal"/>
+                <!--<Setter Property="mtc:ControlsHelper.HeaderFontSize" Value="14"/>-->
+                <Setter Property="Margin" Value="{StaticResource ContainerGap}"/>
+                <Setter Property="Padding" Value="0"/>
+            </Style>
+
+            <Style x:Key="HeaderBlock" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource MetroTextBlock}">
+                <Setter Property="FontSize" Value="{DynamicResource HeaderSize}"/>
+                <Setter Property="FontWeight" Value="ExtraBold"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="Margin" Value="{StaticResource ControlGap}"/>
+            </Style>
+        </Grid.Resources>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="{Binding Width, ElementName=MatchListGrid}"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" MinWidth="430"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        
-        <!-- Row 0 // Column 0 -->
-        <Grid Grid.Row="0" Grid.Column="0"
-              x:Name="MatchListGrid">
-            
-            <GroupBox Header="Event List">
 
-            </GroupBox>
+        <!-- Column 0 -->
+        <Grid Grid.Column="0">
             
-        </Grid>
-        
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <!--<RowDefinition Height="Auto"/>-->
+            </Grid.RowDefinitions>
 
-        <!-- Row 0 // Column 1 -->
-        <Grid Grid.Row="0" Grid.Column="1"
-              x:Name="ControlPanelGrid">
-            
-            <GroupBox Header="Control Panel">
+            <!-- Column 0 & Row 0: TopMode -->
+            <Border Grid.Row="0" Style="{StaticResource AccentedMetroBorder}">
+                <Grid Margin="{StaticResource ControlGap}">
+                    <StackPanel Orientation="Horizontal"
+                                VerticalAlignment="Center" HorizontalAlignment="Left">
+                        
+                        <metroControls:MetroImage x:Name="LogoImage"
+                                              Height="25" Width="25" Margin="3,0,0,0"
+                                              VerticalAlignment="Center"/>
+
+                        <TextBlock Style="{DynamicResource HeaderBlock}"
+                               Text="{DynamicResource Main-TopMode-Header-String}"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal"
+                                VerticalAlignment="Center" HorizontalAlignment="Right">
+                        
+                        <metroControls:MetroButton x:Name="AlwaysTopModeButton"
+                                               Text="{DynamicResource Main-TopMode-Always-String}" FontSize="12" FontWeight="Normal"
+                                               Padding="4,0" Margin="2" Click="AlwaysTopModeButton_Click">
+                            <metroControls:MetroButton.Icon>
+                                <iconPacks:PackIconMaterial Kind="ProgressClock" Margin="0,0,5,0"/>
+                            </metroControls:MetroButton.Icon>
+                        </metroControls:MetroButton>
+
+                        <metroControls:MetroButton x:Name="FriendlyTopModeButton"
+                                               Text="{DynamicResource Main-TopMode-FreePlay-String}" FontSize="12" FontWeight="Normal"
+                                               Padding="4,0" Margin="2" Click="NormalTopModeButton_Click">
+                            <metroControls:MetroButton.Icon>
+                                <iconPacks:PackIconMaterial Kind="AccountMultiple" Margin="0,0,5,0"/>
+                            </metroControls:MetroButton.Icon>
+                        </metroControls:MetroButton>
+
+                        <metroControls:MetroButton x:Name="LeagueTopModeButton"
+                                               Text="{DynamicResource Main-TopMode-PuzzleLeague-String}" FontSize="12" FontWeight="Normal"
+                                               Padding="4,0" Margin="2" Click="LeagueTopModeButton_Click">
+                            <metroControls:MetroButton.Icon>
+                                <iconPacks:PackIconModern Kind="Leaderboard" Margin="0,0,5,0"/>
+                            </metroControls:MetroButton.Icon>
+                        </metroControls:MetroButton>
+
+                        <metroControls:MetroButton x:Name="NoneTopModeButton"
+                                               Text="{DynamicResource Main-TopMode-None-String}" FontSize="12" FontWeight="Normal"
+                                               Padding="4,0" Margin="2" Click="NoneTopModeButton_Click">
+                            <metroControls:MetroButton.Icon>
+                                <iconPacks:PackIconModern Kind="Stop" Margin="0,0,5,0"/>
+                            </metroControls:MetroButton.Icon>
+                        </metroControls:MetroButton>
+
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <!-- Column 0 & Row 1: RecordList -->
+            <Border Grid.Row="1" Style="{StaticResource MetroBorder}">
                 <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid Margin="{StaticResource ControlGap}">
+
+                            <TextBlock Style="{DynamicResource HeaderBlock}"                                       
+                                       Text="{DynamicResource Main-RecordList-Header-String}"
+                                       VerticalAlignment="Center"/>
+
+                            <StackPanel Orientation="Horizontal"                                    
+                                    VerticalAlignment="Center" HorizontalAlignment="Right">
+
+                                <StackPanel x:Name="EventListNavigatorPanel" 
+                                            Orientation="Horizontal"
+                                            Margin="0,0,25,0" VerticalAlignment="Center">
+                                    
+                                    <metroControls:MetroCircleButton x:Name="PrevEventListButton"
+                                                                     Height="36" Width="36" Padding="2,0" Margin="2" 
+                                                                     Click="PrevEventListButton_Click">
+                                        <metroControls:MetroCircleButton.Icon>
+                                            <iconPacks:PackIconFontAwesome Kind="ChevronLeftSolid" Height="15" Width="15" Margin="0,0,2,0"/>
+                                        </metroControls:MetroCircleButton.Icon>
+                                    </metroControls:MetroCircleButton>
+
+                                    <TextBlock x:Name="EventListNavigatorBlock"
+                                               FontSize="12"
+                                               Margin="4,0" VerticalAlignment="Center">
+                                        9999 / 9999
+                                    </TextBlock>
+
+                                    <metroControls:MetroCircleButton x:Name="NextEventListButton"
+                                                                     Height="36" Width="36" Padding="2,0" Margin="2" 
+                                                                     Click="NextEventListButton_Click">
+                                        <metroControls:MetroCircleButton.Icon>
+                                            <iconPacks:PackIconFontAwesome Kind="ChevronRightSolid" Height="15" Width="15" Margin="2,0,0,0"/>
+                                        </metroControls:MetroCircleButton.Icon>
+                                    </metroControls:MetroCircleButton>
+                                    
+                                </StackPanel>
+
+                                <metroControls:MetroButton x:Name="EventListModeButton"
+                                               Text="{DynamicResource Main-RecordList-Event-String}" FontSize="12" FontWeight="Normal"
+                                               Padding="4,0" Margin="2" Click="EventListModeButton_Click">
+                                    <metroControls:MetroButton.Icon>
+                                        <iconPacks:PackIconMaterial Kind="CalendarMultipleCheck" Margin="0,0,5,0"/>
+                                    </metroControls:MetroButton.Icon>
+                                </metroControls:MetroButton>
+
+                                <metroControls:MetroButton x:Name="MatchListModeButton"
+                                               Text="{DynamicResource Main-RecordList-Match-String}" FontSize="12" FontWeight="Normal"
+                                               Padding="4,0" Margin="2" Click="MatchListModeButton_Click">
+                                    <metroControls:MetroButton.Icon>
+                                        <iconPacks:PackIconMaterial Kind="SwordCross" Margin="0,0,5,0"/>
+                                    </metroControls:MetroButton.Icon>
+                                </metroControls:MetroButton>
+
+                            </StackPanel>
+
+                        </Grid>
+                    </Grid>
+
+                    <TreeView Grid.Row="1" 
+                              Margin="{StaticResource ControlGap}">
+                        <TreeView.Resources>
+                            <Style TargetType="{x:Type TreeViewItem}" BasedOn="{StaticResource MetroTreeViewItem}">
+                                <Setter Property="Background" Value="{DynamicResource GrayBrush10}"/>
+                            </Style>
+                        </TreeView.Resources>
+
+                        <TreeViewItem Header="Match 1">
+                            <TreeViewItem Header="Game 1"/>
+                            <TreeViewItem Header="Game 2"/>
+                            <TreeViewItem Header="Game 3"/>
+                        </TreeViewItem>
+                        <TreeViewItem Header="Match 2">
+                            <TreeViewItem Header="Game 1"/>
+                            <TreeViewItem Header="Game 2"/>
+                            <TreeViewItem Header="Game 3"/>
+                        </TreeViewItem>
+                        <TreeViewItem Header="Match 3">
+                            <TreeViewItem Header="Game 1"/>
+                            <TreeViewItem Header="Game 2"/>
+                            <TreeViewItem Header="Game 3"/>
+                        </TreeViewItem>
+                        <TreeViewItem Header="Match 4">
+                            <TreeViewItem Header="Game 1"/>
+                            <TreeViewItem Header="Game 2"/>
+                            <TreeViewItem Header="Game 3"/>
+                        </TreeViewItem>
+                        <TreeViewItem Header="Match 5">
+                            <TreeViewItem Header="Game 1"/>
+                            <TreeViewItem Header="Game 2"/>
+                            <TreeViewItem Header="Game 3"/>
+                        </TreeViewItem>
+                        <TreeViewItem Header="Event 1">
+                            <TreeViewItem Header="Match 6">
+                                <TreeViewItem Header="Game 1"/>
+                                <TreeViewItem Header="Game 2"/>
+                                <TreeViewItem Header="Game 3"/>
+                            </TreeViewItem>
+                            <TreeViewItem Header="Match 7">
+                                <TreeViewItem Header="Game 1"/>
+                                <TreeViewItem Header="Game 2"/>
+                                <TreeViewItem Header="Game 3"/>
+                            </TreeViewItem>
+                            <TreeViewItem Header="Match 8">
+                                <TreeViewItem Header="Game 1"/>
+                                <TreeViewItem Header="Game 2"/>
+                                <TreeViewItem Header="Game 3"/>
+                            </TreeViewItem>
+                            <TreeViewItem Header="Match 9">
+                                <TreeViewItem Header="Game 1"/>
+                                <TreeViewItem Header="Game 2"/>
+                                <TreeViewItem Header="Game 3"/>
+                            </TreeViewItem>
+                            <TreeViewItem Header="Match 10">
+                                <TreeViewItem Header="Game 1"/>
+                                <TreeViewItem Header="Game 2"/>
+                                <TreeViewItem Header="Game 3"/>
+                            </TreeViewItem>
+                        </TreeViewItem>
+                    </TreeView>
+
+                </Grid>
+            </Border>
+
+            <!-- Column 0 & Row 2: MatchNavigator -->
+            <!--<Border Grid.Row="2" Style="{StaticResource MetroBorder}">
+                <StackPanel Orientation="Horizontal" Margin="{StaticResource ControlGap}"
+                            VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock>Prev / Next</TextBlock>
+                </StackPanel>
+            </Border>-->
+        
+        </Grid>
+
+
+        <!-- Column 1 -->
+        <Grid Grid.Column="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Column 1 & Row 0: CurrentEvent -->
+            <GroupBox Grid.Row="0" Header="{DynamicResource Main-CurrentEvent-Header-String}">
+                <StackPanel Orientation="Horizontal" Margin="{StaticResource ControlGap}">
+                    <Border Height="400" Width="250" BorderBrush="Green" BorderThickness="1">
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">
+                            Details for Current Event
+                        </TextBlock>
+                    </Border>
+                </StackPanel>
+            </GroupBox>
+
+            <!-- Column 1 & Row 1: EventDetail -->
+            <GroupBox Grid.Row="1" Header="{DynamicResource Main-EventDetail-Header-String}">
+                <StackPanel Orientation="Horizontal" Margin="{StaticResource ControlGap}">
+                    <Border Width="250" BorderBrush="Green" BorderThickness="1">
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">
+                            Details for Selected Event
+                        </TextBlock>
+                    </Border>
+                </StackPanel>
+            </GroupBox>
+        
+        </Grid>
+
+        <!-- Column 2 -->
+        <Grid Grid.Column="2">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Column 2 & Row 0: ControlPanel -->
+            <GroupBox Grid.Row="0" Header="{DynamicResource Main-ControlPanel-Header-String}">
+                <StackPanel Orientation="Vertical">
+
+                    <StackPanel Orientation="Horizontal" Margin="2">
+
+                        <metroControls:MetroCircleButton x:Name="GoalStarButton"
+                                                         Height="45" Width="45" Margin="2"
+                                                         Click="GoalStarButton_Click">
+                            <iconPacks:PackIconMaterial Kind="Star" Height="25" Width="25" Margin="0,0,0,2"/>
+                        </metroControls:MetroCircleButton>
+
+                        <metroControls:MetroCircleButton x:Name="GoalGameButton"
+                                                         Height="45" Width="45" Margin="2"
+                                                         Click="GoalGameButton_Click">
+                            <iconPacks:PackIconMaterial Kind="Crown" Height="26" Width="26">
+                                <iconPacks:PackIconMaterial.RenderTransform>
+                                    <ScaleTransform ScaleX="1" ScaleY="0.7" CenterX="15" CenterY="15"/>
+                                </iconPacks:PackIconMaterial.RenderTransform>
+                            </iconPacks:PackIconMaterial>
+                        </metroControls:MetroCircleButton>
+
+                        <ToggleButton x:Name="GoalStarToggle" Style="{DynamicResource MetroCircleToggleButtonStyle}"
+                                      Height="45" Width="45" Margin="2"                                      >
+                            <iconPacks:PackIconMaterial Kind="Star" Height="25" Width="25" Margin="0,0,0,2"/>
+                        </ToggleButton>
+
+                    </StackPanel>
+
+
+                    <metroControls:MetroButton x:Name="EditFavoriteGoalButton"
+                                               Text="Edit" FontSize="12" FontWeight="Normal"
+                                               Padding="4,0"
+                                               HorizontalAlignment="Center"
+                                               Click="EditFavoriteGoalButton_Click">
+                        <metroControls:MetroButton.Icon>
+                            <iconPacks:PackIconMaterial Kind="HeartOutline" Height="12" Width="12" Margin="0,1,3,0"/>
+                        </metroControls:MetroButton.Icon>
+                    </metroControls:MetroButton>
+
+
+                    <WrapPanel x:Name="FavoriteGoalPanel">
+
+                    </WrapPanel>
+
                     <StackPanel x:Name="PPTOnIconPanel" Orientation="Horizontal" Visibility="Hidden">
                         <iconPacks:PackIconModern Height="18" Width="18" Margin="4" Kind="CameraFlashSelected" VerticalAlignment="Center"/>
                         <TextBlock Text="PPT On"  VerticalAlignment="Center"/>
@@ -60,14 +354,80 @@
                         <iconPacks:PackIconModern Height="18" Width="18" Margin="4" Kind="CameraFlashOffSelected" VerticalAlignment="Center"/>
                         <TextBlock Text="PPT Off" VerticalAlignment="Center"/>
                     </StackPanel>
+                </StackPanel>
+            </GroupBox>
+
+            <!-- Column 2 & Row 1: GoalPanel -->
+            <GroupBox Grid.Row="1"
+                      Header="{DynamicResource Main-GoalPanel-Header-String}">
+                <Grid Margin="{StaticResource ControlGap}">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" Margin="0,0,0,3">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+
+                            <iconPacks:PackIconMaterial Kind="BullseyeArrow"
+                                                    Height="20" Width="20" Margin="4,0,0,0"
+                                                    VerticalAlignment="Center"/>
+
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+
+                            <metroControls:MetroButton x:Name="SetGoalButton"
+                                                       ToolTip="{DynamicResource Main-GoalPanel-Set-String}"
+                                                       FontSize="12" FontWeight="Normal"
+                                                       Padding="3,0" Margin="2"
+                                                       VerticalAlignment="Center">
+                                <metroControls:MetroButton.Icon>
+                                    <iconPacks:PackIconMaterial Kind="Play"/>
+                                </metroControls:MetroButton.Icon>
+                            </metroControls:MetroButton>
+
+                            <metroControls:MetroButton x:Name="RemoveGoalButton"
+                                                       ToolTip="{DynamicResource Main-GoalPanel-Remove-String}"
+                                                       FontSize="12" FontWeight="Normal"
+                                                       Padding="3,0" Margin="2"
+                                                       VerticalAlignment="Center">
+                                <metroControls:MetroButton.Icon>
+                                    <iconPacks:PackIconOcticons Kind="X"/>
+                                </metroControls:MetroButton.Icon>
+                            </metroControls:MetroButton>
+
+                            <metroControls:MetroButton x:Name="EditGoalButton"
+                                                       ToolTip="{DynamicResource Main-GoalPanel-Favorite-String}" 
+                                                       FontSize="12" FontWeight="Normal"
+                                                       Padding="3,0" Margin="2"
+                                                       VerticalAlignment="Center">
+                                <metroControls:MetroButton.Icon>
+                                    <iconPacks:PackIconModern Kind="StarInvincible"/>
+                                </metroControls:MetroButton.Icon>
+                            </metroControls:MetroButton>
+
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <StackPanel Orientation="Horizontal">
+                            <Border Width="200" BorderBrush="Green" BorderThickness="1">
+                                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    Goal Favorite Buttons
+                                </TextBlock>
+                            </Border>
+                        </StackPanel>
+                    </Grid>
+
+                    
                 </Grid>
             </GroupBox>
-            
         </Grid>
 
-
-        
     </Grid>
+
 
     <windows:BaseWindow.RightWindowCommands>
         <mtc:WindowCommands>

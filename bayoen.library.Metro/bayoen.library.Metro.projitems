@@ -12,6 +12,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\MetroComboBoxItem.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\MetroButton.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\MetroImage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\MetroCircleButton.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyComboBox.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyToggleSwitch.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\WindowCommandButton.xaml.cs" />
@@ -23,6 +24,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Controls\MetroButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\MetroCircleButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -40,22 +45,25 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="D:\Work\project-bayoen\bayoen.star\bayoen.library.Metro\Controls\MetroComboBoxItem.xaml.cs">
+    <Compile Update="$(MSBuildThisFileDirectory)Controls\MetroComboBoxItem.xaml.cs">
       <DependentUpon>MetroComboBoxItem.xaml</DependentUpon>
     </Compile>
-    <Compile Update="D:\Work\project-bayoen\bayoen.star\bayoen.library.Metro\Controls\MetroButton.xaml.cs">
+    <Compile Update="$(MSBuildThisFileDirectory)Controls\MetroButton.xaml.cs">
       <DependentUpon>MetroButton.xaml</DependentUpon>
     </Compile>
-    <Compile Update="D:\Work\project-bayoen\bayoen.star\bayoen.library.Metro\Controls\PropertyComboBox.xaml.cs">
+    <Compile Update="$(MSBuildThisFileDirectory)Controls\MetroCircleButton.xaml.cs">
+      <DependentUpon>MetroCircleButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="$(MSBuildThisFileDirectory)Controls\PropertyComboBox.xaml.cs">
       <DependentUpon>PropertyComboBox.xaml</DependentUpon>
     </Compile>
-    <Compile Update="D:\Work\project-bayoen\bayoen.star\bayoen.library.Metro\Controls\PropertyToggleSwitch.xaml.cs">
+    <Compile Update="$(MSBuildThisFileDirectory)Controls\PropertyToggleSwitch.xaml.cs">
       <DependentUpon>PropertyToggleSwitch.xaml</DependentUpon>
     </Compile>
-    <Compile Update="D:\Work\project-bayoen\bayoen.star\bayoen.library.Metro\Controls\WindowCommandButton.xaml.cs">
+    <Compile Update="$(MSBuildThisFileDirectory)Controls\WindowCommandButton.xaml.cs">
       <DependentUpon>WindowCommandButton.xaml</DependentUpon>
     </Compile>
-    <Compile Update="D:\Work\project-bayoen\bayoen.star\bayoen.library.Metro\Windows\BaseWindow.xaml.cs">
+    <Compile Update="$(MSBuildThisFileDirectory)Windows\BaseWindow.xaml.cs">
       <DependentUpon>BaseWindow.xaml</DependentUpon>
     </Compile>
   </ItemGroup>

@@ -27,6 +27,12 @@ namespace bayoen.star
         /// </summary>
         public static MainWindow MainWindow => _mainWindow ?? (_mainWindow = new MainWindow());
 
+        private static CapturableWindow _capturableWindow;
+        /// <summary>
+        /// Captureable window for MainWindow of application. <see cref="CapturableWindow"/> contains @@@.
+        /// </summary>
+        public static CapturableWindow CapturableWindow => _capturableWindow ?? (_capturableWindow = new CapturableWindow());
+
         /// <summary>
         /// Main worker of 'bayoen-star'
         /// </summary>
@@ -57,7 +63,6 @@ namespace bayoen.star
         /// </summary>
         public static MiniOverlay MiniOverlay => _miniOverlay ?? (_miniOverlay = new MiniOverlay());
 
-#if DEBUG
         private static DashboardWindow _dashboardWindow;
         /// <summary>
         /// Dashboard window of 'bayoen-star' from its initial version
@@ -70,6 +75,7 @@ namespace bayoen.star
         /// </summary>
         public static DispatcherTimer DashboardTimer => _dashboardTimer ?? (_dashboardTimer = new DispatcherTimer());
 
+#if DEBUG
         private static DebugWindow _debugWindow;
         /// <summary>
         /// Mini window of 'bayoen-star' from its initial version

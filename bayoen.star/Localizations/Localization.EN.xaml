@@ -3,6 +3,35 @@
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
     <!--Localization.en: English-->
+
+    <!-- * MainWindow Texts -->
+    <!-- 0.0 Top Mode -->
+    <system:String x:Key="Main-TopMode-Header-String">Ready, Star!</system:String>
+    <system:String x:Key="Main-TopMode-None-String">None</system:String>
+    <system:String x:Key="Main-TopMode-Always-String">Always</system:String>    
+    <system:String x:Key="Main-TopMode-FreePlay-String">Free</system:String>
+    <system:String x:Key="Main-TopMode-PuzzleLeague-String">League</system:String>
+
+    <!-- 0.1 Record List -->
+    <system:String x:Key="Main-RecordList-Header-String">Records</system:String>
+    <system:String x:Key="Main-RecordList-Event-String">Event</system:String>
+    <system:String x:Key="Main-RecordList-Match-String">Match</system:String>
+
+    <!-- 1.0 Current Event -->
+    <system:String x:Key="Main-CurrentEvent-Header-String">Current</system:String>
+
+    <!-- 1.1 Event Detail -->
+    <system:String x:Key="Main-EventDetail-Header-String">Details</system:String>
+
+    <!-- 2.0 Control Panel -->
+    <system:String x:Key="Main-ControlPanel-Header-String">Control</system:String>
+
+    <!-- 2.1 Goal Panel -->
+    <system:String x:Key="Main-GoalPanel-Header-String">Goal</system:String>
+    <system:String x:Key="Main-GoalPanel-Set-String">Set</system:String>
+    <system:String x:Key="Main-GoalPanel-Remove-String">Remove</system:String>
+    <system:String x:Key="Main-GoalPanel-Favorite-String">Favorite</system:String>
+
     <system:String x:Key="Main-Menu-String">Menu</system:String>
 
     <system:String x:Key="Main-Status-FreePlay-String">Free Play</system:String>
@@ -30,6 +59,7 @@
     <system:String x:Key="TopMenu-Popup-String">Popup</system:String>
 
     <system:String x:Key="TopMenu-Setting-String">Setting...</system:String>
+    <system:String x:Key="TopMenu-Help-String">Help...</system:String>
 
     <!--Setting Window-->
     <system:String x:Key="Setting-Yes-String">Yes</system:String>

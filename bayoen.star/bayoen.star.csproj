@@ -96,12 +96,17 @@
     <Compile Include="Core.Helper.cs" />
     <Compile Include="Functions\FncToJson.cs" />
     <Compile Include="Localizations\Culture.cs" />
+    <Compile Include="Variables\GameRecord.cs" />
+    <Compile Include="Variables\MatchRecord.cs" />
+    <Compile Include="Windows\CapturableWindow.xaml.cs">
+      <DependentUpon>CapturableWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\DashboardWindow.xaml.cs">
       <DependentUpon>DashboardWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Workers\GameMemory.cs" />
-    <Compile Include="Variables\GameData.cs" />
-    <Compile Include="Variables\GameStates.cs" />
+    <Compile Include="Variables\PPTData.cs" />
+    <Compile Include="Variables\PPTStates.cs" />
     <Compile Include="Variables\PlayerData.cs" />
     <Compile Include="Workers\GameWorker.cs" />
     <Compile Include="Workers\MainWorker.cs" />
@@ -183,6 +188,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="TrayIcon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\CapturableWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

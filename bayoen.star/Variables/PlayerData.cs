@@ -28,5 +28,7 @@ namespace bayoen.star.Variables
         public string RawName { get; set; }
         public int ID32 { get; set; }
         public int Rating { get; set; }
+
+        public int RatingGain { get; set; }
     }
 }

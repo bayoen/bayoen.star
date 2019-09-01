@@ -141,27 +141,27 @@ namespace bayoen.star.Workers
             this.ModeID = 0;
         }
 
-        public GameStates GetGameState()
+        public PPTStates GetGameState()
         {          
-            if (!this.CheckProcess()) return new GameStates() { Main = MainStates.MissingProcess };
+            if (!this.CheckProcess()) return new PPTStates() { Main = MainStates.MissingProcess };
             this.BaseAddress = (IntPtr)this.GetBaseAddress();
-            if (this.BaseAddress == IntPtr.Zero) return new GameStates() { Main = MainStates.MissingAddress };
+            if (this.BaseAddress == IntPtr.Zero) return new PPTStates() { Main = MainStates.MissingAddress };
             this.CheckMenuID();
 
-            if (this.MenuID > -1) return new GameStates()
+            if (this.MenuID > -1) return new PPTStates()
             {
                 Main = MenuMainState(this.MenuID),
                 Sub = MenuSubState(this.MenuID),
             };
-            if (this.InAdventure) return new GameStates()
+            if (this.InAdventure) return new PPTStates()
             {
                 Main = MainStates.Adventure,
             };
-            if (this.InInitial) return new GameStates()
+            if (this.InInitial) return new PPTStates()
             {
                 Main = MainStates.Title,
             };
-            if (this.InOnlineReplay) return new GameStates()
+            if (this.InOnlineReplay) return new PPTStates()
             {
                 Main = this.InLocalReplay ? MainStates.LocalReplay : MainStates.OnlineReplay,
             };
@@ -169,7 +169,7 @@ namespace bayoen.star.Workers
             this.CheckMainID();
             this.CheckModeID();
 
-            GameStates states = new GameStates()
+            PPTStates states = new PPTStates()
             {
                 Main = MainMainState(this.MainID),
                 Mode = ModeGameMode(this.ModeID),
@@ -319,7 +319,7 @@ namespace bayoen.star.Workers
             return (4 < id) && (id < 10);
         }
 
-        private bool IsDemo(GameStates states)
+        private bool IsDemo(PPTStates states)
         {
             if (states.Main == MainStates.SoloArcade || states.Main == MainStates.MultiArcade)
             {

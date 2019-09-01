@@ -1,0 +1,24 @@
+﻿<Button x:Class="bayoen.library.Metro.Controls.MetroCircleButton"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mtc="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:local="clr-namespace:bayoen.library.Metro.Controls"
+        
+        Margin="0"
+        mtc:ButtonHelper.PreserveTextCase="True"
+        Style="{StaticResource MetroCircleButtonStyle}">
+
+    <StackPanel Orientation="Horizontal"
+                Margin="{Binding Padding, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MetroCircleButton}}">
+        <ContentPresenter Content="{Binding Icon, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MetroCircleButton}}"
+                          Margin="0"
+                          VerticalAlignment="Center"/>
+        <TextBlock x:Name="TextBlock"
+                   Style="{StaticResource MetroTextBlock}"
+                   Text="{Binding Text, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MetroCircleButton}}"
+                   FontSize="{Binding FontSize, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MetroCircleButton}}"
+                   FontWeight="{Binding FontWeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MetroCircleButton}}"
+                   VerticalAlignment="Center">
+        </TextBlock>
+    </StackPanel>
+</Button>

@@ -27,6 +27,8 @@ namespace bayoen.star
             }
         }
 
+        
+
         public static List<MetroComboBoxItem> GetChromaComboBoxItemList()
         {
             List<MetroComboBoxItem> ChromaComboBoxItemList = new List<MetroComboBoxItem>();

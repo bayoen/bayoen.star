@@ -26,10 +26,12 @@ namespace bayoen.star
             Core._settingWindow = new SettingWindow();
 
             if (!Core.MainWorker.IsEnabled) Core.MainWorker.Initiate();
+
             Core.MainWindow.Show();
 
             Core.IsPPTOn = false;
 #if DEBUG
+            Core.CapturableWindow.Show();
             Core.DebugWindow.Show();
             Core.DashboardWindow.Show();
             Core.MiniWindow.Show();

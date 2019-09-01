@@ -4,7 +4,7 @@ using System.Text;
 
 namespace bayoen.library.General.Enums
 {
-    public enum DisplayModes : int
+    public enum ScoreDisplayModes : int
     {
         Star_Plus_only,
         Game_only,

@@ -22,12 +22,11 @@ namespace bayoen.star.Workers
             this.Tick += MainWorker_Tick;
         }
 
-#if DEBUG
         private DateTime TimeAnchor { get; set; }
         public TimeSpan WorkerDuration { get; set; }
         public TimeSpan WorkerDurationAverage { get; set; }
         public long WorkerTick { get; set; }
-#endif
+
 
         private bool ProjectSaveFlag { get; set; }
 
@@ -37,24 +36,24 @@ namespace bayoen.star.Workers
         private GameWorker _gameWorker;
         public GameWorker GameWorker => _gameWorker ?? (_gameWorker = new GameWorker());
 
-        private GameData _data;
-        public GameData Data => _data ?? (_data = new GameData());
-        public GameData Old { get; private set; }
+        private PPTData _data;
+        public PPTData Data => _data ?? (_data = new PPTData());
+        public PPTData Old { get; private set; }
 
         public void Initiate()
         {
-            this.CheckGameData(this.Old = new GameData());
+            this.CheckGameData(this.Old = new PPTData());
 
-#if DEBUG
+
             this.ResetDuration();            
-#endif
 
-            Core.IsPPTOn = (this.Data.GameStates.Main > MainStates.None);
+
+            Core.IsPPTOn = (this.Data.PPTStates.Main > MainStates.None);
 
             this.Start();
         }
 
-#if DEBUG
+
         public void ResetDuration()
         {
             this.TimeAnchor = DateTime.Now;
@@ -68,11 +67,11 @@ namespace bayoen.star.Workers
             this.WorkerDurationAverage = TimeSpan.FromTicks((this.WorkerTick * this.WorkerDurationAverage.Ticks + this.WorkerDuration.Ticks) / (++this.WorkerTick));
             this.TimeAnchor = DateTime.Now;
         }
-#endif
 
-        public void CheckGameData(GameData data)
+
+        public void CheckGameData(PPTData data)
         {
-            data.GameStates = this.Memory.GetGameState();        
+            data.PPTStates = this.Memory.GetGameState();        
         }
 
         private void MainWorker_Tick(object sender, EventArgs e)
@@ -82,12 +81,12 @@ namespace bayoen.star.Workers
             this.CheckGameData(this.Data);
 
             // Check
-            if (this.Data.GameStates.Main > MainStates.None)
+            if (this.Data.PPTStates.Main > MainStates.None)
             {
                 // Early update
-                if (this.Data.GameStates.Sub == SubStates.InMatch)
+                if (this.Data.PPTStates.Sub == SubStates.InMatch)
                 {
-                    if (this.Old.GameStates.Sub != SubStates.InMatch)
+                    if (this.Old.PPTStates.Sub != SubStates.InMatch)
                     {
                         this.Data.WinCount = this.Memory.WinCountForced;
                         this.Data.PlayerCount = this.Memory.LobbySizeInGame;
@@ -97,9 +96,9 @@ namespace bayoen.star.Workers
 
 
                 // Core
-                if (this.Data.GameStates.Sub == SubStates.InMatch)
+                if (this.Data.PPTStates.Sub == SubStates.InMatch)
                 {
-                    if (this.Old.GameStates.Sub == SubStates.InMatch)
+                    if (this.Old.PPTStates.Sub == SubStates.InMatch)
                     {
                         this.Data.Stars = this.Memory.Stars;
                     }                    
@@ -107,7 +106,7 @@ namespace bayoen.star.Workers
 
 
                 // Post update
-                if (this.Data.GameStates.Sub == SubStates.InMatch)
+                if (this.Data.PPTStates.Sub == SubStates.InMatch)
                 {
                     if (!this.Data.Stars.SequenceEqual(this.Old.Stars))
                     {
@@ -139,14 +138,14 @@ namespace bayoen.star.Workers
 
             if (this.ProjectSaveFlag) Core.ProjectData.Save();
 
-#if DEBUG
-            this.CheckDuration();
-#endif
 
-            Core.IsPPTOn = (this.Data.GameStates.Main > MainStates.None);
+            this.CheckDuration();
+
+
+            Core.IsPPTOn = (this.Data.PPTStates.Main > MainStates.None);
 
             // Next tick
-            this.Old = this.Data.Clone() as GameData;
+            this.Old = this.Data.Clone() as PPTData;
         }
     }
 }

@@ -18,7 +18,7 @@
                          VerticalAlignment="Center"/>
 
     <TextBlock x:Name="ScoreBlock"
-               Text="0"    
+               Text="0" Foreground="{DynamicResource TextBrush}"
                FontSize="30" TextAlignment="Center"
                Width="43" Margin="3,0" Padding="0"
                VerticalAlignment="Center"/>
