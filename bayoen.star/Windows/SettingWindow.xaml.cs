@@ -60,8 +60,8 @@ namespace bayoen.star.Windows
             //// Advanced
             // EnableRapidMode
             this.EnableRapidModeSwitch.Value = Core.ProjectData.EnableSlowMode;
-            this.EnableRapidModeSwitch.TrueLabel = $"{Config.SlowInterval.TotalMilliseconds} ms";
-            this.EnableRapidModeSwitch.FalseLabel = $"{Config.NormalInterval.TotalMilliseconds} ms";         
+            //this.EnableRapidModeSwitch.TrueLabel = $"{Config.DisplayIntervalSlow.TotalMilliseconds} ms";
+            //this.EnableRapidModeSwitch.FalseLabel = $"{Config.DisplayIntervalNormal.TotalMilliseconds} ms";         
         }        
 
         private void RestartButton_Click(object sender, RoutedEventArgs e)
@@ -119,8 +119,10 @@ namespace bayoen.star.Windows
         private void EnableRapidModeDetailBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             this.EnableRapidModeSwitch.Detail = this.EnableRapidModeDetailBox.Text
-                .Replace("##IntervalNormal##", $"'{Config.NormalInterval.TotalMilliseconds} ms'")
-                .Replace("##IntervalSlow##", $"'{Config.SlowInterval.TotalMilliseconds} ms'");
+                .Replace("##TrackingIntervalNormal##", $"'{Config.TrackingIntervalNormal.TotalMilliseconds} ms'")
+                .Replace("##TrackingIntervalSlow##", $"'{Config.TrackingIntervalSlow.TotalMilliseconds} ms'")
+                .Replace("##DisplayIntervalNormal##", $"'{Config.DisplayIntervalNormal.TotalMilliseconds} ms'")
+                .Replace("##DisplayIntervalSlow##", $"'{Config.DisplayIntervalSlow.TotalMilliseconds} ms'");
         }
 
 

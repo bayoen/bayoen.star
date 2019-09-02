@@ -92,6 +92,7 @@
     <Compile Include="Controls\MiniScoreContainer.xaml.cs">
       <DependentUpon>MiniScoreContainer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Core.Debug.cs" />
     <Compile Include="Core.Funtion.cs" />
     <Compile Include="Core.Helper.cs" />
     <Compile Include="Functions\FncToJson.cs" />
@@ -139,7 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config.cs" />
-    <Compile Include="Core.cs" />
+    <Compile Include="Core.Layout.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

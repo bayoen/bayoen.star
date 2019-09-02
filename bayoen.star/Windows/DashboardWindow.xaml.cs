@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if DEBUG
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.WebSockets;
@@ -27,10 +28,10 @@ namespace bayoen.star.Windows
             Core.DashboardTimer.Interval = new TimeSpan(0, 0, 0, 0, 1);
             Core.DashboardTimer.Tick += (sender, e) =>
             {
-                this.RootFrameBlock.Text  = $"Root Frame: {Core.MainWorker.Memory.RootFrame.ToString().PadLeft(15)}";
-                this.SceneFrameBlock.Text = $"Scene Frame: {Core.MainWorker.Memory.SceneFrame.ToString().PadLeft(14)}";
-                this.GameFrameBlock.Text  = $"Game Frame: {Core.MainWorker.Memory.GameFrame.ToString().PadLeft(15)}";
-                this.PauseFrameBlock.Text = $"Pause Frame: {Core.MainWorker.Memory.PauseFrame.ToString().PadLeft(14)}";
+                this.RootFrameBlock.Text  = $"Root Frame: {Core.Memory.RootFrame.ToString().PadLeft(15)}";
+                this.SceneFrameBlock.Text = $"Scene Frame: {Core.Memory.SceneFrame.ToString().PadLeft(14)}";
+                this.GameFrameBlock.Text  = $"Game Frame: {Core.Memory.GameFrame.ToString().PadLeft(15)}";
+                this.PauseFrameBlock.Text = $"Pause Frame: {Core.Memory.PauseFrame.ToString().PadLeft(14)}";
 
                 this.MainWorkerTickBlock.Text            = $"Tick: {Core.MainWorker.WorkerTick.ToString().PadLeft(17)}";
                 this.MainWorkerUnitIntervalBlock.Text    = $"Unit Interval: {Core.MainWorker.Interval.TotalMilliseconds.ToString("F2").PadLeft(8)} [ms]";
@@ -78,3 +79,4 @@ namespace bayoen.star.Windows
         }
     }
 }
+#endif

@@ -35,6 +35,46 @@ namespace bayoen.star.Windows
             this.EventListModeButton.IsAccented = true;
 
             this.MenuButton.ContextMenu.PlacementTarget = this.MenuButton;
+
+            this.EventListAnchor = 0;
+            this.EventListPages = this.GetEventListPages();
+        }
+
+        private int _eventListAnchor = -1;
+        public int EventListAnchor
+        {
+            get => this._eventListAnchor;
+            set
+            {
+                int token = Math.Min(int.MaxValue, Math.Max(0, value));
+                if (this._eventListAnchor == token) return;
+
+                this.PrevEventListButton.IsAccented = (token > 0);
+                this.PrevEventListButton.IsEnabled = (token > 0);
+                this.EventListNavigatorBlock.Text = $"{(token + 1).ToString().PadLeft(4)} / {this.EventListPages.ToString().PadRight(4)}";
+
+                this._eventListAnchor = token;
+            }
+        }
+
+        private int _eventListPages = -1;
+        public int EventListPages
+        {
+            get => this._eventListPages;
+            set
+            {
+                if (this._eventListPages == value) return;
+
+                this.EventListNavigatorPanel.Visibility = (value > 1) ? Visibility.Visible : Visibility.Collapsed;
+                this.EventListNavigatorBlock.Text = $"{(this.EventListAnchor + 1).ToString().PadLeft(4)} / {value.ToString().PadRight(4)}";
+
+                this._eventListPages = value;
+            }
+        }
+
+        public int GetEventListPages()
+        {
+            return -1;
         }
 
         private void MenuButton_Click(object sender, RoutedEventArgs e) => this.MenuButton.ContextMenu.IsOpen = true;
@@ -71,14 +111,9 @@ namespace bayoen.star.Windows
         private void EventListModeButton_Click(object sender, RoutedEventArgs e) => Core.ProjectData.RecordDisplayMode = RecordDisplayModes.Event;
         private void MatchListModeButton_Click(object sender, RoutedEventArgs e) => Core.ProjectData.RecordDisplayMode = RecordDisplayModes.Match;
 
-        private void PrevEventListButton_Click(object sender, RoutedEventArgs e)
-        {
+        private void PrevEventListButton_Click(object sender, RoutedEventArgs e) => this.EventListAnchor--;
+        private void NextEventListButton_Click(object sender, RoutedEventArgs e) => this.EventListAnchor++;
 
-        }
-
-        private void NextEventListButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        private const int EventListPageMax = 10;
     }
 }

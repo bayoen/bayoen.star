@@ -23,11 +23,12 @@ namespace bayoen.star
 
         // Properties
         public static readonly string PPTName = "puyopuyotetris";
-        public static readonly TimeSpan NormalInterval = new TimeSpan(0, 0, 0, 0, 50);    // 50 ms
-        public static readonly TimeSpan SlowInterval = new TimeSpan(0, 0, 0, 0, 300);    // 300 ms
+        public static readonly TimeSpan TrackingIntervalNormal = new TimeSpan(0, 0, 0, 0, 2);    // 2 ms
+        public static readonly TimeSpan TrackingIntervalSlow = new TimeSpan(0, 0, 0, 0, 10);    // 10 ms
+        public static readonly TimeSpan DisplayIntervalNormal = new TimeSpan(0, 0, 0, 0, 50);    // 50 ms
+        public static readonly TimeSpan DisplayIntervalSlow = new TimeSpan(0, 0, 0, 0, 300);    // 300 ms
         public static readonly TimeSpan GameInterval = new TimeSpan(0, 0, 0, 0, 5);     // 5 ms
-        public static readonly List<string> CultureCodes = new List<string>() { "en", "ko" };
-        //public static readonly List<string> CultureCodes = new List<string>() { "en", "ko", "ja" };
+        public static readonly List<string> CultureCodes = new List<string>() { "en", "ko", "ja" };
         public static readonly List<Tuple<ChromaKeys, Brush>> ChromaSets = new List<Tuple<ChromaKeys, Brush>>()
         {
             new Tuple<ChromaKeys, Brush>(ChromaKeys.None,  new SolidColorBrush(Color.FromRgb(120, 120, 120))),
@@ -39,6 +40,7 @@ namespace bayoen.star
 
         // File Names
         public const string ProjectDataFileName = "data.json";
+        public const string RecordsFolderName = "records";
         public static readonly Encoding TextEncoding = Encoding.Unicode;
         public static readonly JsonSerializerSettings JsonSerializerSetting = new JsonSerializerSettings()
         {

@@ -24,13 +24,10 @@ namespace bayoen.star.Variables
             this.Version = Config.Assembly.GetName().Version;
             this.RestartingMode = RestartingModes.None;
 
-            this._goalCounter = GoalCounters.Game;
             this.GoalCounter = GoalCounters.Star;
 
             this.AutoUpdate = true;
             this.EnglishDisplay = false;
-
-            this._enableSlowMode = true;
             this.EnableSlowMode = false;
         }
 
@@ -127,7 +124,7 @@ namespace bayoen.star.Variables
         }
 
         /// Advanced
-        private bool _enableSlowMode;
+        private bool _enableSlowMode = true;
         public bool EnableSlowMode
         {
             get => this._enableSlowMode;
@@ -138,7 +135,7 @@ namespace bayoen.star.Variables
                 if (!Core.MainWorker.IsEnabled) Core.MainWorker.Initiate();
                 Core.MainWorker.Stop();
 
-                Core.MainWorker.Interval = value ? Config.SlowInterval : Config.NormalInterval;
+                Core.MainWorker.Interval = value ? Config.DisplayIntervalSlow : Config.DisplayIntervalNormal;
 
                 Core.MainWorker.Start();
 
@@ -255,7 +252,7 @@ namespace bayoen.star.Variables
             }
         }
 
-        private GoalCounters _goalCounter;
+        private GoalCounters _goalCounter = GoalCounters.Game;
         public GoalCounters GoalCounter
         {
             get => this._goalCounter;

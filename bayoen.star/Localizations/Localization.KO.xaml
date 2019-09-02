@@ -2,15 +2,15 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"                    
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
-    <!--Localization.ko: Korean-->
+    <!-- Localization.ko: Korean -->
     
     <!-- * MainWindow Texts -->
     <!-- 0.0 Top Mode -->
-    <system:String x:Key="Main-TopMode-Header-String">준비, 스타!</system:String>
-    <system:String x:Key="Main-TopMode-None-String">안함</system:String>
+    <system:String x:Key="Main-TopMode-Header-String">준비, 스타!</system:String>    
     <system:String x:Key="Main-TopMode-Always-String">항상</system:String>
-    <system:String x:Key="Main-TopMode-FreePlay-String">친선경기</system:String>
-    <system:String x:Key="Main-TopMode-PuzzleLeague-String">퍼즐리그</system:String>
+    <system:String x:Key="Main-TopMode-FreePlay-String">친선</system:String>
+    <system:String x:Key="Main-TopMode-PuzzleLeague-String">리그</system:String>
+    <system:String x:Key="Main-TopMode-None-String">안함</system:String>
 
     <!-- 0.1 Record List -->
     <system:String x:Key="Main-RecordList-Header-String">경기기록</system:String>
@@ -93,8 +93,10 @@
     <system:String x:Key="Setting-Advanced-String">고급</system:String>
     <system:String x:Key="Setting-Advanced-PerformanceHeader-String">성능</system:String>
     <system:String x:Key="Setting-Advanced-EnableSlowMode-Header-String">저사양 모드 활성화</system:String>
-    <system:String x:Key="Setting-Advanced-EnableSlowMode-Detail-String">갱신주기를 ##IntervalNormal##에서 ##IntervalSlow##로 바꿉니다. 이 옵션은 저사양 컴퓨터 환경에서 사용하시길 추천드립니다.</system:String>
+    <system:String x:Key="Setting-Advanced-EnableSlowMode-Detail-String" xml:space="preserve">이 옵션은 저사양 컴퓨터 환경에서 사용하시길 추천드립니다.
 
+    - 게임동작주기를 ##TrackingIntervalNormal##에서 ##TrackingIntervalSlow##로 바꿉니다.
+    - 표시주기를 ##DisplayIntervalNormal##에서 ##DisplayIntervalSlow##로 바꿉니다.</system:String>
     <system:String x:Key="Setting-Restart-String">재시작</system:String>
 
     <!--Tray Icon-->

@@ -18,7 +18,7 @@ namespace bayoen.star.Workers
     {
         public MainWorker()
         {
-            this.Interval = Config.NormalInterval;
+            this.Interval = Config.DisplayIntervalNormal;
             this.Tick += MainWorker_Tick;
         }
 
@@ -29,12 +29,6 @@ namespace bayoen.star.Workers
 
 
         private bool ProjectSaveFlag { get; set; }
-
-        private GameMemory _memory;
-        public GameMemory Memory => _memory ?? (_memory = new GameMemory(Config.PPTName));
-
-        private GameWorker _gameWorker;
-        public GameWorker GameWorker => _gameWorker ?? (_gameWorker = new GameWorker());
 
         private PPTData _data;
         public PPTData Data => _data ?? (_data = new PPTData());
@@ -71,7 +65,7 @@ namespace bayoen.star.Workers
 
         public void CheckGameData(PPTData data)
         {
-            data.PPTStates = this.Memory.GetGameState();        
+            data.PPTStates = Core.Memory.GetGameState();        
         }
 
         private void MainWorker_Tick(object sender, EventArgs e)
@@ -83,14 +77,19 @@ namespace bayoen.star.Workers
             // Check
             if (this.Data.PPTStates.Main > MainStates.None)
             {
+                if (this.Data.PPTStates.Main == MainStates.PuzzleLeague)
+                {
+                    this.PuzzleLeagueTick();
+                }
+
                 // Early update
                 if (this.Data.PPTStates.Sub == SubStates.InMatch)
                 {
                     if (this.Old.PPTStates.Sub != SubStates.InMatch)
                     {
-                        this.Data.WinCount = this.Memory.WinCountForced;
-                        this.Data.PlayerCount = this.Memory.LobbySizeInGame;
-                        this.Data.PlayerMax = this.Memory.LobbyMax;
+                        this.Data.WinCount = Core.Memory.WinCountForced;
+                        this.Data.PlayerCount = Core.Memory.LobbySizeInGame;
+                        this.Data.PlayerMax = Core.Memory.LobbyMax;
                     }
                 }
 
@@ -100,7 +99,7 @@ namespace bayoen.star.Workers
                 {
                     if (this.Old.PPTStates.Sub == SubStates.InMatch)
                     {
-                        this.Data.Stars = this.Memory.Stars;
+                        this.Data.Stars = Core.Memory.Stars;
                     }                    
                 }
 
@@ -122,7 +121,7 @@ namespace bayoen.star.Workers
                                 tokenStars[playerIndex]++;
                                 Core.ProjectData.CountedStars = tokenStars;
 
-                                if (this.Data.Stars[playerIndex] == this.Memory.WinCountForced)
+                                if (this.Data.Stars[playerIndex] == Core.Memory.WinCountForced)
                                 {
                                     List<int> tokenGames = new List<int>(Core.ProjectData.CountedGames);
                                     tokenGames[playerIndex]++;
@@ -146,6 +145,11 @@ namespace bayoen.star.Workers
 
             // Next tick
             this.Old = this.Data.Clone() as PPTData;
+        }
+
+        private void PuzzleLeagueTick()
+        {
+
         }
     }
 }

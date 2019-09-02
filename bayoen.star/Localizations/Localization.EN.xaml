@@ -2,15 +2,15 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
-    <!--Localization.en: English-->
+    <!-- Localization.en: English -->
 
     <!-- * MainWindow Texts -->
     <!-- 0.0 Top Mode -->
     <system:String x:Key="Main-TopMode-Header-String">Ready, Star!</system:String>
-    <system:String x:Key="Main-TopMode-None-String">None</system:String>
     <system:String x:Key="Main-TopMode-Always-String">Always</system:String>    
     <system:String x:Key="Main-TopMode-FreePlay-String">Free</system:String>
     <system:String x:Key="Main-TopMode-PuzzleLeague-String">League</system:String>
+    <system:String x:Key="Main-TopMode-None-String">None</system:String>
 
     <!-- 0.1 Record List -->
     <system:String x:Key="Main-RecordList-Header-String">Records</system:String>
@@ -93,8 +93,10 @@
     <system:String x:Key="Setting-Advanced-String">Advanced</system:String>
     <system:String x:Key="Setting-Advanced-PerformanceHeader-String">Performance</system:String>
     <system:String x:Key="Setting-Advanced-EnableSlowMode-Header-String">Enable Slow Mode</system:String>
-    <system:String x:Key="Setting-Advanced-EnableSlowMode-Detail-String">Change the refreshing interval to ##IntervalSlow## from ##IntervalNormal##. We recommend you to use this option for low performance computer</system:String>
+    <system:String x:Key="Setting-Advanced-EnableSlowMode-Detail-String" xml:space="preserve">We recommend you to use this option for low performance computer.
 
+    - Change the game tracking interval to ##TrackingIntervalSlow## from ##TrackingIntervalNormal##.
+    - Change the display interval to ##DisplayIntervalSlow## from ##DisplayIntervalNormal##.</system:String>
     <system:String x:Key="Setting-Restart-String">Restart</system:String>
 
     <!--Tray Icon-->

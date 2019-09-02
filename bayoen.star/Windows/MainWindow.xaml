@@ -56,11 +56,11 @@
 
         <!-- Column 0 -->
         <Grid Grid.Column="0">
-            
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
-                <!--<RowDefinition Height="Auto"/>-->
             </Grid.RowDefinitions>
 
             <!-- Column 0 & Row 0: TopMode -->
@@ -68,18 +68,18 @@
                 <Grid Margin="{StaticResource ControlGap}">
                     <StackPanel Orientation="Horizontal"
                                 VerticalAlignment="Center" HorizontalAlignment="Left">
-                        
+
                         <metroControls:MetroImage x:Name="LogoImage"
                                               Height="25" Width="25" Margin="3,0,0,0"
                                               VerticalAlignment="Center"/>
 
                         <TextBlock Style="{DynamicResource HeaderBlock}"
-                               Text="{DynamicResource Main-TopMode-Header-String}"/>
+                                   Text="{DynamicResource Main-TopMode-Header-String}"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal"
                                 VerticalAlignment="Center" HorizontalAlignment="Right">
-                        
+
                         <metroControls:MetroButton x:Name="AlwaysTopModeButton"
                                                Text="{DynamicResource Main-TopMode-Always-String}" FontSize="12" FontWeight="Normal"
                                                Padding="4,0" Margin="2" Click="AlwaysTopModeButton_Click">
@@ -116,8 +116,17 @@
                 </Grid>
             </Border>
 
-            <!-- Column 0 & Row 1: RecordList -->
+            <!-- Column 0 & Row 1: MyPPT -->
             <Border Grid.Row="1" Style="{StaticResource MetroBorder}">
+                <StackPanel Orientation="Horizontal" Margin="{StaticResource ControlGap}">
+                    <TextBlock x:Name="MyNameBlock" Style="{DynamicResource HeaderBlock}">
+                        SemiR4inyyy is Online
+                    </TextBlock>
+                </StackPanel>
+            </Border>
+
+            <!-- Column 0 & Row 2: RecordList -->
+            <Border Grid.Row="2" Style="{StaticResource MetroBorder}">
                 <Grid>
 
                     <Grid.RowDefinitions>
@@ -138,9 +147,9 @@
                                 <StackPanel x:Name="EventListNavigatorPanel" 
                                             Orientation="Horizontal"
                                             Margin="0,0,25,0" VerticalAlignment="Center">
-                                    
+
                                     <metroControls:MetroCircleButton x:Name="PrevEventListButton"
-                                                                     Height="36" Width="36" Padding="2,0" Margin="2" 
+                                                                     Height="36" Width="36" IsAccented="True" Padding="2,0" Margin="2" 
                                                                      Click="PrevEventListButton_Click">
                                         <metroControls:MetroCircleButton.Icon>
                                             <iconPacks:PackIconFontAwesome Kind="ChevronLeftSolid" Height="15" Width="15" Margin="0,0,2,0"/>
@@ -154,13 +163,13 @@
                                     </TextBlock>
 
                                     <metroControls:MetroCircleButton x:Name="NextEventListButton"
-                                                                     Height="36" Width="36" Padding="2,0" Margin="2" 
+                                                                     Height="36" Width="36" IsAccented="True" Padding="2,0" Margin="2" 
                                                                      Click="NextEventListButton_Click">
                                         <metroControls:MetroCircleButton.Icon>
                                             <iconPacks:PackIconFontAwesome Kind="ChevronRightSolid" Height="15" Width="15" Margin="2,0,0,0"/>
                                         </metroControls:MetroCircleButton.Icon>
                                     </metroControls:MetroCircleButton>
-                                    
+
                                 </StackPanel>
 
                                 <metroControls:MetroButton x:Name="EventListModeButton"
@@ -249,16 +258,7 @@
                 </Grid>
             </Border>
 
-            <!-- Column 0 & Row 2: MatchNavigator -->
-            <!--<Border Grid.Row="2" Style="{StaticResource MetroBorder}">
-                <StackPanel Orientation="Horizontal" Margin="{StaticResource ControlGap}"
-                            VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <TextBlock>Prev / Next</TextBlock>
-                </StackPanel>
-            </Border>-->
-        
         </Grid>
-
 
         <!-- Column 1 -->
         <Grid Grid.Column="1">
@@ -290,7 +290,7 @@
                     </Border>
                 </StackPanel>
             </GroupBox>
-        
+
         </Grid>
 
         <!-- Column 2 -->
@@ -421,13 +421,12 @@
                         </StackPanel>
                     </Grid>
 
-                    
+
                 </Grid>
             </GroupBox>
         </Grid>
 
     </Grid>
-
 
     <windows:BaseWindow.RightWindowCommands>
         <mtc:WindowCommands>
