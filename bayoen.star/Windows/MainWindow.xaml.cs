@@ -36,51 +36,13 @@ namespace bayoen.star.Windows
 
             this.MenuButton.ContextMenu.PlacementTarget = this.MenuButton;
 
-            this.EventListAnchor = 0;
-            this.EventListPages = this.GetEventListPages();
-        }
-
-        private int _eventListAnchor = -1;
-        public int EventListAnchor
-        {
-            get => this._eventListAnchor;
-            set
-            {
-                int token = Math.Min(int.MaxValue, Math.Max(0, value));
-                if (this._eventListAnchor == token) return;
-
-                this.PrevEventListButton.IsAccented = (token > 0);
-                this.PrevEventListButton.IsEnabled = (token > 0);
-                this.EventListNavigatorBlock.Text = $"{(token + 1).ToString().PadLeft(4)} / {this.EventListPages.ToString().PadRight(4)}";
-
-                this._eventListAnchor = token;
-            }
-        }
-
-        private int _eventListPages = -1;
-        public int EventListPages
-        {
-            get => this._eventListPages;
-            set
-            {
-                if (this._eventListPages == value) return;
-
-                this.EventListNavigatorPanel.Visibility = (value > 1) ? Visibility.Visible : Visibility.Collapsed;
-                this.EventListNavigatorBlock.Text = $"{(this.EventListAnchor + 1).ToString().PadLeft(4)} / {value.ToString().PadRight(4)}";
-
-                this._eventListPages = value;
-            }
-        }
-
-        public int GetEventListPages()
-        {
-            return -1;
-        }
+            //Core.EventChecker.ScanEvents();
+            //Core.EventChecker.PageIndex = 0;
+        }        
 
         private void MenuButton_Click(object sender, RoutedEventArgs e) => this.MenuButton.ContextMenu.IsOpen = true;
         private void ResetMeniItem_Click(object sender, RoutedEventArgs e) => Core.ResetScore();
         private void SettingMenuItem_Click(object sender, RoutedEventArgs e) => Core.SettingWindow.Show();
-
         private void ModeSubMenuItem_Click(object sender, RoutedEventArgs e)
         {
             MenuItem SelectedSubModeMenuItem = sender as MenuItem;
@@ -95,25 +57,21 @@ namespace bayoen.star.Windows
             int seledtedIndex = ModeMenuItem.Items.IndexOf(SelectedSubModeMenuItem);
         }
 
-        private void EditFavoriteGoalButton_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-        
-        private void AlwaysTopModeButton_Click(object sender, RoutedEventArgs e) => Core.ProjectData.TrackingMode = TrackingModes.Always;
-        private void NormalTopModeButton_Click(object sender, RoutedEventArgs e) => Core.ProjectData.TrackingMode = TrackingModes.Friendly;
-        private void LeagueTopModeButton_Click(object sender, RoutedEventArgs e) => Core.ProjectData.TrackingMode = TrackingModes.League;
-        private void NoneTopModeButton_Click(object sender, RoutedEventArgs e) => Core.ProjectData.TrackingMode = TrackingModes.None;
+        private void EditFavoriteGoalButton_Click(object sender, RoutedEventArgs e) { }        
+        private void AlwaysTopModeButton_Click(object sender, RoutedEventArgs e) => Core.Project.TrackingMode = TrackingModes.Always;
+        private void NormalTopModeButton_Click(object sender, RoutedEventArgs e) => Core.Project.TrackingMode = TrackingModes.Friendly;
+        private void LeagueTopModeButton_Click(object sender, RoutedEventArgs e) => Core.Project.TrackingMode = TrackingModes.League;
+        private void NoneTopModeButton_Click(object sender, RoutedEventArgs e) => Core.Project.TrackingMode = TrackingModes.None;
 
-        private void GoalStarButton_Click(object sender, RoutedEventArgs e) => Core.ProjectData.GoalCounter = GoalCounters.Star;
-        private void GoalGameButton_Click(object sender, RoutedEventArgs e) => Core.ProjectData.GoalCounter = GoalCounters.Game;
+        private void GoalStarButton_Click(object sender, RoutedEventArgs e) => Core.Project.GoalCounter = GoalCounters.Star;
+        private void GoalGameButton_Click(object sender, RoutedEventArgs e) => Core.Project.GoalCounter = GoalCounters.Game;
 
-        private void EventListModeButton_Click(object sender, RoutedEventArgs e) => Core.ProjectData.RecordDisplayMode = RecordDisplayModes.Event;
-        private void MatchListModeButton_Click(object sender, RoutedEventArgs e) => Core.ProjectData.RecordDisplayMode = RecordDisplayModes.Match;
+        private void EventListModeButton_Click(object sender, RoutedEventArgs e) => Core.Project.RecordDisplayMode = RecordDisplayModes.Event;
+        private void MatchListModeButton_Click(object sender, RoutedEventArgs e) => Core.Project.RecordDisplayMode = RecordDisplayModes.Match;
 
-        private void PrevEventListButton_Click(object sender, RoutedEventArgs e) => this.EventListAnchor--;
-        private void NextEventListButton_Click(object sender, RoutedEventArgs e) => this.EventListAnchor++;
+        private void PrevEventListButton_Click(object sender, RoutedEventArgs e) { } //=> Core.EventChecker.PageIndex--;
+        private void NextEventListButton_Click(object sender, RoutedEventArgs e) { } // => Core.EventChecker.PageIndex++;
 
-        private const int EventListPageMax = 10;
+        private void WhereAmIDetailBox_TextChanged(object sender, TextChangedEventArgs e) => this.CheckStatus();
     }
 }

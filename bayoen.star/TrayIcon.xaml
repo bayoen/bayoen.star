@@ -12,7 +12,7 @@
             <MenuItem Header="{DynamicResource Tray-ShowMain-String}" Click="ShowMenuItem_Click"/>
             <MenuItem Header="{DynamicResource TopMenu-Setting-String}" Click="SettingMenuItem_Click"/>
             <!--<MenuItem Header="{DynamicResource TopMenu-Setting-String}" Click="SettingMenuItem_Click"/>-->
-            <MenuItem StaysOpenOnClick="True">2
+            <MenuItem StaysOpenOnClick="True">
                 <MenuItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{DynamicResource TopMenu-Goal-String}" VerticalAlignment="Center"/>

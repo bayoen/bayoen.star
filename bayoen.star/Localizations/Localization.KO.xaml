@@ -2,17 +2,27 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"                    
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
-    <!-- Localization.ko: Korean -->
+    <!-- Localization.ko: Korean    2019-09-02 16:50 -->
     
     <!-- * MainWindow Texts -->
-    <!-- 0.0 Top Mode -->
-    <system:String x:Key="Main-TopMode-Header-String">준비, 스타!</system:String>    
-    <system:String x:Key="Main-TopMode-Always-String">항상</system:String>
-    <system:String x:Key="Main-TopMode-FreePlay-String">친선</system:String>
-    <system:String x:Key="Main-TopMode-PuzzleLeague-String">리그</system:String>
-    <system:String x:Key="Main-TopMode-None-String">안함</system:String>
+    <!-- 0.0 Where Am I -->
+    <system:String x:Key="Main-Status-Detail-String">##MyLocation##와 ##MyName##!</system:String>
+    <system:String x:Key="Main-Status-FreePlay-String">클럽</system:String>
+    <system:String x:Key="Main-Status-PuzzleLeague-String">퍼즐리그</system:String>
+    <system:String x:Key="Main-Status-Arcade-String">아케이드</system:String>
+    <system:String x:Key="Main-Status-Adventure-String">어드벤처</system:String>    
+    <system:String x:Key="Main-Status-Lobby-String">로비</system:String>
+    <system:String x:Key="Main-Status-Title-String">타이틀 화면...</system:String>
+    <system:String x:Key="Main-Status-Offline-String">뿌요뿌요 테트리스가 꺼져있습니다</system:String>
 
-    <!-- 0.1 Record List -->
+    <!-- 0.1 Top Mode -->
+    <system:String x:Key="Main-OverlayMode-Header-String">오버레이</system:String>    
+    <system:String x:Key="Main-OverlayMode-Always-String">항상</system:String>
+    <system:String x:Key="Main-OverlayMode-FreePlay-String">친선</system:String>
+    <system:String x:Key="Main-OverlayMode-PuzzleLeague-String">리그</system:String>
+    <system:String x:Key="Main-OverlayMode-None-String">안함</system:String>
+
+    <!-- 0.2 Record List -->
     <system:String x:Key="Main-RecordList-Header-String">경기기록</system:String>
     <system:String x:Key="Main-RecordList-Event-String">이벤트</system:String>
     <system:String x:Key="Main-RecordList-Match-String">경기</system:String>
@@ -33,14 +43,6 @@
     <system:String x:Key="Main-GoalPanel-Favorite-String">즐겨찾기</system:String>
 
     <system:String x:Key="Main-Menu-String">메뉴</system:String>
-
-    <system:String x:Key="Main-Status-FreePlay-String">프리 플레이</system:String>
-    <system:String x:Key="Main-Status-PuzzleLeague-String">퍼즐 리그</system:String>
-
-    <system:String x:Key="Main-Status-Initialized-String">초기화</system:String>
-    <system:String x:Key="Main-Status-Ready-String">준비</system:String>
-    <system:String x:Key="Main-Status-InGame-String">게임 중</system:String>
-    <system:String x:Key="Main-Status-Offline-String">오프라인</system:String>
     
     <!--Top Menu-->
     <system:String x:Key="TopMenu-Reset-String">초기화</system:String>

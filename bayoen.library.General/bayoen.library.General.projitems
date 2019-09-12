@@ -9,13 +9,15 @@
     <Import_RootNamespace>bayoen.library.General</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\BrokenTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\ChromaKeys.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\PlayTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\ScoreDisplayModes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\GameModes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\GoalCounters.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\GoalTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\MainStates.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Enums\MatchTypes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\MatchCategories.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\RecordDisplayModes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\ScoreOrientation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\RestartingModes.cs" />

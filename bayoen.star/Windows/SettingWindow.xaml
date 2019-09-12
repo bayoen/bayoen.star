@@ -18,7 +18,7 @@
     </windows:BaseWindow.Resources>
 
     <Grid>
-        <Grid Width="128" Margin="0" Background="#191919" HorizontalAlignment="Left">
+        <Grid Width="148" Margin="0" Background="#191919" HorizontalAlignment="Left">
             <metroControls:MetroButton x:Name="RestartButton"
                                        IsAccented="True"
                                        Text="{DynamicResource Setting-Restart-String}"
@@ -61,7 +61,7 @@
                             <DataTemplate>
                                 <Grid Background="Transparent" Height="20">
                                     <Line Height="0.2"
-                                          X1="0" X2="90" Y1="0" Y2="0" Stroke="White"
+                                          X1="0" X2="110" Y1="0" Y2="0" Stroke="White"
                                           Margin="10,5,10,0"
                                           VerticalAlignment="Center"/>
                                 </Grid>

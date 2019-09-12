@@ -2,17 +2,27 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
-    <!-- Localization.en: English -->
+    <!-- Localization.en: English   2019-09-02 16:50 -->
 
     <!-- * MainWindow Texts -->
-    <!-- 0.0 Top Mode -->
-    <system:String x:Key="Main-TopMode-Header-String">Ready, Star!</system:String>
-    <system:String x:Key="Main-TopMode-Always-String">Always</system:String>    
-    <system:String x:Key="Main-TopMode-FreePlay-String">Free</system:String>
-    <system:String x:Key="Main-TopMode-PuzzleLeague-String">League</system:String>
-    <system:String x:Key="Main-TopMode-None-String">None</system:String>
+    <!-- 0.0 Where Am I -->
+    <system:String x:Key="Main-Status-Detail-String">##MyName## in the ##MyLocation##!</system:String>
+    <system:String x:Key="Main-Status-FreePlay-String">Free Play</system:String>
+    <system:String x:Key="Main-Status-PuzzleLeague-String">Puzzle League</system:String>
+    <system:String x:Key="Main-Status-Arcade-String">Arcade</system:String>
+    <system:String x:Key="Main-Status-Adventure-String">Adventure</system:String>    
+    <system:String x:Key="Main-Status-Lobby-String">Lobby</system:String>
+    <system:String x:Key="Main-Status-Title-String">Title Screen...</system:String>
+    <system:String x:Key="Main-Status-Offline-String">Puyo Puyo Tetris is Offline</system:String>
 
-    <!-- 0.1 Record List -->
+    <!-- 0.1 Top Mode -->
+    <system:String x:Key="Main-OverlayMode-Header-String">Overlay</system:String>
+    <system:String x:Key="Main-OverlayMode-Always-String">Always</system:String>    
+    <system:String x:Key="Main-OverlayMode-FreePlay-String">Free</system:String>
+    <system:String x:Key="Main-OverlayMode-PuzzleLeague-String">League</system:String>
+    <system:String x:Key="Main-OverlayMode-None-String">None</system:String>
+
+    <!-- 0.2 Record List -->
     <system:String x:Key="Main-RecordList-Header-String">Records</system:String>
     <system:String x:Key="Main-RecordList-Event-String">Event</system:String>
     <system:String x:Key="Main-RecordList-Match-String">Match</system:String>
@@ -33,14 +43,6 @@
     <system:String x:Key="Main-GoalPanel-Favorite-String">Favorite</system:String>
 
     <system:String x:Key="Main-Menu-String">Menu</system:String>
-
-    <system:String x:Key="Main-Status-FreePlay-String">Free Play</system:String>
-    <system:String x:Key="Main-Status-PuzzleLeague-String">Puzzle League</system:String>
-
-    <system:String x:Key="Main-Status-Initialized-String">Initialized</system:String>
-    <system:String x:Key="Main-Status-Ready-String">Ready</system:String>
-    <system:String x:Key="Main-Status-InGame-String">In Game</system:String>
-    <system:String x:Key="Main-Status-Offline-String">Offline</system:String>
 
     <!--Top Menu-->
     <system:String x:Key="TopMenu-Reset-String">Reset</system:String>

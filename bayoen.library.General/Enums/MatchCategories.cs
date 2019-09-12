@@ -1,11 +1,10 @@
 ﻿namespace bayoen.library.General.Enums
 {
-    public enum MatchTypes : int
+    public enum MatchCategories : int
     {
         None,
         FreePlay,
         PuzzleLeague,
-        SoloArcade,
-        MultiArcade,
+        Arcade,
     }
 }

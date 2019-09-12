@@ -2,17 +2,27 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
-    <!-- Localization.ja: Japanese 2019-09-02 12:30 -->
+    <!-- Localization.ja: Japanese  2019-09-02 12:30 -->
 
     <!-- * MainWindow Texts -->
-    <!-- 0.0 Top Mode -->
-    <system:String x:Key="Main-TopMode-Header-String">Ready, Star!</system:String>
-    <system:String x:Key="Main-TopMode-Always-String">Always</system:String>    
-    <system:String x:Key="Main-TopMode-FreePlay-String">Free</system:String>
-    <system:String x:Key="Main-TopMode-PuzzleLeague-String">League</system:String>
-    <system:String x:Key="Main-TopMode-None-String">None</system:String>
+    <!-- 0.0 Where Am I -->
+    <system:String x:Key="Main-Status-Detail-String">##MyLocation##の##MyName##!</system:String>
+    <system:String x:Key="Main-Status-FreePlay-String">クラブ</system:String>
+    <system:String x:Key="Main-Status-PuzzleLeague-String">パズルリーグ</system:String>
+    <system:String x:Key="Main-Status-Arcade-String">アーケード</system:String>
+    <system:String x:Key="Main-Status-Adventure-String">アドベンチャー</system:String>
+    <system:String x:Key="Main-Status-Lobby-String">ロビー</system:String>
+    <system:String x:Key="Main-Status-Title-String">タイトルのスクリーン。。。</system:String>
+    <system:String x:Key="Main-Status-Offline-String">ぷよぷよテトリスはオフラインです</system:String>
 
-    <!-- 0.1 Record List -->
+    <!-- 0.1 Top Mode -->
+    <system:String x:Key="Main-OverlayMode-Header-String">オーバーレイ</system:String>
+    <system:String x:Key="Main-OverlayMode-Always-String">常に</system:String>
+    <system:String x:Key="Main-OverlayMode-FreePlay-String">Free</system:String>
+    <system:String x:Key="Main-OverlayMode-PuzzleLeague-String">League</system:String>
+    <system:String x:Key="Main-OverlayMode-None-String">None</system:String>
+
+    <!-- 0.2 Record List -->
     <system:String x:Key="Main-RecordList-Header-String">Records</system:String>
     <system:String x:Key="Main-RecordList-Event-String">Event</system:String>
     <system:String x:Key="Main-RecordList-Match-String">Match</system:String>
@@ -33,14 +43,6 @@
     <system:String x:Key="Main-GoalPanel-Favorite-String">Favorite</system:String>
 
     <system:String x:Key="Main-Menu-String">メニュー</system:String>
-
-    <system:String x:Key="Main-Status-FreePlay-String">Free Play</system:String>
-    <system:String x:Key="Main-Status-PuzzleLeague-String">Puzzle League</system:String>
-
-    <system:String x:Key="Main-Status-Initialized-String">Initialized</system:String>
-    <system:String x:Key="Main-Status-Ready-String">Ready</system:String>
-    <system:String x:Key="Main-Status-InGame-String">In Game</system:String>
-    <system:String x:Key="Main-Status-Offline-String">Offline</system:String>
 
     <!--Top Menu-->
     <system:String x:Key="TopMenu-Reset-String">Reset</system:String>
@@ -76,9 +78,9 @@
     <system:String x:Key="Setting-General-EnglishDisplay-Header-String">Forced English Display</system:String>
     <system:String x:Key="Setting-General-EnglishDisplay-Detail-String">Set the language of displaying panels English not the selected language. The interface of bayoen-star remains by the selected language.</system:String>
 
-    <system:String x:Key="Setting-Streaming-String">Streaming</system:String>
-    <system:String x:Key="Setting-Streaming-CaptureHeader-String">Streaming Capture</system:String>
-    <system:String x:Key="Setting-Streaming-ChromaKey-Header-String">Chroma Key</system:String>
+    <system:String x:Key="Setting-Streaming-String">ストリーミング</system:String>
+    <system:String x:Key="Setting-Streaming-CaptureHeader-String">ストリーミングキャプチャ</system:String>
+    <system:String x:Key="Setting-Streaming-ChromaKey-Header-String">クロマキー</system:String>
     <system:String x:Key="Setting-Streaming-ChromaKey-Detail-String" xml:space="preserve">Set chroma key for 'window capture'. Enable windows that be able to be 'window-captured' by a streaming app and set a chroma key of the capturable window.
 
     - It's suitable to a one-computer streaming with window capture

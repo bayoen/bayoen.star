@@ -31,35 +31,35 @@ namespace bayoen.star.Windows
 
             //// General
             // Topmost
-            this.TopmostSwitch.Value = Core.ProjectData.TopMost;            
+            this.TopmostSwitch.Value = Core.Project.TopMost;            
 
             // AutoUpdate
-            this.AutoUpdateSwitch.Value = Core.ProjectData.AutoUpdate;
+            this.AutoUpdateSwitch.Value = Core.Project.AutoUpdate;
 
             // LanguageCode
             this.LanguageCodeComboBox.ComboBoxMinWidth = 135;
             this.LanguageCodeComboBox.ItemSource = Config.CultureCodes.ConvertAll(x =>
             {
                 CultureInfo info = new CultureInfo(x);
-                return $"{info.EnglishName} ({info.NativeName})";
+                return (info.NativeName == info.DisplayName) ? info.NativeName : $"{info.NativeName} ({info.DisplayName})";
             });
-            this.LanguageCodeComboBox.SelectedIndex = Config.CultureCodes.IndexOf(Core.ProjectData.LanguageCode);
+            this.LanguageCodeComboBox.SelectedIndex = Config.CultureCodes.IndexOf(Core.Project.LanguageCode);
 
             // EnglishDisplay
-            this.EnglishDisplaySwitch.Value = Core.ProjectData.EnglishDisplay;
+            this.EnglishDisplaySwitch.Value = Core.Project.EnglishDisplay;
 
             //// Streaming
             // ChromaKey
             this.ChromaKeyComboBox.ComboBoxMinWidth = 120;
             this.ChromaKeyComboBox.ComboBoxBackground = Brushes.Black;
             this.ChromaKeyComboBox.ItemSource = Core.GetChromaComboBoxItemList();
-            this.ChromaKeyComboBox.SelectedIndex = (int)Core.ProjectData.ChromaKey;
+            this.ChromaKeyComboBox.SelectedIndex = (int)Core.Project.ChromaKey;
 
             //
 
             //// Advanced
             // EnableRapidMode
-            this.EnableRapidModeSwitch.Value = Core.ProjectData.EnableSlowMode;
+            this.EnableRapidModeSwitch.Value = Core.Project.EnableSlowMode;
             //this.EnableRapidModeSwitch.TrueLabel = $"{Config.DisplayIntervalSlow.TotalMilliseconds} ms";
             //this.EnableRapidModeSwitch.FalseLabel = $"{Config.DisplayIntervalNormal.TotalMilliseconds} ms";         
         }        
@@ -71,12 +71,12 @@ namespace bayoen.star.Windows
 
         private void TopmostSwitch_Toggled(object sender, RoutedEventArgs e)
         {
-            Core.ProjectData.TopMost = this.TopmostSwitch.Value;
+            Core.Project.TopMost = this.TopmostSwitch.Value;
         }
 
         private void AutoUpdateSwitch_Toggled(object sender, RoutedEventArgs e)
         {
-            Core.ProjectData.AutoUpdate = this.AutoUpdateSwitch.Value;
+            Core.Project.AutoUpdate = this.AutoUpdateSwitch.Value;
         }
 
         private void LanguageComboBox_SelectionChanged(object sender, RoutedEventArgs e)
@@ -84,13 +84,13 @@ namespace bayoen.star.Windows
             int selectedIndex = this.LanguageCodeComboBox.SelectedIndex;
             if (selectedIndex > -1)
             {
-                Core.ProjectData.LanguageCode = Config.CultureCodes[selectedIndex];
+                Core.Project.LanguageCode = Config.CultureCodes[selectedIndex];
             }
         }
 
         private void EnglishDisplaySwitch_Toggled(object sender, RoutedEventArgs e)
         {
-            Core.ProjectData.EnglishDisplay = this.EnglishDisplaySwitch.Value;
+            Core.Project.EnglishDisplay = this.EnglishDisplaySwitch.Value;
         }
 
         private void CaptureModeComboBox_SelectionChanged(object sender, RoutedEventArgs e)
@@ -98,7 +98,7 @@ namespace bayoen.star.Windows
             int selectedIndex = this.CaptureModeComboBox.SelectedIndex;
             if (selectedIndex > -1)
             {
-                Core.ProjectData.ChromaKey = Config.ChromaSets[selectedIndex].Item1;
+                Core.Project.ChromaKey = Config.ChromaSets[selectedIndex].Item1;
             }
         }
 
@@ -107,20 +107,22 @@ namespace bayoen.star.Windows
             int selectedIndex = this.ChromaKeyComboBox.SelectedIndex;
             if (selectedIndex > -1)
             {
-                Core.ProjectData.ChromaKey = Config.ChromaSets[selectedIndex].Item1;
+                Core.Project.ChromaKey = Config.ChromaSets[selectedIndex].Item1;
             }
         }
 
         private void EnableRapidModeSwitch_Toggled(object sender, RoutedEventArgs e)
         {
-            Core.ProjectData.EnableSlowMode = this.EnableRapidModeSwitch.Value;
+            Core.Project.EnableSlowMode = this.EnableRapidModeSwitch.Value;
         }
 
         private void EnableRapidModeDetailBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             this.EnableRapidModeSwitch.Detail = this.EnableRapidModeDetailBox.Text
+
                 .Replace("##TrackingIntervalNormal##", $"'{Config.TrackingIntervalNormal.TotalMilliseconds} ms'")
                 .Replace("##TrackingIntervalSlow##", $"'{Config.TrackingIntervalSlow.TotalMilliseconds} ms'")
+
                 .Replace("##DisplayIntervalNormal##", $"'{Config.DisplayIntervalNormal.TotalMilliseconds} ms'")
                 .Replace("##DisplayIntervalSlow##", $"'{Config.DisplayIntervalSlow.TotalMilliseconds} ms'");
         }

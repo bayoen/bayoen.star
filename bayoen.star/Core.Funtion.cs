@@ -9,10 +9,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-using bayoen.library.General.Enums;
+using LiteDB;
 
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+using bayoen.library.General.Enums;
 using bayoen.star.Localizations;
 using bayoen.star.Windows;
+using bayoen.star.Variables;
 
 namespace bayoen.star
 {
@@ -20,31 +25,31 @@ namespace bayoen.star
     {
         public static void Initialize()
         {
-            Culture.Set(Core.ProjectData.LanguageCode);
+            Culture.Set(Core.Project.LanguageCode);
 
-            Core.ProjectData.Version = Config.Assembly.GetName().Version;
+            Core.Project.Version = Config.Assembly.GetName().Version;
             Core.TrayIcon.Visibility = Visibility.Visible;
             Core._settingWindow = new SettingWindow();
 
             if (!Core.MainWorker.IsEnabled) Core.MainWorker.Initiate();
+            if (!Core.GameWorker.IsEnabled) Core.GameWorker.Initiate();
 
             Core.MainWindow.Show();
 
-            Core.IsPPTOn = false;
 #if DEBUG
-            Core.CapturableWindow.Show();
+            //Core.CapturableWindow.Show();
             Core.DebugWindow.Show();
             Core.DashboardWindow.Show();
-            Core.MiniWindow.Show();
-            Core.MiniOverlay.Show();
+            //Core.MiniWindow.Show();
+            //Core.MiniOverlay.Show();
             Core.SettingWindow.Show();
 #endif
         }
 
         public static void ResetScore()
         {
-            Core.ProjectData.CountedStars = new List<int>(4) { 0, 0, 0, 0 };
-            Core.ProjectData.CountedGames = new List<int>(4) { 0, 0, 0, 0 };
+            Core.Project.CountedStars = new List<int>(4) { 0, 0, 0, 0 };
+            Core.Project.CountedGames = new List<int>(4) { 0, 0, 0, 0 };
         }
 
         /// <summary>
@@ -53,8 +58,8 @@ namespace bayoen.star
         /// <param name="mode"></param>
         public static void Restart(RestartingModes mode)
         {
-            Core.ProjectData.RestartingMode = mode;
-            Core.ProjectData.Save();
+            Core.Project.RestartingMode = mode;
+            Core.Project.Save();
             Core.TrayIcon.Terminate();
 
             Process.Start(Application.ResourceAssembly.Location);
@@ -63,7 +68,7 @@ namespace bayoen.star
 
         public static void Save()
         {
-            Core.ProjectData.Save();
+            Core.Project.Save();
         }
 
         public static void ShowFolder()

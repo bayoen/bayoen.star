@@ -17,7 +17,7 @@ using System.Windows.Controls;
 
 namespace bayoen.star.Variables
 {
-    public class ProjectData : FncToJson
+    public class ProjectData : FncJson
     {
         public ProjectData()
         {
@@ -134,10 +134,13 @@ namespace bayoen.star.Variables
 
                 if (!Core.MainWorker.IsEnabled) Core.MainWorker.Initiate();
                 Core.MainWorker.Stop();
-
                 Core.MainWorker.Interval = value ? Config.DisplayIntervalSlow : Config.DisplayIntervalNormal;
-
                 Core.MainWorker.Start();
+
+                if (!Core.GameWorker.IsEnabled) Core.GameWorker.Initiate();
+                Core.GameWorker.Stop();
+                Core.GameWorker.Interval = value ? Config.TrackingIntervalSlow : Config.TrackingIntervalNormal;
+                Core.GameWorker.Start();
 
                 this._enableSlowMode = value;
                 this.Save();
@@ -176,8 +179,8 @@ namespace bayoen.star.Variables
             }
         }
 
-        private MatchTypes _matchType;
-        public MatchTypes MatchType
+        private MatchCategories _matchType;
+        public MatchCategories MatchType
         {
             get => this._matchType;
             set
@@ -347,10 +350,10 @@ namespace bayoen.star.Variables
             this.Save(Config.ProjectDataFileName);
         }
 
-        public void Save(string path)
-        {
-            string jsonString = JsonConvert.SerializeObject(this, Formatting.Indented, Config.JsonSerializerSetting);
-            File.WriteAllText(path, jsonString, Config.TextEncoding);
-        }
+        //public void Save(string path)
+        //{
+        //    string jsonString = JsonConvert.SerializeObject(this, Formatting.Indented, Config.JsonSerializerSetting);
+        //    File.WriteAllText(path, jsonString, Config.TextEncoding);
+        //}
     }
 }

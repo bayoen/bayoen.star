@@ -18,5 +18,8 @@ namespace bayoen.library.General.ExtendedMethods
 
             return tempString;
         }
+
+        public static bool ReadBinary(this ProcessMemory pm, int index, IntPtr pOffset) => pm.ReadBinary(index, pOffset, new long[] { });
+        public static bool ReadBinary(this ProcessMemory pm, int index, IntPtr pOffset, params long[] offsets) => (pm.ReadByte(pm.Traverse(pOffset, offsets)) & (1 << index)) != 0;
     }
 }

@@ -13,11 +13,11 @@
                     FontFamily="D2Coding ligature"
                     FontSize="14"
                     
-                    Height="400" Width="900">
+                    Height="700" Width="900">
 
     <windows:BaseWindow.Resources>
         <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource MetroTextBlock}">
-            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Margin" Value="10,3"/>
         </Style>
 
         <Style TargetType="{x:Type GroupBox}" BasedOn="{StaticResource MetroGroupBox}">
@@ -38,8 +38,26 @@
                 <TextBlock x:Name="PauseFrameBlock"/>
             </StackPanel>
         </GroupBox>
-        
-        <GroupBox Header="MainWorker Performance">
+
+        <GroupBox Header="Current Match">
+            <ScrollViewer MaxHeight="800">
+                <StackPanel Orientation="Vertical">
+                    <metroControls:MetroButton x:Name="ResetMatchButton" 
+                                           Text="Reset" IsAccented="True"
+                                           Click="ResetMatchButton_Click"/>
+
+                    <TextBlock x:Name="CurrentMatchBlock"/>
+                </StackPanel>
+            </ScrollViewer>
+        </GroupBox>
+
+        <GroupBox Header="Current Game">
+            <ScrollViewer MaxHeight="800">
+                <TextBlock x:Name="CurrentGameBlock"/>
+            </ScrollViewer>
+        </GroupBox>
+
+        <GroupBox Header="Worker Performance">
             <StackPanel Orientation="Vertical"
                         VerticalAlignment="Bottom" HorizontalAlignment="Center">
                 <TextBlock x:Name="MainWorkerTickBlock"/>
@@ -47,10 +65,15 @@
                 <TextBlock x:Name="MainWorkerDurationBlock"/>
                 <TextBlock x:Name="MainWorkerDurationAverageBlock" ToolTip="CPS (Cycle per second)"/>
 
+                <TextBlock x:Name="GameWorkerTickBlock"/>
+                <TextBlock x:Name="GameWorkerUnitIntervalBlock"/>
+                <TextBlock x:Name="GameWorkerDurationBlock"/>
+                <TextBlock x:Name="GameWorkerDurationAverageBlock" ToolTip="CPS (Cycle per second)"/>
+
                 <metroControls:MetroButton x:Name="ResetDurationButton" 
                                            Text="Reset" IsAccented="True"
                                            Click="ResetDurationButton_Click"/>
-                
+
             </StackPanel>
         </GroupBox>
 
@@ -64,7 +87,7 @@
 
             <Grid Margin="0"
                   VerticalAlignment="Bottom" HorizontalAlignment="Center">
-                
+
                 <StackPanel Orientation="Vertical" Margin="10,5">
                     <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center">
                         <controls:MiniScoreContainer x:Name="CurrentStar1" ScoreType="CurrentStar"/>
@@ -95,7 +118,7 @@
                                            Click="ResetScoreButton_Click"/>
 
                 </StackPanel>
-                
+
             </Grid>
         </GroupBox>
     </WrapPanel>

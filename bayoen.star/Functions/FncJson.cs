@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ using Newtonsoft.Json.Linq;
 
 namespace bayoen.star.Functions
 {
-    public class FncToJson
+    public class FncJson
     {
         public JObject ToJson()
         {
@@ -47,6 +48,24 @@ namespace bayoen.star.Functions
         {
             try { return JsonConvert.DeserializeObject<T>(json.ToString()); }
             catch { return default; }
+        }
+
+        public void Save(string dst)
+        {
+            File.WriteAllText(dst, this.Serialize(), Config.TextEncoding);
+        }
+
+        public static UnkownTypes Load<UnkownTypes>(string src)
+        {            
+            UnkownTypes output;
+            if (File.Exists(src))
+            {
+                string rawString = File.ReadAllText(src, Config.TextEncoding);
+                try { output = JsonConvert.DeserializeObject<UnkownTypes>(rawString, Config.JsonSerializerSetting); }
+                catch { return default; }
+            }
+            else return default;
+            return output;
         }
     }
 }

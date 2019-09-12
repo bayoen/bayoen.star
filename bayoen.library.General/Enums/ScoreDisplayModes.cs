@@ -6,8 +6,8 @@ namespace bayoen.library.General.Enums
 {
     public enum ScoreDisplayModes : int
     {
-        Star_Plus_only,
-        Game_only,
+        Star_Plus_Only,
+        Game_Only,
 
         Game_and_Star,
         Game_and_Star_Plus,

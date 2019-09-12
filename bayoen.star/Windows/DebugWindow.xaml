@@ -30,10 +30,11 @@
     <Grid VerticalAlignment="Top" HorizontalAlignment="Left">
         <WrapPanel Orientation="Horizontal" Margin="4">
             <GroupBox Header="Textout">
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical">
                     <TextBlock x:Name="TextOut1"/>
                     <TextBlock x:Name="TextOut2"/>
                     <TextBlock x:Name="TextOut3"/>
+                    <TextBlock x:Name="TextOut4"/>
                 </StackPanel>
             </GroupBox>
 
@@ -47,7 +48,11 @@
                 <TextBlock x:Name="ProjectDataBlock"/>
             </GroupBox>
 
-            
+            <GroupBox Header="Operation Data">
+                <TextBlock x:Name="OperationDataBlock"/>
+            </GroupBox>
+
+
 
             <StackPanel Orientation="Vertical">
 
@@ -68,7 +73,7 @@
                 </StackPanel>
                                
                 
-                <TextBlock Text="- 2 Players"/>
+                <!--<TextBlock Text="- 2 Players"/>
                 <controls:MiniScorePanel PlayerNumber="2" GoalType="Total" GoalCounter="Game" GoalScore="5" DisplayMode="Game_only" IsFit="True"/>
                 <controls:MiniScorePanel PlayerNumber="2" DisplayMode="Star_Plus_only" PanelLength="Short"/>
                 <controls:MiniScorePanel PlayerNumber="2" GoalType="First" GoalCounter="Star" GoalScore="15" DisplayMode="Star_Plus_and_Star" IsFit="True"/>
@@ -76,7 +81,9 @@
                 <controls:MiniScorePanel PlayerNumber="3" PanelLength="Short"/>
                 <controls:MiniScorePanel PlayerNumber="3" PanelLength="Fit"/>
                 <TextBlock Text="- 4 Players"/>
-                <controls:MiniScorePanel PlayerNumber="4" GoalCounter="Game"/>
+                <controls:MiniScorePanel PlayerNumber="4" GoalCounter="Game"/>-->
+                
+                
                 <!--<TextBlock Text="- Mini Score Containers"/>
                 <controls:MiniScoreContainer ScoreOrientation="Left" Score="9999"/>
                 <controls:MiniScoreContainer/>-->

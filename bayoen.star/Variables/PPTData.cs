@@ -5,26 +5,23 @@ using bayoen.star.Functions;
 
 namespace bayoen.star.Variables
 {
-    public class PPTData : FncToJson, ICloneable
+    public class PPTData : FncJson, ICloneable
     {
         public PPTData()
         {
-            this.PPTStates = new PPTStates();
-            this.Stars = new List<int>() { 0, 0, 0, 0 };
-            this.Players = new List<PlayerData>();
-            this.WinCount = -1;
-            this.PlayerCount = -1;
-            this.PlayerMax = -1;
+            this.States = new PPTStates();
+            this.Stars = new List<int>(4) { 0, 0, 0, 0 };
+            this.Scores = new List<int>(4) { 0, 0, 0, 0 };
+            this.GameFrame = 0;
         }
 
-        public PPTStates PPTStates { get; set; }
-        public int PlayerMax { get; set; }
-        public int PlayerCount { get; set; }
-        public List<PlayerData> Players { get; set; }
-        public int WinCount { get; set; }
+        public PPTStates States { get; set; }
+        public int MyRating { get; set; }
         public List<int> Stars { get; set; }
-        public DateTime GameBegin { get; set; }
-        public DateTime GameEnd { get; set; }       
+
+
+        public int GameFrame { get; set; }
+        public List<int> Scores { get; set; }
 
         public object Clone()
         {

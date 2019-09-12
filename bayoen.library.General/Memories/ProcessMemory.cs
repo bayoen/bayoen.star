@@ -16,7 +16,6 @@ namespace bayoen.library.General.Memories
         [DllImport("kernel32.dll")]
         private static extern bool WriteProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, byte[] lpBuffer, uint nSize, uint lpNumberOfBytesWritten);
 
-
         [DllImport("kernel32.dll")]
         private static extern IntPtr OpenProcess(uint dwDesiredAccess, bool bInheritHandle, int dwProcessId);
 
@@ -47,9 +46,16 @@ namespace bayoen.library.General.Memories
             //ProcessModule processModule = this.mainProcess[0].MainModule;
             //baseAddress = processModule.BaseAddress;
             //return baseAddress;
-
-            if (this.mainProcess.Length == 0) return IntPtr.Zero;
-            return this.mainProcess[0].MainModule.BaseAddress;
+            try
+            {
+                if (this.mainProcess.Length == 0) return IntPtr.Zero;
+                return this.mainProcess[0].MainModule.BaseAddress;
+            }
+            catch
+            {
+                return IntPtr.Zero;
+            }
+            
         }
 
         public string ProcessName;        

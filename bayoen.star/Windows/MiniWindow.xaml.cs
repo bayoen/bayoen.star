@@ -23,59 +23,14 @@ namespace bayoen.star.Windows
         {
             this.InitializeComponent();
             this.Title += $": {Config.AssemblyTitle}";
-
-            this._isMouseEnter = true;
+            
             this.IsMouseEnter = false;
         }
 
         private void BaseWindow_MouseEnter(object sender, MouseEventArgs e) => this.IsMouseEnter = true;
-
         private void BaseWindow_MouseLeave(object sender, MouseEventArgs e) => this.IsMouseEnter = false;
-
-        private bool _isMouseEnter;
-        public bool IsMouseEnter
-        {
-            get => this._isMouseEnter;
-            set
-            {
-                if (this._isMouseEnter == value) return;
-
-                this.TitlebarHeight = value ? MetroTitlebarHeight : 0;
-                this.TopGrid.Margin = new Thickness(0, value ? 0 : MetroTitlebarHeight, 0, 0);
-
-                this._isMouseEnter = value;
-            }
-        }
-
-        private GoalCounters _goalType;
-        public GoalCounters GoalCounter
-        {
-            get => this._goalType;
-            set
-            {
-                if (this._goalType == value) return;
-
-                this.MiniScorePanel.GoalCounter = value;
-
-                this._goalType = value;
-            }
-        }
-
-        private const int MetroTitlebarHeight = 30;
-
-        private void MenuButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.MenuButton.ContextMenu.IsOpen = true;
-        }
-
-        private void ResetMeniItem_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ModeSubMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        private void MenuButton_Click(object sender, RoutedEventArgs e) => this.MenuButton.ContextMenu.IsOpen = true;
+        private void ResetMeniItem_Click(object sender, RoutedEventArgs e) { }
+        private void ModeSubMenuItem_Click(object sender, RoutedEventArgs e) { }
     }
 }

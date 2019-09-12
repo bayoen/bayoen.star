@@ -13,7 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using bayoen.library.General.Enums;
 using bayoen.library.Metro.Windows;
 
 namespace bayoen.star.Windows
@@ -26,18 +26,36 @@ namespace bayoen.star.Windows
             this.Title += $": {Config.AssemblyTitle}";
 
             Core.DashboardTimer.Interval = new TimeSpan(0, 0, 0, 0, 1);
-            Core.DashboardTimer.Tick += (sender, e) =>
-            {
-                this.RootFrameBlock.Text  = $"Root Frame: {Core.Memory.RootFrame.ToString().PadLeft(15)}";
-                this.SceneFrameBlock.Text = $"Scene Frame: {Core.Memory.SceneFrame.ToString().PadLeft(14)}";
-                this.GameFrameBlock.Text  = $"Game Frame: {Core.Memory.GameFrame.ToString().PadLeft(15)}";
-                this.PauseFrameBlock.Text = $"Pause Frame: {Core.Memory.PauseFrame.ToString().PadLeft(14)}";
+            Core.DashboardTimer.Tick += DashboardTimer_Tick;
+            Core.DashboardTimer.Start();
 
-                this.MainWorkerTickBlock.Text            = $"Tick: {Core.MainWorker.WorkerTick.ToString().PadLeft(17)}";
-                this.MainWorkerUnitIntervalBlock.Text    = $"Unit Interval: {Core.MainWorker.Interval.TotalMilliseconds.ToString("F2").PadLeft(8)} [ms]";
-                this.MainWorkerDurationBlock.Text        = $"Duration: {Core.MainWorker.WorkerDuration.TotalMilliseconds.ToString("F2").PadLeft(13)} [ms]";
+        }
+
+        private void DashboardTimer_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                this.MainWorkerTickBlock.Text = $"MainWorker\n\nTick: {Core.MainWorker.WorkerTick.ToString().PadLeft(17)}";
+                this.MainWorkerUnitIntervalBlock.Text = $"Unit Interval: {Core.MainWorker.Interval.TotalMilliseconds.ToString("F2").PadLeft(8)} [ms]";
+                this.MainWorkerDurationBlock.Text = $"Duration: {Core.MainWorker.WorkerDuration.TotalMilliseconds.ToString("F2").PadLeft(13)} [ms]";
                 this.MainWorkerDurationAverageBlock.Text = $"Average: {Core.MainWorker.WorkerDurationAverage.TotalMilliseconds.ToString("F2").PadLeft(14)} [ms]"
-                                                         + $"\n{(1 / (Core.MainWorker.WorkerDurationAverage + Core.MainWorker.Interval).TotalSeconds).ToString("F2").PadLeft(23)} [cps]";
+                                                         + $"\n{(1 / ((Core.MainWorker.WorkerDurationAverage + Core.MainWorker.Interval).TotalSeconds)).ToString("F2").PadLeft(23)} [cps]";
+
+                this.GameWorkerTickBlock.Text = $"GameWorker\n\nTick: {Core.GameWorker.WorkerTick.ToString().PadLeft(17)}";
+                this.GameWorkerUnitIntervalBlock.Text = $"Unit Interval: {Core.GameWorker.Interval.TotalMilliseconds.ToString("F2").PadLeft(8)} [ms]";
+                this.GameWorkerDurationBlock.Text = $"Duration: {Core.GameWorker.WorkerDuration.TotalMilliseconds.ToString("F2").PadLeft(13)} [ms]";
+                this.GameWorkerDurationAverageBlock.Text = $"Average: {Core.GameWorker.WorkerDurationAverage.TotalMilliseconds.ToString("F2").PadLeft(14)} [ms]"
+                                                         + $"\n{(1 / ((Core.GameWorker.WorkerDurationAverage + Core.GameWorker.Interval).TotalSeconds)).ToString("F2").PadLeft(23)} [cps]";
+
+                this.CurrentMatchBlock.Text = $"{Core.Match.ToJson()}";
+                this.CurrentGameBlock.Text = $"{Core.Game.ToJson()}";
+
+                if (Core.Data.States.Main <= MainStates.Offline) return;
+
+                this.RootFrameBlock.Text = $"Root Frame: {Core.Memory.RootFrame.ToString().PadLeft(15)}";
+                this.SceneFrameBlock.Text = $"Scene Frame: {Core.Memory.SceneFrame.ToString().PadLeft(14)}";
+                this.GameFrameBlock.Text = $"Game Frame: {Core.Memory.GameFrame.ToString().PadLeft(15)}";
+                this.PauseFrameBlock.Text = $"Pause Frame: {Core.Memory.PauseFrame.ToString().PadLeft(14)}";
 
                 //Core.DebugWindow.TextOut2.Text = $"Core.MainWorker.Interval: { Core.MainWorker.Interval.Milliseconds} [ms]"
                 //                                + $"\nCore.MainWorker.Data:\n{Core.MainWorker.Data.ToJson()}";
@@ -45,37 +63,47 @@ namespace bayoen.star.Windows
                 //                                + $"\nOverlayTimer.LayoutTimer.Interval: {Core.OverlayTimer.LayoutTimer.Interval.TotalMilliseconds} [ms]"
                 //                                + $"\nOverlayTimer.ContentTimer.Interval: {Core.OverlayTimer.ContentTimer.Interval.TotalMilliseconds} [ms]";                
 
-                this.CurrentStar1.Score = Core.MainWorker.Data.Stars[0];
-                this.CurrentStar2.Score = Core.MainWorker.Data.Stars[1];
-                this.CurrentStar3.Score = Core.MainWorker.Data.Stars[2];
-                this.CurrentStar4.Score = Core.MainWorker.Data.Stars[3];
+                this.CurrentStar1.Score = Core.Data.Stars[0];
+                this.CurrentStar2.Score = Core.Data.Stars[1];
+                this.CurrentStar3.Score = Core.Data.Stars[2];
+                this.CurrentStar4.Score = Core.Data.Stars[3];
 
-                this.CountedStar1.Score = Core.ProjectData.CountedStars[0];
-                this.CountedStar2.Score = Core.ProjectData.CountedStars[1];
-                this.CountedStar3.Score = Core.ProjectData.CountedStars[2];
-                this.CountedStar4.Score = Core.ProjectData.CountedStars[3];
+                this.CountedStar1.Score = Core.Project.CountedStars[0];
+                this.CountedStar2.Score = Core.Project.CountedStars[1];
+                this.CountedStar3.Score = Core.Project.CountedStars[2];
+                this.CountedStar4.Score = Core.Project.CountedStars[3];
 
-                this.CountedGame1.Score = Core.ProjectData.CountedGames[0];
-                this.CountedGame2.Score = Core.ProjectData.CountedGames[1];
-                this.CountedGame3.Score = Core.ProjectData.CountedGames[2];
-                this.CountedGame4.Score = Core.ProjectData.CountedGames[3];
+                this.CountedGame1.Score = Core.Project.CountedGames[0];
+                this.CountedGame2.Score = Core.Project.CountedGames[1];
+                this.CountedGame3.Score = Core.Project.CountedGames[2];
+                this.CountedGame4.Score = Core.Project.CountedGames[3];
 
-                this.GoalTypeBlock.Text = $"Goal ~ Type: {Core.ProjectData.GoalType}, ";
-                this.GoalCounterBlock.Text = $"Counter: {Core.ProjectData.GoalCounter}, ";
-                this.GOdlScoreBlock.Text = $"Score: {Core.ProjectData.GoalScore}";
-            };
-            Core.DashboardTimer.Start();
+                this.GoalTypeBlock.Text = $"Goal ~ Type: {Core.Project.GoalType}, ";
+                this.GoalCounterBlock.Text = $"Counter: {Core.Project.GoalCounter}, ";
+                this.GOdlScoreBlock.Text = $"Score: {Core.Project.GoalScore}";
+            }
+            catch (Exception ex)
+            {
+                Core.DebugWindow.TextOut1.Text = ex.Message;
 
+            }
         }
 
         private void ResetDurationButton_Click(object sender, RoutedEventArgs e)
         {
             Core.MainWorker.ResetDuration();
+            Core.GameWorker.ResetDuration();
         }
 
         private void ResetScoreButton_Click(object sender, RoutedEventArgs e)
         {
             Core.ResetScore();
+        }
+
+        private void ResetMatchButton_Click(object sender, RoutedEventArgs e)
+        {
+            Core.Match.Reset();
+            Core.Game.Reset();
         }
     }
 }

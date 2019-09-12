@@ -78,22 +78,60 @@ namespace bayoen.star.Workers
             }
         }
 
+        public string MyName => this.ReadValidString(this.BaseAddress + 0x59B418, PlayerNameSize);
+        public int MyID32 => this.ReadInt32(this.BaseAddress + 0x5A2010);
+        public int MyRating => this.ReadInt16(this.BaseAddress + 0x599FF0);
+        public int MyIndex
+        {
+            get
+            {
+                int players = this.LobbySize;
+                if (players < 2) return 0;
+                int steam = this.MyID32;
+                for (int i = 0; i < players; i++)
+                    if (steam == this.ID32(i))
+                        return i;
+                return 0;
+            }
+        }
+
         public int LobbySize => this.ReadInt32(this.BaseAddress + 0x473760, 0x20, 0xB4);
         public int LobbySizeInGame => this.ReadInt32(this.BaseAddress + 0x460690, 0xCC);
         public int LobbyMax => this.ReadInt32(this.BaseAddress + 0x473760, 0x20, 0xB8);
 
+        private int Team(int index) => (this.ReadByte(this.BaseAddress + 0x598C1D + index * 0x68) / 4) % 16;
+        public List<int> Teams => Enumerable.Range(0, 4).Select(x => Team(x)).ToList();
+
         private int Star(int index) => this.ReadInt32(this.BaseAddress + 0x57F048, index * 0x04 + 0x38);
         public List<int> Stars => Enumerable.Range(0, 4).Select(x => Star(x)).ToList();
+
+        private int Score(int index)
+        {
+            switch (index)
+            {
+                case 0: return this.ReadInt32(new IntPtr(0x140461B28), 0x380, 0x18, 0xE0, 0x3C);
+                case 1: return this.ReadInt32(new IntPtr(0x140460690), 0x2D0, 0x0, 0x38, 0x78, 0xE0, 0x3C);
+                case 2:
+                case 3: return -1;
+                default: return -1;
+            }
+        }
+        public List<int> Scores => Enumerable.Range(0, 4).Select(x => Score(x)).ToList();
 
         public int WinCount => this.ReadInt32(this._scoreAddress + 0x10);
         public int WinCountForced => this.ReadInt32(this.ScoreAddress + 0x10);
 
-        public int PlayerSteamID32(int index) => this.ReadInt32(this._playerAddress + index * 0x50 + 0x40);
-        public int PlayerSteamID32Forced(int index) => this.ReadInt32(this.PlayerAddress + index * 0x50 + 0x40);
+        public int ID32(int index) => this.ReadInt32(this._playerAddress + index * 0x50 + 0x40);
+        public int ID32Forced(int index) => this.ReadInt32(this.PlayerAddress + index * 0x50 + 0x40);
 
-        public string PlayerName(int index) => this.ReadValidString(this._playerAddress + index * 0x50, PlayerNameSize);
-        public string PlayerNameForced(int index) => this.ReadValidString(this.PlayerAddress + index * 0x50, PlayerNameSize);
-        public string PlayerNameLocal(int index) => this.ReadValidString(new IntPtr(0x140598BD4 + index * 0x68), PlayerNameSize);
+        public string NameOnline(int index) => this.ReadValidString(this._playerAddress + index * 0x50, PlayerNameSize);
+        public string NameForced(int index) => this.ReadValidString(this.PlayerAddress + index * 0x50, PlayerNameSize);
+        public string NameLocal(int index) => this.ReadValidString(new IntPtr((long)this.BaseAddress + 0x598BD4 + index * 0x68), PlayerNameSize);
+        public string NameRaw(int index) => this.ReadStringUnicode(this._playerAddress + index * 0x50, PlayerNameSize);
+        public int Rating(int index) => this.ReadInt16(this.BaseAddress + 0x473760, 0x20, index * 0x50 + 0x108);
+        public bool PlayType(int index) => this.ReadBinary(6, new IntPtr((long)this.BaseAddress + 0x598C27 + index * 0x68));
+
+        
 
         public void CheckMenuID()
         {
@@ -323,7 +361,7 @@ namespace bayoen.star.Workers
         {
             if (states.Main == MainStates.SoloArcade || states.Main == MainStates.MultiArcade)
             {
-                if (this.PlayerNameLocal(0) + this.PlayerNameLocal(1) == "")
+                if (this.NameLocal(0) + this.NameLocal(1) == "")
                 {
                     return true;
                 }

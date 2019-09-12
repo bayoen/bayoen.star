@@ -56,7 +56,7 @@ namespace bayoen.star.Controls
             this._panelLength = ScorePanelLength.Short;
             this.PanelLength = ScorePanelLength.Fit;
 
-            this._displayModes = ScoreDisplayModes.Star_Plus_only;
+            this._displayModes = ScoreDisplayModes.Star_Plus_Only;
             this.DisplayMode = ScoreDisplayModes.Game_and_Star_Plus;
 
             this._goalScore = -1;
@@ -79,8 +79,8 @@ namespace bayoen.star.Controls
 
                 if (value && this.PlayerNumber == 2)
                 {
-                    this.Containers[1].Margin = new Thickness(0, 0, (this.DisplayMode > ScoreDisplayModes.Game_only) ? 0 : FitMarginOffset, 0);
-                    this.Containers[2].Margin = new Thickness((this.DisplayMode > ScoreDisplayModes.Game_only) ? 0 : FitMarginOffset, 0, 0, 0);
+                    this.Containers[1].Margin = new Thickness(0, 0, (this.DisplayMode > ScoreDisplayModes.Game_Only) ? 0 : FitMarginOffset, 0);
+                    this.Containers[2].Margin = new Thickness((this.DisplayMode > ScoreDisplayModes.Game_Only) ? 0 : FitMarginOffset, 0, 0, 0);
                 }
                 else
                 {
@@ -103,18 +103,18 @@ namespace bayoen.star.Controls
                 // Visibility
                 if (this.PlayerNumber == 2)
                 {
-                    this.Containers[0].Visibility = (value > ScoreDisplayModes.Game_only) ? Visibility.Visible : Visibility.Collapsed;
+                    this.Containers[0].Visibility = (value > ScoreDisplayModes.Game_Only) ? Visibility.Visible : Visibility.Collapsed;
                     this.Containers[1].Visibility = Visibility.Visible;
                     this.Containers[2].Visibility = Visibility.Visible;
-                    this.Containers[3].Visibility = (value > ScoreDisplayModes.Game_only) ? Visibility.Visible : Visibility.Collapsed;
+                    this.Containers[3].Visibility = (value > ScoreDisplayModes.Game_Only) ? Visibility.Visible : Visibility.Collapsed;
 
                     switch (value)
                     {
-                        case ScoreDisplayModes.Star_Plus_only:
+                        case ScoreDisplayModes.Star_Plus_Only:
                             this.Containers[1].ScoreType = ScoreTypes.CountedStar;
                             this.Containers[2].ScoreType = ScoreTypes.CountedStar;
                             break;
-                        case ScoreDisplayModes.Game_only:
+                        case ScoreDisplayModes.Game_Only:
                             this.Containers[1].ScoreType = ScoreTypes.CountedGame;
                             this.Containers[2].ScoreType = ScoreTypes.CountedGame;
                             break;
@@ -149,10 +149,10 @@ namespace bayoen.star.Controls
 
                     switch (value)
                     {
-                        case ScoreDisplayModes.Star_Plus_only:
+                        case ScoreDisplayModes.Star_Plus_Only:
                             this.Containers[0].ScoreType = ScoreTypes.CountedStar;
                             break;
-                        case ScoreDisplayModes.Game_only:
+                        case ScoreDisplayModes.Game_Only:
                             this.Containers[0].ScoreType = ScoreTypes.CountedGame;
                             break;
                         default:
@@ -162,8 +162,8 @@ namespace bayoen.star.Controls
 
                 if (this.IsFit && this.PlayerNumber == 2)
                 {
-                    this.Containers[1].Margin = new Thickness(0, 0, (this.DisplayMode > ScoreDisplayModes.Game_only) ? 0 : FitMarginOffset, 0);
-                    this.Containers[2].Margin = new Thickness((this.DisplayMode > ScoreDisplayModes.Game_only) ? 0 : FitMarginOffset, 0, 0, 0);
+                    this.Containers[1].Margin = new Thickness(0, 0, (this.DisplayMode > ScoreDisplayModes.Game_Only) ? 0 : FitMarginOffset, 0);
+                    this.Containers[2].Margin = new Thickness((this.DisplayMode > ScoreDisplayModes.Game_Only) ? 0 : FitMarginOffset, 0, 0, 0);
                 }
                 else
                 {
