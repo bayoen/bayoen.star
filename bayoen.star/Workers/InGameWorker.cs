@@ -13,9 +13,9 @@ using bayoen.star.Variables;
 
 namespace bayoen.star.Workers
 {
-    public class GameWorker : DispatcherTimer
+    public class InGameWorker : DispatcherTimer
     {
-        public GameWorker()
+        public InGameWorker()
         {
             this.Interval = Config.TrackingIntervalNormal;
             this.Tick += GameWorker_Tick;            
@@ -75,24 +75,30 @@ namespace bayoen.star.Workers
                 if (this.WaitingFlag) this.WaitingFlag = false;
             }
 
-            this.ProjectSaveFlag = false;            
+            this.ProjectSaveFlag = false;
 
-            // Puzzle League
-            if (Core.Data.States.Main == MainStates.PuzzleLeague)
+            if (Core.Data.States.Main > MainStates.Title)
             {
-                this.GamePuzzleLeagueTick();
-            }
-            else if (Core.Data.States.Main == MainStates.FreePlay)
-            {
-                this.GameFreePlayTick();
-            }
-            else if (Core.Data.States.Main == MainStates.SoloArcade || Core.Data.States.Main == MainStates.MultiArcade)
-            {
-                this.GameArcadeTick();
-            }
+                if (Core.Data.States.Main == MainStates.PuzzleLeague)
+                {
+                    this.GamePuzzleLeagueTick();
+                }
+                else if (Core.Data.States.Main == MainStates.FreePlay)
+                {
+                    this.GameFreePlayTick();
+                }
+                else if (Core.Data.States.Main == MainStates.SoloArcade || Core.Data.States.Main == MainStates.MultiArcade)
+                {
+                    this.GameArcadeTick();
+                }
 
-            this.GameGeneralTick();
-
+                this.GameGeneralTick();
+            }
+            else // if (Core.Data.States.Main == MainStates.Title)
+            {
+                // Do nothing
+            }
+            
             if (this.ProjectSaveFlag) Core.Project.Save();
 
 #if DEBUG
@@ -122,6 +128,7 @@ namespace bayoen.star.Workers
         {
             if (Core.Data.States.Sub == SubStates.InMatch)
             {
+                Core.Data.SceneFrame = Core.Memory.SceneFrame;
                 Core.Data.GameFrame = Core.Memory.GameFrame;
                 Core.Data.Scores = Core.Memory.Scores;
                 

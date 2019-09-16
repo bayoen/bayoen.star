@@ -15,45 +15,54 @@ namespace bayoen.star.Variables
         {
             this.Reset();
         }
+        
+        public string Name { get; set; }
+        public int ID32 { get; set; }
+        //public long ID64 { get; set; }
+        public short Rating { get; set; }
+        public short PlayStyle { get; set; }
 
-        public PlayerData(int index)
-        {
-            this.Set(index);
-        }
-
+        public Leagues League { get; set; }
+        public short LeagueWin { get; set; }
+        public short LeagueLose { get; set; }
 
         public void Reset()
         {
-            this.Index = -1;
+            this.Name = "";
             this.ID32 = -1;
-            this.Name = "";
-            this.NameOnline = "";
-            this.NameRaw = "";
-            this.NameLocal = "";
+            //this.ID64 = -1;
             this.Rating = -1;
+            this.PlayStyle = -1;
+
+            this.League = (Leagues)0;
+            this.LeagueWin = -1;
+            this.LeagueLose = -1;
         }
 
-        public void Set(int index) => this.Set(index, Core.Memory.PlayType(index) ? PlayTypes.Tetris : PlayTypes.PuyoPuyo);
-
-        public void Set(int index, PlayTypes playType)
+        public void SetOnline(int index)
         {
-            this.Index = index;
-            this.ID32 = Core.Memory.ID32Forced(index);  // Check 'PlayerAddress'
-            this.Name = "";
-            this.NameOnline = Core.Memory.NameOnline(index);  // Require 'PlayerAddress'
-            this.NameRaw = Core.Memory.NameRaw(index);  // Require 'PlayerAddress'
-            this.NameLocal = Core.Memory.NameLocal(index);
-            this.Rating = Core.Memory.Rating(index);
+            this.ID32 = Core.Memory.OnlineID32Forced(index);    // Check 'PlayerAddress'
+            //this.ID64 = Core.Memory.OnlineID64(index);    // Require 'PlayerAddress'
+            this.Name = Core.Memory.OnlineName(index);      // Require 'PlayerAddress'
+            this.Rating = Core.Memory.OnlineRating(index);  // Require 'PlayerAddress'
+            this.PlayStyle = Core.Memory.OnlinePlayStyle(index);    // Require 'PlayerAddress'
+
+            this.League = (Leagues)Core.Memory.OnlineLeague(index);  // Require 'PlayerAddress'
+            this.LeagueWin = Core.Memory.OnlineWin(index);  // Require 'PlayerAddress'
+            this.LeagueLose = Core.Memory.OnlineLose(index);  // Require 'PlayerAddress'
         }
 
-        public int Index { get; set; }
-        public int ID32 { get; set; }
-        public string Name { get; set; }
-        public string NameOnline { get; set; }
-        public string NameRaw { get; set; }
-        public string NameLocal { get; set; }
-        public int Rating { get; set; }
-        public PlayTypes PlayType { get; set; }
+        public void SetLocal(int index)
+        {
+            this.ID32 = -1;  // Check 'PlayerAddress'
+            //this.ID64 = -1;  // Require 'PlayerAddress'
+            this.Name = Core.Memory.LocalName(index);
+            this.Rating = -1;
+            this.PlayStyle = -1;
 
+            this.League = (Leagues)0;
+            this.LeagueWin = -1;
+            this.LeagueLose = -1;
+        }
     }
 }

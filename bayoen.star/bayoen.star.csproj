@@ -119,6 +119,9 @@
     <Compile Include="Controls\MiniScoreContainer.xaml.cs">
       <DependentUpon>MiniScoreContainer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\PlayerPanel.xaml.cs">
+      <DependentUpon>PlayerPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Core.Debug.cs" />
     <Compile Include="Core.Funtion.cs" />
     <Compile Include="Core.Helper.cs" />
@@ -128,6 +131,7 @@
     <Compile Include="Variables\GameRecord.cs" />
     <Compile Include="Variables\MatchRecord.cs" />
     <Compile Include="Variables\OperationData.cs" />
+    <Compile Include="Workers\LiveChecker.cs" />
     <Compile Include="Windows\CapturableWindow.xaml.cs">
       <DependentUpon>CapturableWindow.xaml</DependentUpon>
     </Compile>
@@ -139,7 +143,7 @@
     <Compile Include="Variables\PPTData.cs" />
     <Compile Include="Variables\PPTStates.cs" />
     <Compile Include="Variables\PlayerData.cs" />
-    <Compile Include="Workers\GameWorker.cs" />
+    <Compile Include="Workers\InGameWorker.cs" />
     <Compile Include="Workers\MainWorker.cs" />
     <Compile Include="TrayIcon.xaml.cs">
       <DependentUpon>TrayIcon.xaml</DependentUpon>
@@ -206,6 +210,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\MiniScoreContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\PlayerPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

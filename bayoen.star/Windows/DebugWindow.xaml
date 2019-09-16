@@ -30,12 +30,14 @@
     <Grid VerticalAlignment="Top" HorizontalAlignment="Left">
         <WrapPanel Orientation="Horizontal" Margin="4">
             <GroupBox Header="Textout">
-                <StackPanel Orientation="Vertical">
-                    <TextBlock x:Name="TextOut1"/>
-                    <TextBlock x:Name="TextOut2"/>
-                    <TextBlock x:Name="TextOut3"/>
-                    <TextBlock x:Name="TextOut4"/>
-                </StackPanel>
+                <ScrollViewer>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock x:Name="TextOut1"/>
+                        <TextBlock x:Name="TextOut2"/>
+                        <TextBlock x:Name="TextOut3"/>
+                        <TextBlock x:Name="TextOut4"/>
+                    </StackPanel>
+                </ScrollViewer>
             </GroupBox>
 
             <GroupBox Header="MainWorker">

@@ -80,6 +80,7 @@ namespace bayoen.star.Workers
 
         public string MyName => this.ReadValidString(this.BaseAddress + 0x59B418, PlayerNameSize);
         public int MyID32 => this.ReadInt32(this.BaseAddress + 0x5A2010);
+        //public long MyID64 => this.ReadInt64(this.BaseAddress + 0x5A2010);
         public int MyRating => this.ReadInt16(this.BaseAddress + 0x599FF0);
         public int MyIndex
         {
@@ -89,8 +90,9 @@ namespace bayoen.star.Workers
                 if (players < 2) return 0;
                 int steam = this.MyID32;
                 for (int i = 0; i < players; i++)
-                    if (steam == this.ID32(i))
-                        return i;
+                {
+                    if (steam == this.OnlineID32Forced(i)) return i;
+                }                    
                 return 0;
             }
         }
@@ -121,17 +123,21 @@ namespace bayoen.star.Workers
         public int WinCount => this.ReadInt32(this._scoreAddress + 0x10);
         public int WinCountForced => this.ReadInt32(this.ScoreAddress + 0x10);
 
-        public int ID32(int index) => this.ReadInt32(this._playerAddress + index * 0x50 + 0x40);
-        public int ID32Forced(int index) => this.ReadInt32(this.PlayerAddress + index * 0x50 + 0x40);
-
-        public string NameOnline(int index) => this.ReadValidString(this._playerAddress + index * 0x50, PlayerNameSize);
-        public string NameForced(int index) => this.ReadValidString(this.PlayerAddress + index * 0x50, PlayerNameSize);
-        public string NameLocal(int index) => this.ReadValidString(new IntPtr((long)this.BaseAddress + 0x598BD4 + index * 0x68), PlayerNameSize);
-        public string NameRaw(int index) => this.ReadStringUnicode(this._playerAddress + index * 0x50, PlayerNameSize);
-        public int Rating(int index) => this.ReadInt16(this.BaseAddress + 0x473760, 0x20, index * 0x50 + 0x108);
+        public string LocalName(int index) => this.ReadValidString(new IntPtr((long)this.BaseAddress + 0x598BD4 + index * 0x68), PlayerNameSize);
         public bool PlayType(int index) => this.ReadBinary(6, new IntPtr((long)this.BaseAddress + 0x598C27 + index * 0x68));
 
-        
+
+        public int OnlineID32(int index) => this.ReadInt32(this._playerAddress + index * 0x50 + 0x40);
+        public int OnlineID32Forced(int index) => this.ReadInt32(this.PlayerAddress + index * 0x50 + 0x40);
+        //public long OnlineID64(int index) => this.ReadInt64(this._playerAddress + index * 0x50 + 0x40);
+        public string OnlineName(int index) => this.ReadValidString(this._playerAddress + index * 0x50, PlayerNameSize);
+        //public string OnlineNameRaw(int index) => this.ReadStringUnicode(this._playerAddress + index * 0x50, PlayerNameSize);
+        public byte OnlineAvatar(int index) => this.ReadByte(this._playerAddress + index * 0x50 + 0x25);
+        public short OnlineRating(int index) => this.ReadInt16(this._playerAddress + index * 0x50 + 0x30);
+        public short OnlinePlayStyle(int index) => this.ReadInt16(this._playerAddress + index * 0x50 + 0x32);
+        public byte OnlineLeague(int index) => this.ReadByte(this._playerAddress + index * 0x50 + 0x27);
+        public short OnlineWin(int index) => this.ReadInt16(this._playerAddress + index * 0x50 + 0x36);
+        public short OnlineLose(int index) => this.ReadInt16(this._playerAddress + index * 0x50 + 0x38);
 
         public void CheckMenuID()
         {
@@ -361,7 +367,7 @@ namespace bayoen.star.Workers
         {
             if (states.Main == MainStates.SoloArcade || states.Main == MainStates.MultiArcade)
             {
-                if (this.NameLocal(0) + this.NameLocal(1) == "")
+                if (this.LocalName(0) + this.LocalName(1) == "")
                 {
                     return true;
                 }

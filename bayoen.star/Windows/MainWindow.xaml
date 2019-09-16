@@ -277,7 +277,25 @@
             </Grid.RowDefinitions>
 
             <!-- Column 1 & Row 0: CurrentEvent -->
-            <GroupBox Grid.Row="0" Header="{DynamicResource Main-CurrentEvent-Header-String}">
+            <Border Grid.Row="0" Style="{StaticResource AccentedMetroBorder}">
+                <Grid Margin="{StaticResource ControlGap}">
+
+                    <StackPanel x:Name="PlayerListTopPanel" Orientation="Vertical">
+                        <TextBlock Style="{DynamicResource HeaderBlock}"
+                                   Text="{DynamicResource Main-CurrentEvent-Header-String}"/>
+                        <StackPanel x:Name="PlayerListPanel" Orientation="Horizontal"/>
+                    </StackPanel>
+
+                    <!--<StackPanel x:Name="MyRecordTopPanel" Orientation="Vertical"
+                                Background="{DynamicResource WindowBackgroundBrush}">
+                        <TextBlock Style="{DynamicResource HeaderBlock}"
+                                   Text="My Status"/>
+                    </StackPanel>-->
+
+                </Grid>
+                
+            </Border>
+            <!--<GroupBox Grid.Row="0" Header="{DynamicResource Main-CurrentEvent-Header-String}">
                 <StackPanel Orientation="Horizontal" Margin="{StaticResource ControlGap}">
                     <Border Height="400" Width="250" BorderBrush="Green" BorderThickness="1">
                         <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -285,7 +303,7 @@
                         </TextBlock>
                     </Border>
                 </StackPanel>
-            </GroupBox>
+            </GroupBox>-->
 
             <!-- Column 1 & Row 1: EventDetail -->
             <GroupBox Grid.Row="1" Header="{DynamicResource Main-EventDetail-Header-String}">

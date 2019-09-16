@@ -12,6 +12,7 @@ namespace bayoen.star.Variables
             this.States = new PPTStates();
             this.Stars = new List<int>(4) { 0, 0, 0, 0 };
             this.Scores = new List<int>(4) { 0, 0, 0, 0 };
+            this.SceneFrame = 0;
             this.GameFrame = 0;
         }
 
@@ -20,6 +21,7 @@ namespace bayoen.star.Variables
         public List<int> Stars { get; set; }
 
 
+        public int SceneFrame { get; set; }
         public int GameFrame { get; set; }
         public List<int> Scores { get; set; }
 

@@ -50,16 +50,16 @@ namespace bayoen.star.Windows
                         break;
                 }
 
-                if (Core.Temp.MyName == null || Core.Temp.MyName.Length == 0)
-                {
-                    this.WhereAmIBlock.Text = TryFindResource("Main-Status-Title-String") as string;
-                }
-                else
+                if (Core.Temp.IsNameOn)
                 {
                     this.WhereAmIBlock.Text = this.WhereAmIDetailBox.Text
 
                     .Replace("##MyName##", $"{Core.Temp.MyName}")
                     .Replace("##MyLocation##", $"{location}");
+                }
+                else
+                {
+                    this.WhereAmIBlock.Text = TryFindResource("Main-Status-Title-String") as string;                    
                 }
                 
             }

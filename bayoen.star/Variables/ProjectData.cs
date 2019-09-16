@@ -137,10 +137,10 @@ namespace bayoen.star.Variables
                 Core.MainWorker.Interval = value ? Config.DisplayIntervalSlow : Config.DisplayIntervalNormal;
                 Core.MainWorker.Start();
 
-                if (!Core.GameWorker.IsEnabled) Core.GameWorker.Initiate();
-                Core.GameWorker.Stop();
-                Core.GameWorker.Interval = value ? Config.TrackingIntervalSlow : Config.TrackingIntervalNormal;
-                Core.GameWorker.Start();
+                if (!Core.InGameWorker.IsEnabled) Core.InGameWorker.Initiate();
+                Core.InGameWorker.Stop();
+                Core.InGameWorker.Interval = value ? Config.TrackingIntervalSlow : Config.TrackingIntervalNormal;
+                Core.InGameWorker.Start();
 
                 this._enableSlowMode = value;
                 this.Save();

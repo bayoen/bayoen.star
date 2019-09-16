@@ -28,11 +28,13 @@ namespace bayoen.star
             Culture.Set(Core.Project.LanguageCode);
 
             Core.Project.Version = Config.Assembly.GetName().Version;
+            //Core.CheckUpdate();
+
             Core.TrayIcon.Visibility = Visibility.Visible;
             Core._settingWindow = new SettingWindow();
 
             if (!Core.MainWorker.IsEnabled) Core.MainWorker.Initiate();
-            if (!Core.GameWorker.IsEnabled) Core.GameWorker.Initiate();
+            if (!Core.InGameWorker.IsEnabled) Core.InGameWorker.Initiate();
 
             Core.MainWindow.Show();
 

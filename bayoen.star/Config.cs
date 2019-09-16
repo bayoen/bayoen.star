@@ -22,6 +22,10 @@ namespace bayoen.star
         public static readonly Assembly Assembly = System.Reflection.Assembly.GetExecutingAssembly();
         public static readonly string AssemblyTitle = Assembly.GetExecutingAssembly().GetCustomAttribute<AssemblyTitleAttribute>().Title;
 
+        // Game Info.        
+        public const int RatingMax = 50000;
+        public const int CheatRatingMax = 65535;
+
         // Properties
         public static readonly string PPTName = "puyopuyotetris";
 

@@ -36,6 +36,8 @@ namespace bayoen.star
 
         public static LiteDatabase DB { get; set; }
 
+        private static LiveChecker _live;
+        public static LiveChecker Live => Core._live ?? (Core._live = new LiveChecker());
         public static EventRecord Event { get; set; }
         public static MatchRecord Match { get; set; }
         public static GameRecord Game { get; set; }
@@ -49,8 +51,8 @@ namespace bayoen.star
         /// <summary>
         /// In-game 
         /// </summary>
-        private static GameWorker _gameWorker;
-        public static GameWorker GameWorker => Core._gameWorker ?? (Core._gameWorker = new GameWorker());
+        private static InGameWorker _inGameWorker;
+        public static InGameWorker InGameWorker => Core._inGameWorker ?? (Core._inGameWorker = new InGameWorker());
 
         public static List<MetroComboBoxItem> GetChromaComboBoxItemList()
         {

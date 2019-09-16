@@ -31,7 +31,7 @@ namespace bayoen.star.Windows
             Core.DebugTimer.Tick += (sender, e) =>
             {
                 this.TextOut1.Text = $"Core.MainWorker.Interval: { Core.MainWorker.Interval.TotalMilliseconds} [ms]"
-                                               + $"\nCore.GameWorker.Interval: { Core.GameWorker.Interval.TotalMilliseconds} [ms]";
+                                               + $"\nCore.GameWorker.Interval: { Core.InGameWorker.Interval.TotalMilliseconds} [ms]";
 
                 if (Core.Data.States.Main <= MainStates.Offline) return;
 
@@ -42,7 +42,13 @@ namespace bayoen.star.Windows
                                    //+ $"\nPlayer 1:\n{(new PlayerData(0)).ToJson()}"
                                    //+ $"\nPlayer 2:\n{(new PlayerData(1)).ToJson()}"
                                    //+ $"\nPlayer 3:\n{(new PlayerData(2)).ToJson()}"
-                                   //+ $"\nPlayer 4:\n{(new PlayerData(3)).ToJson()}";                
+                                   //+ $"\nPlayer 4:\n{(new PlayerData(3)).ToJson()}";
+
+                this.TextOut3.Text = $"Core.Memory.LobbySize: {Core.Memory.LobbySize}"
+                                 + $"\nLive.P1: {Core.Live.Players[0].ToJson()}"
+                                 + $"\nLive.P2: {Core.Live.Players[1].ToJson()}"
+                                 + $"\nLive.P3: {Core.Live.Players[2].ToJson()}"
+                                 + $"\nLive.P4: {Core.Live.Players[3].ToJson()}";
 
                 this.TextOut4.Text = $"Core.Memory.Teams: {string.Join(", ", Core.Memory.Teams)}";
                 this.MainWorkerDataBlock.Text = $"Core.Data:\n{Core.Data.Serialize()}";

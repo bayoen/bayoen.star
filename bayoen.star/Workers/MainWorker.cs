@@ -30,14 +30,14 @@ namespace bayoen.star.Workers
 #if DEBUG
             this.ResetDuration();
 #endif
-
+            
             Core.Event = new EventRecord();
             Core.Match = new MatchRecord();
             Core.Game = new GameRecord();
 
-            if (Core.Data.States.Main > MainStates.Offline)
+            if (Core.Data.States.Main > MainStates.Title)
             {
-                Core.Temp.IsPPTOn = true;
+                Core.Temp.IsNameOn = true;
 
                 // Check ppt is in match -> broken
                 if (Core.Data.States.Sub == SubStates.InMatch)
@@ -76,42 +76,29 @@ namespace bayoen.star.Workers
                                 GameRecord tokenGame = new GameRecord()
                                 {
                                     IsDummy = true,
-
-                                    Frame = null,
-                                    FrameTicks = null,
-                                    ScoreTicks = null,
-                                    Begin = null,
-                                    End = null,
-
+                                    Frame = null, FrameTicks = null, ScoreTicks = null,
+                                    Begin = null, End = null,
                                     Winners = winners,
                                 };
                                 Core.Match.Games.Add(tokenGame);
 
-                                // Update
+                                // Update queue
                                 starQueue = starQueue.Zip(intersection, (x, y) => x - y).ToList();
                             }
                         }                                              
                     }
-
-                    //if (!Core.Game.GetFinished())
-                    //{
-                    //    if (Core.Memory.IsGameFinished)
-                    //    {
-                    //        Core.Game.End = DateTime.UtcNow;
-                    //        Core.Game.SetFinished();
-                    //    }
-                    //}
                 }             
+            }
+            else if (Core.Data.States.Main == MainStates.Title)
+            {
+                Core.Temp.IsNameOn = true;
             }
             else
             {
-                Core.Temp.IsPPTOn = false;                               
+                Core.Temp.IsNameOn = false;
             }
 
             Core.MainWindow.CheckStatus();
-
-            //this.MainTick();
-
             this.Start();
         }
 
@@ -152,31 +139,81 @@ namespace bayoen.star.Workers
 
             this.CheckGameData(Core.Data);
 
-            if (Core.Data.States.Main > MainStates.Offline)
+            if (Core.Data.States.Main > MainStates.Title)
             {
-                Core.Temp.IsPPTOn = true;
+                Core.Temp.IsNameOn = true;
 
-                if (Core.Temp.MyName.Length == 0)
+                if (Core.Data.States.Main == MainStates.PuzzleLeague)
                 {
-                    Core.Temp.MyName = Core.Memory.MyName;
+                    if (Core.Data.States.Sub == SubStates.Matchmaking)
+                    {
+                        this.SetPreMatchInfo();
+                    }
+
+                    if (Core.Data.States.Sub == SubStates.CharacterSelection)
+                    {
+                        if (Core.Old.States.Sub != SubStates.CharacterSelection)
+                        {
+                            this.InitializeMatch();
+                        }
+                    }
+                }
+                else if (Core.Data.States.Main == MainStates.FreePlay)
+                {
+                    if (Core.Data.States.Sub == SubStates.InLobby)
+                    {
+                        this.SetPreMatchInfo();
+                    }
+
+                    if (Core.Data.States.Sub == SubStates.CharacterSelection)
+                    {
+                        if (Core.Old.States.Sub != SubStates.CharacterSelection)
+                        {
+                            this.InitializeMatch();
+                        }
+                    }
+                }
+                else if (Core.Data.States.Main == MainStates.SoloArcade || Core.Data.States.Main == MainStates.MultiArcade)
+                {
+                    if (Core.Data.States.Sub == SubStates.InMatch)
+                    {
+                        if (Core.Old.States.Sub != SubStates.InMatch)
+                        {
+                            this.SetPreMatchInfo();
+                            this.InitializeMatch();
+                        }
+                    }
                 }
 
                 if (Core.Match.GetInitialized())
                 {
-                    this.MainGeneralTick();
+                    this.WorkingMatchTick();
                 }
-                else
-                {
-                    this.SetPreMatchInfo();
-                    Core.Match.SetInitialized();
-                }
+
+            }
+            else if (Core.Data.States.Main == MainStates.Title)
+            {
+                Core.Temp.IsNameOn = true;
+                Core.MainWindow.CheckStatus();
             }
             else
             {
-                Core.Temp.IsPPTOn = false;
+                Core.Temp.IsNameOn = false;
+
+                if (Core.Old.States.Sub == SubStates.InMatch)
+                {
+                    //
+                    Core.Match.BrokenType = BrokenTypes.MissingEnd;
+                }
+
                 Core.MainWindow.CheckStatus();
             }
-            
+
+            if (Core.Data.States.Main != Core.Old.States.Main)
+            {
+                Core.MainWindow.CheckStatus();
+            }
+
             if (this.ProjectSaveFlag) Core.Project.Save();
 
 #if DEBUG
@@ -185,15 +222,86 @@ namespace bayoen.star.Workers
 
             // Next tick
             Core.Old = Core.Data.Clone() as PPTData;
-        }        
+        }
 
-        private void MainGeneralTick()
+        private void SetPreMatchInfo()
         {
-            if (Core.Data.States.Main != Core.Old.States.Main)
+            if (Core.Data.States.Main == MainStates.PuzzleLeague)
             {
-                Core.MainWindow.CheckStatus();
+                int playerCount = Core.Memory.LobbySize;
+                for (int playerIndex = 0; playerIndex < 2; playerIndex++)
+                {
+                    if (playerCount > playerIndex) Core.Live.Players[playerIndex].SetOnline(playerIndex);
+                    else Core.Live.Players[playerIndex].Reset();
+                }
+                Core.Live.Check(2);
+            }
+            else if (Core.Data.States.Main == MainStates.FreePlay)
+            {
+                int playerCount = Core.Memory.LobbySize;
+                for (int playerIndex = 0; playerIndex < 4; playerIndex++)
+                {
+                    if (playerCount > playerIndex) Core.Live.Players[playerIndex].SetOnline(playerIndex);
+                    else Core.Live.Players[playerIndex].Reset();
+                }                
+                Core.Live.Check(Math.Max(2, playerCount));
+            }
+            else if (Core.Data.States.Main == MainStates.SoloArcade || Core.Data.States.Main == MainStates.MultiArcade)
+            {
+                int playerCount = Core.Memory.LobbySizeInGame;
+                for (int playerIndex = 0; playerIndex < 4; playerIndex++)
+                {
+                    if (playerCount > playerIndex) Core.Live.Players[playerIndex].SetLocal(playerIndex);
+                    else Core.Live.Players[playerIndex].Reset();
+                }
+                Core.Live.Check(playerCount);
+            }
+        }
+
+        private void InitializeMatch()
+        {
+            if (Core.Data.States.Main == MainStates.PuzzleLeague)
+            {
+                Core.Match.MatchCategory = MatchCategories.PuzzleLeague;
+                Core.Match.RoomSize = 2;
+                Core.Match.RoomMax = 2;
+                Core.Match.WinCount = 2;
+            }
+            else if (Core.Data.States.Main == MainStates.FreePlay)
+            {
+                Core.Match.MatchCategory = MatchCategories.FreePlay;
+                Core.Match.RoomSize = Core.Memory.LobbySize;
+                Core.Match.RoomMax = Core.Memory.LobbyMax;
+                Core.Match.WinCount = Core.Memory.WinCountForced;
+            }
+            else if (Core.Data.States.Main == MainStates.SoloArcade || Core.Data.States.Main == MainStates.MultiArcade)
+            {
+                Core.Match.MatchCategory = MatchCategories.Arcade;
+                Core.Match.RoomSize = Core.Memory.LobbySizeInGame;
+                Core.Match.RoomMax = Core.Memory.LobbySizeInGame;
+                Core.Match.WinCount = Core.Memory.WinCountForced;
             }
 
+
+            Core.Match.Teams = Core.Memory.Teams;
+            if (Core.Match.RoomSize < 4)
+            {
+                Core.Match.Teams.RemoveRange(Core.Match.RoomSize, 4 - Core.Match.RoomSize);
+                //if (Core.Match.RoomSize == 2)
+                //{
+                //    if (Core.Memory.MyIndex == 1)
+                //    {
+                //        Core.Match.Teams.Reverse();
+                //    }
+                //}
+            }
+
+            Core.Match.Begin = DateTime.UtcNow;
+            Core.Match.SetInitialized();
+        }
+
+        private void WorkingMatchTick()
+        {
             // Post update
             if (Core.Data.States.Sub == SubStates.InMatch)
             {
@@ -229,7 +337,7 @@ namespace bayoen.star.Workers
                                 });
                             }
 
-                            Core.Match.Games.Add(Core.Game.Clone() as GameRecord);
+                            Core.Match.Games.Add(Core.Game);
                             Core.Game = new GameRecord();
 
                             if (Core.Data.Stars[playerIndex] == Core.Match.WinCount)
@@ -239,9 +347,11 @@ namespace bayoen.star.Workers
                                 Core.Project.CountedGames = tokenGames;
 
                                 // Match point
-                                Core.Match.Winner = playerIndex + 1;
+                                Core.Match.Winners.Add(playerIndex + 1);
                                 Core.Match.AdjustGames();
                                 Core.Match.End = DateTime.UtcNow;
+
+                                Core.Match.SetFinished();
                             }
 
                             if (!this.ProjectSaveFlag) this.ProjectSaveFlag = true;                            
@@ -249,58 +359,6 @@ namespace bayoen.star.Workers
                     }
                 }
             }
-        }
-
-        private void SetPreMatchInfo()
-        {
-            if (Core.Data.States.Main == MainStates.PuzzleLeague)
-            {
-                Core.Match.MatchCategory = MatchCategories.PuzzleLeague;
-                Core.Match.RoomSize = 2;
-                Core.Match.RoomMax = 2;
-            }
-            else if (Core.Data.States.Main == MainStates.FreePlay)
-            {
-                Core.Match.MatchCategory = MatchCategories.FreePlay;
-                Core.Match.RoomSize = Core.Memory.LobbySize;
-                Core.Match.RoomMax = Core.Memory.LobbyMax;
-            }
-            else if (Core.Data.States.Main == MainStates.SoloArcade || Core.Data.States.Main == MainStates.MultiArcade)
-            {
-                Core.Match.MatchCategory = MatchCategories.Arcade;
-                Core.Match.RoomSize = Core.Memory.LobbySizeInGame;
-                Core.Match.RoomMax = Core.Memory.LobbySizeInGame;
-            }
-
-            Core.Match.WinCount = Core.Memory.WinCountForced;
-            Core.Match.Teams = Core.Memory.Teams;
-            if (Core.Match.RoomSize < 4)
-            {
-                Core.Match.Teams.RemoveRange(Core.Match.RoomSize, 4 - Core.Match.RoomSize);
-                if (Core.Match.RoomSize == 2)
-                {
-                    if (Core.Memory.MyIndex == 1)
-                    {
-                        Core.Match.Teams.Reverse();
-                    }
-                }
-            }
-
-            for (int playerIndex = 0; playerIndex < Core.Match.RoomSize; playerIndex++)
-            {
-                PlayerData tokenPlayer = new PlayerData(playerIndex);
-                if (Core.Match.MatchCategory == MatchCategories.PuzzleLeague) tokenPlayer.Name = tokenPlayer.NameOnline;
-                else if (Core.Match.MatchCategory == MatchCategories.FreePlay) tokenPlayer.Name = tokenPlayer.NameOnline;
-                else if (Core.Match.MatchCategory == MatchCategories.Arcade) tokenPlayer.Name = tokenPlayer.NameOnline;
-
-                //
-                // ratings, style, etc...
-                //
-
-                Core.Match.Players.Add(tokenPlayer);
-            }
-
-            Core.Match.Begin = DateTime.UtcNow;
-        }
+        }        
     }
 }

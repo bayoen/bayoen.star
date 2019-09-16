@@ -16,6 +16,7 @@ namespace bayoen.star.Variables
 
             this.Games = new List<GameRecord>();
             this.Players = new List<PlayerData>();
+            this.Winners = new List<int>();
 
             this.Reset();
         }
@@ -41,7 +42,7 @@ namespace bayoen.star.Variables
 
         public List<GameRecord> Games { get; set; }
         public List<PlayerData> Players { get; set; }
-        public int Winner { get; set; }
+        public List<int> Winners { get; set; }
         public int WinCount { get; set; }
 
         public void Reset()
@@ -60,7 +61,7 @@ namespace bayoen.star.Variables
 
             this.Games.Clear();
             this.Players.Clear();
-            this.Winner = -1;
+            this.Winners.Clear();
             this.WinCount = -1;
         }
 
@@ -86,10 +87,13 @@ namespace bayoen.star.Variables
         }
 
         public void SetInitialized() => this._isInitialized = true;
+        public void RemoveInitialized() => this._isInitialized = false;
         public bool GetInitialized() => this._isInitialized;
         public void SetFinished() => this._isFinished = true;
+        public void RemoveFinished() => this._isFinished = true;
         public bool GetFinished() => this._isFinished;
         public void SetTerminated() => this._isTerminated = true;
+        public void RemoveTerminated() => this._isTerminated = true;
         public bool GetTerminated() => this._isTerminated;
 
         public object Clone()

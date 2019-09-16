@@ -36,6 +36,24 @@ namespace bayoen.star.Windows
 
             this.MenuButton.ContextMenu.PlacementTarget = this.MenuButton;
 
+            var a = Core.Live.Panels;
+
+            Core.Live.Panels.ForEach(x =>
+            {                
+                this.PlayerListPanel.Children.Add(x);
+            });
+
+            for (int panelIndex = 0; panelIndex < Core.Live.Panels.Count; panelIndex++)
+            {
+                Core.Live.Panels[panelIndex].PlayerName = $"Player {panelIndex + 1}";
+            }
+
+            Core.Live.Reversed.ForEach(x =>
+            {
+                x.PlayerName = "R";
+                this.PlayerListPanel.Children.Add(x);
+            });
+
             //Core.EventChecker.ScanEvents();
             //Core.EventChecker.PageIndex = 0;
         }        

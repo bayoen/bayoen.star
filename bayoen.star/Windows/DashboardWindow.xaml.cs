@@ -41,11 +41,11 @@ namespace bayoen.star.Windows
                 this.MainWorkerDurationAverageBlock.Text = $"Average: {Core.MainWorker.WorkerDurationAverage.TotalMilliseconds.ToString("F2").PadLeft(14)} [ms]"
                                                          + $"\n{(1 / ((Core.MainWorker.WorkerDurationAverage + Core.MainWorker.Interval).TotalSeconds)).ToString("F2").PadLeft(23)} [cps]";
 
-                this.GameWorkerTickBlock.Text = $"GameWorker\n\nTick: {Core.GameWorker.WorkerTick.ToString().PadLeft(17)}";
-                this.GameWorkerUnitIntervalBlock.Text = $"Unit Interval: {Core.GameWorker.Interval.TotalMilliseconds.ToString("F2").PadLeft(8)} [ms]";
-                this.GameWorkerDurationBlock.Text = $"Duration: {Core.GameWorker.WorkerDuration.TotalMilliseconds.ToString("F2").PadLeft(13)} [ms]";
-                this.GameWorkerDurationAverageBlock.Text = $"Average: {Core.GameWorker.WorkerDurationAverage.TotalMilliseconds.ToString("F2").PadLeft(14)} [ms]"
-                                                         + $"\n{(1 / ((Core.GameWorker.WorkerDurationAverage + Core.GameWorker.Interval).TotalSeconds)).ToString("F2").PadLeft(23)} [cps]";
+                this.GameWorkerTickBlock.Text = $"GameWorker\n\nTick: {Core.InGameWorker.WorkerTick.ToString().PadLeft(17)}";
+                this.GameWorkerUnitIntervalBlock.Text = $"Unit Interval: {Core.InGameWorker.Interval.TotalMilliseconds.ToString("F2").PadLeft(8)} [ms]";
+                this.GameWorkerDurationBlock.Text = $"Duration: {Core.InGameWorker.WorkerDuration.TotalMilliseconds.ToString("F2").PadLeft(13)} [ms]";
+                this.GameWorkerDurationAverageBlock.Text = $"Average: {Core.InGameWorker.WorkerDurationAverage.TotalMilliseconds.ToString("F2").PadLeft(14)} [ms]"
+                                                         + $"\n{(1 / ((Core.InGameWorker.WorkerDurationAverage + Core.InGameWorker.Interval).TotalSeconds)).ToString("F2").PadLeft(23)} [cps]";
 
                 this.CurrentMatchBlock.Text = $"{Core.Match.ToJson()}";
                 this.CurrentGameBlock.Text = $"{Core.Game.ToJson()}";
@@ -92,7 +92,7 @@ namespace bayoen.star.Windows
         private void ResetDurationButton_Click(object sender, RoutedEventArgs e)
         {
             Core.MainWorker.ResetDuration();
-            Core.GameWorker.ResetDuration();
+            Core.InGameWorker.ResetDuration();
         }
 
         private void ResetScoreButton_Click(object sender, RoutedEventArgs e)
