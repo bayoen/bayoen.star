@@ -71,8 +71,12 @@
                 <TextBlock x:Name="GameWorkerDurationAverageBlock" ToolTip="CPS (Cycle per second)"/>
 
                 <metroControls:MetroButton x:Name="ResetDurationButton" 
-                                           Text="Reset" IsAccented="True"
+                                           Text="Reset Duration" IsAccented="True"
                                            Click="ResetDurationButton_Click"/>
+
+                <metroControls:MetroButton x:Name="ResetRecordButton" 
+                                           Text="Reset Record" IsAccented="True"
+                                           Click="ResetRecordButton_Click"/>
 
             </StackPanel>
         </GroupBox>
@@ -110,7 +114,7 @@
                     <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBlock x:Name="GoalTypeBlock" Text="Goal Type:" Margin="0"/>
                         <TextBlock x:Name="GoalCounterBlock" Text="Goal Counter:" Margin="0"/>
-                        <TextBlock x:Name="GOdlScoreBlock" Text="Goal Score:" Margin="0"/>
+                        <TextBlock x:Name="GOalScoreBlock" Text="Goal Score:" Margin="0"/>
                     </StackPanel>
 
                     <metroControls:MetroButton x:Name="ResetScoreButton" 

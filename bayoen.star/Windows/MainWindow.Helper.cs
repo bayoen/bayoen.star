@@ -68,7 +68,5 @@ namespace bayoen.star.Windows
                 this.WhereAmIBlock.Text = TryFindResource("Main-Status-Offline-String") as string;
             }
         }
-
-        private const int EventListPageMax = 10;
     }
 }

@@ -44,7 +44,7 @@ namespace bayoen.star
             Core.DashboardWindow.Show();
             //Core.MiniWindow.Show();
             //Core.MiniOverlay.Show();
-            Core.SettingWindow.Show();
+            //Core.SettingWindow.Show();
 #endif
         }
 
@@ -83,6 +83,11 @@ namespace bayoen.star
             Core.TrayIcon.Terminate();
             Core.Save();
             Environment.Exit(0);
+        }
+
+        public static void UpdateScore()
+        {
+
         }
     }
 }

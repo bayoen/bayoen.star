@@ -15,7 +15,6 @@ namespace bayoen.star.Workers
     {
         public LiveChecker()
         {
-            this.RoomMaker = new PlayerData();
             this.Players = Enumerable.Range(0, 4).ToList()
                             .ConvertAll(x => new PlayerData()).ToList();
             this.Panels = Enumerable.Range(0, 4).ToList()
@@ -68,7 +67,6 @@ namespace bayoen.star.Workers
 
         public void Reset()
         {
-            this.RoomMaker.Reset();
             this.Players.ForEach(x => x.Reset());
             this.Panels.ForEach(x => x.Reset());
             this.Reversed.ForEach(x => x.Reset());

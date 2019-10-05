@@ -134,6 +134,24 @@
                 </ScrollViewer>
             </mtc:MetroTabItem>
 
+            <mtc:MetroTabItem x:Name="RecordTabItem"
+                              Header="{DynamicResource Setting-Record-String}">
+                <ScrollViewer>
+                    <StackPanel Style="{StaticResource ContainerStackPanel}">
+
+                        <TextBlock Style="{StaticResource TextBlockSeparator}"
+                                   Text="{DynamicResource Setting-Record-HistoryHeader-String}"/>
+
+                        <metroControls:PropertyNumericUpDown x:Name="MatchItemNumberNumericUpDown"
+                                                             Property="MatchItemNumber"
+                                                             Header="MatchItemNumber"
+                                                             Detail="123123"
+                                                             ValueChanged="MatchItemNumberNumericUpDown_ValueChanged"/>
+
+                    </StackPanel>
+                </ScrollViewer>
+            </mtc:MetroTabItem>
+
             <mtc:MetroTabItem x:Name="StreamingTabItem"
                               Header="{DynamicResource Setting-Streaming-String}">
                 <ScrollViewer>
@@ -179,6 +197,17 @@
                         <TextBox x:Name="EnableRapidModeDetailBox" Visibility="Collapsed"
                                  Text="{DynamicResource Setting-Advanced-EnableSlowMode-Detail-String}"
                                  TextChanged="EnableRapidModeDetailBox_TextChanged"/>
+
+                        <TextBlock Style="{StaticResource TextBlockSeparator}"
+                                   Text="{DynamicResource Setting-Advanced-InterfaceHeader-String}"/>
+
+                        <metroControls:PropertyToggleSwitch x:Name="DisableEarlyRefreshSwitch"
+                                                            Property="DisableEarlyRefresh" 
+                                                            Header="{DynamicResource Setting-Advanced-DisableEarlyRefresh-Header-String}"
+                                                            Detail="{DynamicResource Setting-Advanced-DisableEarlyRefresh-Detail-String}"
+                                                            TrueLabel="{DynamicResource Setting-Yes-String}"
+                                                            FalseLabel="{DynamicResource Setting-No-String}"
+                                                            Toggled="DisableEarlyRefreshSwitch_Toggled"/>
 
                     </StackPanel>
                 </ScrollViewer>

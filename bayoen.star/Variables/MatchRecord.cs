@@ -3,8 +3,12 @@ using System.Collections.Generic;
 
 using Newtonsoft.Json;
 
+using LiteDB;
+
 using bayoen.library.General.Enums;
+using bayoen.library.General.ExtendedMethods;
 using bayoen.star.Functions;
+using System.Linq;
 
 namespace bayoen.star.Variables
 {
@@ -16,20 +20,16 @@ namespace bayoen.star.Variables
 
             this.Games = new List<GameRecord>();
             this.Players = new List<PlayerData>();
-            this.Winners = new List<int>();
+            //this.Winners = new List<int>();
 
             this.Reset();
         }
 
-        private bool _isInitialized;
-        private bool _isFinished;
-        private bool _isTerminated;
-
         [JsonIgnore]
         public int ID { get; set; }
         public BrokenTypes BrokenType { get; set; }
-        public MatchCategories MatchCategory { get; set; }
-        public bool IsBroken { get; set; }
+        public MatchCategories Category { get; set; }
+        public GameModes Mode { get; set; }
         public int RoomSize { get;  set; }
         public int RoomMax { get; set; }
         public List<int> Teams { get; set; }
@@ -40,15 +40,20 @@ namespace bayoen.star.Variables
         public DateTime Begin { get; set; }
         public DateTime End { get; set; }
 
+        [JsonIgnore]
         public List<GameRecord> Games { get; set; }
         public List<PlayerData> Players { get; set; }
-        public List<int> Winners { get; set; }
-        public int WinCount { get; set; }
+        public int WinnerTeam { get; set; }
+        public int WinCount { get; set; }        
 
         public void Reset()
         {
+            this.IsInitialized = false;
+            this.IsFinished = false;
+
             this.BrokenType = BrokenTypes.None;
-            this.MatchCategory = MatchCategories.None;
+            this.Category = MatchCategories.None;
+            this.Mode = GameModes.None;
             this.RoomSize = -1;
             this.RoomMax = -1;
             this.Teams.Clear();
@@ -61,44 +66,78 @@ namespace bayoen.star.Variables
 
             this.Games.Clear();
             this.Players.Clear();
-            this.Winners.Clear();
-            this.WinCount = -1;
+            //this.Winners.Clear();
+            this.WinnerTeam = -1;
+            this.WinCount = -1;            
         }
 
         public void AdjustGames()
         {
             foreach (GameRecord tokenGame in this.Games)
             {
-                tokenGame.MatchCategory = this.MatchCategory;
+                tokenGame.MatchCategory = this.Category;
+                tokenGame.GameMode = this.Mode;
                 tokenGame.RoomSize = this.RoomSize;
                 tokenGame.RoomMax = this.RoomMax;
                 tokenGame.Teams = this.Teams;
 
-                if (this.RoomSize < 4)
+                if (tokenGame.ScoreTicks != null)
                 {
-                    tokenGame.ScoreTicks.RemoveRange(this.RoomSize, 4 - this.RoomSize);
+                    if (this.RoomSize < 4)
+                    {
+                        if (tokenGame.ScoreTicks.Count != this.RoomSize)
+                        {
+                            tokenGame.ScoreTicks.RemoveRange(this.RoomSize, 4 - this.RoomSize);
+                        }
+                    }
                 }                
             }
         }
 
-        public void Terminate()
-        {
-            this.RatingGain = Core.Data.MyRating - Core.Old.MyRating;
-        }
-
-        public void SetInitialized() => this._isInitialized = true;
-        public void RemoveInitialized() => this._isInitialized = false;
-        public bool GetInitialized() => this._isInitialized;
-        public void SetFinished() => this._isFinished = true;
-        public void RemoveFinished() => this._isFinished = true;
-        public bool GetFinished() => this._isFinished;
-        public void SetTerminated() => this._isTerminated = true;
-        public void RemoveTerminated() => this._isTerminated = true;
-        public bool GetTerminated() => this._isTerminated;
+        [BsonIgnore, JsonIgnore]
+        public bool IsInitialized { get; set; }
+        [BsonIgnore, JsonIgnore]
+        public bool IsFinished { get; set; }
 
         public object Clone()
         {
             return this.MemberwiseClone();
+        }
+
+        public object RepeatDeepClone()
+        {
+            return new MatchRecord
+            {
+                Category = this.Category,
+                Mode = this.Mode,
+                RoomSize = this.RoomSize,
+                RoomMax = this.RoomMax,
+                Teams = new List<int>(this.Teams),
+
+                MyID32 = this.MyID32,
+                Players = new List<PlayerData>(this.Players.ConvertAll(x => x.Clone() as PlayerData)),
+                WinCount = this.WinCount,
+            };                        
+        }
+
+        [BsonIgnore, JsonIgnore]
+        public string MatchString => this.Serialize();
+        [BsonIgnore, JsonIgnore]
+        public List<int> WinRecord => this.Games.ConvertAll(x => x.WinnerTeam);
+        [BsonIgnore, JsonIgnore]
+        public List<int> WinStack
+        {
+            get
+            {
+                List<int> output = new List<int>() { 0, 0, 0, 0 };
+                List<int> record = this.WinRecord;
+                foreach (int winningTeam in record)
+                {
+                    if (winningTeam > 0) output[winningTeam - 1]++;
+                }
+
+                return output;
+            }
         }
     }
 }

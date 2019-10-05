@@ -31,16 +31,16 @@ namespace bayoen.star
         private static GameMemory _memory;
         public static GameMemory Memory => Core._memory ?? (Core._memory = new GameMemory(Config.PPTName));
 
-        //private static EventChecker _eventChecker;
-        //public static EventChecker EventChecker => Core._eventChecker ?? (Core._eventChecker = new Workers.EventChecker());
-
-        public static LiteDatabase DB { get; set; }
+        private static Database _db;
+        public static Database DB => Core._db ?? (Core._db = new Database());
 
         private static LiveChecker _live;
         public static LiveChecker Live => Core._live ?? (Core._live = new LiveChecker());
+
         public static EventRecord Event { get; set; }
         public static MatchRecord Match { get; set; }
         public static GameRecord Game { get; set; }
+        public static MatchRecord Last { get; set; }
 
         /// <summary>
         /// Visual
@@ -69,6 +69,6 @@ namespace bayoen.star
             }
 
             return ChromaComboBoxItemList;
-        }
+        }        
     }
 }

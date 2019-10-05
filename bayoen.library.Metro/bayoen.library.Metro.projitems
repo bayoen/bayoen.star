@@ -14,6 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\MetroImage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\MetroCircleButton.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyComboBox.xaml.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyNumericUpDown.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyToggleSwitch.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\WindowCommandButton.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Windows\BaseWindow.cs" />
@@ -32,6 +33,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Controls\PropertyComboBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\PropertyNumericUpDown.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -65,6 +70,12 @@
     </Compile>
     <Compile Update="$(MSBuildThisFileDirectory)Windows\BaseWindow.xaml.cs">
       <DependentUpon>BaseWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="D:\Work\project-bayoen\bayoen.star\bayoen.library.Metro\Controls\PropertyNumericUpDown.xaml.cs">
+      <DependentUpon>PropertyNumericUpDown.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="D:\Work\project-bayoen\bayoen.star\bayoen.library.Metro\PropertyNumericUpDown.xaml.cs">
+      <DependentUpon>PropertyNumericUpDown.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>

@@ -55,16 +55,24 @@ namespace bayoen.star.Functions
             File.WriteAllText(dst, this.Serialize(), Config.TextEncoding);
         }
 
-        public static UnkownTypes Load<UnkownTypes>(string src)
+        public static UnkownTypes Load<UnkownTypes>(string path)
         {            
             UnkownTypes output;
-            if (File.Exists(src))
+            if (File.Exists(path))
             {
-                string rawString = File.ReadAllText(src, Config.TextEncoding);
+                string rawString = File.ReadAllText(path, Config.TextEncoding);
                 try { output = JsonConvert.DeserializeObject<UnkownTypes>(rawString, Config.JsonSerializerSetting); }
                 catch { return default; }
             }
             else return default;
+            return output;
+        }
+
+        public static UnkownTypes Parse<UnkownTypes>(string text)
+        {
+            UnkownTypes output;
+            try { output = JsonConvert.DeserializeObject<UnkownTypes>(text, Config.JsonSerializerSetting); }
+            catch { return default; }
             return output;
         }
     }

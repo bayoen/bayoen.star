@@ -18,8 +18,9 @@
     <!-- 0.1 Top Mode -->
     <system:String x:Key="Main-OverlayMode-Header-String">오버레이</system:String>    
     <system:String x:Key="Main-OverlayMode-Always-String">항상</system:String>
-    <system:String x:Key="Main-OverlayMode-FreePlay-String">친선</system:String>
     <system:String x:Key="Main-OverlayMode-PuzzleLeague-String">리그</system:String>
+    <system:String x:Key="Main-OverlayMode-FreePlay-String">친선</system:String>
+    <system:String x:Key="Main-OverlayMode-Arcade-String">아케이드</system:String>
     <system:String x:Key="Main-OverlayMode-None-String">안함</system:String>
 
     <!-- 0.2 Record List -->
@@ -27,6 +28,10 @@
     <system:String x:Key="Main-RecordList-Event-String">이벤트</system:String>
     <system:String x:Key="Main-RecordList-Match-String">경기</system:String>
     
+    <system:String x:Key="Main-RecordList-PuzzleLeague-String">리그</system:String>
+    <system:String x:Key="Main-RecordList-FreePlay-String">친선</system:String>
+    <system:String x:Key="Main-RecordList-Arcade-String">아케이드</system:String>
+
     <!-- 1.0 Current Event -->
     <system:String x:Key="Main-CurrentEvent-Header-String">현재경기</system:String>
 
@@ -99,6 +104,10 @@
 
     - 게임동작주기를 ##TrackingIntervalNormal##에서 ##TrackingIntervalSlow##로 바꿉니다.
     - 표시주기를 ##DisplayIntervalNormal##에서 ##DisplayIntervalSlow##로 바꿉니다.</system:String>
+    <system:String x:Key="Setting-Advanced-InterfaceHeader-String">인터페이스</system:String>
+    <system:String x:Key="Setting-Advanced-DisableEarlyRefresh-Header-String">빠른갱신 중지</system:String>
+    <system:String x:Key="Setting-Advanced-DisableEarlyRefresh-Detail-String">인터페이스</system:String>
+
     <system:String x:Key="Setting-Restart-String">재시작</system:String>
 
     <!--Tray Icon-->

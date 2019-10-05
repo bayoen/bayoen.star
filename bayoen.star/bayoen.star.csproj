@@ -88,6 +88,7 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net462\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -113,6 +114,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controls\EventViewer.xaml.cs">
+      <DependentUpon>EventViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GameListItem.xaml.cs">
+      <DependentUpon>GameListItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MatchListItem.xaml.cs">
+      <DependentUpon>MatchListItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\MiniScorePanel.xaml.cs">
       <DependentUpon>MiniScorePanel.xaml</DependentUpon>
     </Compile>
@@ -126,11 +136,13 @@
     <Compile Include="Core.Funtion.cs" />
     <Compile Include="Core.Helper.cs" />
     <Compile Include="Functions\FncJson.cs" />
+    <Compile Include="Functions\Mapping.cs" />
     <Compile Include="Localizations\Culture.cs" />
     <Compile Include="Variables\EventRecord.cs" />
     <Compile Include="Variables\GameRecord.cs" />
     <Compile Include="Variables\MatchRecord.cs" />
     <Compile Include="Variables\OperationData.cs" />
+    <Compile Include="Workers\Database.cs" />
     <Compile Include="Workers\LiveChecker.cs" />
     <Compile Include="Windows\CapturableWindow.xaml.cs">
       <DependentUpon>CapturableWindow.xaml</DependentUpon>
@@ -205,6 +217,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Controls\EventViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\GameListItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MatchListItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\MiniScorePanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -303,6 +327,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\portrait_left_7.png" />
   </ItemGroup>
   <Import Project="..\bayoen.library.Metro\bayoen.library.Metro.projitems" Label="Shared" />
   <Import Project="..\bayoen.library.General\bayoen.library.General.projitems" Label="Shared" />

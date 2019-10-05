@@ -147,7 +147,19 @@ namespace bayoen.star.Variables
             }
         }
 
-        
+        private bool _disableEarlyRefresh;
+        public bool DisableEarlyRefresh
+        {
+            get => this._disableEarlyRefresh;
+            set
+            {
+                if (this._disableEarlyRefresh == value) return;
+
+
+
+                this._disableEarlyRefresh = value;
+            }
+        }
 
 
 
@@ -160,21 +172,16 @@ namespace bayoen.star.Variables
             get => this._trackingMode;
             set
             {
-                if (this._trackingMode == value) return;                
+                if (this._trackingMode == value) return;
 
                 Core.MainWindow.AlwaysTopModeButton.IsAccented = (value == TrackingModes.Always);
-                //Core.MainWindow.AlwaysTopModeButton.FontWeight = (value == TrackingModes.Always) ? FontWeights.Bold : FontWeights.Normal;
-
-                Core.MainWindow.FriendlyTopModeButton.IsAccented = (value == TrackingModes.Friendly);
-                //Core.MainWindow.FriendlyTopModeButton.FontWeight = (value == TrackingModes.Friendly) ? FontWeights.Bold : FontWeights.Normal;
-
                 Core.MainWindow.LeagueTopModeButton.IsAccented = (value == TrackingModes.League);
-                //Core.MainWindow.LeagueTopModeButton.FontWeight = (value == TrackingModes.League) ? FontWeights.Bold : FontWeights.Normal;
-
+                Core.MainWindow.FriendlyTopModeButton.IsAccented = (value == TrackingModes.Friendly);
+                Core.MainWindow.ArcadeTopModeButton.IsAccented = (value == TrackingModes.Arcade);
                 Core.MainWindow.NoneTopModeButton.IsAccented = (value == TrackingModes.None);
-                //Core.MainWindow.NoneTopModeButton.FontWeight = (value == TrackingModes.None) ? FontWeights.Bold : FontWeights.Normal;
 
                 this._trackingMode = value;
+
                 this.Save();
             }
         }
@@ -297,14 +304,31 @@ namespace bayoen.star.Variables
             {
                 if (this._recordDisplayMode == value) return;
 
-                Core.MainWindow.EventListModeButton.IsAccented = (value == RecordDisplayModes.Event);
-                Core.MainWindow.MatchListModeButton.IsAccented = (value == RecordDisplayModes.Match);                
+                Core.MainWindow.EventViewer.EventModeButton.IsAccented = (value == RecordDisplayModes.Event);
+                Core.MainWindow.EventViewer.MatchModeButton.IsAccented = (value == RecordDisplayModes.Match);                
 
                 this._recordDisplayMode = value;
                 this.Save();
             }
         }
 
+        private int _matchPageSize = 10;
+        public int MatchPageSize
+        {
+            get => this._matchPageSize;
+            set
+            {
+                int size = Math.Max(5, Math.Min(20, value));
+
+                if (this._matchPageSize == size) return;
+
+                Core.MainWindow.EventViewer.PageSize = size;
+                Core.MainWindow.EventViewer.Check();
+
+                this._matchPageSize = size;
+                this.Save();
+            }
+        }
 
         public static ProjectData Load()
         {

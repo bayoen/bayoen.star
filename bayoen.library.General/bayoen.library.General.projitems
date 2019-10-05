@@ -12,7 +12,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Enums\BrokenTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\ChromaKeys.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\GameAvatars.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Enums\Leagues.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\LineScores.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\Locations.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\MatchResults.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\PuzzleLeagues.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\PlayTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\ScoreDisplayModes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\GameModes.cs" />
@@ -27,7 +30,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Enums\ScoreTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\SubStates.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\TrackingModes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\VoiceTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ExtendedMethods\bayoen.library.General.Memories.ProcessMemory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ExtendedMethods\System.DateTime.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ExtendedMethods\System.Windows.Controls.Image.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Memories\ProcessMemory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\Converters\StringFormatConverter.cs" />

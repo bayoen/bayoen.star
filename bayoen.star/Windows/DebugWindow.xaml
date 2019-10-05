@@ -32,6 +32,7 @@
             <GroupBox Header="Textout">
                 <ScrollViewer>
                     <StackPanel Orientation="Vertical">
+                        <TextBlock x:Name="TextOut0"/>
                         <TextBlock x:Name="TextOut1"/>
                         <TextBlock x:Name="TextOut2"/>
                         <TextBlock x:Name="TextOut3"/>
@@ -54,11 +55,16 @@
                 <TextBlock x:Name="OperationDataBlock"/>
             </GroupBox>
 
-
-
             <StackPanel Orientation="Vertical">
 
+                <controls:MatchListItem MatchCategory="PuzzleLeague"/>
+                <controls:MatchListItem MatchCategory="FreePlay"/>
+                <controls:MatchListItem MatchCategory="Arcade"/>
+                
                 <StackPanel Orientation="Horizontal" Margin="5">
+
+                    
+
                     <ToggleButton Style="{DynamicResource MetroCircleToggleButtonStyle}"
                                   Height="45" Width="45" Margin="5">
                         <iconPacks:PackIconMaterial Kind="Crown" Height="30" Width="30">

@@ -53,14 +53,9 @@ namespace bayoen.star.Workers
         public bool InMatch => this.ReadInt32(this.BaseAddress + 0x461B20) != 0;
         public int OnlineType => this.ReadByte(this.BaseAddress + 0x573797) & 0b00000001;
         public bool PuzzleLeagueGameFinishFlag => this.ReadInt32(new IntPtr(0x140461B20), 0x454) == 7;
-        public bool IsGameFinished
-        {
-            get
-            {
-                int pointer = this.ReadByte(this.BaseAddress + 0x461B20, 0x42C);
-                return pointer == 0 || pointer == 1;
-            }
-        }
+        public bool IsGameFinished => this.ReadByte(this.BaseAddress + 0x461B20, 0x454) != 0;
+        public byte GameWinnerToken => this.ReadByte(this.BaseAddress + 0x461B20, 0x42C);
+
         public bool InReady
         {
             get
@@ -92,7 +87,7 @@ namespace bayoen.star.Workers
                 for (int i = 0; i < players; i++)
                 {
                     if (steam == this.OnlineID32Forced(i)) return i;
-                }                    
+                }
                 return 0;
             }
         }
@@ -101,7 +96,7 @@ namespace bayoen.star.Workers
         public int LobbySizeInGame => this.ReadInt32(this.BaseAddress + 0x460690, 0xCC);
         public int LobbyMax => this.ReadInt32(this.BaseAddress + 0x473760, 0x20, 0xB8);
 
-        private int Team(int index) => (this.ReadByte(this.BaseAddress + 0x598C1D + index * 0x68) / 4) % 16;
+        public int Team(int index) => (this.ReadByte(this.BaseAddress + 0x598C1D + index * 0x68) / 4) % 16;
         public List<int> Teams => Enumerable.Range(0, 4).Select(x => Team(x)).ToList();
 
         private int Star(int index) => this.ReadInt32(this.BaseAddress + 0x57F048, index * 0x04 + 0x38);
@@ -132,12 +127,34 @@ namespace bayoen.star.Workers
         //public long OnlineID64(int index) => this.ReadInt64(this._playerAddress + index * 0x50 + 0x40);
         public string OnlineName(int index) => this.ReadValidString(this._playerAddress + index * 0x50, PlayerNameSize);
         //public string OnlineNameRaw(int index) => this.ReadStringUnicode(this._playerAddress + index * 0x50, PlayerNameSize);
-        public byte OnlineAvatar(int index) => this.ReadByte(this._playerAddress + index * 0x50 + 0x25);
+        public byte OnlineAvatar(int index) => this.ReadByte(this._playerAddress + index * 0x50 + 0x24);
         public short OnlineRating(int index) => this.ReadInt16(this._playerAddress + index * 0x50 + 0x30);
-        public short OnlinePlayStyle(int index) => this.ReadInt16(this._playerAddress + index * 0x50 + 0x32);
+        public short OnlinePlayStyle(int index) => this.ReadByte(this._playerAddress + index * 0x50 + 0x32);
         public byte OnlineLeague(int index) => this.ReadByte(this._playerAddress + index * 0x50 + 0x27);
+        public int OnlineRegional(int index) => this.ReadInt32(this._playerAddress + index * 0x50 + 0x28);
+        public int OnlineWorldwide(int index) => this.ReadInt32(this._playerAddress + index * 0x50 + 0x2c);
         public short OnlineWin(int index) => this.ReadInt16(this._playerAddress + index * 0x50 + 0x36);
         public short OnlineLose(int index) => this.ReadInt16(this._playerAddress + index * 0x50 + 0x38);
+        public byte OnlineLocation(int index) => this.ReadByte(this._playerAddress + index * 0x50 + 0x3B);
+        public short OnlineMedal(int index) => (short)(this.ReadByte(this._playerAddress + index * 0x50 + 0x3A)
+                                                      + this.ReadInt32(this._playerAddress + index * 0x50 + 0x3C));
+        public int LeagueMode
+        {
+            get
+            {
+                byte raw = this.ReadByte(this.BaseAddress + 0x460690, 0x30, 0x7C8);
+                if (0 <= raw && raw <= 4) return raw + 1;
+                else return 0;
+            }
+        }
+
+        public byte AvatorSelection(int index) => this.ReadByte(this.BaseAddress + 0x460690, 0x1c8 + index * 0x30);
+        public byte TypeSelection(int index) => this.ReadByte(this.BaseAddress + 0x460690, 0x980 + index * 0x28);
+        public bool VoiceSelection(int index) => this.ReadBinary(index, this.BaseAddress + 0x460690, 0x594);
+
+        public byte AvatorInGame(int index) => this.ReadByte(this.BaseAddress + 0x598C28 + index * 0x68);
+        public bool TypeInGame(int index) => this.ReadBinary(6, this.BaseAddress + 0x598C27 + index * 0x68);
+        public bool VoiceInGame(int index) => this.ReadBinary(7, this.BaseAddress + 0x598C27 + index * 0x68);
 
         public void CheckMenuID()
         {

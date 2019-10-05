@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 using bayoen.library.General.Enums;
+using bayoen.library.General.ExtendedMethods;
 using bayoen.library.Metro.Windows;
 using bayoen.star.Variables;
 
@@ -25,7 +26,7 @@ namespace bayoen.star.Windows
         public DebugWindow()
         {
             this.InitializeComponent();
-            this.Title += $": {Config.AssemblyTitle}";                                   
+            this.Title += $": {Config.AssemblyTitle}";
 
             Core.DebugTimer.Interval = new TimeSpan(0, 0, 0, 0, 1);
             Core.DebugTimer.Tick += (sender, e) =>
@@ -38,7 +39,9 @@ namespace bayoen.star.Windows
                 this.TextOut2.Text = $"Core.Memory.LobbySize: {Core.Memory.LobbySize}"
                                    + $"\nCore.Memory.LobbySizeInGame: {Core.Memory.LobbySizeInGame}"
                                    + $"\nCore.Memory.LobbyMax: {Core.Memory.LobbyMax}"
-                                   + $"\nCore.Memory.IsGameFinished: {Core.Memory.IsGameFinished}";
+                                   + $"\nCore.Memory.IsGameFinished: {Core.Memory.IsGameFinished}"
+                                   + $"\nCore.Memory.GameWinnerToken: {Core.Memory.GameWinnerToken}"
+                                   + $"\nCore.Memory.LeagueMode: {Core.Memory.LeagueMode}";
                                    //+ $"\nPlayer 1:\n{(new PlayerData(0)).ToJson()}"
                                    //+ $"\nPlayer 2:\n{(new PlayerData(1)).ToJson()}"
                                    //+ $"\nPlayer 3:\n{(new PlayerData(2)).ToJson()}"

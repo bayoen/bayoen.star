@@ -46,7 +46,7 @@ namespace bayoen.star.Controls
             get => this._playerRating;
             set
             {
-                int token = Math.Max(-1, Math.Min(Config.CheatRatingMax, value));
+                int token = Math.Max(-1, Math.Min(Config.UnfairRatingMax, value));
 
                 if (this._playerRating == token) return;
 

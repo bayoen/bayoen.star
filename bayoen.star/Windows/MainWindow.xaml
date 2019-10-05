@@ -11,7 +11,8 @@
                     Title="bayoen-star"
                     
                     Height="600" Width="960"
-                    MinWidth="960">
+                    MinWidth="960"
+                    Loaded="BaseWindow_Loaded">
 
     <windows:BaseWindow.Resources>
         <Thickness x:Key="ContainerGap">3</Thickness>
@@ -49,7 +50,7 @@
         </Grid.Resources>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" MinWidth="430"/>
+            <ColumnDefinition Width="*" MinWidth="490"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
@@ -99,15 +100,7 @@
                                                Text="{DynamicResource Main-OverlayMode-Always-String}" FontSize="12" FontWeight="Normal"
                                                Padding="4,0" Margin="2" Click="AlwaysTopModeButton_Click">
                             <metroControls:MetroButton.Icon>
-                                <iconPacks:PackIconMaterial Kind="ProgressClock" Margin="0,0,5,0"/>
-                            </metroControls:MetroButton.Icon>
-                        </metroControls:MetroButton>
-
-                        <metroControls:MetroButton x:Name="FriendlyTopModeButton"
-                                               Text="{DynamicResource Main-OverlayMode-FreePlay-String}" FontSize="12" FontWeight="Normal"
-                                               Padding="4,0" Margin="2" Click="NormalTopModeButton_Click">
-                            <metroControls:MetroButton.Icon>
-                                <iconPacks:PackIconMaterial Kind="AccountMultiple" Margin="0,0,5,0"/>
+                                <iconPacks:PackIconMaterial Kind="CheckboxMarkedCircleOutline" Margin="0,0,5,0"/>
                             </metroControls:MetroButton.Icon>
                         </metroControls:MetroButton>
 
@@ -116,6 +109,22 @@
                                                Padding="4,0" Margin="2" Click="LeagueTopModeButton_Click">
                             <metroControls:MetroButton.Icon>
                                 <iconPacks:PackIconModern Kind="Leaderboard" Margin="0,0,5,0"/>
+                            </metroControls:MetroButton.Icon>
+                        </metroControls:MetroButton>
+
+                        <metroControls:MetroButton x:Name="FriendlyTopModeButton"
+                                               Text="{DynamicResource Main-OverlayMode-FreePlay-String}" FontSize="12" FontWeight="Normal"
+                                               Padding="4,0" Margin="2" Click="FriendlyTopModeButton_Click">
+                            <metroControls:MetroButton.Icon>
+                                <iconPacks:PackIconMaterial Kind="AccountMultiple" Margin="0,0,5,0"/>
+                            </metroControls:MetroButton.Icon>
+                        </metroControls:MetroButton>
+
+                        <metroControls:MetroButton x:Name="ArcadeTopModeButton"
+                                               Text="{DynamicResource Main-OverlayMode-Arcade-String}" FontSize="12" FontWeight="Normal"
+                                               Padding="4,0" Margin="2" Click="ArcadeTopModeButton_Click">
+                            <metroControls:MetroButton.Icon>
+                                <iconPacks:PackIconEntypo Kind="GameController" Margin="0,0,5,0"/>
                             </metroControls:MetroButton.Icon>
                         </metroControls:MetroButton>
 
@@ -134,134 +143,21 @@
 
             <!-- Column 0 & Row 2: RecordList -->
             <Border Grid.Row="2" Style="{StaticResource MetroBorder}">
+
                 <Grid>
+                    <controls:EventViewer x:Name="EventViewer" Grid.Row="1"
+                                          Margin="{StaticResource ControlGap}">
 
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
+                    </controls:EventViewer>
 
-                    <Grid Grid.Row="0">
-                        <Grid Margin="{StaticResource ControlGap}">
+                    <StackPanel Orientation="Horizontal"
+                                VerticalAlignment="Top" HorizontalAlignment="Left">
 
-                            <TextBlock Style="{DynamicResource HeaderBlock}"                                       
-                                       Text="{DynamicResource Main-RecordList-Header-String}"
-                                       VerticalAlignment="Center"/>
+                        <TextBlock Style="{DynamicResource HeaderBlock}"
+                                   Text="{DynamicResource Main-RecordList-Header-String}"
+                                   Margin="12,14,12,12"/>
 
-                            <StackPanel Orientation="Horizontal"                                    
-                                    VerticalAlignment="Center" HorizontalAlignment="Right">
-
-                                <StackPanel x:Name="EventListNavigatorPanel" 
-                                            Orientation="Horizontal"
-                                            Margin="0,0,25,0" VerticalAlignment="Center">
-
-                                    <metroControls:MetroCircleButton x:Name="PrevEventListButton"
-                                                                     Height="36" Width="36" IsAccented="True" Padding="2,0" Margin="2" 
-                                                                     Click="PrevEventListButton_Click">
-                                        <metroControls:MetroCircleButton.Icon>
-                                            <iconPacks:PackIconFontAwesome Kind="ChevronLeftSolid" Height="15" Width="15" Margin="0,0,2,0"/>
-                                        </metroControls:MetroCircleButton.Icon>
-                                    </metroControls:MetroCircleButton>
-
-                                    <TextBlock x:Name="EventListNavigatorBlock"
-                                               FontSize="12"
-                                               Margin="4,0" VerticalAlignment="Center">
-                                        9999 / 9999
-                                    </TextBlock>
-
-                                    <metroControls:MetroCircleButton x:Name="NextEventListButton"
-                                                                     Height="36" Width="36" IsAccented="True" Padding="2,0" Margin="2" 
-                                                                     Click="NextEventListButton_Click">
-                                        <metroControls:MetroCircleButton.Icon>
-                                            <iconPacks:PackIconFontAwesome Kind="ChevronRightSolid" Height="15" Width="15" Margin="2,0,0,0"/>
-                                        </metroControls:MetroCircleButton.Icon>
-                                    </metroControls:MetroCircleButton>
-
-                                </StackPanel>
-
-                                <metroControls:MetroButton x:Name="EventListModeButton" IsEnabled="False"
-                                               Text="{DynamicResource Main-RecordList-Event-String}" FontSize="12" FontWeight="Normal"
-                                               Padding="4,0" Margin="2" Click="EventListModeButton_Click">
-                                    <metroControls:MetroButton.Icon>
-                                        <iconPacks:PackIconMaterial Kind="CalendarMultipleCheck" Margin="0,0,5,0"/>
-                                    </metroControls:MetroButton.Icon>
-                                </metroControls:MetroButton>
-
-                                <metroControls:MetroButton x:Name="MatchListModeButton"
-                                               Text="{DynamicResource Main-RecordList-Match-String}" FontSize="12" FontWeight="Normal"
-                                               Padding="4,0" Margin="2" Click="MatchListModeButton_Click">
-                                    <metroControls:MetroButton.Icon>
-                                        <iconPacks:PackIconMaterial Kind="SwordCross" Margin="0,0,5,0"/>
-                                    </metroControls:MetroButton.Icon>
-                                </metroControls:MetroButton>
-
-                            </StackPanel>
-
-                        </Grid>
-                    </Grid>
-
-                    <TreeView Grid.Row="1" 
-                              Margin="{StaticResource ControlGap}">
-                        <TreeView.Resources>
-                            <Style TargetType="{x:Type TreeViewItem}" BasedOn="{StaticResource MetroTreeViewItem}">
-                                <Setter Property="Background" Value="{DynamicResource GrayBrush10}"/>
-                            </Style>
-                        </TreeView.Resources>
-
-                        <TreeViewItem Header="Match 1">
-                            <TreeViewItem Header="Game 1"/>
-                            <TreeViewItem Header="Game 2"/>
-                            <TreeViewItem Header="Game 3"/>
-                        </TreeViewItem>
-                        <TreeViewItem Header="Match 2">
-                            <TreeViewItem Header="Game 1"/>
-                            <TreeViewItem Header="Game 2"/>
-                            <TreeViewItem Header="Game 3"/>
-                        </TreeViewItem>
-                        <TreeViewItem Header="Match 3">
-                            <TreeViewItem Header="Game 1"/>
-                            <TreeViewItem Header="Game 2"/>
-                            <TreeViewItem Header="Game 3"/>
-                        </TreeViewItem>
-                        <TreeViewItem Header="Match 4">
-                            <TreeViewItem Header="Game 1"/>
-                            <TreeViewItem Header="Game 2"/>
-                            <TreeViewItem Header="Game 3"/>
-                        </TreeViewItem>
-                        <TreeViewItem Header="Match 5">
-                            <TreeViewItem Header="Game 1"/>
-                            <TreeViewItem Header="Game 2"/>
-                            <TreeViewItem Header="Game 3"/>
-                        </TreeViewItem>
-                        <TreeViewItem Header="Event 1">
-                            <TreeViewItem Header="Match 6">
-                                <TreeViewItem Header="Game 1"/>
-                                <TreeViewItem Header="Game 2"/>
-                                <TreeViewItem Header="Game 3"/>
-                            </TreeViewItem>
-                            <TreeViewItem Header="Match 7">
-                                <TreeViewItem Header="Game 1"/>
-                                <TreeViewItem Header="Game 2"/>
-                                <TreeViewItem Header="Game 3"/>
-                            </TreeViewItem>
-                            <TreeViewItem Header="Match 8">
-                                <TreeViewItem Header="Game 1"/>
-                                <TreeViewItem Header="Game 2"/>
-                                <TreeViewItem Header="Game 3"/>
-                            </TreeViewItem>
-                            <TreeViewItem Header="Match 9">
-                                <TreeViewItem Header="Game 1"/>
-                                <TreeViewItem Header="Game 2"/>
-                                <TreeViewItem Header="Game 3"/>
-                            </TreeViewItem>
-                            <TreeViewItem Header="Match 10">
-                                <TreeViewItem Header="Game 1"/>
-                                <TreeViewItem Header="Game 2"/>
-                                <TreeViewItem Header="Game 3"/>
-                            </TreeViewItem>
-                        </TreeViewItem>
-                    </TreeView>
-
+                    </StackPanel>
                 </Grid>
             </Border>
 
@@ -319,7 +215,7 @@
         </Grid>
 
         <!-- Column 2 -->
-        <Grid Grid.Column="2">
+        <Grid Grid.Column="2" Visibility="Collapsed">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>

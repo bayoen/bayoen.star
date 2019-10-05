@@ -4,12 +4,9 @@ using System.Text;
 
 namespace bayoen.library.General.Enums
 {
-    public enum TrackingModes : int
+    public enum VoiceTypes : int
     {
-        Always,
-        League,
-        Friendly,
-        Arcade,
-        None,
+        Default,
+        Alternative,
     }
 }

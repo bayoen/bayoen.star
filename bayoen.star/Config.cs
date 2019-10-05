@@ -18,13 +18,16 @@ namespace bayoen.star
 {
     public class Config
     {
+        // [ Monitor Flag ]
+        public const bool MonitorFlag = true;
+
         // Project Info.
         public static readonly Assembly Assembly = System.Reflection.Assembly.GetExecutingAssembly();
         public static readonly string AssemblyTitle = Assembly.GetExecutingAssembly().GetCustomAttribute<AssemblyTitleAttribute>().Title;
 
         // Game Info.        
         public const int RatingMax = 50000;
-        public const int CheatRatingMax = 65535;
+        public const int UnfairRatingMax = 65535;
 
         // Properties
         public static readonly string PPTName = "puyopuyotetris";
@@ -72,10 +75,6 @@ namespace bayoen.star
                     DateTimeStyles = DateTimeStyles.AdjustToUniversal,
                 },
             }
-        };
-        public static readonly ConnectionString DBConnectionString = new ConnectionString(Config.DataBaseFileName)
-        {
-            Password = "546050", // 546050, Only SemiRain Knows
         };
     }
 }

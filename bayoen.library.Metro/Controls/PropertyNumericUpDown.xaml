@@ -1,0 +1,41 @@
+﻿<Grid x:Class="bayoen.library.Metro.Controls.PropertyNumericUpDown"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mtc="http://metro.mahapps.com/winfx/xaml/controls"
+      xmlns:local="clr-namespace:bayoen.library.Metro.Controls">
+
+    <Grid.Resources>
+        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource MetroTextBlock}">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </Grid.Resources>
+
+    <Grid.RowDefinitions>
+        <RowDefinition Height="{Binding Height, ElementName=HeaderTextBlock}"/>
+        <RowDefinition Height="{Binding Height, ElementName=DetailTextBlock}"/>
+    </Grid.RowDefinitions>
+
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="Auto"/>
+    </Grid.ColumnDefinitions>
+
+    <TextBlock x:Name="HeaderTextBlock" Grid.Row="0" Grid.Column="0"
+               FontSize="16" FontWeight="ExtraBold"
+               Margin="10,10,5,2.5"
+               Text="{Binding Header, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyNumericUpDown}}"/>
+
+    <TextBlock x:Name="DetailTextBlock" Grid.Row="1" Grid.Column="0"
+               FontFamily="12"
+               Text="{Binding Detail, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyNumericUpDown}}"
+               Margin="10,2.5,5,10"/>
+
+
+    <mtc:NumericUpDown x:Name="NumericUpDown" Grid.Row="0" Grid.Column="1"
+                       Value="{Binding Value, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyNumericUpDown}}"
+                       Margin="5,10,10,10"
+                       VerticalAlignment="Center"
+                       ValueChanged="NumericUpDown_ValueChanged"/>
+
+</Grid>

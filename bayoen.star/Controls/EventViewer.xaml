@@ -1,0 +1,108 @@
+﻿<Grid x:Class="bayoen.star.Controls.EventViewer"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:var="clr-namespace:bayoen.star.Variables"
+      xmlns:metroControls="clr-namespace:bayoen.library.Metro.Controls"
+      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      xmlns:controls="clr-namespace:bayoen.star.Controls">
+
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+    <Grid Grid.Row="0"
+          Margin="0,0,0,6"
+          Background="Transparent"
+          PreviewMouseWheel="NavigatorGrid_PreviewMouseWheel">
+        <StackPanel Orientation="Horizontal"                    
+                    VerticalAlignment="Center" HorizontalAlignment="Right">
+
+            <StackPanel x:Name="NavigatorPanel" 
+                        Orientation="Horizontal" Margin="0,3,10,0" 
+                        VerticalAlignment="Center">
+
+                <metroControls:MetroCircleButton x:Name="PrevPageButton"
+                                                 Height="36" Width="36" IsAccented="True" Padding="2,0" Margin="2" 
+                                                 Click="PrevPageButton_Click">
+                    <metroControls:MetroCircleButton.Icon>
+                        <iconPacks:PackIconModern Kind="ChevronLeft" Height="15" Width="15" Margin="0,0,2,0"/>
+                    </metroControls:MetroCircleButton.Icon>
+                </metroControls:MetroCircleButton>
+
+                <metroControls:MetroCircleButton x:Name="NextPageButton"
+                                                 Height="36" Width="36" IsAccented="True" Padding="2,0" Margin="2" 
+                                                 Click="NextPageButton_Click">
+                    <metroControls:MetroCircleButton.Icon>
+                        <iconPacks:PackIconModern Kind="ChevronRight" Height="15" Width="15" Margin="2,0,0,0"/>
+                    </metroControls:MetroCircleButton.Icon>
+                </metroControls:MetroCircleButton>
+
+                <TextBlock x:Name="PageBlock"
+                           Text="##### / #####"
+                           FontSize="12" TextAlignment="Center"
+                           Width="80" Margin="4,0"
+                           VerticalAlignment="Center"/>
+                
+            </StackPanel>
+
+            <metroControls:MetroButton x:Name="EventModeButton" IsEnabled="False"
+                                               Text="{DynamicResource Main-RecordList-Event-String}" FontSize="12" FontWeight="Normal"
+                                               Padding="4,0" Margin="2" Click="EventModeButton_Click">
+                <metroControls:MetroButton.Icon>
+                    <iconPacks:PackIconMaterial Kind="CalendarMultipleCheck" Margin="0,0,5,0"/>
+                </metroControls:MetroButton.Icon>
+            </metroControls:MetroButton>
+
+            <metroControls:MetroButton x:Name="MatchModeButton"
+                                               Text="{DynamicResource Main-RecordList-Match-String}" FontSize="12" FontWeight="Normal"
+                                               Padding="4,0" Margin="2" Click="MatchModeButton_Click">
+                <metroControls:MetroButton.Icon>
+                    <iconPacks:PackIconMaterial Kind="SwordCross" Margin="0,0,5,0"/>
+                </metroControls:MetroButton.Icon>
+            </metroControls:MetroButton>
+
+        </StackPanel>
+    </Grid>
+
+    <TreeView x:Name="EventTreeView" Grid.Row="1"
+              SelectedItemChanged="EventTreeView_SelectedItemChanged">
+        <TreeView.Resources>
+            <Style TargetType="{x:Type TreeViewItem}" BasedOn="{StaticResource MetroTreeViewItem}">
+                <Setter Property="Background" Value="{DynamicResource GrayBrush10}"/>
+            </Style>
+
+            <HierarchicalDataTemplate DataType="{x:Type var:MatchRecord}" ItemsSource="{Binding Games}">
+                <HierarchicalDataTemplate.Resources>
+                    
+                </HierarchicalDataTemplate.Resources>
+                
+                <controls:MatchListItem x:Name="MatchListItem" MatchString="{Binding MatchString}"/>
+
+                <HierarchicalDataTemplate.Triggers>
+                    <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TreeViewItem}}}" 
+                                 Value="True">
+                        <Setter TargetName="MatchListItem" Property="IsSelectedString" Value="True"/>
+                    </DataTrigger>
+                </HierarchicalDataTemplate.Triggers> 
+                
+            </HierarchicalDataTemplate>
+
+            <DataTemplate DataType="{x:Type var:GameRecord}">
+
+                <controls:GameListItem x:Name="GameListItem" GameString="{Binding GameString}"/>
+
+                <DataTemplate.Triggers>
+                    <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TreeViewItem}}}" 
+                                 Value="True">
+                        <Setter TargetName="GameListItem" Property="IsSelectedString" Value="True"/>
+                    </DataTrigger>
+                </DataTemplate.Triggers>
+
+            </DataTemplate>
+
+        </TreeView.Resources>
+        
+    </TreeView>
+    
+</Grid>

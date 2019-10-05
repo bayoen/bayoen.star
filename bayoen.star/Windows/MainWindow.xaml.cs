@@ -32,7 +32,8 @@ namespace bayoen.star.Windows
 
             this.AlwaysTopModeButton.IsAccented = true;
             this.GoalStarButton.IsAccented = true;
-            this.EventListModeButton.IsAccented = true;
+
+            this.EventViewer.EventModeButton.IsAccented = true;            
 
             this.MenuButton.ContextMenu.PlacementTarget = this.MenuButton;
 
@@ -77,19 +78,20 @@ namespace bayoen.star.Windows
 
         private void EditFavoriteGoalButton_Click(object sender, RoutedEventArgs e) { }        
         private void AlwaysTopModeButton_Click(object sender, RoutedEventArgs e) => Core.Project.TrackingMode = TrackingModes.Always;
-        private void NormalTopModeButton_Click(object sender, RoutedEventArgs e) => Core.Project.TrackingMode = TrackingModes.Friendly;
         private void LeagueTopModeButton_Click(object sender, RoutedEventArgs e) => Core.Project.TrackingMode = TrackingModes.League;
+        private void FriendlyTopModeButton_Click(object sender, RoutedEventArgs e) => Core.Project.TrackingMode = TrackingModes.Friendly;
+        private void ArcadeTopModeButton_Click(object sender, RoutedEventArgs e) => Core.Project.TrackingMode = TrackingModes.Arcade;        
         private void NoneTopModeButton_Click(object sender, RoutedEventArgs e) => Core.Project.TrackingMode = TrackingModes.None;
 
         private void GoalStarButton_Click(object sender, RoutedEventArgs e) => Core.Project.GoalCounter = GoalCounters.Star;
         private void GoalGameButton_Click(object sender, RoutedEventArgs e) => Core.Project.GoalCounter = GoalCounters.Game;
 
-        private void EventListModeButton_Click(object sender, RoutedEventArgs e) => Core.Project.RecordDisplayMode = RecordDisplayModes.Event;
-        private void MatchListModeButton_Click(object sender, RoutedEventArgs e) => Core.Project.RecordDisplayMode = RecordDisplayModes.Match;
-
-        private void PrevEventListButton_Click(object sender, RoutedEventArgs e) { } //=> Core.EventChecker.PageIndex--;
-        private void NextEventListButton_Click(object sender, RoutedEventArgs e) { } // => Core.EventChecker.PageIndex++;
-
         private void WhereAmIDetailBox_TextChanged(object sender, TextChangedEventArgs e) => this.CheckStatus();
+
+        private void BaseWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.EventViewer.PageSize = Core.Project.MatchPageSize;
+            this.EventViewer.Check();
+        }
     }
 }

@@ -18,14 +18,19 @@
     <!-- 0.1 Top Mode -->
     <system:String x:Key="Main-OverlayMode-Header-String">オーバーレイ</system:String>
     <system:String x:Key="Main-OverlayMode-Always-String">常に</system:String>
-    <system:String x:Key="Main-OverlayMode-FreePlay-String">Free</system:String>
-    <system:String x:Key="Main-OverlayMode-PuzzleLeague-String">League</system:String>
-    <system:String x:Key="Main-OverlayMode-None-String">None</system:String>
+    <system:String x:Key="Main-OverlayMode-PuzzleLeague-String">リーグ</system:String>
+    <system:String x:Key="Main-OverlayMode-FreePlay-String">親善</system:String>
+    <system:String x:Key="Main-OverlayMode-Arcade-String">アーケード</system:String>
+    <system:String x:Key="Main-OverlayMode-None-String">ない</system:String>
 
     <!-- 0.2 Record List -->
-    <system:String x:Key="Main-RecordList-Header-String">Records</system:String>
-    <system:String x:Key="Main-RecordList-Event-String">Event</system:String>
-    <system:String x:Key="Main-RecordList-Match-String">Match</system:String>
+    <system:String x:Key="Main-RecordList-Header-String">記録</system:String>
+    <system:String x:Key="Main-RecordList-Event-String">イベント</system:String>
+    <system:String x:Key="Main-RecordList-Match-String">對戰</system:String>
+
+    <system:String x:Key="Main-RecordList-PuzzleLeague-String">League</system:String>
+    <system:String x:Key="Main-RecordList-FreePlay-String">Friendly</system:String>
+    <system:String x:Key="Main-RecordList-Arcade-String">Arcade</system:String>
 
     <!-- 1.0 Current Event -->
     <system:String x:Key="Main-CurrentEvent-Header-String">Current</system:String>
@@ -99,6 +104,8 @@
 
     - Change the game tracking interval to ##TrackingIntervalSlow## from ##TrackingIntervalNormal##.
     - Change the display interval to ##DisplayIntervalSlow## from ##DisplayIntervalNormal##.</system:String>
+    <system:String x:Key="Setting-Advanced-InterfaceHeader-String">Interface</system:String>
+    
     <system:String x:Key="Setting-Restart-String">再起動</system:String>
 
     <!--Tray Icon-->

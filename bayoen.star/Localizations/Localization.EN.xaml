@@ -18,14 +18,19 @@
     <!-- 0.1 Top Mode -->
     <system:String x:Key="Main-OverlayMode-Header-String">Overlay</system:String>
     <system:String x:Key="Main-OverlayMode-Always-String">Always</system:String>    
-    <system:String x:Key="Main-OverlayMode-FreePlay-String">Free</system:String>
     <system:String x:Key="Main-OverlayMode-PuzzleLeague-String">League</system:String>
+    <system:String x:Key="Main-OverlayMode-FreePlay-String">Free</system:String>
+    <system:String x:Key="Main-OverlayMode-Arcade-String">Arcade</system:String>
     <system:String x:Key="Main-OverlayMode-None-String">None</system:String>
 
     <!-- 0.2 Record List -->
     <system:String x:Key="Main-RecordList-Header-String">Records</system:String>
     <system:String x:Key="Main-RecordList-Event-String">Event</system:String>
     <system:String x:Key="Main-RecordList-Match-String">Match</system:String>
+
+    <system:String x:Key="Main-RecordList-PuzzleLeague-String">League</system:String>
+    <system:String x:Key="Main-RecordList-FreePlay-String">Friendly</system:String>
+    <system:String x:Key="Main-RecordList-Arcade-String">Arcade</system:String>
 
     <!-- 1.0 Current Event -->
     <system:String x:Key="Main-CurrentEvent-Header-String">Current</system:String>
@@ -99,6 +104,8 @@
 
     - Change the game tracking interval to ##TrackingIntervalSlow## from ##TrackingIntervalNormal##.
     - Change the display interval to ##DisplayIntervalSlow## from ##DisplayIntervalNormal##.</system:String>
+    <system:String x:Key="Setting-Advanced-InterfaceHeader-String">Interface</system:String>
+
     <system:String x:Key="Setting-Restart-String">Restart</system:String>
 
     <!--Tray Icon-->

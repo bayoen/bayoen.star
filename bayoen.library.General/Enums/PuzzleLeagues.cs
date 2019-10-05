@@ -1,6 +1,6 @@
 ﻿namespace bayoen.library.General.Enums
 {
-    public enum Leagues : int
+    public enum PuzzleLeagues : int
     {
         None = 0,
         Student,

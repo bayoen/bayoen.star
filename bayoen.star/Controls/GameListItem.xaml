@@ -1,0 +1,48 @@
+﻿<Grid x:Class="bayoen.star.Controls.GameListItem"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="clr-namespace:bayoen.star.Controls"
+      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      
+      Margin="4"
+      Background="Transparent">
+
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+    <TextBox x:Name="GameStringBindingBox" Visibility="Collapsed"
+                 Text="{Binding GameString, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:GameListItem}}"
+                 TextChanged="GameStringBindingBox_TextChanged"/>
+
+    <TextBox x:Name="IsSelectedStringBindingBox" Visibility="Collapsed"
+                 Text="{Binding IsSelectedString, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:GameListItem}}"
+                 TextChanged="IsSelectedStringBindingBox_TextChanged"/>
+
+    <StackPanel Grid.Row="0"
+                Orientation="Horizontal">
+        <TextBlock x:Name="OrderBlock"
+                   Margin="4,2,2,2"
+                   VerticalAlignment="Center"/>
+        
+        <TextBlock x:Name="EndBlock"
+                   Margin="4,2,2,2"
+                   VerticalAlignment="Center"/>
+
+        <TextBlock x:Name="WinnerTeamBlock"
+                   Margin="4,2,2,2"
+                   VerticalAlignment="Center"/>
+
+        <TextBlock x:Name="GameTimeBlock"
+                   Margin="4,2,2,2"
+                   VerticalAlignment="Center"/>
+
+    </StackPanel>
+
+    <StackPanel x:Name="SecondRowPanel" Grid.Row="1"
+                Visibility="Collapsed">
+        <TextBlock>Selected!!!</TextBlock>
+    </StackPanel>
+
+</Grid>

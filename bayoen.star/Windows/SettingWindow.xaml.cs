@@ -48,6 +48,13 @@ namespace bayoen.star.Windows
             // EnglishDisplay
             this.EnglishDisplaySwitch.Value = Core.Project.EnglishDisplay;
 
+            //// Record
+            // MatchItemNumber
+            this.MatchItemNumberNumericUpDown.Value = Core.Project.MatchPageSize;
+            this.MatchItemNumberNumericUpDown.NumericUpDown.Minimum = 5;
+            this.MatchItemNumberNumericUpDown.NumericUpDown.Maximum = 20;
+            this.MatchItemNumberNumericUpDown.NumericUpDown.Width = 80;
+
             //// Streaming
             // ChromaKey
             this.ChromaKeyComboBox.ComboBoxMinWidth = 120;
@@ -61,7 +68,8 @@ namespace bayoen.star.Windows
             // EnableRapidMode
             this.EnableRapidModeSwitch.Value = Core.Project.EnableSlowMode;
             //this.EnableRapidModeSwitch.TrueLabel = $"{Config.DisplayIntervalSlow.TotalMilliseconds} ms";
-            //this.EnableRapidModeSwitch.FalseLabel = $"{Config.DisplayIntervalNormal.TotalMilliseconds} ms";         
+            //this.EnableRapidModeSwitch.FalseLabel = $"{Config.DisplayIntervalNormal.TotalMilliseconds} ms";  
+            this.DisableEarlyRefreshSwitch.Value = Core.Project.DisableEarlyRefresh;
         }        
 
         private void RestartButton_Click(object sender, RoutedEventArgs e)
@@ -127,6 +135,14 @@ namespace bayoen.star.Windows
                 .Replace("##DisplayIntervalSlow##", $"'{Config.DisplayIntervalSlow.TotalMilliseconds} ms'");
         }
 
+        private void DisableEarlyRefreshSwitch_Toggled(object sender, RoutedEventArgs e)
+        {
+            Core.Project.DisableEarlyRefresh = this.DisableEarlyRefreshSwitch.Value;
+        }
 
+        private void MatchItemNumberNumericUpDown_ValueChanged(object sender, RoutedEventArgs e)
+        {
+            Core.Project.MatchPageSize = this.MatchItemNumberNumericUpDown.Value;
+        }
     }
 }

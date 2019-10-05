@@ -2,7 +2,7 @@
 {
     public enum PlayTypes : int
     {
-        None,
+        None = -1,
         PuyoPuyo,
         Tetris,
         Swap,

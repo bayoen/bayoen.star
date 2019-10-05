@@ -80,7 +80,7 @@ namespace bayoen.star.Windows
 
                 this.GoalTypeBlock.Text = $"Goal ~ Type: {Core.Project.GoalType}, ";
                 this.GoalCounterBlock.Text = $"Counter: {Core.Project.GoalCounter}, ";
-                this.GOdlScoreBlock.Text = $"Score: {Core.Project.GoalScore}";
+                this.GOalScoreBlock.Text = $"Score: {Core.Project.GoalScore}";
             }
             catch (Exception ex)
             {
@@ -104,6 +104,13 @@ namespace bayoen.star.Windows
         {
             Core.Match.Reset();
             Core.Game.Reset();
+        }
+
+        private void ResetRecordButton_Click(object sender, RoutedEventArgs e)
+        {
+            Core.DB.MatchClear();            
+            Core.MainWindow.EventViewer.SetPage(0);
+            Core.MainWindow.EventViewer.CheckNavigator();
         }
     }
 }
