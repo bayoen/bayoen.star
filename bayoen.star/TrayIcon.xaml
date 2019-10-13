@@ -22,7 +22,7 @@
                 </MenuItem.Header>
             </MenuItem>
             <Separator/>
-            <MenuItem Header="{DynamicResource Tray-ExitProject-String}" Click="ExitMenuItem_Click"/>
+            <MenuItem Header="{DynamicResource TrayIcon-Top-Quit-String}" Click="ExitMenuItem_Click"/>
         </ContextMenu>
     </tb:TaskbarIcon.ContextMenu>
 
@@ -35,11 +35,11 @@
                 <StackPanel Orientation="Vertical"
                     VerticalAlignment="Center" HorizontalAlignment="Center">
                     <StackPanel Orientation="Horizontal"
-                        HorizontalAlignment="Center">
+                                HorizontalAlignment="Center">
                         <TextBlock Text="Close to tray"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal"
-                        HorizontalAlignment="Center">
+                                HorizontalAlignment="Center">
                         <TextBlock Text="Y/N?"/>
                     </StackPanel>
                 </StackPanel>

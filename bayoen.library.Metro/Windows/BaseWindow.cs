@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-
+using bayoen.library.General.Enums;
 using MahApps.Metro.Controls;
 
 namespace bayoen.library.Metro.Windows
@@ -31,12 +31,31 @@ namespace bayoen.library.Metro.Windows
             this.IsFixed = false;
         }
 
-        public bool CloseToMinimize { get; set; }
+        /// <summary>
+        /// When closed, if it is <see cref="true"/>, <see cref="BaseWindow"/> is minimized
+        /// </summary>
+        public bool CloseToMinimize
+        {
+            get => (bool)GetValue(CloseToMinimizeProperty);
+            set => SetValue(CloseToMinimizeProperty, value);
+        }
+        public static readonly DependencyProperty CloseToMinimizeProperty = DependencyProperty.Register(
+            "CloseToMinimize",
+            typeof(bool),
+            typeof(BaseWindow));
 
         /// <summary>
         /// If <see cref="BaseWindow"/> is fixed, <see cref="Window.DragMove"/> is disabled
         /// </summary>
-        public bool IsFixed { get; set; }
+        public bool IsFixed
+        {
+            get => (bool)GetValue(IsFixedProperty);
+            set => SetValue(IsFixedProperty, value);
+        }
+        public static readonly DependencyProperty IsFixedProperty = DependencyProperty.Register(
+            "IsFixed",
+            typeof(bool),
+            typeof(BaseWindow));
 
         private void BaseWindow_Closing(object sender, CancelEventArgs e)
         {

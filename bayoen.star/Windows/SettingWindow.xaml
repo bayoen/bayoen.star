@@ -21,7 +21,7 @@
         <Grid Width="148" Margin="0" Background="#191919" HorizontalAlignment="Left">
             <metroControls:MetroButton x:Name="RestartButton"
                                        IsAccented="True"
-                                       Text="{DynamicResource Setting-Restart-String}"
+                                       Text="{DynamicResource SettingWindow-Streaming-Restart-Content-String}"
                                        FontSize="14" FontWeight="Bold" 
                                        Width="85"
                                        Margin="20" Padding="3,0,5,0"

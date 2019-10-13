@@ -22,14 +22,14 @@ namespace bayoen.library.Metro.Controls
             this.InitializeComponent();
         }
 
-        public Brush IconForeground
+        public UIElement Icon
         {
-            get { return GetValue(IconForegroundProperty) as Brush; }
-            set { SetValue(IconForegroundProperty, value); }
+            get { return GetValue(IconProperty) as UIElement; }
+            set { SetValue(IconProperty, value); }
         }
-        public static readonly DependencyProperty IconForegroundProperty = DependencyProperty.Register(
-            "IconForeground",
-            typeof(Brush),
+        public static readonly DependencyProperty IconProperty = DependencyProperty.Register(
+            "Icon",
+            typeof(UIElement),
             typeof(MetroComboBoxItem));
 
         public string Text
@@ -40,6 +40,26 @@ namespace bayoen.library.Metro.Controls
         public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
             "Text",
             typeof(string),
+            typeof(MetroComboBoxItem));
+
+        public new double FontSize
+        {
+            get { return (double)GetValue(FontSizeProperty); }
+            set { SetValue(FontSizeProperty, value); }
+        }
+        public new static readonly DependencyProperty FontSizeProperty = DependencyProperty.Register(
+            "FontSize",
+            typeof(double),
+            typeof(MetroComboBoxItem));
+
+        public new FontWeight FontWeight
+        {
+            get { return (FontWeight)GetValue(FontWeightProperty); }
+            set { SetValue(FontWeightProperty, value); }
+        }
+        public new static readonly DependencyProperty FontWeightProperty = DependencyProperty.Register(
+            "FontWeight",
+            typeof(FontWeight),
             typeof(MetroComboBoxItem));
     }
 }

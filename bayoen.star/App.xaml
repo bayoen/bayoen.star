@@ -16,6 +16,8 @@
                 <!--Lang 0--> <!--<ResourceDictionary Source="../Localization/Localization.en.xaml" />-->
                 <!--Lang 1--> <ResourceDictionary Source="../Localizations/Localization.ko.xaml" />
                 <!--Lang 2--> <ResourceDictionary Source="../Localizations/Localization.ja.xaml" />
+                <!--Lang 3--> <ResourceDictionary Source="../Localizations/Localization.es.xaml" />
+                <!--Lang 4--> <ResourceDictionary Source="../Localizations/Localization.fr.xaml" />
                 <ResourceDictionary Source="../Localizations/Localization.en.xaml" /> <!--Default is the last-->
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

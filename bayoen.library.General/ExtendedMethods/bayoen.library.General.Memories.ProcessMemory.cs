@@ -9,22 +9,24 @@ namespace bayoen.library.General.ExtendedMethods
     {
         public static string ReadValidString(this ProcessMemory pm, IntPtr pOffset, uint pSize, params long[] offsets)
         {
-            string output = Encoding.ASCII.GetString(
+            string raw = pm.ReadStringUnicode(pOffset, pSize, offsets);
+            string utf8 = Encoding.ASCII.GetString(
                 Encoding.Convert(
                     Encoding.UTF8,
                     Encoding.GetEncoding(
                         Encoding.ASCII.EncodingName,
                         new EncoderReplacementFallback(string.Empty),
-                        new DecoderExceptionFallback()
-                        ),
-                    Encoding.UTF8.GetBytes(pm.ReadStringUnicode(pOffset, pSize, offsets))
+                        new DecoderExceptionFallback()),
+                    Encoding.UTF8.GetBytes(raw)
                 )
             );
 
-            int escapeIndex = output.IndexOf("\u0000");
-            if (escapeIndex > -1) output = output.Remove(escapeIndex);
+            int escapeIndex = utf8.IndexOf("\u0000");
+            if (escapeIndex > -1) utf8 = utf8.Remove(escapeIndex);
 
-            return output;
+            if (utf8.Length == 0) return raw;
+
+            return utf8;
         }
 
         public static bool ReadBinary(this ProcessMemory pm, int index, IntPtr pOffset) => pm.ReadBinary(index, pOffset, new long[] { });

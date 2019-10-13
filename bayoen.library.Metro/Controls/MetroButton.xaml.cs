@@ -16,16 +16,6 @@ namespace bayoen.library.Metro.Controls
             typeof(Thickness),
             typeof(MetroButton));
 
-        public string Text
-        {
-            get { return GetValue(TextProperty) as string; }
-            set { SetValue(TextProperty, value); }
-        }
-        public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
-            "Text",
-            typeof(string),
-            typeof(MetroButton));
-
         public UIElement Icon
         {
             get { return GetValue(IconProperty) as UIElement; }
@@ -34,6 +24,16 @@ namespace bayoen.library.Metro.Controls
         public static readonly DependencyProperty IconProperty = DependencyProperty.Register(
             "Icon",
             typeof(UIElement),
+            typeof(MetroButton));
+
+        public string Text
+        {
+            get { return GetValue(TextProperty) as string; }
+            set { SetValue(TextProperty, value); }
+        }
+        public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
+            "Text",
+            typeof(string),
             typeof(MetroButton));
 
         public new double FontSize

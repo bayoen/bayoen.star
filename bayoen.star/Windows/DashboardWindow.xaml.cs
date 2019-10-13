@@ -108,9 +108,9 @@ namespace bayoen.star.Windows
 
         private void ResetRecordButton_Click(object sender, RoutedEventArgs e)
         {
-            Core.DB.MatchClear();            
-            Core.MainWindow.EventViewer.SetPage(0);
-            Core.MainWindow.EventViewer.CheckNavigator();
+            Core.DB.ClearMatch();            
+            Core.EventViewer.SetPage(0);
+            Core.EventViewer.CheckNavigator();
         }
     }
 }

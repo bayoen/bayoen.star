@@ -9,10 +9,11 @@
     <Import_RootNamespace>bayoen.library.Metro</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\MetroComboBoxItem.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\MetroButton.xaml.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\MetroImage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\MetroChromaComboBoxItem.xaml.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\MetroComboBoxItem.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\MetroCircleButton.xaml.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\MetroImage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyComboBox.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyNumericUpDown.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyToggleSwitch.xaml.cs" />
@@ -20,15 +21,19 @@
     <Compile Include="$(MSBuildThisFileDirectory)Windows\BaseWindow.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="$(MSBuildThisFileDirectory)Controls\MetroComboBoxItem.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="$(MSBuildThisFileDirectory)Controls\MetroButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\MetroChromaComboBoxItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)Controls\MetroCircleButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\MetroComboBoxItem.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -71,10 +76,10 @@
     <Compile Update="$(MSBuildThisFileDirectory)Windows\BaseWindow.xaml.cs">
       <DependentUpon>BaseWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Update="D:\Work\project-bayoen\bayoen.star\bayoen.library.Metro\Controls\PropertyNumericUpDown.xaml.cs">
-      <DependentUpon>PropertyNumericUpDown.xaml</DependentUpon>
+    <Compile Update="$(MSBuildThisFileDirectory)Controls\MetroChromaComboBoxItem.xaml.cs">
+      <DependentUpon>MetroChromaComboBoxItem.xaml</DependentUpon>
     </Compile>
-    <Compile Update="D:\Work\project-bayoen\bayoen.star\bayoen.library.Metro\PropertyNumericUpDown.xaml.cs">
+    <Compile Update="$(MSBuildThisFileDirectory)Controls\PropertyNumericUpDown.xaml.cs">
       <DependentUpon>PropertyNumericUpDown.xaml</DependentUpon>
     </Compile>
   </ItemGroup>

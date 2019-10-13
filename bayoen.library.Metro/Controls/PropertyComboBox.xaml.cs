@@ -111,17 +111,16 @@ namespace bayoen.library.Metro.Controls
             add { this.AddHandler(ComboBoxSelectionChanged, value); }
             remove { this.RemoveHandler(ComboBoxSelectionChanged, value); }
         }
-
-        public double ComboBoxMinWidth 
+        public double ComboBoxWidth
         {
-            get { return (double)this.GetValue(ComboBoxMinWidthProperty); }
-            set { this.SetValue(ComboBoxMinWidthProperty, value); }
+            get { return (double)this.GetValue(ComboBoxWidthProperty); }
+            set { this.SetValue(ComboBoxWidthProperty, value); }
         }
-        public static readonly DependencyProperty ComboBoxMinWidthProperty = DependencyProperty.Register(
-            "ComboBoxMinWidth",
+        public static readonly DependencyProperty ComboBoxWidthProperty = DependencyProperty.Register(
+            "ComboBoxWidth",
             typeof(double),
             typeof(PropertyComboBox),
-            new FrameworkPropertyMetadata((double)120));
+            new FrameworkPropertyMetadata((double)100));
        
         public Brush ComboBoxBackground
         {

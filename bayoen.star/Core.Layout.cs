@@ -1,4 +1,5 @@
-﻿using bayoen.star.Windows;
+﻿using bayoen.star.Controls;
+using bayoen.star.Windows;
 
 namespace bayoen.star
 {
@@ -27,6 +28,13 @@ namespace bayoen.star
 
         private static MiniOverlay _miniOverlay;
         public static MiniOverlay MiniOverlay => Core._miniOverlay ?? (Core._miniOverlay = new MiniOverlay());
-        
+
+
+        private static LeagueWindow _leagueWindow;
+        public static LeagueWindow LeagueWindow => Core._leagueWindow ?? (Core._leagueWindow = new LeagueWindow());
+
+
+
+        public static EventViewer EventViewer => Core.MainWindow.EventViewer;
     }
 }

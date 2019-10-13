@@ -8,7 +8,7 @@
     <ProjectGuid>{CB832682-39DC-4BE3-8324-AE18177D3ABC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>bayoen.star</RootNamespace>
-    <AssemblyName>bayoen.star</AssemblyName>
+    <AssemblyName>bayoen-star</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -17,21 +17,6 @@
     <Deterministic>false</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
     <PlatformTarget>x64</PlatformTarget>
@@ -45,18 +30,15 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
     <PlatformTarget>x64</PlatformTarget>
-    <DebugType>none</DebugType>
+    <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
-    <DocumentationFile>
-    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\dailycarbuncle_174030608386.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\dailycarbuncle_174030608386_plus.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
@@ -79,6 +61,9 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Octokit, Version=0.36.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Octokit.0.36.0\lib\net46\Octokit.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -120,6 +105,9 @@
     <Compile Include="Controls\GameListItem.xaml.cs">
       <DependentUpon>GameListItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\LeagueListItem.xaml.cs">
+      <DependentUpon>LeagueListItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\MatchListItem.xaml.cs">
       <DependentUpon>MatchListItem.xaml</DependentUpon>
     </Compile>
@@ -133,8 +121,10 @@
       <DependentUpon>PlayerPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Core.Debug.cs" />
-    <Compile Include="Core.Funtion.cs" />
+    <Compile Include="Core.cs" />
     <Compile Include="Core.Helper.cs" />
+    <Compile Include="Core.Update.cs" />
+    <Compile Include="Core.Variables.cs" />
     <Compile Include="Functions\FncJson.cs" />
     <Compile Include="Functions\Mapping.cs" />
     <Compile Include="Localizations\Culture.cs" />
@@ -142,6 +132,9 @@
     <Compile Include="Variables\GameRecord.cs" />
     <Compile Include="Variables\MatchRecord.cs" />
     <Compile Include="Variables\OperationData.cs" />
+    <Compile Include="Windows\LeagueWindow.xaml.cs">
+      <DependentUpon>LeagueWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Workers\Database.cs" />
     <Compile Include="Workers\LiveChecker.cs" />
     <Compile Include="Windows\CapturableWindow.xaml.cs">
@@ -150,7 +143,6 @@
     <Compile Include="Windows\DashboardWindow.xaml.cs">
       <DependentUpon>DashboardWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Workers\EventChecker.cs" />
     <Compile Include="Workers\GameMemory.cs" />
     <Compile Include="Variables\PPTData.cs" />
     <Compile Include="Variables\PPTStates.cs" />
@@ -203,6 +195,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="FodyWeavers.xsd">
       <SubType>Designer</SubType>
@@ -222,6 +215,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\GameListItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\LeagueListItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -245,6 +242,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Localizations\Localization.es.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Localizations\Localization.fr.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Localizations\Localization.ja.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -266,6 +271,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\DebugWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\LeagueWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -330,6 +339,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\portrait_left_7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PuyoSymbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TetrisSymbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dailycarbuncle_174030608386_plus.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dailycarbuncle_174030608386_plus.png" />
   </ItemGroup>
   <Import Project="..\bayoen.library.Metro\bayoen.library.Metro.projitems" Label="Shared" />
   <Import Project="..\bayoen.library.General\bayoen.library.General.projitems" Label="Shared" />

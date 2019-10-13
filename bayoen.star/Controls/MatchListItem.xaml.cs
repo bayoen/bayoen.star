@@ -90,7 +90,7 @@ namespace bayoen.star.Controls
 
             // Col #1
             this.MatchCategory = this.Match.Category;
-            this.EndBlock.Text = this.Match.End.ToSimpleString();
+            this.EndBlock.Text = this.Match.End.ToCompactString();
 
             // Col #2
             this.ModeBlock.Text = this.Match.Mode.ToString();

@@ -2,23 +2,22 @@
               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
               xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
-              xmlns:local="clr-namespace:bayoen.library.Metro.Controls"
-              
-              Background="Black">
+              xmlns:local="clr-namespace:bayoen.library.Metro.Controls">
 
     <ComboBoxItem.Content>
-        <StackPanel Orientation="Horizontal"
-                Margin="0">
+        <StackPanel Orientation="Horizontal">
+            
+            <ContentPresenter Content="{Binding Icon, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MetroComboBoxItem}}"
+                              Margin="0"
+                              VerticalAlignment="Center"/>
 
-            <iconPacks:PackIconModern Kind="_3dObj"
-                                      Height="12" Width="12" Margin="5,0"
-                                      Foreground="{Binding IconForeground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MetroComboBoxItem}}"
-                                      VerticalAlignment="Center"/>
-
-            <TextBlock Foreground="White"
+            <TextBlock x:Name="TextBlock"
+                       Style="{StaticResource MetroTextBlock}"
                        Text="{Binding Text, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MetroComboBoxItem}}"
-                       Margin="2"
-                       VerticalAlignment="Center"/>
+                       FontSize="{Binding FontSize, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MetroComboBoxItem}}"
+                       FontWeight="{Binding FontWeight, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:MetroComboBoxItem}}"
+                       VerticalAlignment="Center">
+            </TextBlock>
 
         </StackPanel>
     </ComboBoxItem.Content>

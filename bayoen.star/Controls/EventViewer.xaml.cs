@@ -29,7 +29,6 @@ namespace bayoen.star.Controls
             //this.PageSize = Core.Project.MatchPageSize;
             //Core.DB.MatchClear();
 
-
             //Core.DB.Insert(new MatchRecord()
             //{
             //    MatchCategory = MatchCategories.PuzzleLeague,

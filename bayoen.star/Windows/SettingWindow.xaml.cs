@@ -31,13 +31,13 @@ namespace bayoen.star.Windows
 
             //// General
             // Topmost
-            this.TopmostSwitch.Value = Core.Project.TopMost;            
+            this.TopmostSwitch.Value = Core.Project.TopMost;
 
             // AutoUpdate
             this.AutoUpdateSwitch.Value = Core.Project.AutoUpdate;
 
             // LanguageCode
-            this.LanguageCodeComboBox.ComboBoxMinWidth = 135;
+            this.LanguageCodeComboBox.ComboBoxWidth = 160;
             this.LanguageCodeComboBox.ItemSource = Config.CultureCodes.ConvertAll(x =>
             {
                 CultureInfo info = new CultureInfo(x);
@@ -57,10 +57,12 @@ namespace bayoen.star.Windows
 
             //// Streaming
             // ChromaKey
-            this.ChromaKeyComboBox.ComboBoxMinWidth = 120;
-            this.ChromaKeyComboBox.ComboBoxBackground = Brushes.Black;
             this.ChromaKeyComboBox.ItemSource = Core.GetChromaComboBoxItemList();
-            this.ChromaKeyComboBox.SelectedIndex = (int)Core.Project.ChromaKey;
+            this.ChromaKeyComboBox.ComboBoxBackground = Brushes.Black;
+            this.ChromaKeyComboBox.ComboBoxWidth = 130;
+            this.ChromaKeyComboBox.SelectedIndex = (int)Core.Project.ChromaKey;            
+            
+
 
             //
 

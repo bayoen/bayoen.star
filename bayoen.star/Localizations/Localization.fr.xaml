@@ -1,0 +1,174 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Localization.fr: French   2019-10-13 23:42 KST -->
+
+    <!-- for Dictionary -->
+    <system:String x:Key="Dictionary-BayoenStar-String">bayoen-star</system:String>
+    <system:String x:Key="Dictionary-PPT-String">PuyoPuyo Tetris</system:String>
+    <system:String x:Key="Dictionary-FreePlay-String">Partie libre</system:String>
+    <system:String x:Key="Dictionary-PuzzleLeague-String">Puzzle League</system:String>
+    <system:String x:Key="Dictionary-Arcade-String">Arcade</system:String>
+    <system:String x:Key="Dictionary-Adventure-String">Aventure</system:String>
+    <system:String x:Key="Dictionary-Lobby-String">Lobby</system:String>
+    <system:String x:Key="Dictionary-Title-String">Écran titre</system:String>
+    <system:String x:Key="Dictionary-Online-String">En ligne</system:String>
+    <system:String x:Key="Dictionary-Offline-String">Hors ligne</system:String>
+    <system:String x:Key="Dictionary-All-String">Tout</system:String>
+    <system:String x:Key="Dictionary-Always-String">Always</system:String>
+    <system:String x:Key="Dictionary-Yes-String">Oui</system:String>
+    <system:String x:Key="Dictionary-No-String">Non</system:String>
+    <system:String x:Key="Dictionary-ChromaKey-0-String">Aucun</system:String>
+    <system:String x:Key="Dictionary-ChromaKey-1-String">Magenta</system:String>
+    <system:String x:Key="Dictionary-ChromaKey-2-String">Vert</system:String>
+    <system:String x:Key="Dictionary-ChromaKey-3-String">Bleu</system:String>
+
+    <!-- for MainWindow -->
+    <system:String x:Key="MainWindow-Menu-Header-String">Menu</system:String>
+    <system:String x:Key="MainWindow-Menu-Mini-Item-String">Mini</system:String>
+    <system:String x:Key="MainWindow-Menu-Mini-ToolTip-String">Montrer bayoen-star mini</system:String>
+    <system:String x:Key="MainWindow-Menu-Help-Item-String">Aide</system:String>
+    <system:String x:Key="MainWindow-Menu-Help-GitHubPage-Item-String">Site du project</system:String>
+    <system:String x:Key="MainWindow-Menu-Help-Discord-Item-String">Rejoindre Discord</system:String>
+    <system:String x:Key="MainWindow-Menu-Help-BayoenStar-Item-String">Bayoen-star? </system:String>
+    <system:String x:Key="MainWindow-Menu-Setting-Item-String">Réglages </system:String>
+    <system:String x:Key="MainWindow-Status-PuzzleLeague-Detail-String">##MyName## dans la Puzzle League!</system:String>
+    <!-- 'MainWindow-Status-FreePlay-Detail-String' is empty -->
+    <!-- 'MainWindow-Status-Arcade-Detail-String' is empty -->
+    <!-- 'MainWindow-Status-Adventure-Detail-String' is empty -->
+    <!-- 'MainWindow-Status-Lobby-Detail-String' is empty -->
+    <!-- 'MainWindow-Status-Title-Detail-String' is empty -->
+    <system:String x:Key="MainWindow-Counter-Header-String">Compteur d'étoiles</system:String>
+
+    <!-- for InitialGrid -->
+    <system:String x:Key="InitialGrid-Title-String">Initialisation</system:String>
+    <system:String x:Key="InitialGrid-Message-Begin-String">Lancement de la configuration initiale</system:String>
+    <system:String x:Key="InitialGrid-Message-Overlapped-String">bayoen-star est actuellement en état de fonctionnement</system:String>
+    <system:String x:Key="InitialGrid-Message-Internet-Check-String">Check internet connection... {0}</system:String>
+    <system:String x:Key="InitialGrid-Message-Internet-Disconnected-String">Internet disconnected</system:String>
+    <system:String x:Key="InitialGrid-Message-Update-String">Vérifier les mises à jour</system:String>
+    <system:String x:Key="InitialGrid-Message-Update-Latest-String">C'est à jour</system:String>
+    <system:String x:Key="InitialGrid-Message-Update-Found-String">Installer la version la plus récente</system:String>
+    <system:String x:Key="InitialGrid-Message-Database-String">Chargement de la base de données</system:String>
+    <system:String x:Key="InitialGrid-Message-LoadInfo-String">Chargement des informations utilisateurs...##LoadInfoTrial##</system:String>
+    <system:String x:Key="InitialGrid-Message-LoadInfo-Fail-String">Échec du chargement des données utilisateur</system:String>
+    <system:String x:Key="InitialGrid-Message-LoadInfo-Success-String">Informations utilisateur chargées</system:String>
+    <system:String x:Key="InitialGrid-Message-End-String">bayoen~</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-0-String">bayoen~</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-1-String">Yee</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-2-String">Press X to pay respect</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-3-String">BTS is bayoen-the-star</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-4-String">You face Jaraxxus, Eredar Lord of the Burning Legion!</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-5-String">Split swords might kill you</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-6-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-7-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-8-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-9-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-10-String">It took only 24 hours to make the bayoen-star.</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-11-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-12-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-13-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-14-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-15-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-16-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-17-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-18-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-19-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-20-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-21-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-22-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-23-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-24-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-25-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-26-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-27-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-28-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-29-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-30-String">Tee Hee!</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-31-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-32-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-33-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-34-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-35-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-36-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-37-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-38-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-39-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-40-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-41-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-42-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-43-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-44-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-45-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-46-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-47-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-48-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-49-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-50-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-51-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-52-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-53-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-54-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-55-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-56-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-57-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-58-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-59-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-60-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-61-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-62-String">[ Insert Joke Here ]</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-63-String">Not enough jokes</system:String>
+
+    <!-- for SettingWindow -->
+    <system:String x:Key="SettingWindow-Common-Header-String">Général</system:String>
+    <system:String x:Key="SettingWindow-Common-Major-Header-String">Réglages principaux</system:String>
+    <system:String x:Key="SettingWindow-Common-Major-CloseToMinimize-Header-String">Fermer pour quitter</system:String>
+    <system:String x:Key="SettingWindow-Common-Major-CloseToMinimize-Detail-String">Fermer la fenêtre principale va interrompre bayoen-star</system:String>
+    <system:String x:Key="SettingWindow-Common-Major-AutoUpdate-Header-String">Mise à jour automatique</system:String>
+    <system:String x:Key="SettingWindow-Common-Major-AutoUpdate-Detail-String">Toujours garder 'bayoen-star' à la version la plus récente</system:String>
+    <system:String x:Key="SettingWindow-Common-Major-Language-Header-String">Langue</system:String>
+    <system:String x:Key="SettingWindow-Common-Major-Language-Detail-String">Sélectionnez votre langue favori. S'il n'est pas sur la liste, s'il vous plaît, faites le nous savoir et aidez nous à l'ajouter</system:String>
+    <system:String x:Key="SettingWindow-Common-Sub-Header-String">Réglages secondaires</system:String>
+    <system:String x:Key="SettingWindow-Common-Sub-TopMost-Header-String">Toujours visible</system:String>
+    <system:String x:Key="SettingWindow-Common-Sub-TopMost-Detail-String">Toujours maintenir la fenêtre principale visible</system:String>
+    <system:String x:Key="SettingWindow-Appearance-Header-String">Apparence</system:String>
+    <system:String x:Key="SettingWindow-Appearance-Common-Header-String">Paramètres divers</system:String>
+    <system:String x:Key="SettingWindow-Appearance-Common-DisableOverlay-Header-String">Désactiver superposition</system:String>
+    <system:String x:Key="SettingWindow-Appearance-Common-DisableOverlay-Detail-String">Désactiver superposition, bayoen star continuera de fonctionner</system:String>
+    <system:String x:Key="SettingWindow-Appearance-Common-EnglishOverlay-Header-String">Forcer superposition en anglais</system:String>
+    <system:String x:Key="SettingWindow-Appearance-Common-EnglishOverlay-Detail-String">Présenter les informations de la superposition en anglais, à la place d'une autre langue</system:String>
+    <system:String x:Key="SettingWindow-Appearance-Goal-Header-String">Fini</system:String>
+    <system:String x:Key="SettingWindow-Appearance-Goal-PanelImage-Header-String">Change Panel Image</system:String>
+    <!-- 'SettingWindow-Appearance-Goal-PanelImage-Detail-String' is empty -->
+    <system:String x:Key="SettingWindow-Appearance-Goal-StarImage-Header-String">Changer l'icône étoile</system:String>
+    <!-- 'SettingWindow-Appearance-Goal-StarImage-Detail-String' is empty -->
+    <system:String x:Key="SettingWindow-Appearance-Goal-GameImage-Header-String">Changer l'icône 'Couronne'</system:String>
+    <!-- 'SettingWindow-Appearance-Goal-GameImage-Detail-String' is empty -->
+    <system:String x:Key="SettingWindow-Appearance-Goal-AchievedSound-Header-String">Changer le son de victoire</system:String>
+    <!-- 'SettingWindow-Appearance-Goal-AchievedSound-Detail-String' is empty -->
+    <!-- 'SettingWindow-Appearance-Goal-AchievedSound-0-String' is empty -->
+    <!-- 'SettingWindow-Appearance-Goal-AchievedSound-1-String' is empty -->
+    <!-- 'SettingWindow-Appearance-Goal-AchievedSound-2-String' is empty -->
+    <!-- 'SettingWindow-Appearance-Goal-AchievedSound-3-String' is empty -->
+    <system:String x:Key="SettingWindow-Streaming-Header-String">Streaming</system:String>
+    <system:String x:Key="SettingWindow-Streaming-Common-Header-String">Common Settings</system:String>
+    <system:String x:Key="SettingWindow-Streaming-Common-EnableCapture-Header-String">Régler incrustation couleur</system:String>
+    <system:String x:Key="SettingWindow-Streaming-Common-EnableCapture-Detail-String">Activer les captures d'écran. Pendant que bayoen star fonctionne, l'écran se capture sera placé derrière la fenêtre Puyo Puyo Tetris.</system:String>
+    <!-- 'SettingWindow-Streaming-ChromaKey-Header-String' is empty -->
+    <system:String x:Key="SettingWindow-Streaming-ChromaKey-Capture-Header-String">Régler incrustation couleur</system:String>
+    <system:String x:Key="SettingWindow-Streaming-ChromaKey-Capture-Detail-String" xml:space="preserve">Sélectionner l'incrustation couleur de la capture. Ensuite, vous devrez utiliser "fenêtre de capture" dans l'application de streaming pour la visualiser durant la diffusion</system:String>
+    <system:String x:Key="SettingWindow-Streaming-ChromaKey-Sync-Header-String">Synchroniser l'incrustation couleur</system:String>
+    <!-- 'SettingWindow-Streaming-ChromaKey-Sync-Detail-String' is empty -->
+    <!-- 'SettingWindow-Streaming-ChromaKey-Mini-Header-String' is empty -->
+    <!-- 'SettingWindow-Streaming-ChromaKey-Mini-Detail-String' is empty -->
+    <system:String x:Key="SettingWindow-Streaming-Restart-Content-String">Restart</system:String>
+
+    <!-- for LeagueCapture -->
+
+    <!-- for TrayIcon -->
+    <system:String x:Key="TrayIcon-Top-Version-String">Version</system:String>
+    <system:String x:Key="TrayIcon-Top-Reset-String">Réinitialiser compteur</system:String>
+    <system:String x:Key="TrayIcon-Top-Open-String">Open bayoen-star</system:String>
+    <system:String x:Key="TrayIcon-Top-Quit-String">Quitter bayoen-star</system:String>
+</ResourceDictionary>

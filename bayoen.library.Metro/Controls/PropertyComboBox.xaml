@@ -33,7 +33,7 @@
 
     <ComboBox x:Name="ComboBox" x:FieldModifier="private" Grid.Row="0" Grid.Column="1"
               SelectedIndex="{Binding SelectedIndex, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyComboBox}}"
-              MinWidth="{Binding ComboBoxMinWidth, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyComboBox}}"
+              Width="{Binding ComboBoxWidth, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyComboBox}}"
               Background="{Binding ComboBoxBackground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyComboBox}}"
               Margin="5,10,17,10"
               VerticalAlignment="Center"              

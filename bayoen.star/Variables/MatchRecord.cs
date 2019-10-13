@@ -40,7 +40,7 @@ namespace bayoen.star.Variables
         public DateTime Begin { get; set; }
         public DateTime End { get; set; }
 
-        [JsonIgnore]
+        //[JsonIgnore]
         public List<GameRecord> Games { get; set; }
         public List<PlayerData> Players { get; set; }
         public int WinnerTeam { get; set; }
@@ -137,6 +137,16 @@ namespace bayoen.star.Variables
                 }
 
                 return output;
+            }
+        }
+        [BsonIgnore, JsonIgnore]
+        public int WinValue
+        {
+            get
+            {
+                PlayerData me = Players.Find(x => x.ID32 == this.MyID32);
+                if (me == null) return -1;
+                return (this.WinnerTeam == me.Team) ? 1 : 0;
             }
         }
     }

@@ -113,11 +113,20 @@ namespace bayoen.star.Variables
             {
                 if (this._chromaKey == value) return;
 
-                //int chromaKeyIndex = Config.ChromaKeySets.FindIndex(x => x.Item1 == value);
-                //if (chromaKeyIndex > 0)
-                //{
-                //    Core.CapturableWindow.Background = Config.ChromaKeySets[chromaKeyIndex].Item2;
-                //}
+                int chromaKeyIndex = Config.ChromaSets.FindIndex(x => x.Item1 == value);
+                if (chromaKeyIndex > -1)
+                {
+                    if (chromaKeyIndex == 0)
+                    {
+                        Core.LeagueWindow.BorderThickness = new Thickness(1);
+                        Core.LeagueWindow.SetResourceReference(Control.BackgroundProperty, "WindowBackgroundBrush");
+                    }
+                    else
+                    {
+                        Core.LeagueWindow.BorderThickness = new Thickness(0);
+                        Core.LeagueWindow.Background = Config.ChromaSets[chromaKeyIndex].Item2;
+                    }                    
+                }
 
                 this._chromaKey = value;
             }
@@ -132,15 +141,20 @@ namespace bayoen.star.Variables
             {
                 if (this._enableSlowMode == value) return;
 
-                if (!Core.MainWorker.IsEnabled) Core.MainWorker.Initiate();
-                Core.MainWorker.Stop();
-                Core.MainWorker.Interval = value ? Config.DisplayIntervalSlow : Config.DisplayIntervalNormal;
-                Core.MainWorker.Start();
+                if (Core.MainWorker.IsEnabled)
+                {
+                    Core.MainWorker.Stop();
+                    Core.MainWorker.Interval = value ? Config.DisplayIntervalSlow : Config.DisplayIntervalNormal;
+                    Core.MainWorker.Start();
+                }
+                
 
-                if (!Core.InGameWorker.IsEnabled) Core.InGameWorker.Initiate();
-                Core.InGameWorker.Stop();
-                Core.InGameWorker.Interval = value ? Config.TrackingIntervalSlow : Config.TrackingIntervalNormal;
-                Core.InGameWorker.Start();
+                if (Core.InGameWorker.IsEnabled)
+                {
+                    Core.InGameWorker.Stop();
+                    Core.InGameWorker.Interval = value ? Config.TrackingIntervalSlow : Config.TrackingIntervalNormal;
+                    Core.InGameWorker.Start();
+                }                
 
                 this._enableSlowMode = value;
                 this.Save();
@@ -174,11 +188,11 @@ namespace bayoen.star.Variables
             {
                 if (this._trackingMode == value) return;
 
-                Core.MainWindow.AlwaysTopModeButton.IsAccented = (value == TrackingModes.Always);
-                Core.MainWindow.LeagueTopModeButton.IsAccented = (value == TrackingModes.League);
-                Core.MainWindow.FriendlyTopModeButton.IsAccented = (value == TrackingModes.Friendly);
-                Core.MainWindow.ArcadeTopModeButton.IsAccented = (value == TrackingModes.Arcade);
-                Core.MainWindow.NoneTopModeButton.IsAccented = (value == TrackingModes.None);
+                //Core.MainWindow.AlwaysTopModeButton.IsAccented = (value == TrackingModes.Always);
+                //Core.MainWindow.LeagueTopModeButton.IsAccented = (value == TrackingModes.League);
+                //Core.MainWindow.FriendlyTopModeButton.IsAccented = (value == TrackingModes.Friendly);
+                //Core.MainWindow.ArcadeTopModeButton.IsAccented = (value == TrackingModes.Arcade);
+                //Core.MainWindow.NoneTopModeButton.IsAccented = (value == TrackingModes.None);
 
                 this._trackingMode = value;
 
@@ -304,8 +318,8 @@ namespace bayoen.star.Variables
             {
                 if (this._recordDisplayMode == value) return;
 
-                Core.MainWindow.EventViewer.EventModeButton.IsAccented = (value == RecordDisplayModes.Event);
-                Core.MainWindow.EventViewer.MatchModeButton.IsAccented = (value == RecordDisplayModes.Match);                
+                Core.EventViewer.EventModeButton.IsAccented = (value == RecordDisplayModes.Event);
+                Core.EventViewer.MatchModeButton.IsAccented = (value == RecordDisplayModes.Match);                
 
                 this._recordDisplayMode = value;
                 this.Save();
@@ -322,13 +336,32 @@ namespace bayoen.star.Variables
 
                 if (this._matchPageSize == size) return;
 
-                Core.MainWindow.EventViewer.PageSize = size;
-                Core.MainWindow.EventViewer.Check();
+                Core.EventViewer.PageSize = size;
+                Core.EventViewer.Check();
 
                 this._matchPageSize = size;
                 this.Save();
             }
         }
+
+        private int _leaguePageSize = 5;
+        public int LeaguePageSize
+        {
+            get => this._leaguePageSize;
+            set
+            {
+                int size = Math.Max(3, Math.Min(10, value));
+
+                if (this._leaguePageSize == size) return;
+
+                Core.LeagueWindow.PageSize = size;
+                Core.LeagueWindow.Check();
+
+                this._leaguePageSize = size;
+                this.Save();
+            }
+        }
+        
 
         public static ProjectData Load()
         {

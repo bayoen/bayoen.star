@@ -27,17 +27,16 @@ namespace bayoen.star.Windows
 #if DEBUG
             this.Title += " [DEBUG]";
 #endif
-            this.LogoImage.SetBitmap(bayoen.star.Properties.Resources.StarCarbyImage);
+            this.LogoImage.SetBitmap(bayoen.star.Properties.Resources.StarCarbyPlusImage);
 
 
-            this.AlwaysTopModeButton.IsAccented = true;
+            //this.AlwaysTopModeButton.IsAccented = true;
             this.GoalStarButton.IsAccented = true;
 
             this.EventViewer.EventModeButton.IsAccented = true;            
 
             this.MenuButton.ContextMenu.PlacementTarget = this.MenuButton;
 
-            var a = Core.Live.Panels;
 
             Core.Live.Panels.ForEach(x =>
             {                
@@ -57,7 +56,10 @@ namespace bayoen.star.Windows
 
             //Core.EventChecker.ScanEvents();
             //Core.EventChecker.PageIndex = 0;
-        }        
+
+            // InitialGrid
+            this.InitialLogoImage.SetBitmap(bayoen.star.Properties.Resources.StarCarbyImage);
+        }
 
         private void MenuButton_Click(object sender, RoutedEventArgs e) => this.MenuButton.ContextMenu.IsOpen = true;
         private void ResetMeniItem_Click(object sender, RoutedEventArgs e) => Core.ResetScore();
@@ -92,6 +94,13 @@ namespace bayoen.star.Windows
         {
             this.EventViewer.PageSize = Core.Project.MatchPageSize;
             this.EventViewer.Check();
+        }
+
+        private void ResetRecordButton_Click(object sender, RoutedEventArgs e)
+        {
+            Core.DB.ClearMatch();
+            Core.EventViewer.PageIndex = 0;
+            Core.UpdateResult();
         }
     }
 }

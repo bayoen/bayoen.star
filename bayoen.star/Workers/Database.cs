@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 using LiteDB;
 
 using bayoen.star.Variables;
-using System.Linq.Expressions;
+using bayoen.library.General.Enums;
 
 namespace bayoen.star.Workers
 {
@@ -30,7 +31,7 @@ namespace bayoen.star.Workers
             }
         }
 
-        public void MatchClear()
+        public void ClearMatch()
         {
             using (LiteDatabase db = new LiteDatabase(DBConnectionString))
             {
@@ -58,37 +59,63 @@ namespace bayoen.star.Workers
             }
         }
 
+        public List<MatchRecord> GetMatches()
+        {
+            using (LiteDatabase db = new LiteDatabase(DBConnectionString))
+            {
+                LiteCollection<MatchRecord> matchColl = db.GetCollection<MatchRecord>(MatchHeader);
+                return matchColl.FindAll().ToList();
+            }
+        }
+
+        public List<MatchRecord> GetMatches(Expression<Func<MatchRecord, bool>> predicate)
+        {
+            using (LiteDatabase db = new LiteDatabase(DBConnectionString))
+            {
+                LiteCollection<MatchRecord> matchColl = db.GetCollection<MatchRecord>(MatchHeader);
+                return matchColl.Find(predicate).ToList();
+            }
+        }
+
         public List<MatchRecord> ReversedMatches()
         {
-            using (LiteDatabase db = new LiteDatabase(DBConnectionString))
-            {
-                LiteCollection<MatchRecord> matchColl = db.GetCollection<MatchRecord>(MatchHeader);
-                return matchColl.FindAll().Reverse().ToList();
-            }            
+            var matches = this.GetMatches();
+            matches.Reverse();
+            return matches;
         }
 
-        public MatchRecord LastMatch()
+        public List<MatchRecord> ReversedMatches(Expression<Func<MatchRecord, bool>> predicate)
         {
-            using (LiteDatabase db = new LiteDatabase(DBConnectionString))
-            {
-                LiteCollection<MatchRecord> matchColl = db.GetCollection<MatchRecord>(MatchHeader);
-                return matchColl.FindOne(x => x.ID == (matchColl.Count()));
-            }
+            var matches = this.GetMatches(predicate);
+            matches.Reverse();
+            return matches;
         }
 
-        public void UpdateLastMatchRating(int gain)
-        {
-            using (LiteDatabase db = new LiteDatabase(DBConnectionString))
-            {
-                LiteCollection<MatchRecord> matchColl = db.GetCollection<MatchRecord>(MatchHeader);
-                MatchRecord last = matchColl.FindOne(x => x.ID == (matchColl.Count()));
-                last.RatingGain = gain;
-                matchColl.Update(last);
-            }
-        }
+        //public MatchRecord LastMatch()
+        //{
+        //    using (LiteDatabase db = new LiteDatabase(DBConnectionString))
+        //    {
+        //        LiteCollection<MatchRecord> matchColl = db.GetCollection<MatchRecord>(MatchHeader);
+        //        return matchColl.FindOne(x => x.ID == (matchColl.Count()));
+        //    }
+        //}
+
+        //public void UpdateLastMatchRating(int gain)
+        //{
+        //    using (LiteDatabase db = new LiteDatabase(DBConnectionString))
+        //    {
+        //        LiteCollection<MatchRecord> matchColl = db.GetCollection<MatchRecord>(MatchHeader);
+        //        MatchRecord last = matchColl.FindOne(x => x.ID == (matchColl.Count()));
+        //        last.RatingGain = gain;
+        //        matchColl.Update(last);
+        //    }
+        //}
 
         private ObservableCollection<MatchRecord> _matches;
         public ObservableCollection<MatchRecord> Matches => this._matches ?? (this._matches = new ObservableCollection<MatchRecord>());
+
+        private ObservableCollection<MatchRecord> _leagues;
+        public ObservableCollection<MatchRecord> Leagues => this._leagues ?? (this._leagues = new ObservableCollection<MatchRecord>());
 
         public const string MatchHeader = "matches";
         public readonly ConnectionString DBConnectionString = new ConnectionString(Config.DataBaseFileName)

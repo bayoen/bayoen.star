@@ -5,15 +5,15 @@ namespace bayoen.library.General.ExtendedMethods
 {
     public static partial class ExtendedMethods
     {
-        public static string ToSimpleString(this DateTime datetime)
+        public static string ToCompactString(this DateTime dt)
         {
-            if (datetime.Date == DateTime.Today)
+            if (dt.Date == DateTime.Today)
             {
-                return datetime.ToString("tt hh:mm:ss", CultureInfo.CreateSpecificCulture("en-US"));
+                return dt.ToString("tt hh:mm:ss", CultureInfo.CreateSpecificCulture("en-US"));
             }
             else
             {
-                return datetime.ToString("yyyy-MM-dd", CultureInfo.CreateSpecificCulture("en-US"));
+                return dt.ToString("yyyy-MM-dd", CultureInfo.CreateSpecificCulture("en-US"));
             }
         }
     }

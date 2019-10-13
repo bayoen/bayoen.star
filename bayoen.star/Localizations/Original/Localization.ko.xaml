@@ -1,0 +1,121 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"                    
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Localization.ko: Korean    2019-09-02 16:50 -->
+    
+    <!-- * MainWindow Texts -->
+    <!-- 0.0 Where Am I -->
+    <system:String x:Key="Main-Status-Detail-String">##MyLocation##와 ##MyName##!</system:String>
+    <system:String x:Key="Main-Status-FreePlay-String">클럽</system:String>
+    <system:String x:Key="Main-Status-PuzzleLeague-String">퍼즐리그</system:String>
+    <system:String x:Key="Main-Status-Arcade-String">아케이드</system:String>
+    <system:String x:Key="Main-Status-Adventure-String">어드벤처</system:String>    
+    <system:String x:Key="Main-Status-Lobby-String">로비</system:String>
+    <system:String x:Key="Main-Status-Title-String">타이틀 화면...</system:String>
+    <system:String x:Key="Main-Status-Offline-String">뿌요뿌요 테트리스가 꺼져있습니다</system:String>
+
+    <!-- 0.1 Top Mode -->
+    <system:String x:Key="Main-RecordDisplay-Header-String">오버레이</system:String>
+    <system:String x:Key="Main-RecordDisplay-All-String">모두</system:String>
+    <system:String x:Key="Main-RecordDisplay-PuzzleLeague-String">리그</system:String>
+    <system:String x:Key="Main-RecordDisplay-FreePlay-String">친선</system:String>
+    <system:String x:Key="Main-RecordDisplay-Arcade-String">아케이드</system:String>
+    <system:String x:Key="Main-RecordDisplay-None-String">안함</system:String>
+
+    <!-- 0.2 Record List -->
+    <system:String x:Key="Main-RecordList-Header-String">경기기록</system:String>
+    <system:String x:Key="Main-RecordList-Event-String">이벤트</system:String>
+    <system:String x:Key="Main-RecordList-Match-String">경기</system:String>
+    
+    <system:String x:Key="Main-RecordList-PuzzleLeague-String">리그</system:String>
+    <system:String x:Key="Main-RecordList-FreePlay-String">친선</system:String>
+    <system:String x:Key="Main-RecordList-Arcade-String">아케이드</system:String>
+
+    <!-- 1.0 Current Event -->
+    <system:String x:Key="Main-CurrentEvent-Header-String">현재경기</system:String>
+
+    <!-- 1.1 Event Detail -->
+    <system:String x:Key="Main-EventDetail-Header-String">세부내용</system:String>
+
+    <!-- 2.0 Control Panel -->
+    <system:String x:Key="Main-ControlPanel-Header-String">제어판</system:String>
+
+    <!-- 2.1 Goal Panel -->
+    <system:String x:Key="Main-GoalPanel-Header-String">목표</system:String>
+    <system:String x:Key="Main-GoalPanel-Set-String">설정</system:String>
+    <system:String x:Key="Main-GoalPanel-Remove-String">제거</system:String>
+    <system:String x:Key="Main-GoalPanel-Favorite-String">즐겨찾기</system:String>
+
+    <system:String x:Key="Main-Menu-String">메뉴</system:String>
+    
+    <!--Top Menu-->
+    <system:String x:Key="TopMenu-Reset-String">초기화</system:String>
+    
+    <system:String x:Key="TopMenu-Mode-String">모드</system:String>
+    <system:String x:Key="TopMenu-Mode-1-String">1. 별+</system:String>
+    <system:String x:Key="TopMenu-Mode-2-String">2. 게임</system:String>
+    <system:String x:Key="TopMenu-Mode-3-String">3. 게임 &amp; 별</system:String>
+    <system:String x:Key="TopMenu-Mode-4-String">4. 게임 &amp; 별+</system:String>
+    <system:String x:Key="TopMenu-Mode-5-String">5. 별 &amp; 별+</system:String>
+    
+    <system:String x:Key="TopMenu-Goal-String">목표...</system:String>
+    <system:String x:Key="TopMenu-Goal-Set-String">목표설정...</system:String>
+    <system:String x:Key="TopMenu-Goal-Remove-String">목표제거</system:String>
+    
+    <system:String x:Key="TopMenu-Popup-String">팝업</system:String>
+
+    <system:String x:Key="TopMenu-Setting-String">설정...</system:String>
+    <system:String x:Key="TopMenu-Help-String">도움말...</system:String>
+
+    <!--Setting Window-->
+    <system:String x:Key="Setting-Yes-String">ㅇㅇ</system:String>
+    <system:String x:Key="Setting-No-String">ㄴㄴ</system:String>
+
+    <system:String x:Key="Setting-General-String">일반</system:String>
+    <system:String x:Key="Setting-General-MainHeader-String">주요 설정</system:String>
+    <system:String x:Key="Setting-General-TopMost-Header-String">항상 위에</system:String>
+    <system:String x:Key="Setting-General-TopMost-Detail-String">메인 창을 항상 위에 둡니다</system:String>
+    <system:String x:Key="Setting-General-AutoUpdate-Header-String">자동 업데이트</system:String>
+    <system:String x:Key="Setting-General-AutoUpdate-Detail-String">'바요엔-스타'를 항상 최신 버전으로 유지합니다</system:String>
+    <system:String x:Key="Setting-General-Language-Header-String">언어 (Language)</system:String>
+    <system:String x:Key="Setting-General-Language-Detail-String">원하는 언어를 고르세요. 혹시 원하는 언어가 없다면, 번역할 수 있게 저희를 도와주세요!</system:String>
+    <system:String x:Key="Setting-General-EnglishDisplay-Header-String">강제 영어 표시</system:String>
+    <system:String x:Key="Setting-General-EnglishDisplay-Detail-String">띄워지는 패널 내용을 한글이 아닌 영어로 표시합니다. 바요엔-스타의 인터페이스는 여전히 한글로 표시됩니다.</system:String>
+
+    <system:String x:Key="Setting-Streaming-String">스트리밍</system:String>
+    <system:String x:Key="Setting-Streaming-CaptureHeader-String">송출 설정</system:String>
+    <system:String x:Key="Setting-Streaming-ChromaKey-Header-String">크로마키</system:String>
+    <system:String x:Key="Setting-Streaming-ChromaKey-Detail-String" xml:space="preserve">'윈도우 캡처' 할 수 있는 크로마키를 선택합니다. 스트리밍 프로그램에서 '윈도우 캡처'할 수 있는 창을 선택하고 크로마키를 설정할 수 있습니다.
+
+    - 윈도우 캡처를 사용하는 1대 컴퓨터 방송에 적합합니다
+    - 디스플레이 캡처를 사용하거나 2대 컴퓨터 방송일 경우에는 '사용 안 함'이 좋습니다 </system:String>
+    <system:String x:Key="Setting-Streaming-ChromaKey-0-String">사용 안 함</system:String>
+    <system:String x:Key="Setting-Streaming-ChromaKey-1-String">심홍색</system:String>
+    <system:String x:Key="Setting-Streaming-ChromaKey-2-String">초록색</system:String>
+    <system:String x:Key="Setting-Streaming-ChromaKey-3-String">파랑색</system:String>
+    <system:String x:Key="Setting-Streaming-ForcedEnglishDisplay-Header-String">영어로 표시하기</system:String>
+    <system:String x:Key="Setting-Streaming-ForcedEnglishDisplay-Detail-String">영어가 아닌 다른 언어설정일 때, 오버레이에 영어로 표시할 수 있습니다.</system:String>
+    
+    <system:String x:Key="Setting-Advanced-String">고급</system:String>
+    <system:String x:Key="Setting-Advanced-PerformanceHeader-String">성능</system:String>
+    <system:String x:Key="Setting-Advanced-EnableSlowMode-Header-String">저사양 모드 활성화</system:String>
+    <system:String x:Key="Setting-Advanced-EnableSlowMode-Detail-String" xml:space="preserve">이 옵션은 저사양 컴퓨터 환경에서 사용하시길 추천드립니다.
+
+    - 게임동작주기를 ##TrackingIntervalNormal##에서 ##TrackingIntervalSlow##로 바꿉니다.
+    - 표시주기를 ##DisplayIntervalNormal##에서 ##DisplayIntervalSlow##로 바꿉니다.</system:String>
+    <system:String x:Key="Setting-Advanced-InterfaceHeader-String">인터페이스</system:String>
+    <system:String x:Key="Setting-Advanced-DisableEarlyRefresh-Header-String">빠른갱신 중지</system:String>
+    <system:String x:Key="Setting-Advanced-DisableEarlyRefresh-Detail-String">인터페이스</system:String>
+
+    <system:String x:Key="Setting-Restart-String">재시작</system:String>
+
+    <!--Tray Icon-->
+    <system:String x:Key="Tray-ShowMain-String">_열기...</system:String>
+    <system:String x:Key="Tray-ExitProject-String">_종료</system:String>
+    
+    <!--Debug-->
+    <system:String x:Key="Debug-Tray-Debug-String">_디버그</system:String>
+    <system:String x:Key="Debug-Tray-Debug-Show-String">_디버그 창</system:String>
+    <system:String x:Key="Debug-Tray-Debug-Folder-String">_폴더 열기...</system:String>
+</ResourceDictionary>

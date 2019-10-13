@@ -23,10 +23,10 @@ namespace bayoen.star
         public TrayIcon()
         {
             this.InitializeComponent();
-            this.Icon = bayoen.star.Properties.Resources.StarCarbyIcon;
+            this.Icon = bayoen.star.Properties.Resources.StarCarbyPlusIcon;
             this.ToolTipText = Config.AssemblyTitle;
             this.MenuActivation = PopupActivationMode.LeftOrRightClick;
-            this.MenuHeader.Header = $"{Config.AssemblyTitle} - v{Config.Assembly.GetName().Version}";
+            this.MenuHeader.Header = $"{Config.AssemblyTitle} v{Config.Version}";
             this.ContextMenu.PlacementTarget = Core.MainWindow;
 
             //this.TrayPopupResolved.VerticalOffset = 100;
@@ -34,9 +34,10 @@ namespace bayoen.star
             //this.TrayPopupResolved.PopupAnimation = PopupAnimation.Fade;
             //this.TrayPopupResolved.StaysOpen = true;
             //this.TrayPopupResolved.IsOpen = true;
-                       
+
 
 #if DEBUG
+            this.MenuHeader.Header = $"{Config.AssemblyTitle} v{Config.VersionString}";
             MenuItem DebugMenuItem = new MenuItem();
             DebugMenuItem.SetResourceReference(MenuItem.HeaderProperty, "Debug-Tray-Debug-String");
 

@@ -30,7 +30,7 @@ namespace bayoen.star.Workers
 #if DEBUG
             this.ResetDuration();
 #endif
-            
+
             Core.Event = new EventRecord();
             Core.Match = new MatchRecord();
             Core.Game = new GameRecord();
@@ -218,7 +218,7 @@ namespace bayoen.star.Workers
                                 {
                                     if (Core.Project.DisableEarlyRefresh)
                                     {
-                                        Core.UpdateScore();
+                                        Core.Counting();
                                     }
                                 }
                             }
@@ -231,7 +231,7 @@ namespace bayoen.star.Workers
                                 Core.Match.RatingGain = Core.Data.MyRating - Core.Old.MyRating;
 
                                 Core.DB.Insert(Core.Match);
-                                Core.MainWindow.EventViewer.Check();                                
+                                Core.UpdateResult();
                             }
                         }
                     }
@@ -362,7 +362,6 @@ namespace bayoen.star.Workers
                 }
             }
         }
-
         private void InitializeFreePlay()
         {
             if (Core.Data.States.Sub == SubStates.InLobby)
@@ -430,7 +429,6 @@ namespace bayoen.star.Workers
                 }
             }
         }
-
         private void InitializeArcade()
         {
             if (Core.Data.States.Sub == SubStates.CharacterSelection)

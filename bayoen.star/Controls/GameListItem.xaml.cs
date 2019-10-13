@@ -70,7 +70,7 @@ namespace bayoen.star.Controls
             this.Game = GameRecord.Parse<GameRecord>(this.GameStringBindingBox.Text);
 
             this.OrderBlock.Text = $"{this.Game.Index + 1}";
-            this.EndBlock.Text = this.Game.End.Value.ToSimpleString();
+            this.EndBlock.Text = this.Game.End.Value.ToCompactString();
             this.WinnerTeamBlock.Text = $"Team {this.Game.WinnerTeam} won!";
             this.GameTimeBlock.Text = $"{(this.Game.End-this.Game.Begin).Value.TotalSeconds.ToString("F2").PadLeft(6)} [sec]";
 

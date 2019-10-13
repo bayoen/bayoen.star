@@ -25,8 +25,7 @@ namespace bayoen.star.Workers
         {
 #if DEBUG
             this.ResetDuration();
-#endif           
-
+#endif
             this.Start();
         }
 
@@ -195,68 +194,70 @@ namespace bayoen.star.Workers
             }            
         }
 
-        private void TerminateOnceMatch()
-        {
-            // Check frame
-            Core.Game.Frame = Core.Data.GameFrame;
-            for (int playerIndex = 0; playerIndex < Core.Match.RoomSize; playerIndex++)
-            {
-                // Last score of the game
-                if (Core.Game.Frame > Core.Game.FrameTicks.Last())
-                {
-                    Core.Game.FrameTicks.Add(Core.Game.Frame.Value);
-                    Enumerable.Range(0, Core.Match.RoomSize).ToList().ForEach(x =>
-                    {
-                        Core.Game.ScoreTicks[x].Add(Core.Data.Scores[x]);
-                    });
-                }
-            }
+        #region once
+        //private void TerminateOnceMatch()
+        //{
+        //    // Check frame
+        //    Core.Game.Frame = Core.Data.GameFrame;
+        //    for (int playerIndex = 0; playerIndex < Core.Match.RoomSize; playerIndex++)
+        //    {
+        //        // Last score of the game
+        //        if (Core.Game.Frame > Core.Game.FrameTicks.Last())
+        //        {
+        //            Core.Game.FrameTicks.Add(Core.Game.Frame.Value);
+        //            Enumerable.Range(0, Core.Match.RoomSize).ToList().ForEach(x =>
+        //            {
+        //                Core.Game.ScoreTicks[x].Add(Core.Data.Scores[x]);
+        //            });
+        //        }
+        //    }
 
-            // Update winner
-            Core.Match.WinnerTeam = Core.Game.WinnerTeam;
-            if (Core.Game.WinnerTeam > 0)
-            {
-                List<int> tokenStars = new List<int>(Core.Project.CountedStars);
-                List<int> tokenGames = new List<int>(Core.Project.CountedGames);
-                for (int playerIndex = 0; playerIndex < Core.Match.RoomSize; playerIndex++)
-                {
-                    if (Core.Match.Teams[playerIndex] == Core.Game.WinnerTeam)
-                    {
-                        tokenStars[playerIndex]++;
-                        tokenGames[playerIndex]++;
-                    }
-                }
-                Core.Project.CountedStars = tokenStars;
-                Core.Project.CountedGames = tokenGames;
+        //    // Update winner
+        //    Core.Match.WinnerTeam = Core.Game.WinnerTeam;
+        //    if (Core.Game.WinnerTeam > 0)
+        //    {
+        //        List<int> tokenStars = new List<int>(Core.Project.CountedStars);
+        //        List<int> tokenGames = new List<int>(Core.Project.CountedGames);
+        //        for (int playerIndex = 0; playerIndex < Core.Match.RoomSize; playerIndex++)
+        //        {
+        //            if (Core.Match.Teams[playerIndex] == Core.Game.WinnerTeam)
+        //            {
+        //                tokenStars[playerIndex]++;
+        //                tokenGames[playerIndex]++;
+        //            }
+        //        }
+        //        Core.Project.CountedStars = tokenStars;
+        //        Core.Project.CountedGames = tokenGames;
 
-                //List<int> tokenGames = new List<int>(Core.Project.CountedGames);
-                //for (int playerIndex = 0; playerIndex < Core.Match.RoomSize; playerIndex++)
-                //{
-                //    if (Core.Match.Teams[playerIndex] == Core.Game.WinnerTeam)
-                //    {
-                //        tokenGames[playerIndex]++;
-                //    }
+        //        //List<int> tokenGames = new List<int>(Core.Project.CountedGames);
+        //        //for (int playerIndex = 0; playerIndex < Core.Match.RoomSize; playerIndex++)
+        //        //{
+        //        //    if (Core.Match.Teams[playerIndex] == Core.Game.WinnerTeam)
+        //        //    {
+        //        //        tokenGames[playerIndex]++;
+        //        //    }
 
-                //}                                    
-                //Core.Project.CountedGames = tokenGames;
-            }
-            else
-            {
-                // Draw
-            }
+        //        //}                                    
+        //        //Core.Project.CountedGames = tokenGames;
+        //    }
+        //    else
+        //    {
+        //        // Draw
+        //    }
 
 
-            Core.Match.Games.Add(Core.Game);
-            Core.Game = new GameRecord();
+        //    Core.Match.Games.Add(Core.Game);
+        //    Core.Game = new GameRecord();
 
-            Core.Match.AdjustGames();
-            Core.Match.End = DateTime.UtcNow;
+        //    Core.Match.AdjustGames();
+        //    Core.Match.End = DateTime.UtcNow;
 
-            Core.DB.Insert(Core.Match);
-            Core.MainWindow.EventViewer.Check();
+        //    Core.DB.Insert(Core.Match);
+        //    Core.UpdateResult();
 
-            if (!this.ProjectSaveFlag) this.ProjectSaveFlag = true;
-        }
+        //    if (!this.ProjectSaveFlag) this.ProjectSaveFlag = true;
+        //}
+        #endregion
 
         private void TerminateGame()
         {
@@ -312,7 +313,7 @@ namespace bayoen.star.Workers
                     if (Core.Data.States.Main != MainStates.PuzzleLeague)
                     {
                         Core.DB.Insert(Core.Match);
-                        Core.MainWindow.EventViewer.Check();
+                        Core.UpdateResult();
                     }                        
                 }
             }
@@ -327,7 +328,7 @@ namespace bayoen.star.Workers
 
             if (!Core.Project.DisableEarlyRefresh)
             {
-                Core.UpdateScore();
+                Core.Counting();
             }
         }
     }
