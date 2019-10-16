@@ -63,76 +63,6 @@ namespace bayoen.star.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap CrownLightImage {
-            get {
-                object obj = ResourceManager.GetObject("CrownLightImage", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap PuyoSymbolImage {
-            get {
-                object obj = ResourceManager.GetObject("PuyoSymbolImage", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Score2FitImage {
-            get {
-                object obj = ResourceManager.GetObject("Score2FitImage", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Score2GoalImage {
-            get {
-                object obj = ResourceManager.GetObject("Score2GoalImage", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Score2LongImage {
-            get {
-                object obj = ResourceManager.GetObject("Score2LongImage", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Score2ShortImage {
-            get {
-                object obj = ResourceManager.GetObject("Score2ShortImage", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon StarCarbyIcon {
-            get {
-                object obj = ResourceManager.GetObject("StarCarbyIcon", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap StarCarbyImage {
             get {
                 object obj = ResourceManager.GetObject("StarCarbyImage", resourceCulture);
@@ -147,46 +77,6 @@ namespace bayoen.star.Properties {
             get {
                 object obj = ResourceManager.GetObject("StarCarbyPlusIcon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap StarCarbyPlusImage {
-            get {
-                object obj = ResourceManager.GetObject("StarCarbyPlusImage", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap StarPlainImage {
-            get {
-                object obj = ResourceManager.GetObject("StarPlainImage", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap StarPlusImage {
-            get {
-                object obj = ResourceManager.GetObject("StarPlusImage", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap TetrisSymbolImage {
-            get {
-                object obj = ResourceManager.GetObject("TetrisSymbolImage", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

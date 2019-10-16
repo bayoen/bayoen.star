@@ -38,7 +38,4 @@
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\Converters\StringFormatConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\Localization\Localization.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Memories\" />
-  </ItemGroup>
 </Project>

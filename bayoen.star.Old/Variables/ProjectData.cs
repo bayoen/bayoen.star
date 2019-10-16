@@ -80,6 +80,7 @@ namespace bayoen.star.Variables
                 if (!Config.CultureCodes.Contains(cultureCode)) cultureCode = Config.CultureCodes[0];
                 return cultureCode;
             }
+
             set
             {
                 if (this._languageCode == value) return;

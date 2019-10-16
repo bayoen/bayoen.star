@@ -118,43 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="CrownLightImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CrownLight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PuyoSymbolImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PuyoSymbol.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Score2FitImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Score2Fit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Score2GoalImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Score2Goal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Score2LongImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Score2Long.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Score2ShortImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Score2Short.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="StarCarbyIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dailycarbuncle_174030608386.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="StarCarbyImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dailycarbuncle_174030608386.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\dailycarbuncle_174030608386.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="StarCarbyPlusIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dailycarbuncle_174030608386_plus.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="StarCarbyPlusImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dailycarbuncle_174030608386_plus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="StarPlainImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\StarPlain.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="StarPlusImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\StarPlus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="TetrisSymbolImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TetrisSymbol.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\resources\dailycarbuncle_174030608386_plus.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

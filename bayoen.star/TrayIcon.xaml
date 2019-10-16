@@ -9,20 +9,9 @@
         <ContextMenu DataContext="{Binding RelativeSource={RelativeSource Self}, Path=(tb:TaskbarIcon.ParentTaskbarIcon).Tag}">
             <MenuItem x:Name="MenuHeader" StaysOpenOnClick="True"/>
             <Separator/>
-            <MenuItem Header="{DynamicResource Tray-ShowMain-String}" Click="ShowMenuItem_Click"/>
-            <MenuItem Header="{DynamicResource TopMenu-Setting-String}" Click="SettingMenuItem_Click"/>
-            <!--<MenuItem Header="{DynamicResource TopMenu-Setting-String}" Click="SettingMenuItem_Click"/>-->
-            <MenuItem StaysOpenOnClick="True">
-                <MenuItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{DynamicResource TopMenu-Goal-String}" VerticalAlignment="Center"/>
-                        <Button Content="{DynamicResource TopMenu-Goal-Set-String}" VerticalAlignment="Center"/>
-                        <Button Content="{DynamicResource TopMenu-Goal-Remove-String}" VerticalAlignment="Center"/>
-                    </StackPanel>
-                </MenuItem.Header>
-            </MenuItem>
+            <MenuItem Header="{DynamicResource TrayIcon-Menu-Setting-Item-String}" Click="SettingMenuItem_Click"/>
             <Separator/>
-            <MenuItem Header="{DynamicResource TrayIcon-Top-Quit-String}" Click="ExitMenuItem_Click"/>
+            <MenuItem Header="{DynamicResource TrayIcon-Menu-Quit-Item-String}" Click="ExitMenuItem_Click"/>
         </ContextMenu>
     </tb:TaskbarIcon.ContextMenu>
 
@@ -46,6 +35,6 @@
             </Grid>
         </Border>
     </tb:TaskbarIcon.TrayPopup>
-        
+
 
 </tb:TaskbarIcon>

@@ -27,11 +27,11 @@ namespace bayoen.star.Windows
         {
             //// Window
             this.InitializeComponent();
-            this.Title += $": {Config.AssemblyTitle}";
+            this.Title += $": {Config.Title}";
 
             //// General
             // Topmost
-            this.TopmostSwitch.Value = Core.Project.TopMost;
+            //this.TopmostSwitch.Value = Core.Project.TopMost;
 
             // AutoUpdate
             this.AutoUpdateSwitch.Value = Core.Project.AutoUpdate;
@@ -46,33 +46,33 @@ namespace bayoen.star.Windows
             this.LanguageCodeComboBox.SelectedIndex = Config.CultureCodes.IndexOf(Core.Project.LanguageCode);
 
             // EnglishDisplay
-            this.EnglishDisplaySwitch.Value = Core.Project.EnglishDisplay;
+            //this.EnglishDisplaySwitch.Value = Core.Project.EnglishDisplay;
 
-            //// Record
-            // MatchItemNumber
-            this.MatchItemNumberNumericUpDown.Value = Core.Project.MatchPageSize;
-            this.MatchItemNumberNumericUpDown.NumericUpDown.Minimum = 5;
-            this.MatchItemNumberNumericUpDown.NumericUpDown.Maximum = 20;
-            this.MatchItemNumberNumericUpDown.NumericUpDown.Width = 80;
+            ////// Record
+            //// MatchItemNumber
+            //this.MatchItemNumberNumericUpDown.Value = Core.Project.MatchPageSize;
+            //this.MatchItemNumberNumericUpDown.NumericUpDown.Minimum = 5;
+            //this.MatchItemNumberNumericUpDown.NumericUpDown.Maximum = 20;
+            //this.MatchItemNumberNumericUpDown.NumericUpDown.Width = 80;
 
-            //// Streaming
-            // ChromaKey
-            this.ChromaKeyComboBox.ItemSource = Core.GetChromaComboBoxItemList();
-            this.ChromaKeyComboBox.ComboBoxBackground = Brushes.Black;
-            this.ChromaKeyComboBox.ComboBoxWidth = 130;
-            this.ChromaKeyComboBox.SelectedIndex = (int)Core.Project.ChromaKey;            
-            
+            ////// Streaming
+            //// ChromaKey
+            //this.ChromaKeyComboBox.ItemSource = Core.GetChromaComboBoxItemList();
+            //this.ChromaKeyComboBox.ComboBoxBackground = Brushes.Black;
+            //this.ChromaKeyComboBox.ComboBoxWidth = 130;
+            //this.ChromaKeyComboBox.SelectedIndex = (int)Core.Project.ChromaKey;
+
 
 
             //
 
             //// Advanced
             // EnableRapidMode
-            this.EnableRapidModeSwitch.Value = Core.Project.EnableSlowMode;
-            //this.EnableRapidModeSwitch.TrueLabel = $"{Config.DisplayIntervalSlow.TotalMilliseconds} ms";
-            //this.EnableRapidModeSwitch.FalseLabel = $"{Config.DisplayIntervalNormal.TotalMilliseconds} ms";  
-            this.DisableEarlyRefreshSwitch.Value = Core.Project.DisableEarlyRefresh;
-        }        
+            //this.EnableRapidModeSwitch.Value = Core.Project.EnableSlowMode;
+            ////this.EnableRapidModeSwitch.TrueLabel = $"{Config.DisplayIntervalSlow.TotalMilliseconds} ms";
+            ////this.EnableRapidModeSwitch.FalseLabel = $"{Config.DisplayIntervalNormal.TotalMilliseconds} ms";  
+            //this.DisableEarlyRefreshSwitch.Value = Core.Project.DisableEarlyRefresh;
+        }
 
         private void RestartButton_Click(object sender, RoutedEventArgs e)
         {
@@ -81,7 +81,7 @@ namespace bayoen.star.Windows
 
         private void TopmostSwitch_Toggled(object sender, RoutedEventArgs e)
         {
-            Core.Project.TopMost = this.TopmostSwitch.Value;
+            //Core.Project.TopMost = this.TopmostSwitch.Value;
         }
 
         private void AutoUpdateSwitch_Toggled(object sender, RoutedEventArgs e)
@@ -100,17 +100,17 @@ namespace bayoen.star.Windows
 
         private void EnglishDisplaySwitch_Toggled(object sender, RoutedEventArgs e)
         {
-            Core.Project.EnglishDisplay = this.EnglishDisplaySwitch.Value;
+            //Core.Project.EnglishDisplay = this.EnglishDisplaySwitch.Value;
         }
 
-        private void CaptureModeComboBox_SelectionChanged(object sender, RoutedEventArgs e)
-        {
-            int selectedIndex = this.CaptureModeComboBox.SelectedIndex;
-            if (selectedIndex > -1)
-            {
-                Core.Project.ChromaKey = Config.ChromaSets[selectedIndex].Item1;
-            }
-        }
+        //private void CaptureModeComboBox_SelectionChanged(object sender, RoutedEventArgs e)
+        //{
+        //    int selectedIndex = this.CaptureModeComboBox.SelectedIndex;
+        //    if (selectedIndex > -1)
+        //    {
+        //        Core.Project.ChromaKey = Config.ChromaSets[selectedIndex].Item1;
+        //    }
+        //}
 
         private void ChromaKeyComboBox_SelectionChanged(object sender, RoutedEventArgs e)
         {
@@ -123,7 +123,7 @@ namespace bayoen.star.Windows
 
         private void EnableRapidModeSwitch_Toggled(object sender, RoutedEventArgs e)
         {
-            Core.Project.EnableSlowMode = this.EnableRapidModeSwitch.Value;
+            //Core.Project.EnableSlowMode = this.EnableRapidModeSwitch.Value;
         }
 
         private void EnableRapidModeDetailBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -139,12 +139,12 @@ namespace bayoen.star.Windows
 
         private void DisableEarlyRefreshSwitch_Toggled(object sender, RoutedEventArgs e)
         {
-            Core.Project.DisableEarlyRefresh = this.DisableEarlyRefreshSwitch.Value;
+            //Core.Project.DisableEarlyRefresh = this.DisableEarlyRefreshSwitch.Value;
         }
 
         private void MatchItemNumberNumericUpDown_ValueChanged(object sender, RoutedEventArgs e)
         {
-            Core.Project.MatchPageSize = this.MatchItemNumberNumericUpDown.Value;
+            //Core.Project.MatchPageSize = this.MatchItemNumberNumericUpDown.Value;
         }
     }
 }

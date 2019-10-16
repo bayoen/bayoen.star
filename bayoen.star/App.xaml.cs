@@ -15,15 +15,20 @@ namespace bayoen.star
             List<Process> overlappedProcesses = Process.GetProcessesByName(Config.Assembly.GetName().Name).ToList();
             overlappedProcesses.RemoveAll(x => x.Id == Process.GetCurrentProcess().Id);
 
-            if (overlappedProcesses.Count == 0) { Core.Initialize(); }
+            if (overlappedProcesses.Count == 0)
+            {
+                Core.Initialize();
+            }
             else if (Core.Project.RestartingMode > RestartingModes.None)
             {
-                bool settingFlag = (Core.Project.RestartingMode == RestartingModes.RestartWithSetting);
+                if (Core.Project.RestartingMode == RestartingModes.RestartWithSetting)
+                {
+                    Core.SettingWindow.Show();
+                }
                 Core.Project.RestartingMode = RestartingModes.None;
                 Core.Project.Save();
 
                 Core.Initialize();
-                if (settingFlag) Core.SettingWindow.Show();
             }
             else
             {

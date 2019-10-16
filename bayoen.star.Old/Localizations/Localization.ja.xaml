@@ -1,0 +1,174 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Localization.ja: Japanese   2019-10-13 23:42 KST -->
+
+    <!-- for Dictionary -->
+    <system:String x:Key="Dictionary-BayoenStar-String">ばよえ〜ん・スター</system:String>
+    <system:String x:Key="Dictionary-PPT-String">ぷよぷよテトリス</system:String>
+    <system:String x:Key="Dictionary-FreePlay-String">クラブ</system:String>
+    <system:String x:Key="Dictionary-PuzzleLeague-String">パズルリーグ</system:String>
+    <system:String x:Key="Dictionary-Arcade-String">アーケード</system:String>
+    <system:String x:Key="Dictionary-Adventure-String">アドベンチャー</system:String>
+    <system:String x:Key="Dictionary-Lobby-String">ロビー</system:String>
+    <system:String x:Key="Dictionary-Title-String">タイトル</system:String>
+    <system:String x:Key="Dictionary-Online-String">オンライン</system:String>
+    <system:String x:Key="Dictionary-Offline-String">オフライン</system:String>
+    <system:String x:Key="Dictionary-All-String">冒頭</system:String>
+    <system:String x:Key="Dictionary-Always-String">Always</system:String>
+    <system:String x:Key="Dictionary-Yes-String">はい</system:String>
+    <system:String x:Key="Dictionary-No-String">いいえ</system:String>
+    <system:String x:Key="Dictionary-ChromaKey-0-String">無し</system:String>
+    <system:String x:Key="Dictionary-ChromaKey-1-String">深紅色</system:String>
+    <system:String x:Key="Dictionary-ChromaKey-2-String">緑色</system:String>
+    <system:String x:Key="Dictionary-ChromaKey-3-String">青色</system:String>
+
+    <!-- for MainWindow -->
+    <system:String x:Key="MainWindow-Menu-Header-String">メニュー</system:String>
+    <system:String x:Key="MainWindow-Menu-Mini-Item-String">ミニ</system:String>
+    <system:String x:Key="MainWindow-Menu-Mini-ToolTip-String">Show mini bayoen-star.</system:String>
+    <system:String x:Key="MainWindow-Menu-Help-Item-String">ヘルプ</system:String>
+    <system:String x:Key="MainWindow-Menu-Help-GitHubPage-Item-String">サポートページ...</system:String>
+    <system:String x:Key="MainWindow-Menu-Help-Discord-Item-String">ディスコードサーバー...</system:String>
+    <system:String x:Key="MainWindow-Menu-Help-BayoenStar-Item-String">ばよえ〜ん・スター?</system:String>
+    <system:String x:Key="MainWindow-Menu-Setting-Item-String">設定...</system:String>
+    <system:String x:Key="MainWindow-Status-PuzzleLeague-Detail-String">##MyName## in Puzzle League!</system:String>
+    <!-- 'MainWindow-Status-FreePlay-Detail-String' is empty -->
+    <!-- 'MainWindow-Status-Arcade-Detail-String' is empty -->
+    <!-- 'MainWindow-Status-Adventure-Detail-String' is empty -->
+    <!-- 'MainWindow-Status-Lobby-Detail-String' is empty -->
+    <!-- 'MainWindow-Status-Title-Detail-String' is empty -->
+    <system:String x:Key="MainWindow-Counter-Header-String">スターカウンター</system:String>
+
+    <!-- for InitialGrid -->
+    <system:String x:Key="InitialGrid-Title-String">初期化</system:String>
+    <system:String x:Key="InitialGrid-Message-Begin-String">初期設定を始めます。</system:String>
+    <system:String x:Key="InitialGrid-Message-Overlapped-String">もうばよえ〜ん・スターが実行中です。</system:String>
+    <system:String x:Key="InitialGrid-Message-Internet-Check-String">Check internet connection... {0}</system:String>
+    <system:String x:Key="InitialGrid-Message-Internet-Disconnected-String">Internet disconnected</system:String>
+    <system:String x:Key="InitialGrid-Message-Update-String">アップデートを確認します。</system:String>
+    <system:String x:Key="InitialGrid-Message-Update-Latest-String">現在最新バージョンです。</system:String>
+    <system:String x:Key="InitialGrid-Message-Update-Found-String">最新バージョンにアップデートします。</system:String>
+    <system:String x:Key="InitialGrid-Message-Database-String">データベースを呼んできます。</system:String>
+    <system:String x:Key="InitialGrid-Message-LoadInfo-String">ユーザー情報を読み出します。。。##LoadInfoTrial##</system:String>
+    <system:String x:Key="InitialGrid-Message-LoadInfo-Fail-String">ユーザー情報を呼び込むのに失敗しました。</system:String>
+    <system:String x:Key="InitialGrid-Message-LoadInfo-Success-String">ユーザー情報を読みました。</system:String>
+    <system:String x:Key="InitialGrid-Message-End-String">ばよえ〜ん</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-0-String">ばよえ〜ん</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-1-String">テトリミノが熔けるとぷよになって、ぷよが凍るとテトリミノになるんだよ？</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-2-String">カーバンクルだよ～！</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-3-String">とびっきりおいしいカレーが食べたいなぁ</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-4-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-5-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-6-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-7-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-8-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-9-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-10-String">もうばよえ〜ん・スターを作るのに24時間しかかからなかった。</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-11-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-12-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-13-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-14-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-15-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-16-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-17-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-18-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-19-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-20-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-21-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-22-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-23-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-24-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-25-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-26-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-27-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-28-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-29-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-30-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-31-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-32-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-33-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-34-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-35-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-36-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-37-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-38-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-39-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-40-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-41-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-42-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-43-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-44-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-45-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-46-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-47-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-48-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-49-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-50-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-51-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-52-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-53-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-54-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-55-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-56-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-57-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-58-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-59-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-60-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-61-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-62-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-63-String">-</system:String>
+
+    <!-- for SettingWindow -->
+    <system:String x:Key="SettingWindow-Common-Header-String">一般</system:String>
+    <system:String x:Key="SettingWindow-Common-Major-Header-String">メーン設定</system:String>
+    <system:String x:Key="SettingWindow-Common-Major-CloseToMinimize-Header-String">閉じて最小化</system:String>
+    <system:String x:Key="SettingWindow-Common-Major-CloseToMinimize-Detail-String">メインウィンドウを閉めると、アプリを終了せずに最小化します。</system:String>
+    <system:String x:Key="SettingWindow-Common-Major-AutoUpdate-Header-String">自動アップデート</system:String>
+    <system:String x:Key="SettingWindow-Common-Major-AutoUpdate-Detail-String">ばよえ〜ん・スターを常に最新バージョンで維持します。</system:String>
+    <system:String x:Key="SettingWindow-Common-Major-Language-Header-String">言語 (Language)</system:String>
+    <system:String x:Key="SettingWindow-Common-Major-Language-Detail-String">好きな言語を選んでください。 もし、好きな言葉がないなら、翻訳できるように私たちを手伝ってください!</system:String>
+    <system:String x:Key="SettingWindow-Common-Sub-Header-String">補助設定</system:String>
+    <system:String x:Key="SettingWindow-Common-Sub-TopMost-Header-String">いつも上に</system:String>
+    <system:String x:Key="SettingWindow-Common-Sub-TopMost-Detail-String">メインウインドウを常に上に置きます。</system:String>
+    <system:String x:Key="SettingWindow-Appearance-Header-String">外観</system:String>
+    <system:String x:Key="SettingWindow-Appearance-Common-Header-String">一般設定</system:String>
+    <system:String x:Key="SettingWindow-Appearance-Common-DisableOverlay-Header-String">オーバーレイオフ</system:String>
+    <system:String x:Key="SettingWindow-Appearance-Common-DisableOverlay-Detail-String">Turn off overlay. 'bayoen-star' will continue working</system:String>
+    <system:String x:Key="SettingWindow-Appearance-Common-EnglishOverlay-Header-String">強制英語オーバーレイ</system:String>
+    <system:String x:Key="SettingWindow-Appearance-Common-EnglishOverlay-Detail-String">Displays the information in the overlay in English instead of in other language.</system:String>
+    <system:String x:Key="SettingWindow-Appearance-Goal-Header-String">目標</system:String>
+    <system:String x:Key="SettingWindow-Appearance-Goal-PanelImage-Header-String">Change Panel Image</system:String>
+    <!-- 'SettingWindow-Appearance-Goal-PanelImage-Detail-String' is empty -->
+    <system:String x:Key="SettingWindow-Appearance-Goal-StarImage-Header-String">Change Star Image</system:String>
+    <!-- 'SettingWindow-Appearance-Goal-StarImage-Detail-String' is empty -->
+    <system:String x:Key="SettingWindow-Appearance-Goal-GameImage-Header-String">Change Game Image</system:String>
+    <!-- 'SettingWindow-Appearance-Goal-GameImage-Detail-String' is empty -->
+    <system:String x:Key="SettingWindow-Appearance-Goal-AchievedSound-Header-String">Change Goal Achieved Sound</system:String>
+    <!-- 'SettingWindow-Appearance-Goal-AchievedSound-Detail-String' is empty -->
+    <!-- 'SettingWindow-Appearance-Goal-AchievedSound-0-String' is empty -->
+    <!-- 'SettingWindow-Appearance-Goal-AchievedSound-1-String' is empty -->
+    <!-- 'SettingWindow-Appearance-Goal-AchievedSound-2-String' is empty -->
+    <!-- 'SettingWindow-Appearance-Goal-AchievedSound-3-String' is empty -->
+    <system:String x:Key="SettingWindow-Streaming-Header-String">ストリーミング</system:String>
+    <system:String x:Key="SettingWindow-Streaming-Common-Header-String">一般設定</system:String>
+    <system:String x:Key="SettingWindow-Streaming-Common-EnableCapture-Header-String">Enable Capture</system:String>
+    <system:String x:Key="SettingWindow-Streaming-Common-EnableCapture-Detail-String">Enable the capture window. When you run bayoen-star, the capture window will be placed behind the PuyoPuyo Tetris window.</system:String>
+    <!-- 'SettingWindow-Streaming-ChromaKey-Header-String' is empty -->
+    <system:String x:Key="SettingWindow-Streaming-ChromaKey-Capture-Header-String">Set Chroma Keys</system:String>
+    <system:String x:Key="SettingWindow-Streaming-ChromaKey-Capture-Detail-String" xml:space="preserve">Select the chroma key color of the 'capture window'. Then, you may use 'Window Capture' in your streaming app to display it in your stream</system:String>
+    <system:String x:Key="SettingWindow-Streaming-ChromaKey-Sync-Header-String">Sync. Chroma Keys</system:String>
+    <!-- 'SettingWindow-Streaming-ChromaKey-Sync-Detail-String' is empty -->
+    <!-- 'SettingWindow-Streaming-ChromaKey-Mini-Header-String' is empty -->
+    <!-- 'SettingWindow-Streaming-ChromaKey-Mini-Detail-String' is empty -->
+    <system:String x:Key="SettingWindow-Streaming-Restart-Content-String">再起動</system:String>
+
+    <!-- for LeagueCapture -->
+
+    <!-- for TrayIcon -->
+    <system:String x:Key="TrayIcon-Top-Version-String">バージョン</system:String>
+    <system:String x:Key="TrayIcon-Top-Reset-String">合算リセット</system:String>
+    <system:String x:Key="TrayIcon-Top-Open-String">Open bayoen-star</system:String>
+    <system:String x:Key="TrayIcon-Top-Quit-String">ばよえ〜ん・スター終了</system:String>
+</ResourceDictionary>

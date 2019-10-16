@@ -5,7 +5,6 @@
                     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
                     
                     xmlns:windows="clr-namespace:bayoen.library.Metro.Windows"
-                    xmlns:controls="clr-namespace:bayoen.star.Controls"
                     xmlns:metroControls="clr-namespace:bayoen.library.Metro.Controls"
                     
                     Title="Debug"
@@ -15,90 +14,6 @@
                     
                     Height="900" Width="1200">
 
-    <windows:BaseWindow.Resources>
-        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource MetroTextBlock}">
-            <Setter Property="Margin" Value="10"/>
-        </Style>
-
-        <Style TargetType="{x:Type GroupBox}" BasedOn="{StaticResource MetroGroupBox}">
-            <Setter Property="mtc:ControlsHelper.ContentCharacterCasing" Value="Normal"/>
-            <Setter Property="mtc:ControlsHelper.HeaderFontSize" Value="16"/>
-            <Setter Property="Margin" Value="4"/>
-        </Style>
-    </windows:BaseWindow.Resources>
-
-    <Grid VerticalAlignment="Top" HorizontalAlignment="Left">
-        <WrapPanel Orientation="Horizontal" Margin="4">
-            <GroupBox Header="Textout">
-                <ScrollViewer>
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock x:Name="TextOut0"/>
-                        <TextBlock x:Name="TextOut1"/>
-                        <TextBlock x:Name="TextOut2"/>
-                        <TextBlock x:Name="TextOut3"/>
-                        <TextBlock x:Name="TextOut4"/>
-                    </StackPanel>
-                </ScrollViewer>
-            </GroupBox>
-
-            <GroupBox Header="MainWorker">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock x:Name="MainWorkerDataBlock"/>
-                </StackPanel>
-            </GroupBox>
-
-            <GroupBox Header="Project Data">
-                <TextBlock x:Name="ProjectDataBlock"/>
-            </GroupBox>
-
-            <GroupBox Header="Operation Data">
-                <TextBlock x:Name="OperationDataBlock"/>
-            </GroupBox>
-
-            <StackPanel Orientation="Vertical">
-
-                <controls:MatchListItem MatchCategory="PuzzleLeague"/>
-                <controls:MatchListItem MatchCategory="FreePlay"/>
-                <controls:MatchListItem MatchCategory="Arcade"/>
-                
-                <StackPanel Orientation="Horizontal" Margin="5">
-
-                    
-
-                    <ToggleButton Style="{DynamicResource MetroCircleToggleButtonStyle}"
-                                  Height="45" Width="45" Margin="5">
-                        <iconPacks:PackIconMaterial Kind="Crown" Height="30" Width="30">
-                            <iconPacks:PackIconMaterial.RenderTransform>
-                                <ScaleTransform ScaleX="1" ScaleY="0.7" CenterX="15" CenterY="15"/>
-                            </iconPacks:PackIconMaterial.RenderTransform>
-                        </iconPacks:PackIconMaterial>
-                    </ToggleButton>
-
-                    <ToggleButton Style="{DynamicResource MetroCircleToggleButtonStyle}"
-                                  Height="45" Width="45" Margin="5">
-                        <iconPacks:PackIconMaterial Kind="Star" Height="25" Width="25" Margin="0,0,0,2"/>
-                    </ToggleButton>
-                </StackPanel>
-                               
-                
-                <!--<TextBlock Text="- 2 Players"/>
-                <controls:MiniScorePanel PlayerNumber="2" GoalType="Total" GoalCounter="Game" GoalScore="5" DisplayMode="Game_only" IsFit="True"/>
-                <controls:MiniScorePanel PlayerNumber="2" DisplayMode="Star_Plus_only" PanelLength="Short"/>
-                <controls:MiniScorePanel PlayerNumber="2" GoalType="First" GoalCounter="Star" GoalScore="15" DisplayMode="Star_Plus_and_Star" IsFit="True"/>
-                <TextBlock Text="- 3 Players"/>
-                <controls:MiniScorePanel PlayerNumber="3" PanelLength="Short"/>
-                <controls:MiniScorePanel PlayerNumber="3" PanelLength="Fit"/>
-                <TextBlock Text="- 4 Players"/>
-                <controls:MiniScorePanel PlayerNumber="4" GoalCounter="Game"/>-->
-                
-                
-                <!--<TextBlock Text="- Mini Score Containers"/>
-                <controls:MiniScoreContainer ScoreOrientation="Left" Score="9999"/>
-                <controls:MiniScoreContainer/>-->
-            </StackPanel>
-
-        </WrapPanel>
-    </Grid>
-
+    <!--xmlns:controls="clr-namespace:bayoen.star.Controls"-->
 
 </windows:BaseWindow>

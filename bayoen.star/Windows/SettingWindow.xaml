@@ -14,7 +14,7 @@
                     MinHeight="400" MinWidth="600">
 
     <windows:BaseWindow.Resources>
-        
+
     </windows:BaseWindow.Resources>
 
     <Grid>
@@ -45,7 +45,7 @@
                     <Setter Property="HeaderTemplate">
                         <Setter.Value>
                             <DataTemplate>
-                                <TextBlock Style="{StaticResource MetroTextBlock}"                                           
+                                <TextBlock Style="{StaticResource MetroTextBlock}"
                                            FontSize="14" FontWeight="Bold" TextAlignment="Left" Text="{Binding}"
                                            Margin="15,5,15,0">
                                 </TextBlock>
@@ -93,83 +93,64 @@
             </mtc:MetroAnimatedTabControl.Resources>
 
             <mtc:MetroTabItem x:Name="GeneralTabItem"
-                              Header="{DynamicResource Setting-General-String}">
+                              Header="{DynamicResource SettingWindow-Common-Header-String}">
                 <ScrollViewer>
                     <StackPanel Style="{StaticResource ContainerStackPanel}">
 
                         <TextBlock Style="{StaticResource TextBlockSeparator}"
-                                   Text="{DynamicResource Setting-General-MainHeader-String}"/>
+                                   Text="{DynamicResource SettingWindow-Common-Major-Header-String}"/>
 
-                        <metroControls:PropertyToggleSwitch x:Name="TopmostSwitch"
+                        <!--<metroControls:PropertyToggleSwitch x:Name="TopmostSwitch"
                                                             Property="TopMost"                                                            
                                                             Header="{DynamicResource Setting-General-TopMost-Header-String}"
                                                             Detail="{DynamicResource Setting-General-TopMost-Detail-String}"
                                                             TrueLabel="{DynamicResource Setting-Yes-String}"
                                                             FalseLabel="{DynamicResource Setting-No-String}"
-                                                            Toggled="TopmostSwitch_Toggled"/>
+                                                            Toggled="TopmostSwitch_Toggled"/>-->
 
                         <metroControls:PropertyToggleSwitch x:Name="AutoUpdateSwitch"
                                                             Property="AutoUpdate" 
-                                                            Header="{DynamicResource Setting-General-AutoUpdate-Header-String}"
-                                                            Detail="{DynamicResource Setting-General-AutoUpdate-Detail-String}"
-                                                            TrueLabel="{DynamicResource Setting-Yes-String}"
-                                                            FalseLabel="{DynamicResource Setting-No-String}"
+                                                            Header="{DynamicResource SettingWindow-Common-Major-AutoUpdate-Header-String}"
+                                                            Detail="{DynamicResource SettingWindow-Common-Major-AutoUpdate-Detail-String}"
+                                                            TrueLabel="{DynamicResource Dictionary-Yes-String}"
+                                                            FalseLabel="{DynamicResource Dictionary-No-String}"
                                                             Toggled="AutoUpdateSwitch_Toggled"/>
 
                         <metroControls:PropertyComboBox x:Name="LanguageCodeComboBox"
                                                         Property="LanguageCode"
-                                                        Header="{DynamicResource Setting-General-Language-Header-String}"
-                                                        Detail="{DynamicResource Setting-General-Language-Detail-String}"
+                                                        Header="{DynamicResource SettingWindow-Common-Major-Language-Header-String}"
+                                                        Detail="{DynamicResource SettingWindow-Common-Major-Language-Detail-String}"
                                                         SelectionChanged="LanguageComboBox_SelectionChanged"/>
 
-                        <metroControls:PropertyToggleSwitch x:Name="EnglishDisplaySwitch"
+                        <!--<metroControls:PropertyToggleSwitch x:Name="EnglishDisplaySwitch"
                                                             Property="EnglishDisplay" 
                                                             Header="{DynamicResource Setting-General-EnglishDisplay-Header-String}"
                                                             Detail="{DynamicResource Setting-General-EnglishDisplay-Detail-String}"
                                                             TrueLabel="{DynamicResource Setting-Yes-String}"
                                                             FalseLabel="{DynamicResource Setting-No-String}"
-                                                            Toggled="EnglishDisplaySwitch_Toggled"/>
-
-                    </StackPanel>
-                </ScrollViewer>
-            </mtc:MetroTabItem>
-
-            <mtc:MetroTabItem x:Name="RecordTabItem"
-                              Header="{DynamicResource Setting-Record-String}">
-                <ScrollViewer>
-                    <StackPanel Style="{StaticResource ContainerStackPanel}">
-
-                        <TextBlock Style="{StaticResource TextBlockSeparator}"
-                                   Text="{DynamicResource Setting-Record-HistoryHeader-String}"/>
-
-                        <metroControls:PropertyNumericUpDown x:Name="MatchItemNumberNumericUpDown"
-                                                             Property="MatchItemNumber"
-                                                             Header="MatchItemNumber"
-                                                             Detail="123123"
-                                                             ValueChanged="MatchItemNumberNumericUpDown_ValueChanged"/>
+                                                            Toggled="EnglishDisplaySwitch_Toggled"/>-->
 
                     </StackPanel>
                 </ScrollViewer>
             </mtc:MetroTabItem>
 
             <mtc:MetroTabItem x:Name="StreamingTabItem"
-                              Header="{DynamicResource Setting-Streaming-String}">
+                              Header="{DynamicResource SettingWindow-Streaming-Header-String}">
                 <ScrollViewer>
                     <StackPanel Style="{StaticResource ContainerStackPanel}">
 
                         <TextBlock Style="{StaticResource TextBlockSeparator}"
-                                   Text="{DynamicResource Setting-Streaming-CaptureHeader-String}"/>
+                                   Text="{DynamicResource SettingWindow-Streaming-Common-Header-String}"/>
 
-                        <metroControls:PropertyComboBox x:Name="CaptureModeComboBox"
-                                                        Property="Chromakey"
-                                                        Header="{DynamicResource Setting-Streaming-ChromaKey-Header-String}"
-                                                        Detail="{DynamicResource Setting-Streaming-ChromaKey-Detail-String}"
-                                                        SelectionChanged="CaptureModeComboBox_SelectionChanged"/>
+
+
+                        <TextBlock Style="{StaticResource TextBlockSeparator}"
+                                   Text="{DynamicResource SettingWindow-Streaming-ChromaKey-Header-String}"/>
 
                         <metroControls:PropertyComboBox x:Name="ChromaKeyComboBox"
                                                         Property="Chromakey"
-                                                        Header="{DynamicResource Setting-Streaming-ChromaKey-Header-String}"
-                                                        Detail="{DynamicResource Setting-Streaming-ChromaKey-Detail-String}"
+                                                        Header="{DynamicResource SettingWindow-Streaming-ChromaKey-Capture-Header-String}"
+                                                        Detail="{DynamicResource SettingWindow-Streaming-ChromaKey-Capture-Detail-String}"
                                                         SelectionChanged="ChromaKeyComboBox_SelectionChanged"/>
 
                     </StackPanel>

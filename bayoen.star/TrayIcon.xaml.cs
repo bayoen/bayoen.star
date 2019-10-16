@@ -24,35 +24,34 @@ namespace bayoen.star
         {
             this.InitializeComponent();
             this.Icon = bayoen.star.Properties.Resources.StarCarbyPlusIcon;
-            this.ToolTipText = Config.AssemblyTitle;
+            this.ToolTipText = Config.Title;
             this.MenuActivation = PopupActivationMode.LeftOrRightClick;
-            this.MenuHeader.Header = $"{Config.AssemblyTitle} v{Config.Version}";
+            
+            this.MenuHeader.Header = $"{Config.Title} v{Config.Version}";
             this.ContextMenu.PlacementTarget = Core.MainWindow;
 
-            //this.TrayPopupResolved.VerticalOffset = 100;
-            //this.TrayPopupResolved.HorizontalAlignment = HorizontalAlignment.Right;
-            //this.TrayPopupResolved.PopupAnimation = PopupAnimation.Fade;
-            //this.TrayPopupResolved.StaysOpen = true;
-            //this.TrayPopupResolved.IsOpen = true;
-
-
 #if DEBUG
-            this.MenuHeader.Header = $"{Config.AssemblyTitle} v{Config.VersionString}";
-            MenuItem DebugMenuItem = new MenuItem();
-            DebugMenuItem.SetResourceReference(MenuItem.HeaderProperty, "Debug-Tray-Debug-String");
+            this.MenuHeader.Header = $"{Config.Title} v{Config.VersionString}";
+            //MenuItem DebugMenuItem = new MenuItem();
+            //DebugMenuItem.SetResourceReference(MenuItem.HeaderProperty, "Debug-Tray-Debug-String");
 
-            MenuItem DebugShowMenuItem = new MenuItem();
-            DebugShowMenuItem.SetResourceReference(MenuItem.HeaderProperty, "Debug-Tray-Debug-Show-String");
-            DebugShowMenuItem.Click += (sender, e) => Core.DebugWindow.Show();
-            DebugMenuItem.Items.Add(DebugShowMenuItem);
+            //MenuItem DebugShowMenuItem = new MenuItem();
+            //DebugShowMenuItem.SetResourceReference(MenuItem.HeaderProperty, "Debug-Tray-Debug-Show-String");
+            //DebugShowMenuItem.Click += (sender, e) => Core.DebugWindow.Show();
+            //DebugMenuItem.Items.Add(DebugShowMenuItem);
 
-            MenuItem DebugFolderMenuItem = new MenuItem();
-            DebugFolderMenuItem.SetResourceReference(MenuItem.HeaderProperty, "Debug-Tray-Debug-Folder-String");
-            DebugFolderMenuItem.Click += (sender, e) => Core.ShowFolder();
-            DebugMenuItem.Items.Add(DebugFolderMenuItem);
+            //MenuItem DebugFolderMenuItem = new MenuItem();
+            //DebugFolderMenuItem.SetResourceReference(MenuItem.HeaderProperty, "Debug-Tray-Debug-Folder-String");
+            //DebugFolderMenuItem.Click += (sender, e) => Core.ShowFolder();
+            //DebugMenuItem.Items.Add(DebugFolderMenuItem);
 
-            this.ContextMenu.Items.Insert(4, DebugMenuItem);
+            //this.ContextMenu.Items.Insert(4, DebugMenuItem);
 #endif
+        }
+
+        public void Show()
+        {
+            this.Visibility = Visibility.Visible;
         }
 
         public void Terminate()

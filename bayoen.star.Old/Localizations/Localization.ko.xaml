@@ -1,0 +1,177 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Localization.ko: Korean   2019-10-13 23:42 KST -->
+
+    <!-- for Dictionary -->
+    <system:String x:Key="Dictionary-BayoenStar-String">바요엔-스타</system:String>
+    <system:String x:Key="Dictionary-PPT-String">뿌요뿌요 테트리스</system:String>
+    <system:String x:Key="Dictionary-FreePlay-String">프리플레이</system:String>
+    <system:String x:Key="Dictionary-PuzzleLeague-String">퍼즐리그</system:String>
+    <system:String x:Key="Dictionary-Arcade-String">아케이드</system:String>
+    <system:String x:Key="Dictionary-Adventure-String">어드벤처</system:String>
+    <system:String x:Key="Dictionary-Lobby-String">로비</system:String>
+    <system:String x:Key="Dictionary-Title-String">타이틀</system:String>
+    <system:String x:Key="Dictionary-Online-String">온라인</system:String>
+    <system:String x:Key="Dictionary-Offline-String">오프라인</system:String>
+    <system:String x:Key="Dictionary-All-String">모두</system:String>
+    <system:String x:Key="Dictionary-Always-String">항상</system:String>
+    <system:String x:Key="Dictionary-Yes-String">ㅇㅇ</system:String>
+    <system:String x:Key="Dictionary-No-String">ㄴㄴ</system:String>
+    <system:String x:Key="Dictionary-ChromaKey-0-String">없음</system:String>
+    <system:String x:Key="Dictionary-ChromaKey-1-String">자홍색</system:String>
+    <system:String x:Key="Dictionary-ChromaKey-2-String">초록색</system:String>
+    <system:String x:Key="Dictionary-ChromaKey-3-String">파랑색</system:String>
+
+    <!-- for MainWindow -->
+    <system:String x:Key="MainWindow-Menu-Header-String">메뉴</system:String>
+    <system:String x:Key="MainWindow-Menu-Mini-Item-String">미니</system:String>
+    <system:String x:Key="MainWindow-Menu-Mini-ToolTip-String">작은 바요엔-스타를 실행합니다.</system:String>
+    <system:String x:Key="MainWindow-Menu-Help-Item-String">도움말</system:String>
+    <system:String x:Key="MainWindow-Menu-Help-GitHubPage-Item-String">프로젝트 사이트...</system:String>
+    <system:String x:Key="MainWindow-Menu-Help-Discord-Item-String">디스코드 서버...</system:String>
+    <system:String x:Key="MainWindow-Menu-Help-BayoenStar-Item-String">바요엔-스타?</system:String>
+    <system:String x:Key="MainWindow-Menu-Setting-Item-String">설정...</system:String>
+    <system:String x:Key="MainWindow-Status-PuzzleLeague-Detail-String">##MyName##, 퍼즐리그 중!</system:String>
+    <!-- 'MainWindow-Status-FreePlay-Detail-String' is empty -->
+    <!-- 'MainWindow-Status-Arcade-Detail-String' is empty -->
+    <!-- 'MainWindow-Status-Adventure-Detail-String' is empty -->
+    <!-- 'MainWindow-Status-Lobby-Detail-String' is empty -->
+    <!-- 'MainWindow-Status-Title-Detail-String' is empty -->
+    <system:String x:Key="MainWindow-Counter-Header-String">스타 카운터</system:String>
+
+    <!-- for InitialGrid -->
+    <system:String x:Key="InitialGrid-Title-String">초기화</system:String>
+    <system:String x:Key="InitialGrid-Message-Begin-String">초기설정을 시작합니다.</system:String>
+    <system:String x:Key="InitialGrid-Message-Overlapped-String">이미 바요엔-스타가 실행중입니다.</system:String>
+    <system:String x:Key="InitialGrid-Message-Internet-Check-String">인터넷 연결 확인중... {0}</system:String>
+    <system:String x:Key="InitialGrid-Message-Internet-Disconnected-String">인터넷 연결 안됨</system:String>
+    <system:String x:Key="InitialGrid-Message-Update-String">업데이트를 확인합니다.</system:String>
+    <system:String x:Key="InitialGrid-Message-Update-Latest-String">현재 최신버전입니다.</system:String>
+    <system:String x:Key="InitialGrid-Message-Update-Found-String">최신버전으로 업데이트합니다.</system:String>
+    <system:String x:Key="InitialGrid-Message-Database-String">데이터베이스를 불러옵니다.</system:String>
+    <system:String x:Key="InitialGrid-Message-LoadInfo-String">사용자 정보를 불러옵니다...##LoadInfoTrial##</system:String>
+    <system:String x:Key="InitialGrid-Message-LoadInfo-Fail-String">사용자 정보를 불러오는데 실패했습니다.</system:String>
+    <system:String x:Key="InitialGrid-Message-LoadInfo-Success-String">사용자 정보를 불러왔습니다.</system:String>
+    <system:String x:Key="InitialGrid-Message-End-String">바요엔~</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-0-String">바요엔~</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-1-String">사이온은 궁극기 마지막 도약 시 벽을 넘을 수 있습니다.</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-2-String">상점에서 '절친'을 검색하면 B.F. 대검이 나옵니다.</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-3-String">테트리스의 조선말은 조각맞추기놀이 입네다 동무.</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-4-String">뿌테보다 트리키타워가 더 재밌습니다.</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-5-String">검을 쪼개면 죽을 수도 있습니다.</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-6-String">사람을 화나게 하는 방법이 두 가지가 있는데,</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-7-String">국민 빌드 센터 포와이드를 익혀봅시다</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-8-String">나만 카방클 없어..</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-9-String">카레클은 카방을 좋아합니다.</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-10-String">바요엔-스타의 제작기간은 24시간입니다.</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-11-String">이 바요엔-스타는 무료로 해드립니다.</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-12-String">테트리스는 소련이 미제를 지배하기 위해 만들어졌습니다</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-13-String">테트리스 라이센스 소유자는 아직 살아있습니다.</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-14-String">이 프로그램, 먹물이 아니지만 농담이 있습니다</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-15-String">테트리스는 못 접어요. 접이식이 아니거든요.</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-16-String">이 프로그램은 30초내로 자동폭파합니다</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-17-String">마싯는 카레가 먹고 싶어!</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-18-String">치즈는 '먹는게' 아니라 '달리는' 겁니다</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-19-String">[단독] 뿌요뿌요 테트리스, 피시방 점유율 '4주 연속 1등'</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-20-String">저희는 뉴비에게 친절하게 대해줍니다.</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-21-String">이 프로그램은 영국에서 시작되어..</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-22-String">삡삐비 삐비비~!</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-23-String">이 문장은 거짓입니다.</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-24-String">뿌요의 색은 노랑색, 파랑색, 초록색 그리고 살색이 있습니다.</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-25-String">바요엔-스타는 상대의 머리를 뾰족한 별로 찍어 생각하지 못하게 하는 주문입니다.</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-26-String">이 프로그램은 스즈란 중학교 물리부의 후원으로 제작되었습니다.</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-27-String">이 게임은 1시간 안에 클리어 가능합니다.</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-28-String">테트리미노의 녹는점은 섭씨 0도 입니다</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-29-String">전기는 국산이지만 원료는 수입입니다</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-30-String">오호홋!</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-31-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-32-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-33-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-34-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-35-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-36-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-37-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-38-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-39-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-40-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-41-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-42-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-43-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-44-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-45-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-46-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-47-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-48-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-49-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-50-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-51-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-52-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-53-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-54-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-55-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-56-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-57-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-58-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-59-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-60-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-61-String">-</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-62-String">[ 여기에 농담을 입력 ]</system:String>
+    <system:String x:Key="InitialGrid-Message-Joke-63-String">농담이 다 떨어졌습니다</system:String>
+
+    <!-- for SettingWindow -->
+    <system:String x:Key="SettingWindow-Common-Header-String">일반</system:String>
+    <system:String x:Key="SettingWindow-Common-Major-Header-String">주요 설정</system:String>
+    <system:String x:Key="SettingWindow-Common-Major-CloseToMinimize-Header-String">닫아서 최소화하기</system:String>
+    <system:String x:Key="SettingWindow-Common-Major-CloseToMinimize-Detail-String">메인 윈도우를 닫으면 바요엔-스타를 최소화 합니다</system:String>
+    <system:String x:Key="SettingWindow-Common-Major-AutoUpdate-Header-String">자동 업데이트</system:String>
+    <system:String x:Key="SettingWindow-Common-Major-AutoUpdate-Detail-String">바요엔-스타'를 항상 최신 버전으로 유지합니다</system:String>
+    <system:String x:Key="SettingWindow-Common-Major-Language-Header-String">언어 (Language)</system:String>
+    <system:String x:Key="SettingWindow-Common-Major-Language-Detail-String">원하는 언어를 고르세요. 혹시 원하는 언어가 없다면, 번역할 수 있게 저희를 도와주세요!</system:String>
+    <system:String x:Key="SettingWindow-Common-Sub-Header-String">보조 설정</system:String>
+    <system:String x:Key="SettingWindow-Common-Sub-TopMost-Header-String">항상 위에</system:String>
+    <system:String x:Key="SettingWindow-Common-Sub-TopMost-Detail-String">메인 윈도우를 항상 위에 둡니다.</system:String>
+    <system:String x:Key="SettingWindow-Appearance-Header-String">외관</system:String>
+    <system:String x:Key="SettingWindow-Appearance-Common-Header-String">일반 설정</system:String>
+    <system:String x:Key="SettingWindow-Appearance-Common-DisableOverlay-Header-String">오버레이 끄기</system:String>
+    <system:String x:Key="SettingWindow-Appearance-Common-DisableOverlay-Detail-String">오버레이를 끕니다. 바요엔-스타는 계속 동작합니다.</system:String>
+    <system:String x:Key="SettingWindow-Appearance-Common-EnglishOverlay-Header-String">영어 오버레이 표시</system:String>
+    <system:String x:Key="SettingWindow-Appearance-Common-EnglishOverlay-Detail-String">오버레이의 정보를 한국어 대신 영어로 표시합니다.</system:String>
+    <system:String x:Key="SettingWindow-Appearance-Goal-Header-String">목표</system:String>
+    <system:String x:Key="SettingWindow-Appearance-Goal-PanelImage-Header-String">패널 이미지 변경</system:String>
+    <!-- 'SettingWindow-Appearance-Goal-PanelImage-Detail-String' is empty -->
+    <system:String x:Key="SettingWindow-Appearance-Goal-StarImage-Header-String">스타 이미지 변경</system:String>
+    <!-- 'SettingWindow-Appearance-Goal-StarImage-Detail-String' is empty -->
+    <system:String x:Key="SettingWindow-Appearance-Goal-GameImage-Header-String">게임 이미지 변경</system:String>
+    <!-- 'SettingWindow-Appearance-Goal-GameImage-Detail-String' is empty -->
+    <system:String x:Key="SettingWindow-Appearance-Goal-AchievedSound-Header-String">목표 달성 소리 변경</system:String>
+    <!-- 'SettingWindow-Appearance-Goal-AchievedSound-Detail-String' is empty -->
+    <!-- 'SettingWindow-Appearance-Goal-AchievedSound-0-String' is empty -->
+    <!-- 'SettingWindow-Appearance-Goal-AchievedSound-1-String' is empty -->
+    <!-- 'SettingWindow-Appearance-Goal-AchievedSound-2-String' is empty -->
+    <!-- 'SettingWindow-Appearance-Goal-AchievedSound-3-String' is empty -->
+    <system:String x:Key="SettingWindow-Streaming-Header-String">스트리밍</system:String>
+    <system:String x:Key="SettingWindow-Streaming-Common-Header-String">일반 설정</system:String>
+    <system:String x:Key="SettingWindow-Streaming-Common-EnableCapture-Header-String">캡처 활성화</system:String>
+    <system:String x:Key="SettingWindow-Streaming-Common-EnableCapture-Detail-String">캡처 윈도우를 활성화합니다. 바요엔-스타를 실행하면 캡처윈도우가 뿌요뿌요 테트리스 바로 뒤에 표시됩니다.</system:String>
+    <system:String x:Key="SettingWindow-Streaming-ChromaKey-Header-String">캡처 윈도우 크로마키 설정</system:String>
+    <system:String x:Key="SettingWindow-Streaming-ChromaKey-Capture-Header-String">크로마키 설정</system:String>
+    <system:String x:Key="SettingWindow-Streaming-ChromaKey-Capture-Detail-String" xml:space="preserve">캡처 윈도우'의 크로마키 색상을 선택합니다. 크로마키가 설정된 윈도우를 스트리밍 앱에서 '윈도우 캡처' 하여 방송에 띄울 수 있습니다.
+
+    - 이 항목은 윈도우 캡처를 사용하는 1대 컴퓨터 방송에 적합합니다.
+    - 디스플레이 캡처를 사용하거나 2대 컴퓨터 방송일 경우에는 크로마키 대신 오버레이를 사용해 주세요.</system:String>
+    <system:String x:Key="SettingWindow-Streaming-ChromaKey-Sync-Header-String">크로마키 동기화</system:String>
+    <system:String x:Key="SettingWindow-Streaming-ChromaKey-Sync-Detail-String">모든 크로마키 설정을 '캡처 윈도우 크로마키 설정'과 똑같이 유지합니다.</system:String>
+    <system:String x:Key="SettingWindow-Streaming-ChromaKey-Mini-Header-String">스타 윈도우 크로마키 설정</system:String>
+    <!-- 'SettingWindow-Streaming-ChromaKey-Mini-Detail-String' is empty -->
+    <system:String x:Key="SettingWindow-Streaming-Restart-Content-String">재시작</system:String>
+
+    <!-- for LeagueCapture -->
+
+    <!-- for TrayIcon -->
+    <system:String x:Key="TrayIcon-Top-Version-String">버전</system:String>
+    <system:String x:Key="TrayIcon-Top-Reset-String">합산 초기화</system:String>
+    <system:String x:Key="TrayIcon-Top-Open-String">바요엔-스타 열기</system:String>
+    <system:String x:Key="TrayIcon-Top-Quit-String">바요엔-스타 종료</system:String>
+</ResourceDictionary>

@@ -23,84 +23,83 @@ namespace bayoen.star.Windows
         public MainWindow()
         {
             this.InitializeComponent();
-            this.Title = $"{Config.AssemblyTitle}";
-#if DEBUG
-            this.Title += " [DEBUG]";
-#endif
-            this.LogoImage.SetBitmap(bayoen.star.Properties.Resources.StarCarbyPlusImage);
+            this.Title = Config.Title;
 
-
-            //this.AlwaysTopModeButton.IsAccented = true;
-            this.GoalStarButton.IsAccented = true;
-
-            this.EventViewer.EventModeButton.IsAccented = true;            
-
-            this.MenuButton.ContextMenu.PlacementTarget = this.MenuButton;
-
-
-            Core.Live.Panels.ForEach(x =>
-            {                
-                this.PlayerListPanel.Children.Add(x);
-            });
-
-            for (int panelIndex = 0; panelIndex < Core.Live.Panels.Count; panelIndex++)
-            {
-                Core.Live.Panels[panelIndex].PlayerName = $"Player {panelIndex + 1}";
-            }
-
-            Core.Live.Reversed.ForEach(x =>
-            {
-                x.PlayerName = "R";
-                this.PlayerListPanel.Children.Add(x);
-            });
-
-            //Core.EventChecker.ScanEvents();
-            //Core.EventChecker.PageIndex = 0;
-
-            // InitialGrid
             this.InitialLogoImage.SetBitmap(bayoen.star.Properties.Resources.StarCarbyImage);
         }
 
         private void MenuButton_Click(object sender, RoutedEventArgs e) => this.MenuButton.ContextMenu.IsOpen = true;
-        private void ResetMeniItem_Click(object sender, RoutedEventArgs e) => Core.ResetScore();
         private void SettingMenuItem_Click(object sender, RoutedEventArgs e) => Core.SettingWindow.Show();
-        private void ModeSubMenuItem_Click(object sender, RoutedEventArgs e)
+
+        private bool _isInitial = true;
+        public bool IsInitial
         {
-            MenuItem SelectedSubModeMenuItem = sender as MenuItem;
-            MenuItem ModeMenuItem = SelectedSubModeMenuItem.Parent as MenuItem;
-
-            foreach (MenuItem item in ModeMenuItem.Items)
+            get => this._isInitial;
+            set
             {
-                item.IsChecked = false;
-            }
-            SelectedSubModeMenuItem.IsChecked = true;
+                if (this._isInitial == value) return;
 
-            int seledtedIndex = ModeMenuItem.Items.IndexOf(SelectedSubModeMenuItem);
+                this.InitialGrid.Visibility = value ? Visibility.Visible : Visibility.Collapsed;
+                this.RightWindowCommands.Visibility = value ? Visibility.Collapsed : Visibility.Visible;
+
+                this._isInitial = value;
+            }
         }
 
-        private void EditFavoriteGoalButton_Click(object sender, RoutedEventArgs e) { }        
-        private void AlwaysTopModeButton_Click(object sender, RoutedEventArgs e) => Core.Project.TrackingMode = TrackingModes.Always;
-        private void LeagueTopModeButton_Click(object sender, RoutedEventArgs e) => Core.Project.TrackingMode = TrackingModes.League;
-        private void FriendlyTopModeButton_Click(object sender, RoutedEventArgs e) => Core.Project.TrackingMode = TrackingModes.Friendly;
-        private void ArcadeTopModeButton_Click(object sender, RoutedEventArgs e) => Core.Project.TrackingMode = TrackingModes.Arcade;        
-        private void NoneTopModeButton_Click(object sender, RoutedEventArgs e) => Core.Project.TrackingMode = TrackingModes.None;
+        private string _initialStatus = "";
+        public string InitialStatus
+        {
+            get => this._initialStatus;
+            set
+            {
+                if (this._initialStatus == value) return;
 
-        private void GoalStarButton_Click(object sender, RoutedEventArgs e) => Core.Project.GoalCounter = GoalCounters.Star;
-        private void GoalGameButton_Click(object sender, RoutedEventArgs e) => Core.Project.GoalCounter = GoalCounters.Game;
+                this.InitialStatusBlock.Text = value;
 
-        private void WhereAmIDetailBox_TextChanged(object sender, TextChangedEventArgs e) => this.CheckStatus();
+                this._initialStatus = value;
+            }
+        }
+
+        private string _initialStatusResource = "";
+        public string InitialStatusResource
+        {
+            get => this._initialStatusResource;
+            set
+            {
+                if (this._initialStatusResource == value) return;
+
+                this.InitialStatusBlock.Text = TryFindResource(value) as string;
+
+                this._initialStatusResource = value;
+            }
+        }
+
+        public bool SetFormatInitialStatusKey(string key, params object[] args)
+        {
+            try
+            {
+                string seedString = TryFindResource(key) as string;
+                this.InitialStatusBlock.Text = this._initialStatusResource = string.Format(seedString, args);
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
 
         private void BaseWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            this.EventViewer.PageSize = Core.Project.MatchPageSize;
-            this.EventViewer.Check();
+            this.InitialAutoUpdateCheckBox.IsChecked = Core.Project.AutoUpdate;
         }
 
-        private void ResetRecordButton_Click(object sender, RoutedEventArgs e)
+        private void InitialAutoUpdateCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {
-            Core.DB.ClearMatch();
-            Core.EventViewer.PageIndex = 0;
-            Core.UpdateResult();
+            if (this.InitialAutoUpdateCheckBox.IsChecked.HasValue)
+            {
+                Core.Project.AutoUpdate = this.InitialAutoUpdateCheckBox.IsChecked.Value;
+            }
         }
     }
 }

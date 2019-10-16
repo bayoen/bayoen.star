@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
-    <!-- Localization.fr: French   2019-10-13 23:42 KST -->
+    <!-- Localization.fr: French   2019-10-15 14:23 KST -->
 
     <!-- for Dictionary -->
     <system:String x:Key="Dictionary-BayoenStar-String">bayoen-star</system:String>
@@ -50,8 +50,11 @@
     <system:String x:Key="InitialGrid-Message-Update-String">Vérifier les mises à jour</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Latest-String">C'est à jour</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Found-String">Installer la version la plus récente</system:String>
+    <system:String x:Key="InitialGrid-Message-Update-Empty-String">There are no valid releases</system:String>
+    <system:String x:Key="InitialGrid-Message-Update-Fail-String">Update failed</system:String>
+    <system:String x:Key="InitialGrid-Message-Update-Auto-String">Mise à jour automatique</system:String>
     <system:String x:Key="InitialGrid-Message-Database-String">Chargement de la base de données</system:String>
-    <system:String x:Key="InitialGrid-Message-LoadInfo-String">Chargement des informations utilisateurs...##LoadInfoTrial##</system:String>
+    <system:String x:Key="InitialGrid-Message-LoadInfo-String">Chargement des informations utilisateurs...{0}</system:String>
     <system:String x:Key="InitialGrid-Message-LoadInfo-Fail-String">Échec du chargement des données utilisateur</system:String>
     <system:String x:Key="InitialGrid-Message-LoadInfo-Success-String">Informations utilisateur chargées</system:String>
     <system:String x:Key="InitialGrid-Message-End-String">bayoen~</system:String>
@@ -127,7 +130,7 @@
     <system:String x:Key="SettingWindow-Common-Major-CloseToMinimize-Detail-String">Fermer la fenêtre principale va interrompre bayoen-star</system:String>
     <system:String x:Key="SettingWindow-Common-Major-AutoUpdate-Header-String">Mise à jour automatique</system:String>
     <system:String x:Key="SettingWindow-Common-Major-AutoUpdate-Detail-String">Toujours garder 'bayoen-star' à la version la plus récente</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-Language-Header-String">Langue</system:String>
+    <system:String x:Key="SettingWindow-Common-Major-Language-Header-String">Langue (Language)</system:String>
     <system:String x:Key="SettingWindow-Common-Major-Language-Detail-String">Sélectionnez votre langue favori. S'il n'est pas sur la liste, s'il vous plaît, faites le nous savoir et aidez nous à l'ajouter</system:String>
     <system:String x:Key="SettingWindow-Common-Sub-Header-String">Réglages secondaires</system:String>
     <system:String x:Key="SettingWindow-Common-Sub-TopMost-Header-String">Toujours visible</system:String>
@@ -155,7 +158,7 @@
     <system:String x:Key="SettingWindow-Streaming-Common-Header-String">Common Settings</system:String>
     <system:String x:Key="SettingWindow-Streaming-Common-EnableCapture-Header-String">Régler incrustation couleur</system:String>
     <system:String x:Key="SettingWindow-Streaming-Common-EnableCapture-Detail-String">Activer les captures d'écran. Pendant que bayoen star fonctionne, l'écran se capture sera placé derrière la fenêtre Puyo Puyo Tetris.</system:String>
-    <!-- 'SettingWindow-Streaming-ChromaKey-Header-String' is empty -->
+    <system:String x:Key="SettingWindow-Streaming-ChromaKey-Header-String">Chroma Keys</system:String>
     <system:String x:Key="SettingWindow-Streaming-ChromaKey-Capture-Header-String">Régler incrustation couleur</system:String>
     <system:String x:Key="SettingWindow-Streaming-ChromaKey-Capture-Detail-String" xml:space="preserve">Sélectionner l'incrustation couleur de la capture. Ensuite, vous devrez utiliser "fenêtre de capture" dans l'application de streaming pour la visualiser durant la diffusion</system:String>
     <system:String x:Key="SettingWindow-Streaming-ChromaKey-Sync-Header-String">Synchroniser l'incrustation couleur</system:String>
@@ -167,8 +170,9 @@
     <!-- for LeagueCapture -->
 
     <!-- for TrayIcon -->
-    <system:String x:Key="TrayIcon-Top-Version-String">Version</system:String>
-    <system:String x:Key="TrayIcon-Top-Reset-String">Réinitialiser compteur</system:String>
-    <system:String x:Key="TrayIcon-Top-Open-String">Open bayoen-star</system:String>
-    <system:String x:Key="TrayIcon-Top-Quit-String">Quitter bayoen-star</system:String>
+    <system:String x:Key="TrayIcon-Menu-Version-Item-String">Version</system:String>
+    <system:String x:Key="TrayIcon-Menu-Open-Item-String">Open bayoen-star</system:String>
+    <system:String x:Key="TrayIcon-Menu-Reset-Item-String">Réinitialiser compteur</system:String>
+    <system:String x:Key="TrayIcon-Menu-Setting-Item-String">Réglages </system:String>
+    <system:String x:Key="TrayIcon-Menu-Quit-Item-String">Quitter bayoen-star</system:String>
 </ResourceDictionary>

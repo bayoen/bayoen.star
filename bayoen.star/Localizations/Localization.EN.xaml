@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
-    <!-- Localization.en: English   2019-10-13 23:42 KST -->
+    <!-- Localization.en: English   2019-10-15 14:23 KST -->
 
     <!-- for Dictionary -->
     <system:String x:Key="Dictionary-BayoenStar-String">bayoen-star</system:String>
@@ -50,8 +50,11 @@
     <system:String x:Key="InitialGrid-Message-Update-String">Check update</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Latest-String">It's up-to-date.</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Found-String">Update to the latest version.</system:String>
+    <system:String x:Key="InitialGrid-Message-Update-Empty-String">There are no valid releases</system:String>
+    <system:String x:Key="InitialGrid-Message-Update-Fail-String">Update failed</system:String>
+    <system:String x:Key="InitialGrid-Message-Update-Auto-String">Auto update</system:String>
     <system:String x:Key="InitialGrid-Message-Database-String">Loading database.</system:String>
-    <system:String x:Key="InitialGrid-Message-LoadInfo-String">Loading user information...##LoadInfoTrial##</system:String>
+    <system:String x:Key="InitialGrid-Message-LoadInfo-String">Loading user information...{0}</system:String>
     <system:String x:Key="InitialGrid-Message-LoadInfo-Fail-String">Failed to load user information.</system:String>
     <system:String x:Key="InitialGrid-Message-LoadInfo-Success-String">User information is loaded.</system:String>
     <system:String x:Key="InitialGrid-Message-End-String">bayoen~</system:String>
@@ -155,7 +158,7 @@
     <system:String x:Key="SettingWindow-Streaming-Common-Header-String">Common Settings</system:String>
     <system:String x:Key="SettingWindow-Streaming-Common-EnableCapture-Header-String">Enable Capture</system:String>
     <system:String x:Key="SettingWindow-Streaming-Common-EnableCapture-Detail-String">Enable the capture window. When you run bayoen-star, the capture window will be placed behind the PuyoPuyo Tetris window.</system:String>
-    <!-- 'SettingWindow-Streaming-ChromaKey-Header-String' is empty -->
+    <system:String x:Key="SettingWindow-Streaming-ChromaKey-Header-String">Chroma Keys</system:String>
     <system:String x:Key="SettingWindow-Streaming-ChromaKey-Capture-Header-String">Set Chroma Keys</system:String>
     <system:String x:Key="SettingWindow-Streaming-ChromaKey-Capture-Detail-String" xml:space="preserve">Select the chroma key color of the 'capture window'. Then, you may use 'Window Capture' in your streaming app to display it in your stream</system:String>
     <system:String x:Key="SettingWindow-Streaming-ChromaKey-Sync-Header-String">Sync. Chroma Keys</system:String>
@@ -167,8 +170,9 @@
     <!-- for LeagueCapture -->
 
     <!-- for TrayIcon -->
-    <system:String x:Key="TrayIcon-Top-Version-String">Version</system:String>
-    <system:String x:Key="TrayIcon-Top-Reset-String">Reset Count</system:String>
-    <system:String x:Key="TrayIcon-Top-Open-String">Open bayoen-star</system:String>
-    <system:String x:Key="TrayIcon-Top-Quit-String">Quit bayoen-star</system:String>
+    <system:String x:Key="TrayIcon-Menu-Version-Item-String">Version</system:String>
+    <system:String x:Key="TrayIcon-Menu-Open-Item-String">Open bayoen-star</system:String>
+    <system:String x:Key="TrayIcon-Menu-Reset-Item-String">Reset Count</system:String>
+    <system:String x:Key="TrayIcon-Menu-Setting-Item-String">Settings...</system:String>
+    <system:String x:Key="TrayIcon-Menu-Quit-Item-String">Quit bayoen-star</system:String>
 </ResourceDictionary>

@@ -1,0 +1,51 @@
+﻿<tb:TaskbarIcon x:Class="bayoen.star.TrayIcon"                
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:tb="http://www.hardcodet.net/taskbar"
+                
+                TrayMouseDoubleClick="TaskbarIcon_TrayMouseDoubleClick">
+
+    <tb:TaskbarIcon.ContextMenu>
+        <ContextMenu DataContext="{Binding RelativeSource={RelativeSource Self}, Path=(tb:TaskbarIcon.ParentTaskbarIcon).Tag}">
+            <MenuItem x:Name="MenuHeader" StaysOpenOnClick="True"/>
+            <Separator/>
+            <MenuItem Header="{DynamicResource Tray-ShowMain-String}" Click="ShowMenuItem_Click"/>
+            <MenuItem Header="{DynamicResource TopMenu-Setting-String}" Click="SettingMenuItem_Click"/>
+            <!--<MenuItem Header="{DynamicResource TopMenu-Setting-String}" Click="SettingMenuItem_Click"/>-->
+            <MenuItem StaysOpenOnClick="True">
+                <MenuItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{DynamicResource TopMenu-Goal-String}" VerticalAlignment="Center"/>
+                        <Button Content="{DynamicResource TopMenu-Goal-Set-String}" VerticalAlignment="Center"/>
+                        <Button Content="{DynamicResource TopMenu-Goal-Remove-String}" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </MenuItem.Header>
+            </MenuItem>
+            <Separator/>
+            <MenuItem Header="{DynamicResource TrayIcon-Top-Quit-String}" Click="ExitMenuItem_Click"/>
+        </ContextMenu>
+    </tb:TaskbarIcon.ContextMenu>
+
+    <tb:TaskbarIcon.TrayPopup>
+        <Border Background="{DynamicResource WhiteColorBrush}"
+                BorderBrush="{DynamicResource AccentBaseColorBrush}" 
+                TextBlock.Foreground="{DynamicResource BlackBrush}"
+                BorderThickness="2" Padding="5">
+            <Grid>
+                <StackPanel Orientation="Vertical"
+                    VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+                        <TextBlock Text="Close to tray"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+                        <TextBlock Text="Y/N?"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </tb:TaskbarIcon.TrayPopup>
+        
+
+</tb:TaskbarIcon>

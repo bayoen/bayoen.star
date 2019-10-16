@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
-    <!-- Localization.ja: Japanese   2019-10-13 23:42 KST -->
+    <!-- Localization.ja: Japanese   2019-10-15 14:23 KST -->
 
     <!-- for Dictionary -->
     <system:String x:Key="Dictionary-BayoenStar-String">ばよえ〜ん・スター</system:String>
@@ -50,8 +50,11 @@
     <system:String x:Key="InitialGrid-Message-Update-String">アップデートを確認します。</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Latest-String">現在最新バージョンです。</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Found-String">最新バージョンにアップデートします。</system:String>
+    <system:String x:Key="InitialGrid-Message-Update-Empty-String">There are no valid releases</system:String>
+    <system:String x:Key="InitialGrid-Message-Update-Fail-String">Update failed</system:String>
+    <system:String x:Key="InitialGrid-Message-Update-Auto-String">自動アップデート</system:String>
     <system:String x:Key="InitialGrid-Message-Database-String">データベースを呼んできます。</system:String>
-    <system:String x:Key="InitialGrid-Message-LoadInfo-String">ユーザー情報を読み出します。。。##LoadInfoTrial##</system:String>
+    <system:String x:Key="InitialGrid-Message-LoadInfo-String">ユーザー情報を読み出します。。。{0}</system:String>
     <system:String x:Key="InitialGrid-Message-LoadInfo-Fail-String">ユーザー情報を呼び込むのに失敗しました。</system:String>
     <system:String x:Key="InitialGrid-Message-LoadInfo-Success-String">ユーザー情報を読みました。</system:String>
     <system:String x:Key="InitialGrid-Message-End-String">ばよえ〜ん</system:String>
@@ -155,7 +158,7 @@
     <system:String x:Key="SettingWindow-Streaming-Common-Header-String">一般設定</system:String>
     <system:String x:Key="SettingWindow-Streaming-Common-EnableCapture-Header-String">Enable Capture</system:String>
     <system:String x:Key="SettingWindow-Streaming-Common-EnableCapture-Detail-String">Enable the capture window. When you run bayoen-star, the capture window will be placed behind the PuyoPuyo Tetris window.</system:String>
-    <!-- 'SettingWindow-Streaming-ChromaKey-Header-String' is empty -->
+    <system:String x:Key="SettingWindow-Streaming-ChromaKey-Header-String">Chroma Keys</system:String>
     <system:String x:Key="SettingWindow-Streaming-ChromaKey-Capture-Header-String">Set Chroma Keys</system:String>
     <system:String x:Key="SettingWindow-Streaming-ChromaKey-Capture-Detail-String" xml:space="preserve">Select the chroma key color of the 'capture window'. Then, you may use 'Window Capture' in your streaming app to display it in your stream</system:String>
     <system:String x:Key="SettingWindow-Streaming-ChromaKey-Sync-Header-String">Sync. Chroma Keys</system:String>
@@ -167,8 +170,9 @@
     <!-- for LeagueCapture -->
 
     <!-- for TrayIcon -->
-    <system:String x:Key="TrayIcon-Top-Version-String">バージョン</system:String>
-    <system:String x:Key="TrayIcon-Top-Reset-String">合算リセット</system:String>
-    <system:String x:Key="TrayIcon-Top-Open-String">Open bayoen-star</system:String>
-    <system:String x:Key="TrayIcon-Top-Quit-String">ばよえ〜ん・スター終了</system:String>
+    <system:String x:Key="TrayIcon-Menu-Version-Item-String">バージョン</system:String>
+    <system:String x:Key="TrayIcon-Menu-Open-Item-String">Open bayoen-star</system:String>
+    <system:String x:Key="TrayIcon-Menu-Reset-Item-String">カウントリセット</system:String>
+    <system:String x:Key="TrayIcon-Menu-Setting-Item-String">設定...</system:String>
+    <system:String x:Key="TrayIcon-Menu-Quit-Item-String">ばよえ〜ん・スター終了</system:String>
 </ResourceDictionary>
