@@ -35,6 +35,4 @@
             </Grid>
         </Border>
     </tb:TaskbarIcon.TrayPopup>
-
-
 </tb:TaskbarIcon>

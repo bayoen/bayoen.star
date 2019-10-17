@@ -26,26 +26,26 @@ namespace bayoen.star
             this.Icon = bayoen.star.Properties.Resources.StarCarbyPlusIcon;
             this.ToolTipText = Config.Title;
             this.MenuActivation = PopupActivationMode.LeftOrRightClick;
-            
-            this.MenuHeader.Header = $"{Config.Title} v{Config.Version}";
             this.ContextMenu.PlacementTarget = Core.MainWindow;
 
 #if DEBUG
             this.MenuHeader.Header = $"{Config.Title} v{Config.VersionString}";
-            //MenuItem DebugMenuItem = new MenuItem();
-            //DebugMenuItem.SetResourceReference(MenuItem.HeaderProperty, "Debug-Tray-Debug-String");
+            MenuItem DebugMenuItem = new MenuItem();
+            DebugMenuItem.SetResourceReference(MenuItem.HeaderProperty, "TrayIcon-Menu-Debug-Item-String");
 
-            //MenuItem DebugShowMenuItem = new MenuItem();
-            //DebugShowMenuItem.SetResourceReference(MenuItem.HeaderProperty, "Debug-Tray-Debug-Show-String");
-            //DebugShowMenuItem.Click += (sender, e) => Core.DebugWindow.Show();
-            //DebugMenuItem.Items.Add(DebugShowMenuItem);
+            MenuItem DebugShowMenuItem = new MenuItem();
+            DebugShowMenuItem.SetResourceReference(MenuItem.HeaderProperty, "TrayIcon-Menu-Debug-Window-Item-String");
+            DebugShowMenuItem.Click += (sender, e) => Core.DebugWindow.Show();
+            DebugMenuItem.Items.Add(DebugShowMenuItem);
 
-            //MenuItem DebugFolderMenuItem = new MenuItem();
-            //DebugFolderMenuItem.SetResourceReference(MenuItem.HeaderProperty, "Debug-Tray-Debug-Folder-String");
-            //DebugFolderMenuItem.Click += (sender, e) => Core.ShowFolder();
-            //DebugMenuItem.Items.Add(DebugFolderMenuItem);
+            MenuItem DebugFolderMenuItem = new MenuItem();
+            DebugFolderMenuItem.SetResourceReference(MenuItem.HeaderProperty, "TrayIcon-Menu-Debug-Folder-Item-String");
+            DebugFolderMenuItem.Click += (sender, e) => Core.ShowFolder();
+            DebugMenuItem.Items.Add(DebugFolderMenuItem);
 
-            //this.ContextMenu.Items.Insert(4, DebugMenuItem);
+            this.ContextMenu.Items.Insert(4, DebugMenuItem);
+#else
+            this.MenuHeader.Header = $"{Config.Title} v{Config.Version}";
 #endif
         }
 

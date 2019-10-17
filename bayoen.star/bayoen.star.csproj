@@ -100,7 +100,7 @@
       <DependentUpon>TrayIcon.xaml</DependentUpon>
     </Compile>
     <Compile Include="Variables\OptionData.cs" />
-    <Compile Include="Variables\Project.cs" />
+    <Compile Include="Variables\DownloadData.cs" />
     <Compile Include="Windows\DebugWindow.xaml.cs">
       <DependentUpon>DebugWindow.xaml</DependentUpon>
     </Compile>

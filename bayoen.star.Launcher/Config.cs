@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Threading;
@@ -11,7 +12,7 @@ namespace bayoen.star.Launcher
     public static class Config
     {
         public const string MainAppName = "bayoen-star.exe";
-        public static readonly string LauncherAppName = $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.exe";
+        public static readonly string LauncherAppName = $"{Assembly.GetExecutingAssembly().GetName().Name}.exe";
         public const string UpdateFolderName = "__update__";
         public const int ThreadSleepMilliseconds = 100;
 
@@ -40,16 +41,18 @@ namespace bayoen.star.Launcher
             bayoen.star.Launcher.Properties.Resources.DailyCarbuncle13,
         };
 
-        public static Version Version => Version.Parse(Config.VersionShortString);
-        public static string VersionString => $"1.{System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString()}";
+        public static readonly string Title = Assembly.GetExecutingAssembly().GetCustomAttribute<AssemblyTitleAttribute>().Title;
+        public const int VersionMajorNumber = 0;
+        public static string VersionString => $"{Config.VersionMajorNumber}.{Assembly.GetExecutingAssembly().GetName().Version.ToString()}";
         public static string VersionShortString
         {
             get
             {
-                Version version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
-                return $"1.{version.Major}.{version.Minor}";
+                Version version = Assembly.GetExecutingAssembly().GetName().Version;
+                return $"{Config.VersionMajorNumber}.{version.Major}.{version.Minor}";
             }
         }
+        public static Version Version => Version.Parse(Config.VersionShortString);
 
         public static readonly DispatcherPriority DispatcherPriority = DispatcherPriority.Normal;
     }

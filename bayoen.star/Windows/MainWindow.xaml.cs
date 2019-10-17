@@ -24,25 +24,45 @@ namespace bayoen.star.Windows
         {
             this.InitializeComponent();
             this.Title = Config.Title;
+#if DEBUG
+            this.StatusBlock.Text = $"[DEBUG] v{Config.VersionString}";
+#else
+            this.StatusBlock.Text = $"v{Config.VersionShortString}";
+#endif
 
             this.InitialLogoImage.SetBitmap(bayoen.star.Properties.Resources.StarCarbyImage);
         }
 
+        private void MiniButton_Click(object sender, RoutedEventArgs e) { }
         private void MenuButton_Click(object sender, RoutedEventArgs e) => this.MenuButton.ContextMenu.IsOpen = true;
         private void SettingMenuItem_Click(object sender, RoutedEventArgs e) => Core.SettingWindow.Show();
 
-        private bool _isInitial = true;
-        public bool IsInitial
+        private bool _isInitialProgress = true;
+        public bool IsInitialProgress
         {
-            get => this._isInitial;
+            get => this._isInitialProgress;
             set
             {
-                if (this._isInitial == value) return;
+                if (this._isInitialProgress == value) return;
 
                 this.InitialGrid.Visibility = value ? Visibility.Visible : Visibility.Collapsed;
                 this.RightWindowCommands.Visibility = value ? Visibility.Collapsed : Visibility.Visible;
 
-                this._isInitial = value;
+                this._isInitialProgress = value;
+            }
+        }
+
+        private bool _showInitialDownloadPanel = false;
+        public bool ShowInitialDownloadPanel
+        {
+            get => this._showInitialDownloadPanel;
+            set
+            {
+                if (this._showInitialDownloadPanel == value) return;
+
+                this.InitialDownloadPanel.Visibility = value ? Visibility.Visible : Visibility.Collapsed;
+
+                this._showInitialDownloadPanel = value;
             }
         }
 
@@ -68,7 +88,7 @@ namespace bayoen.star.Windows
             {
                 if (this._initialStatusResource == value) return;
 
-                this.InitialStatusBlock.Text = TryFindResource(value) as string;
+                this.InitialStatusBlock.Text = FindResource(value) as string;
 
                 this._initialStatusResource = value;
             }
@@ -89,17 +109,59 @@ namespace bayoen.star.Windows
             return true;
         }
 
+        private string _currentFileName = "";
+        public string CurrentFileName
+        {
+            get => this._currentFileName;
+            set
+            {
+                if (this._currentFileName == value) return;
+
+                this.CurrentFileNameBlock.Text = value;
+
+                this._currentFileName = value;
+            }
+        }
+
+        private string _currentFileProgress = "";
+        public string CurrentFileProgress
+        {
+            get => this._currentFileProgress;
+            set
+            {
+                if (this._currentFileProgress == value) return;
+
+                this.CurrentFileDownloadBlock.Text = value;
+
+                this._currentFileProgress = value;
+            }
+        }
+
+        private double _progress = 0;
+        public double Progress
+        {
+            get => this._progress;
+            set
+            {
+                if (this._progress == value) return;
+
+                this.DownloadProgressBar.Value = value;
+
+                this._progress = value;
+            }
+        }
+
         private void BaseWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            this.InitialAutoUpdateCheckBox.IsChecked = Core.Project.AutoUpdate;
+            this.InitialAutoUpdateCheckBox.IsChecked = Core.Option.AutoUpdate;
         }
 
         private void InitialAutoUpdateCheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {
             if (this.InitialAutoUpdateCheckBox.IsChecked.HasValue)
             {
-                Core.Project.AutoUpdate = this.InitialAutoUpdateCheckBox.IsChecked.Value;
+                Core.Option.AutoUpdate = this.InitialAutoUpdateCheckBox.IsChecked.Value;
             }
-        }
+        }        
     }
 }

@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
-    <!-- Localization.fr: French   2019-10-15 14:23 KST -->
+    <!-- Localization.fr: French   2019-10-17 22:34 KST -->
 
     <!-- for Dictionary -->
     <system:String x:Key="Dictionary-BayoenStar-String">bayoen-star</system:String>
@@ -48,8 +48,9 @@
     <system:String x:Key="InitialGrid-Message-Internet-Check-String">Check internet connection... {0}</system:String>
     <system:String x:Key="InitialGrid-Message-Internet-Disconnected-String">Internet disconnected</system:String>
     <system:String x:Key="InitialGrid-Message-Update-String">Vérifier les mises à jour</system:String>
+    <system:String x:Key="InitialGrid-Message-Update-Found-String">Installer la version la plus récente! {0} → {1}</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Latest-String">C'est à jour</system:String>
-    <system:String x:Key="InitialGrid-Message-Update-Found-String">Installer la version la plus récente</system:String>
+    <system:String x:Key="InitialGrid-Message-Update-Dev-String">It's in development.</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Empty-String">There are no valid releases</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Fail-String">Update failed</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Auto-String">Mise à jour automatique</system:String>
@@ -172,6 +173,9 @@
     <!-- for TrayIcon -->
     <system:String x:Key="TrayIcon-Menu-Version-Item-String">Version</system:String>
     <system:String x:Key="TrayIcon-Menu-Open-Item-String">Open bayoen-star</system:String>
+    <system:String x:Key="TrayIcon-Menu-Debug-Item-String">Debug...</system:String>
+    <system:String x:Key="TrayIcon-Menu-Debug-Window-Item-String">Show DebugWindow...</system:String>
+    <system:String x:Key="TrayIcon-Menu-Debug-Folder-Item-String">Open Folder</system:String>
     <system:String x:Key="TrayIcon-Menu-Reset-Item-String">Réinitialiser compteur</system:String>
     <system:String x:Key="TrayIcon-Menu-Setting-Item-String">Réglages </system:String>
     <system:String x:Key="TrayIcon-Menu-Quit-Item-String">Quitter bayoen-star</system:String>

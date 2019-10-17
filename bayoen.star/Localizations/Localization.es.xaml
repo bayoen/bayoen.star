@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
-    <!-- Localization.es: Spanish   2019-10-15 14:23 KST -->
+    <!-- Localization.es: Spanish   2019-10-17 22:34 KST -->
 
     <!-- for Dictionary -->
     <system:String x:Key="Dictionary-BayoenStar-String">bayoen-star</system:String>
@@ -48,8 +48,9 @@
     <system:String x:Key="InitialGrid-Message-Internet-Check-String">Check internet connection... {0}</system:String>
     <system:String x:Key="InitialGrid-Message-Internet-Disconnected-String">Internet disconnected</system:String>
     <system:String x:Key="InitialGrid-Message-Update-String">Revisar actualizaciones</system:String>
+    <system:String x:Key="InitialGrid-Message-Update-Found-String">Actualizar a la última versión! {0} → {1}</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Latest-String">Estás actualizado</system:String>
-    <system:String x:Key="InitialGrid-Message-Update-Found-String">Actualizar a la última versión</system:String>
+    <system:String x:Key="InitialGrid-Message-Update-Dev-String">It's in development.</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Empty-String">There are no valid releases</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Fail-String">Update failed</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Auto-String">Auto actualizar</system:String>
@@ -172,6 +173,9 @@
     <!-- for TrayIcon -->
     <system:String x:Key="TrayIcon-Menu-Version-Item-String">Versión</system:String>
     <system:String x:Key="TrayIcon-Menu-Open-Item-String">Open bayoen-star</system:String>
+    <system:String x:Key="TrayIcon-Menu-Debug-Item-String">Debug...</system:String>
+    <system:String x:Key="TrayIcon-Menu-Debug-Window-Item-String">Show DebugWindow...</system:String>
+    <system:String x:Key="TrayIcon-Menu-Debug-Folder-Item-String">Open Folder</system:String>
     <system:String x:Key="TrayIcon-Menu-Reset-Item-String">Reiniciar contador</system:String>
     <system:String x:Key="TrayIcon-Menu-Setting-Item-String">Configuración...</system:String>
     <system:String x:Key="TrayIcon-Menu-Quit-Item-String">Salir de bayoen-star</system:String>

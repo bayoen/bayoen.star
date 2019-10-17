@@ -19,11 +19,6 @@ namespace bayoen.star
 {
     public class Config
     {
-        // Project Info.
-        public static readonly Assembly Assembly = System.Reflection.Assembly.GetExecutingAssembly();
-        public const string LauencherFileName = "bayoen-star-launcher.exe";
-
-
         // Update Properties
         public static readonly string GitHubUserName = "bayoen";
         public static readonly string GitHubRepositoryName = "bayoen.star";
@@ -51,14 +46,16 @@ namespace bayoen.star
         };
 
         public const int ScoreCheckFramePeriod = 50;
-        public const int ThreadSleepMilliseconds = 200;
-        public const int ThreadLongSleepMilliseconds = 1500;
+        public const int ThreadSleepTimeout = 250;
+        public const int ThreadLongSleepTimeout = 1500;
 
 
         // File Names
+        public const string LauencherFileName = "bayoen-star-launcher.exe";
         public const string OptionDataFileName = "option.json";
         public const string ProjectDataFileName = "data.json";
         public const string DataBaseFileName = "records.db";
+        public const string UpdateFolderName = "__update__";
 
         public static readonly DispatcherPriority DispatcherPriority = DispatcherPriority.Normal;
         public static readonly Encoding TextEncoding = Encoding.Unicode;
@@ -84,15 +81,16 @@ namespace bayoen.star
         };
 
         public static readonly string Title = Assembly.GetExecutingAssembly().GetCustomAttribute<AssemblyTitleAttribute>().Title;
-        public static Version Version => Version.Parse(Config.VersionShortString);
-        public static string VersionString => $"1.{Assembly.GetExecutingAssembly().GetName().Version.ToString()}";
+        public const int VersionMajorNumber = 0;
+        public static string VersionString => $"{Config.VersionMajorNumber}.{Assembly.GetExecutingAssembly().GetName().Version.ToString()}";
         public static string VersionShortString
         {
             get
             {
-                Version version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
-                return $"1.{version.Major}.{version.Minor}";
+                Version version = Assembly.GetExecutingAssembly().GetName().Version;
+                return $"{Config.VersionMajorNumber}.{version.Major}.{version.Minor}";
             }
         }
+        public static Version Version => Version.Parse(Config.VersionShortString);
     }
 }

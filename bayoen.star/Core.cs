@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-
+using bayoen.library.General.Enums;
 using bayoen.star.Localizations;
 using Octokit;
 
@@ -16,8 +16,6 @@ namespace bayoen.star
     {
         public static void Initialize()
         {
-            Culture.Set(Core.Project.LanguageCode);
-
             Core.InitialWorker = new BackgroundWorker();
             Core.InitialWorker.DoWork += InitialWorker_DoWork;
             Core.InitialWorker.RunWorkerCompleted += InitialWorker_RunWorkerCompleted;
@@ -26,59 +24,78 @@ namespace bayoen.star
 
         private static void InitialWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            if (Core.Project.JustUpdated)
-            {
-                Core.Project.JustUpdated = false;
-                Core.Project.Save();
-                Thread.Sleep(Config.ThreadSleepMilliseconds);
-                return;
-            }
-            
+            Culture.Set(Core.Option.LanguageCode);
 
+            // Open windows and begin display
             Core.Invoke(delegate
             {
+                if (Core.Option.RestartingMode == RestartingModes.RestartWithSetting)
+                {
+                    Core.Option.RestartingMode = RestartingModes.None;
+
+                    Core.SettingWindow.Show();
+                }
+
                 Core.MainWindow.Show();
                 Core.MainWindow.InitialStatusResource = "InitialGrid-Message-Begin-String";
             });
 
-            if (Core.Project.AutoUpdate)
+
+            // Update
+            Core.Download.UpdatingNow = false;
+            if (Core.Option.JustUpdated)
+            {
+                Core.Option.JustUpdated = false;
+            }
+            else if (Core.Option.AutoUpdate)
             {
                 Core.Update();
-                Thread.Sleep(Config.ThreadSleepMilliseconds);
             }
-            else
-            {
-                Thread.Sleep(Config.ThreadLongSleepMilliseconds); // Long
-            }
-
-
-            Core.Invoke(delegate
-            {
-                Core.MainWindow.InitialStatusResource = "InitialGrid-Message-End-String";
-            });
-            Thread.Sleep(Config.ThreadLongSleepMilliseconds); // Long
         }
 
         private static void InitialWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            if (!Core.Download.UpdatingNow)
+            {
+                Core.PostInitialization();
+            }
+            Core.InitialWorker.Dispose();
+        }
+
+        /// <summary>
+        /// Terminate 'bayoen-star' application
+        /// </summary>
+        public static void PostInitialization()
+        {
+            // Load database
             Core.Invoke(delegate
             {
-                Core.MainWindow.IsInitial = false;
+                Core.MainWindow.InitialStatusResource = "InitialGrid-Message-Database-String";
+            });
+            Thread.Sleep(Config.ThreadSleepTimeout);
+            Core.CheckDB();
+
+
+            // Finish
+            Core.Invoke(delegate
+            {
+                Core.MainWindow.InitialStatusResource = "InitialGrid-Message-End-String";
+            });
+            Thread.Sleep(Config.ThreadLongSleepTimeout);
+
+            Core.Invoke(delegate
+            {
+                Core.MainWindow.IsInitialProgress = false;
                 Core.TrayIcon.Show();
 #if DEBUG
                 //Core.CapturableWindow.Show();
                 //Core.DebugWindow.Show();
-                //Core.DashboardWindow.Show();
                 //Core.LeagueWindow.Show();
                 //Core.MiniWindow.Show();
                 //Core.MiniOverlay.Show();
                 //Core.SettingWindow.Show();
 #endif
             });
-
-            Core.InitialWorker.Dispose();
         }
-
-        
     }
 }

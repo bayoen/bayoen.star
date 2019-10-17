@@ -16,6 +16,11 @@ namespace bayoen.star
         private static SettingWindow _settingWindow;
         public static SettingWindow SettingWindow => Core._settingWindow ?? (Core._settingWindow = new SettingWindow());
 
+#if DEBUG
+        private static DebugWindow _debugWindow;
+        public static DebugWindow DebugWindow => Core._debugWindow ?? (Core._debugWindow = new DebugWindow());
+#endif
+
         // public static EventViewer EventViewer => Core.MainWindow.EventViewer;
     }
 }

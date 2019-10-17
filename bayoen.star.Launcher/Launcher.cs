@@ -144,7 +144,7 @@ namespace bayoen.star.Launcher
                                 System.Media.SystemSounds.Exclamation.Play();
                                 System.Windows.Application.Current.Dispatcher.Invoke(async delegate
                                 {
-                                    Launcher.LauncherWindow.Status = $"Skynet rules this world!!";
+                                    Launcher.LauncherWindow.Status = $"Skynet rules the world!!";
                                     MessageDialogResult result = await Launcher.LauncherWindow.ShowMessageAsync("Dev", "Hm... we are doing well, right?", MessageDialogStyle.Affirmative);
                                     if (result == MessageDialogResult.Affirmative)
                                     {

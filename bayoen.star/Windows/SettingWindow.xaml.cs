@@ -34,7 +34,7 @@ namespace bayoen.star.Windows
             //this.TopmostSwitch.Value = Core.Project.TopMost;
 
             // AutoUpdate
-            this.AutoUpdateSwitch.Value = Core.Project.AutoUpdate;
+            this.AutoUpdateSwitch.Value = Core.Option.AutoUpdate;
 
             // LanguageCode
             this.LanguageCodeComboBox.ComboBoxWidth = 160;
@@ -43,7 +43,7 @@ namespace bayoen.star.Windows
                 CultureInfo info = new CultureInfo(x);
                 return (info.NativeName == info.DisplayName) ? info.NativeName : $"{info.NativeName} ({info.DisplayName})";
             });
-            this.LanguageCodeComboBox.SelectedIndex = Config.CultureCodes.IndexOf(Core.Project.LanguageCode);
+            this.LanguageCodeComboBox.SelectedIndex = Config.CultureCodes.IndexOf(Core.Option.LanguageCode);
 
             // EnglishDisplay
             //this.EnglishDisplaySwitch.Value = Core.Project.EnglishDisplay;
@@ -86,7 +86,7 @@ namespace bayoen.star.Windows
 
         private void AutoUpdateSwitch_Toggled(object sender, RoutedEventArgs e)
         {
-            Core.Project.AutoUpdate = this.AutoUpdateSwitch.Value;
+            Core.Option.AutoUpdate = this.AutoUpdateSwitch.Value;
         }
 
         private void LanguageComboBox_SelectionChanged(object sender, RoutedEventArgs e)
@@ -94,7 +94,7 @@ namespace bayoen.star.Windows
             int selectedIndex = this.LanguageCodeComboBox.SelectedIndex;
             if (selectedIndex > -1)
             {
-                Core.Project.LanguageCode = Config.CultureCodes[selectedIndex];
+                Core.Option.LanguageCode = Config.CultureCodes[selectedIndex];
             }
         }
 
@@ -117,7 +117,7 @@ namespace bayoen.star.Windows
             int selectedIndex = this.ChromaKeyComboBox.SelectedIndex;
             if (selectedIndex > -1)
             {
-                Core.Project.ChromaKey = Config.ChromaSets[selectedIndex].Item1;
+                Core.Option.ChromaKey = Config.ChromaSets[selectedIndex].Item1;
             }
         }
 

@@ -23,15 +23,40 @@ namespace bayoen.star.Variables
         {
             // Preferences
             this.AutoUpdate = true;
-            //this.LanguageCode
+            //this.LanguageCode // <- CultureInfo.CurrentUICulture.TwoLetterISOLanguageName
 
             // Operations
             this.RestartingMode = RestartingModes.None;
             this.JustUpdated = false;
         }
 
-        public RestartingModes RestartingMode { get; set; }
-        public bool JustUpdated { get; set; }
+        private bool _justUpdated;
+        public bool JustUpdated
+        {
+            get => this._justUpdated;
+            set
+            {
+                if (this._justUpdated == value) return;
+
+
+                this._justUpdated = value;
+                this.Save();
+            }
+        }
+
+        private RestartingModes _restartingMode;
+        public RestartingModes RestartingMode
+        {
+            get => this._restartingMode;
+            set
+            {
+                if (this._restartingMode == value) return;
+
+
+                this._restartingMode = value;
+                this.Save();
+            }
+        }
 
         private bool _autoUpdate;
         public bool AutoUpdate
