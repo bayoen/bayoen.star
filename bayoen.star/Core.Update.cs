@@ -117,19 +117,18 @@ namespace bayoen.star
                 }
             }
 
+            // Failed to update, skip update
+            if (updateBrokenFlag)
+            {
+                Core.Invoke(delegate
+                {
+                    Core.MainWindow.InitialStatusResource = "InitialGrid-Message-Update-Fail-String";
+                });
+                Thread.Sleep(Config.ThreadSleepTimeout);
 
-            /// [ Instant dev. part ]
-            targetVersion = new Version(1, 1, 0); // forced update (because the GitHub server is unavailable now)
-            //// Failed to update, skip update
-            //if (updateBrokenFlag)
-            //{
-            //    Core.Invoke(delegate
-            //    {
-            //        Core.MainWindow.InitialStatusResource = "InitialGrid-Message-Update-Fail-String";
-            //    });
-            //    Thread.Sleep(Config.ThreadSleepTimeout);
-            //    return;
-            //}
+                Core.PostInitialization();
+                return;
+            }
 
 
             // Latest vertion found
@@ -175,14 +174,7 @@ namespace bayoen.star
 
         public static void DownloadAssets(Release release)
         {
-            //Core.Temp.Queue = release.Assets.ToList().ConvertAll(x => x.BrowserDownloadUrl);
-            Core.Download.FilePaths = new List<string>()
-            {
-                "https://file-examples.com/wp-content/uploads/2017/02/zip_10MB.zip",
-                "https://file-examples.com/wp-content/uploads/2017/02/zip_9MB.zip",
-                "https://file-examples.com/wp-content/uploads/2017/04/file_example_MP4_1920_18MG.mp4"
-            };
-
+            Core.Download.FilePaths = release.Assets.ToList().ConvertAll(x => x.BrowserDownloadUrl);            
             Core.Download.FileLengths = new List<long>(Enumerable.Repeat((long)-1, Core.Download.FilePaths.Count));
 
             Core.Invoke(delegate
@@ -241,9 +233,7 @@ namespace bayoen.star
             {
                 if (info.Length == Core.Download.FileLengths[Core.Download.FileIndex])
                 {
-
-
-
+                    // It's a valid file for the file length
                 }
                 else
                 {
@@ -266,6 +256,10 @@ namespace bayoen.star
                         Core.MainWindow.InitialStatusResource = "InitialGrid-Message-Update-Fail-String";
                     });
                     Thread.Sleep(Config.ThreadLongSleepTimeout);
+
+                    Core.CancelUpdate();
+
+                    Core.PostInitialization();
                 }
                 else
                 {
@@ -304,6 +298,11 @@ namespace bayoen.star
             (sender as WebClient).Dispose();
         }
 
+        public static void CancelUpdate()
+        {
+            if (Directory.Exists(Config.UpdateFolderName)) Directory.Delete(Config.UpdateFolderName, true);
+        }
+
         public static void TerminateToUpdate()
         {
             string tempLauencherPath = Path.Combine(Config.UpdateFolderName, Config.LauencherFileName);
@@ -324,7 +323,6 @@ namespace bayoen.star
                 // missing launcher from update assets
                 Core.PostInitialization();
             }
-
         }
 
         public static List<string> BuildUpdateList()

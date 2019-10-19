@@ -121,17 +121,17 @@
     <system:String x:Key="InitialGrid-Message-Joke-63-String">농담이 다 떨어졌습니다</system:String>
 
     <!-- for SettingWindow -->
-    <system:String x:Key="SettingWindow-Common-Header-String">일반</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-Header-String">주요 설정</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-CloseToMinimize-Header-String">닫아서 최소화하기</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-CloseToMinimize-Detail-String">메인 윈도우를 닫으면 바요엔-스타를 최소화 합니다</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-AutoUpdate-Header-String">자동 업데이트</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-AutoUpdate-Detail-String">바요엔-스타'를 항상 최신 버전으로 유지합니다</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-Language-Header-String">언어 (Language)</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-Language-Detail-String">원하는 언어를 고르세요. 혹시 원하는 언어가 없다면, 번역할 수 있게 저희를 도와주세요!</system:String>
-    <system:String x:Key="SettingWindow-Common-Sub-Header-String">보조 설정</system:String>
-    <system:String x:Key="SettingWindow-Common-Sub-TopMost-Header-String">항상 위에</system:String>
-    <system:String x:Key="SettingWindow-Common-Sub-TopMost-Detail-String">메인 윈도우를 항상 위에 둡니다.</system:String>
+    <system:String x:Key="SettingWindow-General-Header-String">일반</system:String>
+    <system:String x:Key="SettingWindow-General-Main-Header-String">주요 설정</system:String>
+    <system:String x:Key="SettingWindow-General-Main-CloseToMinimize-Header-String">닫아서 최소화하기</system:String>
+    <system:String x:Key="SettingWindow-General-Main-CloseToMinimize-Detail-String">메인 윈도우를 닫으면 바요엔-스타를 최소화 합니다</system:String>
+    <system:String x:Key="SettingWindow-General-Main-AutoUpdate-Header-String">자동 업데이트</system:String>
+    <system:String x:Key="SettingWindow-General-Main-AutoUpdate-Detail-String">바요엔-스타'를 항상 최신 버전으로 유지합니다</system:String>
+    <system:String x:Key="SettingWindow-General-Main-Language-Header-String">언어 (Language)</system:String>
+    <system:String x:Key="SettingWindow-General-Main-Language-Detail-String">원하는 언어를 고르세요. 혹시 원하는 언어가 없다면, 번역할 수 있게 저희를 도와주세요!</system:String>
+    <system:String x:Key="SettingWindow-General-Sub-Header-String">보조 설정</system:String>
+    <system:String x:Key="SettingWindow-General-Sub-TopMost-Header-String">항상 위에</system:String>
+    <system:String x:Key="SettingWindow-General-Sub-TopMost-Detail-String">메인 윈도우를 항상 위에 둡니다.</system:String>
     <system:String x:Key="SettingWindow-Appearance-Header-String">외관</system:String>
     <system:String x:Key="SettingWindow-Appearance-Common-Header-String">일반 설정</system:String>
     <system:String x:Key="SettingWindow-Appearance-Common-DisableOverlay-Header-String">오버레이 끄기</system:String>

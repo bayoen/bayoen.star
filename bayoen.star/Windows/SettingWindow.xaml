@@ -93,12 +93,49 @@
             </mtc:MetroAnimatedTabControl.Resources>
 
             <mtc:MetroTabItem x:Name="GeneralTabItem"
-                              Header="{DynamicResource SettingWindow-Common-Header-String}">
+                              Header="{DynamicResource SettingWindow-General-Header-String}">
                 <ScrollViewer>
                     <StackPanel Style="{StaticResource ContainerStackPanel}">
 
                         <TextBlock Style="{StaticResource TextBlockSeparator}"
-                                   Text="{DynamicResource SettingWindow-Common-Major-Header-String}"/>
+                                   Text="{DynamicResource SettingWindow-General-Main-Header-String}"/>
+
+                        <metroControls:PropertyComboBox x:Name="LanguageCodeComboBox"
+                                                        Property="LanguageCode"
+                                                        Header="{DynamicResource SettingWindow-General-Main-Language-Header-String}"
+                                                        Detail="{DynamicResource SettingWindow-General-Main-Language-Detail-String}"
+                                                        SelectionChanged="LanguageComboBox_SelectionChanged"/>
+
+                        <!--<metroControls:PropertyToggleSwitch x:Name="EnglishDisplaySwitch"
+                                                            Property="EnglishDisplay" 
+                                                            Header="{DynamicResource Setting-General-EnglishDisplay-Header-String}"
+                                                            Detail="{DynamicResource Setting-General-EnglishDisplay-Detail-String}"
+                                                            TrueLabel="{DynamicResource Setting-Yes-String}"
+                                                            FalseLabel="{DynamicResource Setting-No-String}"
+                                                            Toggled="EnglishDisplaySwitch_Toggled"/>-->
+
+                        <!--<metroControls:PropertyToggleSwitch x:Name="TopmostSwitch"
+                                                            Property="TopMost"                                                            
+                                                            Header="{DynamicResource Setting-General-TopMost-Header-String}"
+                                                            Detail="{DynamicResource Setting-General-TopMost-Detail-String}"
+                                                            TrueLabel="{DynamicResource Setting-Yes-String}"
+                                                            FalseLabel="{DynamicResource Setting-No-String}"
+                                                            Toggled="TopmostSwitch_Toggled"/>-->
+
+                        <TextBlock Style="{StaticResource TextBlockSeparator}"
+                                   Text="{DynamicResource SettingWindow-General-Sub-Header-String}"/>
+
+                    </StackPanel>
+                </ScrollViewer>
+            </mtc:MetroTabItem>
+
+            <mtc:MetroTabItem x:Name="UpdateTabItem"
+                              Header="{DynamicResource SettingWindow-Update-Header-String}">
+                <ScrollViewer>
+                    <StackPanel Style="{StaticResource ContainerStackPanel}">
+
+                        <TextBlock Style="{StaticResource TextBlockSeparator}"
+                                   Text="{DynamicResource SettingWindow-General-Main-Header-String}"/>
 
                         <!--<metroControls:PropertyToggleSwitch x:Name="TopmostSwitch"
                                                             Property="TopMost"                                                            
@@ -110,17 +147,12 @@
 
                         <metroControls:PropertyToggleSwitch x:Name="AutoUpdateSwitch"
                                                             Property="AutoUpdate" 
-                                                            Header="{DynamicResource SettingWindow-Common-Major-AutoUpdate-Header-String}"
-                                                            Detail="{DynamicResource SettingWindow-Common-Major-AutoUpdate-Detail-String}"
+                                                            Header="{DynamicResource SettingWindow-General-Main-AutoUpdate-Header-String}"
+                                                            Detail="{DynamicResource SettingWindow-General-Main-AutoUpdate-Detail-String}"
                                                             TrueLabel="{DynamicResource Dictionary-Yes-String}"
                                                             FalseLabel="{DynamicResource Dictionary-No-String}"
                                                             Toggled="AutoUpdateSwitch_Toggled"/>
-
-                        <metroControls:PropertyComboBox x:Name="LanguageCodeComboBox"
-                                                        Property="LanguageCode"
-                                                        Header="{DynamicResource SettingWindow-Common-Major-Language-Header-String}"
-                                                        Detail="{DynamicResource SettingWindow-Common-Major-Language-Detail-String}"
-                                                        SelectionChanged="LanguageComboBox_SelectionChanged"/>
+                        
 
                         <!--<metroControls:PropertyToggleSwitch x:Name="EnglishDisplaySwitch"
                                                             Property="EnglishDisplay" 
@@ -140,7 +172,7 @@
                     <StackPanel Style="{StaticResource ContainerStackPanel}">
 
                         <TextBlock Style="{StaticResource TextBlockSeparator}"
-                                   Text="{DynamicResource SettingWindow-Streaming-Common-Header-String}"/>
+                                   Text="{DynamicResource SettingWindow-Streaming-General-Header-String}"/>
 
 
 

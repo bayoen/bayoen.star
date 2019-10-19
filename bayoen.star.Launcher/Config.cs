@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Threading;
 
 namespace bayoen.star.Launcher
@@ -14,7 +11,8 @@ namespace bayoen.star.Launcher
         public const string MainAppName = "bayoen-star.exe";
         public static readonly string LauncherAppName = $"{Assembly.GetExecutingAssembly().GetName().Name}.exe";
         public const string UpdateFolderName = "__update__";
-        public const int ThreadSleepMilliseconds = 100;
+        public const int ThreadSleepTimeout = 200;
+        public const int ThreadLongSleepTimeout = 1500;
 
         //public static readonly List<string> SampleFileUrlList = new List<string>()
         //{

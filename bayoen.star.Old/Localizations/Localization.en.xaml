@@ -121,17 +121,17 @@
     <system:String x:Key="InitialGrid-Message-Joke-63-String">Not enough jokes</system:String>
 
     <!-- for SettingWindow -->
-    <system:String x:Key="SettingWindow-Common-Header-String">General</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-Header-String">Main Settings</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-CloseToMinimize-Header-String">Minimize when closing</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-CloseToMinimize-Detail-String">When you close the main window, It is minimized instead of shutting down.</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-AutoUpdate-Header-String">Auto Update</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-AutoUpdate-Detail-String">Always keep 'bayoen-star' at the most up-to-date version</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-Language-Header-String">Language</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-Language-Detail-String">Select your favorite language. If it is not on the list, please let us know and help us to make it</system:String>
-    <system:String x:Key="SettingWindow-Common-Sub-Header-String">Sub-Settings</system:String>
-    <system:String x:Key="SettingWindow-Common-Sub-TopMost-Header-String">Always on Top</system:String>
-    <system:String x:Key="SettingWindow-Common-Sub-TopMost-Detail-String">Always keep the main window on top.</system:String>
+    <system:String x:Key="SettingWindow-General-Header-String">General</system:String>
+    <system:String x:Key="SettingWindow-General-Main-Header-String">Main Settings</system:String>
+    <system:String x:Key="SettingWindow-General-Main-CloseToMinimize-Header-String">Minimize when closing</system:String>
+    <system:String x:Key="SettingWindow-General-Main-CloseToMinimize-Detail-String">When you close the main window, It is minimized instead of shutting down.</system:String>
+    <system:String x:Key="SettingWindow-General-Main-AutoUpdate-Header-String">Auto Update</system:String>
+    <system:String x:Key="SettingWindow-General-Main-AutoUpdate-Detail-String">Always keep 'bayoen-star' at the most up-to-date version</system:String>
+    <system:String x:Key="SettingWindow-General-Main-Language-Header-String">Language</system:String>
+    <system:String x:Key="SettingWindow-General-Main-Language-Detail-String">Select your favorite language. If it is not on the list, please let us know and help us to make it</system:String>
+    <system:String x:Key="SettingWindow-General-Sub-Header-String">Sub-Settings</system:String>
+    <system:String x:Key="SettingWindow-General-Sub-TopMost-Header-String">Always on Top</system:String>
+    <system:String x:Key="SettingWindow-General-Sub-TopMost-Detail-String">Always keep the main window on top.</system:String>
     <system:String x:Key="SettingWindow-Appearance-Header-String">Appearance</system:String>
     <system:String x:Key="SettingWindow-Appearance-Common-Header-String">Common Settings</system:String>
     <system:String x:Key="SettingWindow-Appearance-Common-DisableOverlay-Header-String">Disable Overlay</system:String>

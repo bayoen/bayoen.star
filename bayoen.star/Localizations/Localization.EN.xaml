@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
-    <!-- Localization.en: English   2019-10-17 22:34 KST -->
+    <!-- Localization.en: English   2019-10-19 13:24 KST -->
 
     <!-- for Dictionary -->
     <system:String x:Key="Dictionary-BayoenStar-String">bayoen-star</system:String>
@@ -125,23 +125,26 @@
     <system:String x:Key="InitialGrid-Message-Joke-63-String">Not enough jokes</system:String>
 
     <!-- for SettingWindow -->
-    <system:String x:Key="SettingWindow-Common-Header-String">General</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-Header-String">Main Settings</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-CloseToMinimize-Header-String">Minimize when closing</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-CloseToMinimize-Detail-String">When you close the main window, It is minimized instead of shutting down.</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-AutoUpdate-Header-String">Auto Update</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-AutoUpdate-Detail-String">Always keep 'bayoen-star' at the most up-to-date version</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-Language-Header-String">Language</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-Language-Detail-String">Select your favorite language. If it is not on the list, please let us know and help us to make it</system:String>
-    <system:String x:Key="SettingWindow-Common-Sub-Header-String">Sub-Settings</system:String>
-    <system:String x:Key="SettingWindow-Common-Sub-TopMost-Header-String">Always on Top</system:String>
-    <system:String x:Key="SettingWindow-Common-Sub-TopMost-Detail-String">Always keep the main window on top.</system:String>
+    <system:String x:Key="SettingWindow-General-Header-String">General</system:String>
+    <system:String x:Key="SettingWindow-General-Main-Header-String">Main Settings</system:String>
+    <system:String x:Key="SettingWindow-General-Main-CloseToMinimize-Header-String">Minimize when closing</system:String>
+    <system:String x:Key="SettingWindow-General-Main-CloseToMinimize-Detail-String">When you close the main window, It is minimized instead of shutting down.</system:String>
+    <system:String x:Key="SettingWindow-General-Main-AutoUpdate-Header-String">Auto Update</system:String>
+    <system:String x:Key="SettingWindow-General-Main-AutoUpdate-Detail-String">Always keep 'bayoen-star' at the most up-to-date version</system:String>
+    <system:String x:Key="SettingWindow-General-Main-Language-Header-String">Language</system:String>
+    <system:String x:Key="SettingWindow-General-Main-Language-Detail-String">Select your favorite language. If it is not on the list, please let us know and help us to make it</system:String>
+    <system:String x:Key="SettingWindow-General-Sub-Header-String">Sub-Settings</system:String>
+    <system:String x:Key="SettingWindow-General-Sub-TopMost-Header-String">Always on Top</system:String>
+    <system:String x:Key="SettingWindow-General-Sub-TopMost-Detail-String">Always keep the main window on top.</system:String>
+    <system:String x:Key="SettingWindow-Update-Header-String">Update</system:String>
+    <system:String x:Key="SettingWindow-Update-General-AutoUpdate-Header-String">Auto Update</system:String>
+    <system:String x:Key="SettingWindow-Update-General-AutoUpdate-Detail-String">Always keep 'bayoen-star' at the most up-to-date version</system:String>
     <system:String x:Key="SettingWindow-Appearance-Header-String">Appearance</system:String>
-    <system:String x:Key="SettingWindow-Appearance-Common-Header-String">Common Settings</system:String>
-    <system:String x:Key="SettingWindow-Appearance-Common-DisableOverlay-Header-String">Disable Overlay</system:String>
-    <system:String x:Key="SettingWindow-Appearance-Common-DisableOverlay-Detail-String">Turn off overlay. 'bayoen-star' will continue working</system:String>
-    <system:String x:Key="SettingWindow-Appearance-Common-EnglishOverlay-Header-String">Forced English Overlay</system:String>
-    <system:String x:Key="SettingWindow-Appearance-Common-EnglishOverlay-Detail-String">Displays the information in the overlay in English instead of in other language.</system:String>
+    <system:String x:Key="SettingWindow-Appearance-General-Header-String">Common Settings</system:String>
+    <system:String x:Key="SettingWindow-Appearance-General-DisableOverlay-Header-String">Disable Overlay</system:String>
+    <system:String x:Key="SettingWindow-Appearance-General-DisableOverlay-Detail-String">Turn off overlay. 'bayoen-star' will continue working</system:String>
+    <system:String x:Key="SettingWindow-Appearance-General-EnglishOverlay-Header-String">Forced English Overlay</system:String>
+    <system:String x:Key="SettingWindow-Appearance-General-EnglishOverlay-Detail-String">Displays the information in the overlay in English instead of in other language.</system:String>
     <system:String x:Key="SettingWindow-Appearance-Goal-Header-String">Goal</system:String>
     <system:String x:Key="SettingWindow-Appearance-Goal-PanelImage-Header-String">Change Panel Image</system:String>
     <!-- 'SettingWindow-Appearance-Goal-PanelImage-Detail-String' is empty -->
@@ -156,9 +159,9 @@
     <!-- 'SettingWindow-Appearance-Goal-AchievedSound-2-String' is empty -->
     <!-- 'SettingWindow-Appearance-Goal-AchievedSound-3-String' is empty -->
     <system:String x:Key="SettingWindow-Streaming-Header-String">Streaming</system:String>
-    <system:String x:Key="SettingWindow-Streaming-Common-Header-String">Common Settings</system:String>
-    <system:String x:Key="SettingWindow-Streaming-Common-EnableCapture-Header-String">Enable Capture</system:String>
-    <system:String x:Key="SettingWindow-Streaming-Common-EnableCapture-Detail-String">Enable the capture window. When you run bayoen-star, the capture window will be placed behind the PuyoPuyo Tetris window.</system:String>
+    <system:String x:Key="SettingWindow-Streaming-General-Header-String">Common Settings</system:String>
+    <system:String x:Key="SettingWindow-Streaming-General-EnableCapture-Header-String">Enable Capture</system:String>
+    <system:String x:Key="SettingWindow-Streaming-General-EnableCapture-Detail-String">Enable the capture window. When you run bayoen-star, the capture window will be placed behind the PuyoPuyo Tetris window.</system:String>
     <system:String x:Key="SettingWindow-Streaming-ChromaKey-Header-String">Chroma Keys</system:String>
     <system:String x:Key="SettingWindow-Streaming-ChromaKey-Capture-Header-String">Set Chroma Keys</system:String>
     <system:String x:Key="SettingWindow-Streaming-ChromaKey-Capture-Detail-String" xml:space="preserve">Select the chroma key color of the 'capture window'. Then, you may use 'Window Capture' in your streaming app to display it in your stream</system:String>

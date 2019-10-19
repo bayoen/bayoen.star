@@ -121,17 +121,17 @@
     <system:String x:Key="InitialGrid-Message-Joke-63-String">Not enough jokes</system:String>
 
     <!-- for SettingWindow -->
-    <system:String x:Key="SettingWindow-Common-Header-String">Général</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-Header-String">Réglages principaux</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-CloseToMinimize-Header-String">Fermer pour quitter</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-CloseToMinimize-Detail-String">Fermer la fenêtre principale va interrompre bayoen-star</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-AutoUpdate-Header-String">Mise à jour automatique</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-AutoUpdate-Detail-String">Toujours garder 'bayoen-star' à la version la plus récente</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-Language-Header-String">Langue</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-Language-Detail-String">Sélectionnez votre langue favori. S'il n'est pas sur la liste, s'il vous plaît, faites le nous savoir et aidez nous à l'ajouter</system:String>
-    <system:String x:Key="SettingWindow-Common-Sub-Header-String">Réglages secondaires</system:String>
-    <system:String x:Key="SettingWindow-Common-Sub-TopMost-Header-String">Toujours visible</system:String>
-    <system:String x:Key="SettingWindow-Common-Sub-TopMost-Detail-String">Toujours maintenir la fenêtre principale visible</system:String>
+    <system:String x:Key="SettingWindow-General-Header-String">Général</system:String>
+    <system:String x:Key="SettingWindow-General-Main-Header-String">Réglages principaux</system:String>
+    <system:String x:Key="SettingWindow-General-Main-CloseToMinimize-Header-String">Fermer pour quitter</system:String>
+    <system:String x:Key="SettingWindow-General-Main-CloseToMinimize-Detail-String">Fermer la fenêtre principale va interrompre bayoen-star</system:String>
+    <system:String x:Key="SettingWindow-General-Main-AutoUpdate-Header-String">Mise à jour automatique</system:String>
+    <system:String x:Key="SettingWindow-General-Main-AutoUpdate-Detail-String">Toujours garder 'bayoen-star' à la version la plus récente</system:String>
+    <system:String x:Key="SettingWindow-General-Main-Language-Header-String">Langue</system:String>
+    <system:String x:Key="SettingWindow-General-Main-Language-Detail-String">Sélectionnez votre langue favori. S'il n'est pas sur la liste, s'il vous plaît, faites le nous savoir et aidez nous à l'ajouter</system:String>
+    <system:String x:Key="SettingWindow-General-Sub-Header-String">Réglages secondaires</system:String>
+    <system:String x:Key="SettingWindow-General-Sub-TopMost-Header-String">Toujours visible</system:String>
+    <system:String x:Key="SettingWindow-General-Sub-TopMost-Detail-String">Toujours maintenir la fenêtre principale visible</system:String>
     <system:String x:Key="SettingWindow-Appearance-Header-String">Apparence</system:String>
     <system:String x:Key="SettingWindow-Appearance-Common-Header-String">Paramètres divers</system:String>
     <system:String x:Key="SettingWindow-Appearance-Common-DisableOverlay-Header-String">Désactiver superposition</system:String>

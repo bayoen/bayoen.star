@@ -12,4 +12,4 @@ using System.Windows;
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
 [assembly: ThemeInfo(ResourceDictionaryLocation.None, ResourceDictionaryLocation.SourceAssembly)]
-[assembly: AssemblyVersion("0.0.*")] // MINOR.PATCH.*(date&revision), MAJOR is the first term of Config.VersionString
+[assembly: AssemblyVersion("0.1.*")] // MINOR.PATCH.*(date&revision), MAJOR is the first term of Config.VersionString

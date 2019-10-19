@@ -121,17 +121,17 @@
     <system:String x:Key="InitialGrid-Message-Joke-63-String">-</system:String>
 
     <!-- for SettingWindow -->
-    <system:String x:Key="SettingWindow-Common-Header-String">一般</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-Header-String">メーン設定</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-CloseToMinimize-Header-String">閉じて最小化</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-CloseToMinimize-Detail-String">メインウィンドウを閉めると、アプリを終了せずに最小化します。</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-AutoUpdate-Header-String">自動アップデート</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-AutoUpdate-Detail-String">ばよえ〜ん・スターを常に最新バージョンで維持します。</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-Language-Header-String">言語 (Language)</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-Language-Detail-String">好きな言語を選んでください。 もし、好きな言葉がないなら、翻訳できるように私たちを手伝ってください!</system:String>
-    <system:String x:Key="SettingWindow-Common-Sub-Header-String">補助設定</system:String>
-    <system:String x:Key="SettingWindow-Common-Sub-TopMost-Header-String">いつも上に</system:String>
-    <system:String x:Key="SettingWindow-Common-Sub-TopMost-Detail-String">メインウインドウを常に上に置きます。</system:String>
+    <system:String x:Key="SettingWindow-General-Header-String">一般</system:String>
+    <system:String x:Key="SettingWindow-General-Main-Header-String">メーン設定</system:String>
+    <system:String x:Key="SettingWindow-General-Main-CloseToMinimize-Header-String">閉じて最小化</system:String>
+    <system:String x:Key="SettingWindow-General-Main-CloseToMinimize-Detail-String">メインウィンドウを閉めると、アプリを終了せずに最小化します。</system:String>
+    <system:String x:Key="SettingWindow-General-Main-AutoUpdate-Header-String">自動アップデート</system:String>
+    <system:String x:Key="SettingWindow-General-Main-AutoUpdate-Detail-String">ばよえ〜ん・スターを常に最新バージョンで維持します。</system:String>
+    <system:String x:Key="SettingWindow-General-Main-Language-Header-String">言語 (Language)</system:String>
+    <system:String x:Key="SettingWindow-General-Main-Language-Detail-String">好きな言語を選んでください。 もし、好きな言葉がないなら、翻訳できるように私たちを手伝ってください!</system:String>
+    <system:String x:Key="SettingWindow-General-Sub-Header-String">補助設定</system:String>
+    <system:String x:Key="SettingWindow-General-Sub-TopMost-Header-String">いつも上に</system:String>
+    <system:String x:Key="SettingWindow-General-Sub-TopMost-Detail-String">メインウインドウを常に上に置きます。</system:String>
     <system:String x:Key="SettingWindow-Appearance-Header-String">外観</system:String>
     <system:String x:Key="SettingWindow-Appearance-Common-Header-String">一般設定</system:String>
     <system:String x:Key="SettingWindow-Appearance-Common-DisableOverlay-Header-String">オーバーレイオフ</system:String>

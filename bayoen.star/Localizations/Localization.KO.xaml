@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
-    <!-- Localization.ko: Korean   2019-10-17 22:34 KST -->
+    <!-- Localization.ko: Korean   2019-10-19 13:24 KST -->
 
     <!-- for Dictionary -->
     <system:String x:Key="Dictionary-BayoenStar-String">바요엔-스타</system:String>
@@ -125,23 +125,26 @@
     <system:String x:Key="InitialGrid-Message-Joke-63-String">농담이 다 떨어졌습니다</system:String>
 
     <!-- for SettingWindow -->
-    <system:String x:Key="SettingWindow-Common-Header-String">일반</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-Header-String">주요 설정</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-CloseToMinimize-Header-String">닫아서 최소화하기</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-CloseToMinimize-Detail-String">메인 윈도우를 닫으면 바요엔-스타를 최소화 합니다</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-AutoUpdate-Header-String">자동 업데이트</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-AutoUpdate-Detail-String">바요엔-스타'를 항상 최신 버전으로 유지합니다</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-Language-Header-String">언어 (Language)</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-Language-Detail-String">원하는 언어를 고르세요. 혹시 원하는 언어가 없다면, 번역할 수 있게 저희를 도와주세요!</system:String>
-    <system:String x:Key="SettingWindow-Common-Sub-Header-String">보조 설정</system:String>
-    <system:String x:Key="SettingWindow-Common-Sub-TopMost-Header-String">항상 위에</system:String>
-    <system:String x:Key="SettingWindow-Common-Sub-TopMost-Detail-String">메인 윈도우를 항상 위에 둡니다.</system:String>
+    <system:String x:Key="SettingWindow-General-Header-String">일반</system:String>
+    <system:String x:Key="SettingWindow-General-Main-Header-String">주요 설정</system:String>
+    <system:String x:Key="SettingWindow-General-Main-CloseToMinimize-Header-String">닫아서 최소화하기</system:String>
+    <system:String x:Key="SettingWindow-General-Main-CloseToMinimize-Detail-String">메인 윈도우를 닫으면 바요엔-스타를 최소화 합니다</system:String>
+    <system:String x:Key="SettingWindow-General-Main-AutoUpdate-Header-String">자동 업데이트</system:String>
+    <system:String x:Key="SettingWindow-General-Main-AutoUpdate-Detail-String">바요엔-스타'를 항상 최신 버전으로 유지합니다</system:String>
+    <system:String x:Key="SettingWindow-General-Main-Language-Header-String">언어 (Language)</system:String>
+    <system:String x:Key="SettingWindow-General-Main-Language-Detail-String">원하는 언어를 고르세요. 혹시 원하는 언어가 없다면, 번역할 수 있게 저희를 도와주세요!</system:String>
+    <system:String x:Key="SettingWindow-General-Sub-Header-String">보조 설정</system:String>
+    <system:String x:Key="SettingWindow-General-Sub-TopMost-Header-String">항상 위에</system:String>
+    <system:String x:Key="SettingWindow-General-Sub-TopMost-Detail-String">메인 윈도우를 항상 위에 둡니다.</system:String>
+    <system:String x:Key="SettingWindow-Update-Header-String">업데이트</system:String>
+    <system:String x:Key="SettingWindow-Update-General-AutoUpdate-Header-String">자동 업데이트</system:String>
+    <system:String x:Key="SettingWindow-Update-General-AutoUpdate-Detail-String">바요엔-스타'를 항상 최신 버전으로 유지합니다</system:String>
     <system:String x:Key="SettingWindow-Appearance-Header-String">외관</system:String>
-    <system:String x:Key="SettingWindow-Appearance-Common-Header-String">일반 설정</system:String>
-    <system:String x:Key="SettingWindow-Appearance-Common-DisableOverlay-Header-String">오버레이 끄기</system:String>
-    <system:String x:Key="SettingWindow-Appearance-Common-DisableOverlay-Detail-String">오버레이를 끕니다. 바요엔-스타는 계속 동작합니다.</system:String>
-    <system:String x:Key="SettingWindow-Appearance-Common-EnglishOverlay-Header-String">영어 오버레이 표시</system:String>
-    <system:String x:Key="SettingWindow-Appearance-Common-EnglishOverlay-Detail-String">오버레이의 정보를 한국어 대신 영어로 표시합니다.</system:String>
+    <system:String x:Key="SettingWindow-Appearance-General-Header-String">일반 설정</system:String>
+    <system:String x:Key="SettingWindow-Appearance-General-DisableOverlay-Header-String">오버레이 끄기</system:String>
+    <system:String x:Key="SettingWindow-Appearance-General-DisableOverlay-Detail-String">오버레이를 끕니다. 바요엔-스타는 계속 동작합니다.</system:String>
+    <system:String x:Key="SettingWindow-Appearance-General-EnglishOverlay-Header-String">영어 오버레이 표시</system:String>
+    <system:String x:Key="SettingWindow-Appearance-General-EnglishOverlay-Detail-String">오버레이의 정보를 한국어 대신 영어로 표시합니다.</system:String>
     <system:String x:Key="SettingWindow-Appearance-Goal-Header-String">목표</system:String>
     <system:String x:Key="SettingWindow-Appearance-Goal-PanelImage-Header-String">패널 이미지 변경</system:String>
     <!-- 'SettingWindow-Appearance-Goal-PanelImage-Detail-String' is empty -->
@@ -156,9 +159,9 @@
     <!-- 'SettingWindow-Appearance-Goal-AchievedSound-2-String' is empty -->
     <!-- 'SettingWindow-Appearance-Goal-AchievedSound-3-String' is empty -->
     <system:String x:Key="SettingWindow-Streaming-Header-String">스트리밍</system:String>
-    <system:String x:Key="SettingWindow-Streaming-Common-Header-String">일반 설정</system:String>
-    <system:String x:Key="SettingWindow-Streaming-Common-EnableCapture-Header-String">캡처 활성화</system:String>
-    <system:String x:Key="SettingWindow-Streaming-Common-EnableCapture-Detail-String">캡처 윈도우를 활성화합니다. 바요엔-스타를 실행하면 캡처윈도우가 뿌요뿌요 테트리스 바로 뒤에 표시됩니다.</system:String>
+    <system:String x:Key="SettingWindow-Streaming-General-Header-String">일반 설정</system:String>
+    <system:String x:Key="SettingWindow-Streaming-General-EnableCapture-Header-String">캡처 활성화</system:String>
+    <system:String x:Key="SettingWindow-Streaming-General-EnableCapture-Detail-String">캡처 윈도우를 활성화합니다. 바요엔-스타를 실행하면 캡처윈도우가 뿌요뿌요 테트리스 바로 뒤에 표시됩니다.</system:String>
     <system:String x:Key="SettingWindow-Streaming-ChromaKey-Header-String">크로마키</system:String>
     <system:String x:Key="SettingWindow-Streaming-ChromaKey-Capture-Header-String">크로마키 설정</system:String>
     <system:String x:Key="SettingWindow-Streaming-ChromaKey-Capture-Detail-String" xml:space="preserve">캡처 윈도우'의 크로마키 색상을 선택합니다. 크로마키가 설정된 윈도우를 스트리밍 앱에서 '윈도우 캡처' 하여 방송에 띄울 수 있습니다.

@@ -18,7 +18,7 @@ namespace bayoen.star
         {
             Core.InitialWorker = new BackgroundWorker();
             Core.InitialWorker.DoWork += InitialWorker_DoWork;
-            Core.InitialWorker.RunWorkerCompleted += InitialWorker_RunWorkerCompleted;
+            Core.InitialWorker.RunWorkerCompleted += (sender, e) => Core.InitialWorker.Dispose();
             Core.InitialWorker.RunWorkerAsync();
         }
 
@@ -39,6 +39,7 @@ namespace bayoen.star
                 Core.MainWindow.Show();
                 Core.MainWindow.InitialStatusResource = "InitialGrid-Message-Begin-String";
             });
+            Thread.Sleep(Config.ThreadSleepTimeout);
 
 
             // Update
@@ -51,15 +52,11 @@ namespace bayoen.star
             {
                 Core.Update();
             }
-        }
-
-        private static void InitialWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            if (!Core.Download.UpdatingNow)
+            else
             {
+                Thread.Sleep(Config.ThreadLongSleepTimeout);
                 Core.PostInitialization();
             }
-            Core.InitialWorker.Dispose();
         }
 
         /// <summary>
@@ -81,7 +78,8 @@ namespace bayoen.star
             {
                 Core.MainWindow.InitialStatusResource = "InitialGrid-Message-End-String";
             });
-            Thread.Sleep(Config.ThreadLongSleepTimeout);
+            Thread.Sleep(Config.ThreadSleepTimeout);
+
 
             Core.Invoke(delegate
             {

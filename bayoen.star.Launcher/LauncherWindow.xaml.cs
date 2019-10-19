@@ -54,47 +54,5 @@ namespace bayoen.star.Launcher
                 this._status = value;
             }
         }
-
-        private string _currentFileName = "";
-        public string CurrentFileName
-        {
-            get => this._currentFileName;
-            set
-            {
-                if (this._currentFileName == value) return;
-
-                this.CurrentFileNameBlock.Text = value;
-
-                this._currentFileName = value;
-            }
-        }
-
-        private string _currentFileProgress = "";
-        public string CurrentFileProgress
-        {
-            get => this._currentFileProgress;
-            set
-            {
-                if (this._currentFileProgress == value) return;
-
-                this.CurrentFileDownloadBlock.Text = value;
-
-                this._currentFileProgress = value;
-            }
-        }
-
-        private double _progress = 0;
-        public double Progress
-        {
-            get => this._progress;
-            set
-            {
-                if (this._progress == value) return;
-
-                this.DownloadProgressBar.Value = value;
-
-                this._progress = value;
-            }
-        }
     }
 }

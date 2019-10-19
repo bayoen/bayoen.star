@@ -1,20 +1,8 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media;
-using System.Windows.Threading;
 
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using Newtonsoft.Json.Serialization;
-
-using bayoen.library.General.Enums;
-namespace bayoen.star
+namespace bayoen.star.library.General
 {
     public static class Config
     {

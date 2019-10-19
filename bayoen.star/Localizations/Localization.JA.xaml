@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
-    <!-- Localization.ja: Japanese   2019-10-17 22:34 KST -->
+    <!-- Localization.ja: Japanese   2019-10-19 13:24 KST -->
 
     <!-- for Dictionary -->
     <system:String x:Key="Dictionary-BayoenStar-String">ばよえ〜ん・スター</system:String>
@@ -125,23 +125,26 @@
     <system:String x:Key="InitialGrid-Message-Joke-63-String">-</system:String>
 
     <!-- for SettingWindow -->
-    <system:String x:Key="SettingWindow-Common-Header-String">一般</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-Header-String">メーン設定</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-CloseToMinimize-Header-String">閉じて最小化</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-CloseToMinimize-Detail-String">メインウィンドウを閉めると、アプリを終了せずに最小化します。</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-AutoUpdate-Header-String">自動アップデート</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-AutoUpdate-Detail-String">ばよえ〜ん・スターを常に最新バージョンで維持します。</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-Language-Header-String">言語 (Language)</system:String>
-    <system:String x:Key="SettingWindow-Common-Major-Language-Detail-String">好きな言語を選んでください。 もし、好きな言葉がないなら、翻訳できるように私たちを手伝ってください!</system:String>
-    <system:String x:Key="SettingWindow-Common-Sub-Header-String">補助設定</system:String>
-    <system:String x:Key="SettingWindow-Common-Sub-TopMost-Header-String">いつも上に</system:String>
-    <system:String x:Key="SettingWindow-Common-Sub-TopMost-Detail-String">メインウインドウを常に上に置きます。</system:String>
+    <system:String x:Key="SettingWindow-General-Header-String">一般</system:String>
+    <system:String x:Key="SettingWindow-General-Main-Header-String">メーン設定</system:String>
+    <system:String x:Key="SettingWindow-General-Main-CloseToMinimize-Header-String">閉じて最小化</system:String>
+    <system:String x:Key="SettingWindow-General-Main-CloseToMinimize-Detail-String">メインウィンドウを閉めると、アプリを終了せずに最小化します。</system:String>
+    <system:String x:Key="SettingWindow-General-Main-AutoUpdate-Header-String">自動アップデート</system:String>
+    <system:String x:Key="SettingWindow-General-Main-AutoUpdate-Detail-String">ばよえ〜ん・スターを常に最新バージョンで維持します。</system:String>
+    <system:String x:Key="SettingWindow-General-Main-Language-Header-String">言語 (Language)</system:String>
+    <system:String x:Key="SettingWindow-General-Main-Language-Detail-String">好きな言語を選んでください。 もし、好きな言葉がないなら、翻訳できるように私たちを手伝ってください!</system:String>
+    <system:String x:Key="SettingWindow-General-Sub-Header-String">補助設定</system:String>
+    <system:String x:Key="SettingWindow-General-Sub-TopMost-Header-String">いつも上に</system:String>
+    <system:String x:Key="SettingWindow-General-Sub-TopMost-Detail-String">メインウインドウを常に上に置きます。</system:String>
+    <system:String x:Key="SettingWindow-Update-Header-String">Update</system:String>
+    <system:String x:Key="SettingWindow-Update-General-AutoUpdate-Header-String">自動アップデート</system:String>
+    <system:String x:Key="SettingWindow-Update-General-AutoUpdate-Detail-String">ばよえ〜ん・スターを常に最新バージョンで維持します。</system:String>
     <system:String x:Key="SettingWindow-Appearance-Header-String">外観</system:String>
-    <system:String x:Key="SettingWindow-Appearance-Common-Header-String">一般設定</system:String>
-    <system:String x:Key="SettingWindow-Appearance-Common-DisableOverlay-Header-String">オーバーレイオフ</system:String>
-    <system:String x:Key="SettingWindow-Appearance-Common-DisableOverlay-Detail-String">Turn off overlay. 'bayoen-star' will continue working</system:String>
-    <system:String x:Key="SettingWindow-Appearance-Common-EnglishOverlay-Header-String">強制英語オーバーレイ</system:String>
-    <system:String x:Key="SettingWindow-Appearance-Common-EnglishOverlay-Detail-String">Displays the information in the overlay in English instead of in other language.</system:String>
+    <system:String x:Key="SettingWindow-Appearance-General-Header-String">一般設定</system:String>
+    <system:String x:Key="SettingWindow-Appearance-General-DisableOverlay-Header-String">オーバーレイオフ</system:String>
+    <system:String x:Key="SettingWindow-Appearance-General-DisableOverlay-Detail-String">Turn off overlay. 'bayoen-star' will continue working</system:String>
+    <system:String x:Key="SettingWindow-Appearance-General-EnglishOverlay-Header-String">強制英語オーバーレイ</system:String>
+    <system:String x:Key="SettingWindow-Appearance-General-EnglishOverlay-Detail-String">Displays the information in the overlay in English instead of in other language.</system:String>
     <system:String x:Key="SettingWindow-Appearance-Goal-Header-String">目標</system:String>
     <system:String x:Key="SettingWindow-Appearance-Goal-PanelImage-Header-String">Change Panel Image</system:String>
     <!-- 'SettingWindow-Appearance-Goal-PanelImage-Detail-String' is empty -->
@@ -156,9 +159,9 @@
     <!-- 'SettingWindow-Appearance-Goal-AchievedSound-2-String' is empty -->
     <!-- 'SettingWindow-Appearance-Goal-AchievedSound-3-String' is empty -->
     <system:String x:Key="SettingWindow-Streaming-Header-String">ストリーミング</system:String>
-    <system:String x:Key="SettingWindow-Streaming-Common-Header-String">一般設定</system:String>
-    <system:String x:Key="SettingWindow-Streaming-Common-EnableCapture-Header-String">Enable Capture</system:String>
-    <system:String x:Key="SettingWindow-Streaming-Common-EnableCapture-Detail-String">Enable the capture window. When you run bayoen-star, the capture window will be placed behind the PuyoPuyo Tetris window.</system:String>
+    <system:String x:Key="SettingWindow-Streaming-General-Header-String">一般設定</system:String>
+    <system:String x:Key="SettingWindow-Streaming-General-EnableCapture-Header-String">Enable Capture</system:String>
+    <system:String x:Key="SettingWindow-Streaming-General-EnableCapture-Detail-String">Enable the capture window. When you run bayoen-star, the capture window will be placed behind the PuyoPuyo Tetris window.</system:String>
     <system:String x:Key="SettingWindow-Streaming-ChromaKey-Header-String">Chroma Keys</system:String>
     <system:String x:Key="SettingWindow-Streaming-ChromaKey-Capture-Header-String">Set Chroma Keys</system:String>
     <system:String x:Key="SettingWindow-Streaming-ChromaKey-Capture-Detail-String" xml:space="preserve">Select the chroma key color of the 'capture window'. Then, you may use 'Window Capture' in your streaming app to display it in your stream</system:String>
