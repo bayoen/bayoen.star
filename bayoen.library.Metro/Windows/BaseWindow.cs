@@ -3,8 +3,10 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using bayoen.library.General.Enums;
+
 using MahApps.Metro.Controls;
+
+using bayoen.library.General.Enums;
 
 namespace bayoen.library.Metro.Windows
 {
@@ -21,12 +23,12 @@ namespace bayoen.library.Metro.Windows
             this.SetResourceReference(Control.BackgroundProperty, "WindowBackgroundBrush");
             this.BorderThickness = new Thickness(1);
             this.WindowTitleBrush = Brushes.Transparent;
-            
 
             this.MouseLeftButtonDown += BaseWindow_MouseLeftButtonDown;
             this.Closing += BaseWindow_Closing;
 
             this.CloseToMinimize = false;
+            this.CloseToKill = false;
             this.IsWindowDraggable = true;
             this.IsFixed = false;
         }
@@ -45,6 +47,19 @@ namespace bayoen.library.Metro.Windows
             typeof(BaseWindow));
 
         /// <summary>
+        /// When closed, if it is <see cref="true"/>, <see cref="BaseWindow"/> is terminated
+        /// </summary>
+        public bool CloseToKill
+        {
+            get => (bool)GetValue(CloseToKillProperty);
+            set => SetValue(CloseToKillProperty, value);
+        }
+        public static readonly DependencyProperty CloseToKillProperty = DependencyProperty.Register(
+            "CloseToKill",
+            typeof(bool),
+            typeof(BaseWindow));
+
+        /// <summary>
         /// If <see cref="BaseWindow"/> is fixed, <see cref="Window.DragMove"/> is disabled
         /// </summary>
         public bool IsFixed
@@ -59,14 +74,21 @@ namespace bayoen.library.Metro.Windows
 
         private void BaseWindow_Closing(object sender, CancelEventArgs e)
         {
-            e.Cancel = true;
-            if (this.CloseToMinimize)
+            if (this.CloseToKill)
             {
-                this.WindowState = WindowState.Minimized;
+
             }
             else
             {
-                this.Hide();
+                e.Cancel = true;
+                if (this.CloseToMinimize)
+                {
+                    this.WindowState = WindowState.Minimized;
+                }
+                else
+                {
+                    this.Hide();
+                }
             }
         }
 
@@ -75,7 +97,7 @@ namespace bayoen.library.Metro.Windows
             if (!this.IsFixed)
             {
                 this.DragMove();
-            }            
+            }
         }
 
         /// <summary>

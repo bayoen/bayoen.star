@@ -1,15 +1,16 @@
-﻿using System.Windows.Media;
+﻿using System.IO;
+using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
 namespace bayoen.library.General.ExtendedMethods
 {
     public static partial class ExtendedMethods
     {
-        public static bool SetBitmap(this System.Windows.Controls.Image image, System.Drawing.Bitmap bitmap)
+        public static bool SetBitmap(this Image image, System.Drawing.Bitmap bitmap)
         {
             try
             {               
-                using (System.IO.MemoryStream streamToken = new System.IO.MemoryStream())
+                using (MemoryStream streamToken = new MemoryStream())
                 {
                     bitmap.Save(streamToken, System.Drawing.Imaging.ImageFormat.Png);
                     streamToken.Position = 0;

@@ -100,30 +100,32 @@
                         <TextBlock Style="{StaticResource TextBlockSeparator}"
                                    Text="{DynamicResource SettingWindow-General-Main-Header-String}"/>
 
+                        <metroControls:PropertyToggleSwitch x:Name="AutoUpdateSwitch"
+                                                            Property="AutoUpdate" 
+                                                            Header="{DynamicResource SettingWindow-General-Main-AutoUpdate-Header-String}"
+                                                            Detail="{DynamicResource SettingWindow-General-Main-AutoUpdate-Detail-String}"
+                                                            TrueLabel="{DynamicResource Dictionary-Yes-String}"
+                                                            FalseLabel="{DynamicResource Dictionary-No-String}"
+                                                            Toggled="AutoUpdateSwitch_Toggled"/>
+
                         <metroControls:PropertyComboBox x:Name="LanguageCodeComboBox"
                                                         Property="LanguageCode"
                                                         Header="{DynamicResource SettingWindow-General-Main-Language-Header-String}"
                                                         Detail="{DynamicResource SettingWindow-General-Main-Language-Detail-String}"
                                                         SelectionChanged="LanguageComboBox_SelectionChanged"/>
 
-                        <!--<metroControls:PropertyToggleSwitch x:Name="EnglishDisplaySwitch"
-                                                            Property="EnglishDisplay" 
-                                                            Header="{DynamicResource Setting-General-EnglishDisplay-Header-String}"
-                                                            Detail="{DynamicResource Setting-General-EnglishDisplay-Detail-String}"
-                                                            TrueLabel="{DynamicResource Setting-Yes-String}"
-                                                            FalseLabel="{DynamicResource Setting-No-String}"
-                                                            Toggled="EnglishDisplaySwitch_Toggled"/>-->
 
-                        <!--<metroControls:PropertyToggleSwitch x:Name="TopmostSwitch"
-                                                            Property="TopMost"                                                            
-                                                            Header="{DynamicResource Setting-General-TopMost-Header-String}"
-                                                            Detail="{DynamicResource Setting-General-TopMost-Detail-String}"
-                                                            TrueLabel="{DynamicResource Setting-Yes-String}"
-                                                            FalseLabel="{DynamicResource Setting-No-String}"
-                                                            Toggled="TopmostSwitch_Toggled"/>-->
 
                         <TextBlock Style="{StaticResource TextBlockSeparator}"
                                    Text="{DynamicResource SettingWindow-General-Sub-Header-String}"/>
+
+                        <metroControls:PropertyToggleSwitch x:Name="TopmostSwitch"
+                                                            Property="TopMost"
+                                                            Header="{DynamicResource SettingWindow-General-Sub-TopMost-Header-String}"
+                                                            Detail="{DynamicResource SettingWindow-General-Sub-TopMost-Detail-String}"
+                                                            TrueLabel="{DynamicResource Setting-Yes-String}"
+                                                            FalseLabel="{DynamicResource Setting-No-String}"
+                                                            Toggled="TopmostSwitch_Toggled"/>
 
                     </StackPanel>
                 </ScrollViewer>
@@ -145,14 +147,17 @@
                                                             FalseLabel="{DynamicResource Setting-No-String}"
                                                             Toggled="TopmostSwitch_Toggled"/>-->
 
-                        <metroControls:PropertyToggleSwitch x:Name="AutoUpdateSwitch"
-                                                            Property="AutoUpdate" 
-                                                            Header="{DynamicResource SettingWindow-General-Main-AutoUpdate-Header-String}"
-                                                            Detail="{DynamicResource SettingWindow-General-Main-AutoUpdate-Detail-String}"
-                                                            TrueLabel="{DynamicResource Dictionary-Yes-String}"
-                                                            FalseLabel="{DynamicResource Dictionary-No-String}"
-                                                            Toggled="AutoUpdateSwitch_Toggled"/>
-                        
+
+
+                        <metroControls:PropertyComboBox x:Name="ChangeVersionCodeComboBox"
+                                                        Property="ChangeVersion"
+                                                        Header="{DynamicResource SettingWindow-General-Main-Language-Header-String}"
+                                                        Detail="{DynamicResource SettingWindow-General-Main-Language-Detail-String}"
+                                                        SelectionChanged="ChangeVersionCodeComboBox_SelectionChanged"/>
+
+                        <ListView>
+                            
+                        </ListView>
 
                         <!--<metroControls:PropertyToggleSwitch x:Name="EnglishDisplaySwitch"
                                                             Property="EnglishDisplay" 
@@ -184,6 +189,14 @@
                                                         Header="{DynamicResource SettingWindow-Streaming-ChromaKey-Capture-Header-String}"
                                                         Detail="{DynamicResource SettingWindow-Streaming-ChromaKey-Capture-Detail-String}"
                                                         SelectionChanged="ChromaKeyComboBox_SelectionChanged"/>
+
+                        <!--<metroControls:PropertyToggleSwitch x:Name="EnglishDisplaySwitch"
+                                                            Property="EnglishDisplay" 
+                                                            Header="{DynamicResource Setting-General-EnglishDisplay-Header-String}"
+                                                            Detail="{DynamicResource Setting-General-EnglishDisplay-Detail-String}"
+                                                            TrueLabel="{DynamicResource Setting-Yes-String}"
+                                                            FalseLabel="{DynamicResource Setting-No-String}"
+                                                            Toggled="EnglishDisplaySwitch_Toggled"/>-->
 
                     </StackPanel>
                 </ScrollViewer>

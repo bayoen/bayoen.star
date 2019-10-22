@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows;
 using Octokit;
 
 using bayoen.library.General.ExtendedMethods;
+using bayoen.star.ExtendedMethods;
 
 namespace bayoen.star
 {
@@ -40,7 +42,7 @@ namespace bayoen.star
                         List<Release> releases = client.Repository.Release.GetAll(Config.GitHubUserName, Config.GitHubRepositoryName).Result.ToList();
 
                         // Reject invalid tagname
-                        while (releases.Count > 0)
+                        do
                         {
                             try
                             {
@@ -52,9 +54,12 @@ namespace bayoen.star
                                 // Reject versions with broken tagnames
                                 targetVersion = null;
                                 latest = null;
-                                releases.RemoveAt(0);
+                                if (releases.Count > 0) releases.RemoveAt(0);
                             }
-                        }
+
+                            if (releases.Count == 0) break;
+
+                        } while (latest == null);
 
                         if (releases.Count == 0) // No valid release
                         {
@@ -83,7 +88,7 @@ namespace bayoen.star
                     if (onlineTrial == Config.OnlineTrialMax) updateBrokenFlag = true;
                     Core.Invoke(delegate
                     {
-                        Core.MainWindow.SetFormatInitialStatusKey("InitialGrid-Message-Internet-Check-String", onlineTrial);
+                        Core.MainWindow.InitialStatusBlock.SetResourceFormattedText("InitialGrid-Message-Internet-Check-String", onlineTrial);
                     });
                     Thread.Sleep(Config.ThreadLongSleepTimeout); // Long
                 }
@@ -137,10 +142,7 @@ namespace bayoen.star
                 // Do update
                 Core.Invoke(delegate
                 {
-                    Core.MainWindow.SetFormatInitialStatusKey(
-                        "InitialGrid-Message-Update-Found-String", 
-                        $"v{Config.Version}", 
-                        $"v{targetVersion}");
+                    Core.MainWindow.InitialStatusBlock.SetResourceFormattedText("InitialGrid-Message-Update-Found-String", $"v{Config.Version}", $"v{targetVersion}");
                 });
                 Thread.Sleep(Config.ThreadLongSleepTimeout);
 
@@ -155,6 +157,8 @@ namespace bayoen.star
                     Core.MainWindow.InitialStatusResource = "InitialGrid-Message-Update-Latest-String";
                 });
                 Thread.Sleep(Config.ThreadSleepTimeout);
+
+                Core.PostInitialization();
             }
             else
             {
@@ -167,14 +171,16 @@ namespace bayoen.star
 
                 ////
                 /// DO TO
+                /// 
 
+                Core.PostInitialization();
             }
 
         }
 
         public static void DownloadAssets(Release release)
         {
-            Core.Download.FilePaths = release.Assets.ToList().ConvertAll(x => x.BrowserDownloadUrl);            
+            Core.Download.FilePaths = release.Assets.ToList().ConvertAll(x => x.BrowserDownloadUrl);
             Core.Download.FileLengths = new List<long>(Enumerable.Repeat((long)-1, Core.Download.FilePaths.Count));
 
             Core.Invoke(delegate
@@ -217,8 +223,14 @@ namespace bayoen.star
                 if (Core.Download.FileLengths[Core.Download.FileIndex] == -1) Core.Download.FileLengths[Core.Download.FileIndex] = e.TotalBytesToReceive;
                 double MBToReceive = (double)Core.Download.FileLengths[Core.Download.FileIndex] / 1048576;
 
-                Core.MainWindow.CurrentFileName = $"Downloading... {currentFileName} ({Core.Download.FileIndex + 1}/{Core.Download.FileMax} files)";
-                Core.MainWindow.CurrentFileProgress = $"{e.ProgressPercentage}% ({MBReceived:F2} / {MBToReceive:F2} MB)";
+                Core.MainWindow.CurrentFileNameBlock.SetResourceFormattedText("InitialGrid-Message-Download-FileName-String",
+                                                        currentFileName, 
+                                                        Core.Download.FileIndex + 1, 
+                                                        Core.Download.FileMax);
+                Core.MainWindow.CurrentFileDownloadBlock.SetResourceFormattedText("InitialGrid-Message-Download-FileProgress-String",
+                                                            e.ProgressPercentage,
+                                                            MBReceived,
+                                                            MBToReceive);
                 Core.MainWindow.Progress = e.ProgressPercentage;
             });
         }
@@ -231,11 +243,7 @@ namespace bayoen.star
             FileInfo info = new FileInfo(path);
             if (info.Exists)
             {
-                if (info.Length == Core.Download.FileLengths[Core.Download.FileIndex])
-                {
-                    // It's a valid file for the file length
-                }
-                else
+                if (info.Length != Core.Download.FileLengths[Core.Download.FileIndex])
                 {
                     failFlag = true;
                 }
@@ -275,10 +283,10 @@ namespace bayoen.star
                 {
                     Core.Invoke(delegate
                     {
-                        Core.MainWindow.InitialStatus = $"Downloaded!";
+                        Core.MainWindow.InitialStatusResource = "InitialGrid-Message-Download-Completed-String";
                         Core.MainWindow.InitialLogoRing.IsActive = false;
-                        Core.MainWindow.CurrentFileName = "";
-                        Core.MainWindow.CurrentFileProgress = "";
+                        Core.MainWindow.CurrentFileNameBlock.Text = "";
+                        Core.MainWindow.CurrentFileDownloadBlock.Text = "";
                         Core.MainWindow.DownloadProgressBar.IsIndeterminate = true;
                     });
                     Thread.Sleep(Config.ThreadSleepTimeout);
@@ -305,18 +313,52 @@ namespace bayoen.star
 
         public static void TerminateToUpdate()
         {
-            string tempLauencherPath = Path.Combine(Config.UpdateFolderName, Config.LauencherFileName);
+            if (Directory.Exists(Config.UpdateFolderName))
+            {
+                List<string> zipList = Directory.GetFiles(Config.UpdateFolderName).ToList()
+                        .Where(x => x.EndsWith(".zip", StringComparison.OrdinalIgnoreCase)).ToList();
+
+                if (zipList.Count > 0)
+                {
+                    Core.Invoke(delegate
+                    {
+                        Core.MainWindow.InitialStatusResource = "InitialGrid-Message-Unzip-String";
+                    });
+
+                    for (int fileIndex = 0; fileIndex < zipList.Count; fileIndex++)
+                    {
+                        string fileNameToken = zipList[fileIndex];
+
+                        using (ZipArchive readingToken = ZipFile.Open(fileNameToken, ZipArchiveMode.Update))
+                        {
+                            readingToken.ExtractToDirectory(Config.UpdateFolderName, true);
+                        }
+                        if (File.Exists(fileNameToken)) File.Delete(fileNameToken);
+                    }
+                }
+            }
+
+            string tempLauencherPath = Path.Combine(Config.UpdateFolderName, Config.LauncherFileName);
             if (File.Exists(tempLauencherPath))
             {
-                if (File.Exists(Config.LauencherFileName)) File.Delete(Config.LauencherFileName);
-                File.Move(tempLauencherPath, Config.LauencherFileName);
+                if (File.Exists(Config.LauncherFileName)) File.Delete(Config.LauncherFileName);
+                File.Move(tempLauencherPath, Config.LauncherFileName);
 
                 Core.Option.JustUpdated = true;
                 Core.Option.Save();
-                Core.TrayIcon.Terminate();
 
-                Process.Start(Config.LauencherFileName);
-                System.Windows.Application.Current.Shutdown();
+                
+                Core.Invoke(delegate
+                {
+                    if (Core.TrayIcon.Visibility == Visibility.Visible)
+                    {
+                        Core.TrayIcon.Terminate();
+                    }
+                });
+                
+
+                Process.Start(Config.LauncherFileName);
+                Environment.Exit(0);
             }
             else
             {

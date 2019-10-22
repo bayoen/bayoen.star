@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
-    <!-- Localization.en: English   2019-10-19 13:24 KST -->
+    <!-- Localization.en: English   2019-10-22 21:05 KST -->
 
     <!-- for Dictionary -->
     <system:String x:Key="Dictionary-BayoenStar-String">bayoen-star</system:String>
@@ -45,15 +45,19 @@
     <system:String x:Key="InitialGrid-Title-String">Initialization</system:String>
     <system:String x:Key="InitialGrid-Message-Begin-String">Starting initial setup</system:String>
     <system:String x:Key="InitialGrid-Message-Overlapped-String">bayoen-star is already running.</system:String>
-    <system:String x:Key="InitialGrid-Message-Internet-Check-String">Check internet connection... {0}</system:String>
+    <system:String x:Key="InitialGrid-Message-Internet-Check-String">Checking internet connection... {0}</system:String>
     <system:String x:Key="InitialGrid-Message-Internet-Disconnected-String">Internet disconnected</system:String>
-    <system:String x:Key="InitialGrid-Message-Update-String">Check update</system:String>
-    <system:String x:Key="InitialGrid-Message-Update-Found-String">Update to the latest version! {0} → {1}</system:String>
+    <system:String x:Key="InitialGrid-Message-Update-String">Checking for updates</system:String>
+    <system:String x:Key="InitialGrid-Message-Update-Found-String">Updating to the latest version! {0} → {1}</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Latest-String">It's up-to-date {0}</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Dev-String">It's in development.</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Empty-String">There are no valid releases</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Fail-String">Update failed</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Auto-String">Auto update</system:String>
+    <system:String x:Key="InitialGrid-Message-Download-FileName-String">Downloading... {0} ({1}/{2})</system:String>
+    <system:String x:Key="InitialGrid-Message-Download-FileProgress-String">{0}% ({1:F2} / {2:F2} MB)</system:String>
+    <system:String x:Key="InitialGrid-Message-Download-Completed-String">Downloaded!</system:String>
+    <system:String x:Key="InitialGrid-Message-Unzip-String">Unzipping...</system:String>
     <system:String x:Key="InitialGrid-Message-Database-String">Loading database.</system:String>
     <system:String x:Key="InitialGrid-Message-LoadInfo-String">Loading user information...{0}</system:String>
     <system:String x:Key="InitialGrid-Message-LoadInfo-Fail-String">Failed to load user information.</system:String>
@@ -119,10 +123,6 @@
     <system:String x:Key="InitialGrid-Message-Joke-57-String">-</system:String>
     <system:String x:Key="InitialGrid-Message-Joke-58-String">-</system:String>
     <system:String x:Key="InitialGrid-Message-Joke-59-String">-</system:String>
-    <system:String x:Key="InitialGrid-Message-Joke-60-String">-</system:String>
-    <system:String x:Key="InitialGrid-Message-Joke-61-String">-</system:String>
-    <system:String x:Key="InitialGrid-Message-Joke-62-String">[ Insert Joke Here ]</system:String>
-    <system:String x:Key="InitialGrid-Message-Joke-63-String">Not enough jokes</system:String>
 
     <!-- for SettingWindow -->
     <system:String x:Key="SettingWindow-General-Header-String">General</system:String>

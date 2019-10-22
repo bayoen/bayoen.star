@@ -29,13 +29,6 @@ namespace bayoen.star
             // Open windows and begin display
             Core.Invoke(delegate
             {
-                if (Core.Option.RestartingMode == RestartingModes.RestartWithSetting)
-                {
-                    Core.Option.RestartingMode = RestartingModes.None;
-
-                    Core.SettingWindow.Show();
-                }
-
                 Core.MainWindow.Show();
                 Core.MainWindow.InitialStatusResource = "InitialGrid-Message-Begin-String";
             });
@@ -47,6 +40,7 @@ namespace bayoen.star
             if (Core.Option.JustUpdated)
             {
                 Core.Option.JustUpdated = false;
+                Core.PostInitialization();
             }
             else if (Core.Option.AutoUpdate)
             {
@@ -85,9 +79,19 @@ namespace bayoen.star
             {
                 Core.MainWindow.IsInitialProgress = false;
                 Core.TrayIcon.Show();
+
+                if (Core.Option.RestartingMode == RestartingModes.RestartWithSetting)
+                {
+                    Core.Option.RestartingMode = RestartingModes.None;
+
+                    Core.SettingWindow.Show();
+                }
 #if DEBUG
+
+                //Core.MainOverlay.Show();
+                Core.OverlayTimer.Start();
                 //Core.CapturableWindow.Show();
-                //Core.DebugWindow.Show();
+                Core.DebugWindow.Show();
                 //Core.LeagueWindow.Show();
                 //Core.MiniWindow.Show();
                 //Core.MiniOverlay.Show();

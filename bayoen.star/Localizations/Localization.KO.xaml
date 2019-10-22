@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
-    <!-- Localization.ko: Korean   2019-10-19 13:24 KST -->
+    <!-- Localization.ko: Korean   2019-10-22 21:05 KST -->
 
     <!-- for Dictionary -->
     <system:String x:Key="Dictionary-BayoenStar-String">바요엔-스타</system:String>
@@ -54,6 +54,10 @@
     <system:String x:Key="InitialGrid-Message-Update-Empty-String">유효한 릴리즈가 없습니다.</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Fail-String">업데이트에 실패했습니다.</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Auto-String">자동 업데이트</system:String>
+    <system:String x:Key="InitialGrid-Message-Download-FileName-String">다운로드중... {0} ({1}/{2})</system:String>
+    <system:String x:Key="InitialGrid-Message-Download-FileProgress-String">{0}% ({1:F2} / {2:F2} MB)</system:String>
+    <system:String x:Key="InitialGrid-Message-Download-Completed-String">다운로드 완료!</system:String>
+    <system:String x:Key="InitialGrid-Message-Unzip-String">압축푸는 중...</system:String>
     <system:String x:Key="InitialGrid-Message-Database-String">데이터베이스를 불러옵니다.</system:String>
     <system:String x:Key="InitialGrid-Message-LoadInfo-String">사용자 정보를 불러옵니다...{0}</system:String>
     <system:String x:Key="InitialGrid-Message-LoadInfo-Fail-String">사용자 정보를 불러오는데 실패했습니다.</system:String>
@@ -119,10 +123,6 @@
     <system:String x:Key="InitialGrid-Message-Joke-57-String">-</system:String>
     <system:String x:Key="InitialGrid-Message-Joke-58-String">-</system:String>
     <system:String x:Key="InitialGrid-Message-Joke-59-String">-</system:String>
-    <system:String x:Key="InitialGrid-Message-Joke-60-String">-</system:String>
-    <system:String x:Key="InitialGrid-Message-Joke-61-String">-</system:String>
-    <system:String x:Key="InitialGrid-Message-Joke-62-String">[ 여기에 농담을 입력 ]</system:String>
-    <system:String x:Key="InitialGrid-Message-Joke-63-String">농담이 다 떨어졌습니다</system:String>
 
     <!-- for SettingWindow -->
     <system:String x:Key="SettingWindow-General-Header-String">일반</system:String>

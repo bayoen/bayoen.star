@@ -19,6 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyToggleSwitch.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\WindowCommandButton.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Windows\BaseWindow.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\OverlayWindow.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)Controls\MetroButton.xaml">

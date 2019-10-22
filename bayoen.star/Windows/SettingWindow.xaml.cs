@@ -30,20 +30,31 @@ namespace bayoen.star.Windows
             this.Title += $": {Config.Title}";
 
             //// General
-            // Topmost
-            //this.TopmostSwitch.Value = Core.Project.TopMost;
-
             // AutoUpdate
             this.AutoUpdateSwitch.Value = Core.Option.AutoUpdate;
 
             // LanguageCode
-            this.LanguageCodeComboBox.ComboBoxWidth = 160;
+            double languageCodeComboBoxMaxWidth = -1;
             this.LanguageCodeComboBox.ItemSource = Config.CultureCodes.ConvertAll(x =>
             {
                 CultureInfo info = new CultureInfo(x);
-                return (info.NativeName == info.DisplayName) ? info.NativeName : $"{info.NativeName} ({info.DisplayName})";
+                TextBlock block = new TextBlock()
+                {
+                    Text = (info.NativeName == info.DisplayName) ? info.NativeName : $"{info.NativeName} ({info.DisplayName})",
+                };
+                block.Arrange(new Rect(block.DesiredSize));
+                languageCodeComboBoxMaxWidth = Math.Max(languageCodeComboBoxMaxWidth, block.ActualWidth);
+                return block;
             });
+            this.LanguageCodeComboBox.ComboBoxWidth = (languageCodeComboBoxMaxWidth == -1) ? 250 : languageCodeComboBoxMaxWidth + 35;
             this.LanguageCodeComboBox.SelectedIndex = Config.CultureCodes.IndexOf(Core.Option.LanguageCode);
+
+            // Topmost
+            this.TopmostSwitch.Value = Core.Option.TopMost;
+
+            //// Update
+
+            //this.ChangeVersionCodeComboBox
 
             // EnglishDisplay
             //this.EnglishDisplaySwitch.Value = Core.Project.EnglishDisplay;
@@ -79,14 +90,14 @@ namespace bayoen.star.Windows
             Core.Restart(RestartingModes.RestartWithSetting);
         }
 
-        private void TopmostSwitch_Toggled(object sender, RoutedEventArgs e)
-        {
-            //Core.Project.TopMost = this.TopmostSwitch.Value;
-        }
-
         private void AutoUpdateSwitch_Toggled(object sender, RoutedEventArgs e)
         {
             Core.Option.AutoUpdate = this.AutoUpdateSwitch.Value;
+        }
+
+        private void TopmostSwitch_Toggled(object sender, RoutedEventArgs e)
+        {
+            Core.Option.TopMost = this.TopmostSwitch.Value;
         }
 
         private void LanguageComboBox_SelectionChanged(object sender, RoutedEventArgs e)
@@ -145,6 +156,11 @@ namespace bayoen.star.Windows
         private void MatchItemNumberNumericUpDown_ValueChanged(object sender, RoutedEventArgs e)
         {
             //Core.Project.MatchPageSize = this.MatchItemNumberNumericUpDown.Value;
+        }
+
+        private void ChangeVersionCodeComboBox_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

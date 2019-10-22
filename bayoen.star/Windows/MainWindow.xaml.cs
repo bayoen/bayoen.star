@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using bayoen.library.General.Enums;
 using bayoen.library.General.ExtendedMethods;
 using bayoen.library.Metro.Windows;
+using bayoen.star.Overlays;
 
 namespace bayoen.star.Windows
 {
@@ -88,52 +89,9 @@ namespace bayoen.star.Windows
             {
                 if (this._initialStatusResource == value) return;
 
-                this.InitialStatusBlock.Text = FindResource(value) as string;
+                this.InitialStatusBlock.Text = this.FindResource(value) as string;
 
                 this._initialStatusResource = value;
-            }
-        }
-
-        public bool SetFormatInitialStatusKey(string key, params object[] args)
-        {
-            try
-            {
-                string seedString = TryFindResource(key) as string;
-                this.InitialStatusBlock.Text = this._initialStatusResource = string.Format(seedString, args);
-            }
-            catch
-            {
-                return false;
-            }
-
-            return true;
-        }
-
-        private string _currentFileName = "";
-        public string CurrentFileName
-        {
-            get => this._currentFileName;
-            set
-            {
-                if (this._currentFileName == value) return;
-
-                this.CurrentFileNameBlock.Text = value;
-
-                this._currentFileName = value;
-            }
-        }
-
-        private string _currentFileProgress = "";
-        public string CurrentFileProgress
-        {
-            get => this._currentFileProgress;
-            set
-            {
-                if (this._currentFileProgress == value) return;
-
-                this.CurrentFileDownloadBlock.Text = value;
-
-                this._currentFileProgress = value;
             }
         }
 
@@ -162,6 +120,17 @@ namespace bayoen.star.Windows
             {
                 Core.Option.AutoUpdate = this.InitialAutoUpdateCheckBox.IsChecked.Value;
             }
-        }        
+        }
+
+        private void CalibrateButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Core.Memory.CheckProcess())
+            {
+                PPTRect.UpdateLocation(Core.FloatingOverlay);
+                Core.FloatingOverlay.Activate();
+                Core.FloatingOverlay.Topmost = true;
+            }
+            
+        }
     }
 }

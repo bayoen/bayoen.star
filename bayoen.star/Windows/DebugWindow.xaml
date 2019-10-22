@@ -12,8 +12,44 @@
                     FontFamily="D2Coding ligature"
                     FontSize="14"
                     
-                    Height="900" Width="1200">
+                    Height="600" Width="500"
+                    
+                    Loaded="BaseWindow_Loaded"
+                    Closing="BaseWindow_Closing">
 
-    <!--xmlns:controls="clr-namespace:bayoen.star.Controls"-->
+    <windows:BaseWindow.Resources>
+        <Thickness x:Key="ContainerGap">3</Thickness>
+        <Thickness x:Key="ControlGap">6</Thickness>
+    </windows:BaseWindow.Resources>
+
+    <Grid Margin="{StaticResource ControlGap}">
+
+        <Grid.Resources>
+            <Style TargetType="{x:Type GroupBox}" BasedOn="{StaticResource MetroGroupBox}">
+                <Setter Property="mtc:ControlsHelper.ContentCharacterCasing" Value="Normal"/>
+                <Setter Property="MinWidth" Value="250"/>
+                <Setter Property="Margin" Value="{StaticResource ContainerGap}"/>
+                <Setter Property="Padding" Value="0"/>
+            </Style>
+        </Grid.Resources>
+        
+        <WrapPanel Orientation="Horizontal">
+
+            <GroupBox Header="Core.OverlayTimer">
+                <StackPanel Orientation="Vertical"
+                            Margin="{StaticResource ControlGap}">
+                    <TextBlock x:Name="OverlayTimerBlock"/>
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Header="PPTRect">
+                <StackPanel Orientation="Vertical"
+                            Margin="{StaticResource ControlGap}">
+                    <TextBlock x:Name="PPTRectBlock"/>
+                </StackPanel>
+            </GroupBox>
+
+        </WrapPanel>
+    </Grid>
 
 </windows:BaseWindow>

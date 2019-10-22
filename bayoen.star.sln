@@ -15,11 +15,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bayoen.star.Old", "bayoen.s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bayoen.star", "bayoen.star\bayoen.star.csproj", "{DD573720-6648-4F42-965B-0B1ADE1606AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bayoen.star.Release", "bayoen.star.Release\bayoen.star.Release.csproj", "{8F55B8BB-1E23-485F-A4AB-D8E1C570854A}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		bayoen.library.General\bayoen.library.General.projitems*{24514d63-12ec-4462-b0b8-08119c58afcf}*SharedItemsImports = 4
 		bayoen.library.Metro\bayoen.library.Metro.projitems*{24514d63-12ec-4462-b0b8-08119c58afcf}*SharedItemsImports = 4
 		bayoen.library.Metro\bayoen.library.Metro.projitems*{761c31e7-c1b7-4c29-b994-ada86f16a372}*SharedItemsImports = 13
+		bayoen.library.General\bayoen.library.General.projitems*{8f55b8bb-1e23-485f-a4ab-d8e1c570854a}*SharedItemsImports = 4
+		bayoen.library.Metro\bayoen.library.Metro.projitems*{8f55b8bb-1e23-485f-a4ab-d8e1c570854a}*SharedItemsImports = 4
 		bayoen.library.General\bayoen.library.General.projitems*{cb832682-39dc-4be3-8324-ae18177d3abc}*SharedItemsImports = 4
 		bayoen.library.Metro\bayoen.library.Metro.projitems*{cb832682-39dc-4be3-8324-ae18177d3abc}*SharedItemsImports = 4
 		bayoen.library.General\bayoen.library.General.projitems*{ceb7a0f0-faac-477b-9669-01b8b7de0482}*SharedItemsImports = 13
@@ -59,6 +63,12 @@ Global
 		{DD573720-6648-4F42-965B-0B1ADE1606AD}.Release|Any CPU.ActiveCfg = Release|x64
 		{DD573720-6648-4F42-965B-0B1ADE1606AD}.Release|x64.ActiveCfg = Release|x64
 		{DD573720-6648-4F42-965B-0B1ADE1606AD}.Release|x64.Build.0 = Release|x64
+		{8F55B8BB-1E23-485F-A4AB-D8E1C570854A}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{8F55B8BB-1E23-485F-A4AB-D8E1C570854A}.Debug|x64.ActiveCfg = Debug|x64
+		{8F55B8BB-1E23-485F-A4AB-D8E1C570854A}.Debug|x64.Build.0 = Debug|x64
+		{8F55B8BB-1E23-485F-A4AB-D8E1C570854A}.Release|Any CPU.ActiveCfg = Release|x64
+		{8F55B8BB-1E23-485F-A4AB-D8E1C570854A}.Release|x64.ActiveCfg = Release|x64
+		{8F55B8BB-1E23-485F-A4AB-D8E1C570854A}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

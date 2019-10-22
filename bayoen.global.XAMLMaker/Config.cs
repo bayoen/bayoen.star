@@ -25,6 +25,7 @@ namespace bayoen.global.XAMLMaker
             "ja",
             "es",
             "fr",
+            "pt",
         };
 
         public const int EnglishIndex = 0;

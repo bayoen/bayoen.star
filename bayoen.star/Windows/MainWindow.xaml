@@ -8,7 +8,7 @@
                     xmlns:windows="clr-namespace:bayoen.library.Metro.Windows"
                     xmlns:metroControls="clr-namespace:bayoen.library.Metro.Controls"
                     
-                    Title="MainWindow"
+                    Title="Main"
                     
                     Height="600" Width="960"
                     MinWidth="960"
@@ -61,13 +61,21 @@
     </windows:BaseWindow.Resources>
 
     <Grid>
-        <TextBlock FontSize="50"
-                   VerticalAlignment="Center" HorizontalAlignment="Center">
-            Faster!!
-        </TextBlock>
+        <StackPanel Orientation="Vertical">
+            <TextBlock FontSize="50"
+                       VerticalAlignment="Center" HorizontalAlignment="Center">
+                Faster!!
+            </TextBlock>
+            <Button x:Name="CalibrateButton"
+                    Content="Calibrate" Width="100"
+                    Click="CalibrateButton_Click"/>
+        </StackPanel>
+        
 
         <Grid x:Name="InitialGrid" Style="{StaticResource FadeGrid}">
+            
             <Rectangle Fill="{DynamicResource WindowBackgroundBrush}"/>
+            
             <StackPanel Orientation="Vertical"
                         VerticalAlignment="Center" HorizontalAlignment="Center">
 

@@ -22,7 +22,7 @@ namespace bayoen.star.Variables
         public OptionData()
         {
             // Preferences
-            this.AutoUpdate = true;
+            //this.AutoUpdate = true;
             //this.LanguageCode // <- CultureInfo.CurrentUICulture.TwoLetterISOLanguageName
 
             // Operations
@@ -58,7 +58,7 @@ namespace bayoen.star.Variables
             }
         }
 
-        private bool _autoUpdate;
+        private bool _autoUpdate = true;
         public bool AutoUpdate
         {
             get => this._autoUpdate;
@@ -97,6 +97,24 @@ namespace bayoen.star.Variables
                 Culture.Set(value);
 
                 this._languageCode = value;
+                this.Save();
+            }
+        }
+
+        private bool _topMost = false;
+        public bool TopMost
+        {
+            get => this._topMost;
+            set
+            {
+                if (this._topMost == value) return;
+
+                Core.Invoke(delegate
+                {
+                    Core.MainWindow.Topmost = value;
+                });
+
+                this._topMost = value;
                 this.Save();
             }
         }

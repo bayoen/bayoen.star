@@ -68,6 +68,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net462\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -100,14 +102,26 @@
     <Compile Include="Core.Layout.cs" />
     <Compile Include="Core.Update.cs" />
     <Compile Include="Core.Variable.cs" />
+    <Compile Include="ExtendedMethods\System.IO.Compression.ZipArchive.cs" />
     <Compile Include="Functions\FncJson.cs" />
     <Compile Include="Functions\Mapping.cs" />
+    <Compile Include="GameMemory.cs" />
     <Compile Include="Localizations\Culture.cs" />
+    <Compile Include="Overlays\CapturableOverlay.xaml.cs">
+      <DependentUpon>CapturableOverlay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Overlays\FloatingOverlay.xaml.cs">
+      <DependentUpon>FloatingOverlay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Overlays\OverlayTimer.cs" />
+    <Compile Include="Overlays\PPTRect.cs" />
     <Compile Include="TrayIcon.xaml.cs">
       <DependentUpon>TrayIcon.xaml</DependentUpon>
     </Compile>
     <Compile Include="Variables\OptionData.cs" />
     <Compile Include="Variables\DownloadData.cs" />
+    <Compile Include="Variables\PPTData.cs" />
+    <Compile Include="Variables\PPTStates.cs" />
     <Compile Include="Windows\DebugWindow.xaml.cs">
       <DependentUpon>DebugWindow.xaml</DependentUpon>
     </Compile>
@@ -167,6 +181,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Localizations\Localization.pt.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Overlays\CapturableOverlay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Overlays\FloatingOverlay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="TrayIcon.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -190,6 +216,7 @@
   <ItemGroup>
     <Resource Include="Resources\dailycarbuncle_174030608386_plus.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="..\bayoen.library.Metro\bayoen.library.Metro.projitems" Label="Shared" />
   <Import Project="..\bayoen.library.General\bayoen.library.General.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

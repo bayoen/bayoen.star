@@ -58,7 +58,8 @@ namespace bayoen.library.General.Memories
             
         }
 
-        public string ProcessName;        
+        public string ProcessName;
+        public Process Process;
         private Process[] mainProcess;
         private IntPtr processHandle = IntPtr.Zero;
 
@@ -83,6 +84,8 @@ namespace bayoen.library.General.Memories
             {
                 this.mainProcess = Process.GetProcessesByName(this.ProcessName);
                 if (this.mainProcess.Length == 0) return false;
+
+                this.Process = this.mainProcess[0];
 
                 this.processHandle = OpenProcess(0x001F0FFF, false, this.mainProcess[0].Id);
                 if (this.processHandle == IntPtr.Zero) return false;

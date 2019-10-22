@@ -35,6 +35,7 @@ namespace bayoen.star.Launcher
 
             this.LogoImage.SetBitmap(Config.LogoBitmapList[(new Random().Next(0, Config.LogoBitmapList.Count))]);
 
+            this.CloseToKill = true;
             //this.Background = new SolidColorBrush(Color.FromRgb(25, 25, 25)) { Opacity = 0.95 };
 
             this.Left = (SystemParameters.PrimaryScreenWidth - this.Width) / 2;
