@@ -66,9 +66,6 @@
                        VerticalAlignment="Center" HorizontalAlignment="Center">
                 Faster!!
             </TextBlock>
-            <Button x:Name="CalibrateButton"
-                    Content="Calibrate" Width="100"
-                    Click="CalibrateButton_Click"/>
         </StackPanel>
         
 

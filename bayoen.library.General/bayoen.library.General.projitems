@@ -15,6 +15,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Enums\LineScores.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\Locations.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\MatchResults.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\OverlayVisibility.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\PuzzleLeagues.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\PlayTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\ScoreDisplayModes.cs" />
@@ -34,7 +35,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)ExtendedMethods\System.Windows.Controls.TextBlock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\Win32\Gdi32.dll.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\Win32\GWL.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\Win32\HWND.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\Win32\RECT.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\Win32\SWP.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\Win32\User32.dll.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\Win32\WindowStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\Win32\WS.cs" />

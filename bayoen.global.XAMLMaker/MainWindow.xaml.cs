@@ -161,6 +161,7 @@ namespace bayoen.global.XAMLMaker
                     if (middleKey.Length == 0) continue;
 
                     string fullKey = $"{name}{middleKey}-String";
+
                     string englishEval = null;
                     for (int languageIndex = 0; languageIndex < Config.LanguageCodeList.Count; languageIndex++)
                     {
@@ -189,7 +190,7 @@ namespace bayoen.global.XAMLMaker
                                     else if (englishEval.Length == 0) missingFlag = true;
                                     else missingFlag = false;
 
-                                    eval = englishEval;
+                                    eval = $"[EN] {englishEval}";
                                 }
                             }
 

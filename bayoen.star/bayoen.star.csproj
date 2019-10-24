@@ -96,7 +96,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Config.cs" />
-    <Compile Include="Controls\Class1.cs" />
+    <Compile Include="Controls\MiniScoreContainer.xaml.cs">
+      <DependentUpon>MiniScoreContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MiniScorePanel.xaml.cs">
+      <DependentUpon>MiniScorePanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Core.Function.cs" />
     <Compile Include="Core.Helper.cs" />
     <Compile Include="Core.Layout.cs" />
@@ -118,6 +123,7 @@
     <Compile Include="TrayIcon.xaml.cs">
       <DependentUpon>TrayIcon.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Variables\MiniData.cs" />
     <Compile Include="Variables\OptionData.cs" />
     <Compile Include="Variables\DownloadData.cs" />
     <Compile Include="Variables\PPTData.cs" />
@@ -127,6 +133,15 @@
     </Compile>
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MiniWindow.Helper.cs">
+      <DependentUpon>MiniWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MiniWindow.xaml.cs">
+      <DependentUpon>MiniWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SettingWindow.Helper.cs">
+      <DependentUpon>SettingWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\SettingWindow.xaml.cs">
       <DependentUpon>SettingWindow.xaml</DependentUpon>
@@ -161,6 +176,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Controls\MiniScoreContainer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\MiniScorePanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Localizations\Localization.en.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -205,6 +228,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\MiniWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Windows\SettingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -216,7 +243,33 @@
   <ItemGroup>
     <Resource Include="Resources\dailycarbuncle_174030608386_plus.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\tetrissymbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\puyosymbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\score2fit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\score2goal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\score2long.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\score2short.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\starplain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\starplus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crownlight.png" />
+  </ItemGroup>
   <Import Project="..\bayoen.library.Metro\bayoen.library.Metro.projitems" Label="Shared" />
   <Import Project="..\bayoen.library.General\bayoen.library.General.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -29,6 +29,12 @@
         <TextBlock x:Name="StatusBlock"
                            FontSize="14" Margin="2,8"
                            HorizontalAlignment="Center"/>
+
+        <TextBlock x:Name="VersionBlock"
+                   FontSize="12" Margin="2,8"
+                   Foreground="{DynamicResource GrayBrush6}" Opacity="0.6"
+                   HorizontalAlignment="Center"/>
+
     </StackPanel>
 
 </windows:BaseWindow>

@@ -25,13 +25,13 @@ namespace bayoen.star.Overlays
             if (Core.Memory.Process == null) return WindowStatus.Closed;
 
             IntPtr handle = Core.Memory.Process.MainWindowHandle;
-            int currentWindowStyle = User32.GetWindowLong(handle, (int)GWL.GWL_STYLE);
+            int currentWindowStyle = User32.GetWindowLong(handle, (int)GWL.STYLE);
 
-            if ((currentWindowStyle & (uint)WS.WS_MINIMIZE) == (uint)WS.WS_MINIMIZE)
+            if ((currentWindowStyle & (uint)WS.MINIMIZE) == (uint)WS.MINIMIZE)
             {
                 return WindowStatus.Minimized;
             }
-            else if ((currentWindowStyle & (uint)WS.WS_MAXIMIZE) == (uint)WS.WS_MAXIMIZE)
+            else if ((currentWindowStyle & (uint)WS.MAXIMIZE) == (uint)WS.MAXIMIZE)
             {
                 return WindowStatus.Maximized;
             }

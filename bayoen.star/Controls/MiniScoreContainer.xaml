@@ -1,0 +1,26 @@
+﻿<StackPanel x:Class="bayoen.star.Controls.MiniScoreContainer"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:controls="clr-namespace:bayoen.library.Metro.Controls"
+      
+            Orientation="Horizontal"
+            Height="38" Margin="0">
+
+    <StackPanel.Resources>
+        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource MetroTextBlock}">
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontWeight" Value="ExtraBold"/>
+        </Style>
+    </StackPanel.Resources>
+
+    <controls:MetroImage x:Name="SymbolImage"
+                         Height="36" Width="36" Margin="0"
+                         VerticalAlignment="Center"/>
+
+    <TextBlock x:Name="ScoreBlock"
+               Text="0" Foreground="{DynamicResource TextBrush}"
+               FontSize="30" TextAlignment="Center"
+               Width="43" Margin="3,0" Padding="0"
+               VerticalAlignment="Center"/>
+    
+</StackPanel>

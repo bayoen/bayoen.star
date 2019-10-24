@@ -25,7 +25,6 @@ namespace bayoen.star.Overlays
             this.InitializeComponent();
 
             this.TestingImage.SetBitmap(bayoen.star.Properties.Resources.StarCarbyImage);
-            this.Topmost = true;
         }
 
         private void OverlayWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

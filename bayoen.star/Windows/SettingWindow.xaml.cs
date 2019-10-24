@@ -30,26 +30,9 @@ namespace bayoen.star.Windows
             this.Title += $": {Config.Title}";
 
             //// General
-            // AutoUpdate
+            // General
             this.AutoUpdateSwitch.Value = Core.Option.AutoUpdate;
-
-            // LanguageCode
-            double languageCodeComboBoxMaxWidth = -1;
-            this.LanguageCodeComboBox.ItemSource = Config.CultureCodes.ConvertAll(x =>
-            {
-                CultureInfo info = new CultureInfo(x);
-                TextBlock block = new TextBlock()
-                {
-                    Text = (info.NativeName == info.DisplayName) ? info.NativeName : $"{info.NativeName} ({info.DisplayName})",
-                };
-                block.Arrange(new Rect(block.DesiredSize));
-                languageCodeComboBoxMaxWidth = Math.Max(languageCodeComboBoxMaxWidth, block.ActualWidth);
-                return block;
-            });
-            this.LanguageCodeComboBox.ComboBoxWidth = (languageCodeComboBoxMaxWidth == -1) ? 250 : languageCodeComboBoxMaxWidth + 35;
-            this.LanguageCodeComboBox.SelectedIndex = Config.CultureCodes.IndexOf(Core.Option.LanguageCode);
-
-            // Topmost
+            this.BuildLanguageCodeComboBox();
             this.TopmostSwitch.Value = Core.Option.TopMost;
 
             //// Update
@@ -139,13 +122,11 @@ namespace bayoen.star.Windows
 
         private void EnableRapidModeDetailBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            this.EnableRapidModeSwitch.Detail = this.EnableRapidModeDetailBox.Text
-
-                .Replace("##TrackingIntervalNormal##", $"'{Config.TrackingIntervalNormal.TotalMilliseconds} ms'")
-                .Replace("##TrackingIntervalSlow##", $"'{Config.TrackingIntervalSlow.TotalMilliseconds} ms'")
-
-                .Replace("##DisplayIntervalNormal##", $"'{Config.DisplayIntervalNormal.TotalMilliseconds} ms'")
-                .Replace("##DisplayIntervalSlow##", $"'{Config.DisplayIntervalSlow.TotalMilliseconds} ms'");
+            this.EnableRapidModeSwitch.Detail = string.Format(this.EnableRapidModeDetailBox.Text
+                , $"'{Config.TrackingIntervalNormal.TotalMilliseconds} ms'"
+                , $"'{Config.TrackingIntervalSlow.TotalMilliseconds} ms'"
+                , $"'{Config.DisplayIntervalNormal.TotalMilliseconds} ms'"
+                , $"'{Config.DisplayIntervalSlow.TotalMilliseconds} ms'");
         }
 
         private void DisableEarlyRefreshSwitch_Toggled(object sender, RoutedEventArgs e)

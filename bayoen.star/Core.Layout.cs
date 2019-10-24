@@ -17,6 +17,9 @@ namespace bayoen.star
         private static FloatingOverlay _floatingOverlay;
         public static FloatingOverlay FloatingOverlay => Core._floatingOverlay ?? (Core._floatingOverlay = new FloatingOverlay());
 
+        private static MiniWindow _miniWindow;
+        public static MiniWindow MiniWindow => Core._miniWindow ?? (Core._miniWindow = new MiniWindow());
+
 #if DEBUG
         private static DebugWindow _debugWindow;
         public static DebugWindow DebugWindow => Core._debugWindow ?? (Core._debugWindow = new DebugWindow());

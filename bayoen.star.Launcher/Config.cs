@@ -12,7 +12,7 @@ namespace bayoen.star.Launcher
         public static readonly string LauncherAppName = $"{Assembly.GetExecutingAssembly().GetName().Name}.exe";
         public const string UpdateFolderName = "__update__";
         public const int ThreadSleepTimeout = 200;
-        public const int ThreadLongSleepTimeout = 1500;
+        public const int ThreadLongSleepTimeout = 2500;
 
         //public static readonly List<string> SampleFileUrlList = new List<string>()
         //{

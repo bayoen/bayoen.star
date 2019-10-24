@@ -42,14 +42,9 @@ namespace bayoen.star.Launcher
             {
                 Launcher.LauncherWindow.Show();
                 Launcher.LauncherWindow.LogoRing.IsActive = true;
-            });
-            Thread.Sleep(Config.ThreadLongSleepTimeout);
-
-            Launcher.Invoke(delegate
-            {
                 Launcher.LauncherWindow.Status = "Check update folder";
             });
-            Thread.Sleep(Config.ThreadSleepTimeout);
+            Thread.Sleep(Config.ThreadLongSleepTimeout);
 
             if (Directory.Exists(Config.UpdateFolderName))
             {
@@ -77,7 +72,7 @@ namespace bayoen.star.Launcher
                 {
                     Launcher.LauncherWindow.Status = "There is nothing to update";
                 });
-                Thread.Sleep(Config.ThreadLongSleepTimeout);
+                Thread.Sleep(Config.ThreadSleepTimeout);
 
                 Launcher.Invoke(delegate
                 {
@@ -152,7 +147,7 @@ namespace bayoen.star.Launcher
                 {
                     Launcher.LauncherWindow.Status = "???";
                 });
-                Thread.Sleep(Config.ThreadLongSleepTimeout);
+                Thread.Sleep(Config.ThreadSleepTimeout);
 
                 System.Media.SystemSounds.Hand.Play();
                 Launcher.Invoke(async delegate

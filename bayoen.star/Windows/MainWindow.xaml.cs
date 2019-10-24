@@ -34,7 +34,7 @@ namespace bayoen.star.Windows
             this.InitialLogoImage.SetBitmap(bayoen.star.Properties.Resources.StarCarbyImage);
         }
 
-        private void MiniButton_Click(object sender, RoutedEventArgs e) { }
+        private void MiniButton_Click(object sender, RoutedEventArgs e) => Core.MiniWindow.Show();
         private void MenuButton_Click(object sender, RoutedEventArgs e) => this.MenuButton.ContextMenu.IsOpen = true;
         private void SettingMenuItem_Click(object sender, RoutedEventArgs e) => Core.SettingWindow.Show();
 
@@ -120,17 +120,6 @@ namespace bayoen.star.Windows
             {
                 Core.Option.AutoUpdate = this.InitialAutoUpdateCheckBox.IsChecked.Value;
             }
-        }
-
-        private void CalibrateButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (Core.Memory.CheckProcess())
-            {
-                PPTRect.UpdateLocation(Core.FloatingOverlay);
-                Core.FloatingOverlay.Activate();
-                Core.FloatingOverlay.Topmost = true;
-            }
-            
         }
     }
 }

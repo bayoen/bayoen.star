@@ -42,6 +42,13 @@
                 </StackPanel>
             </GroupBox>
 
+            <GroupBox Header="Core.FloatingOverlay">
+                <StackPanel Orientation="Vertical"
+                            Margin="{StaticResource ControlGap}">
+                    <TextBlock x:Name="FloatingOverlayBlock"/>
+                </StackPanel>
+            </GroupBox>
+
             <GroupBox Header="PPTRect">
                 <StackPanel Orientation="Vertical"
                             Margin="{StaticResource ControlGap}">

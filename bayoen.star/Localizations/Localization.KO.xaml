@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
-    <!-- Localization.ko: Korean   2019-10-22 21:05 KST -->
+    <!-- Localization.ko: Korean   2019-10-24 15:16 KST -->
 
     <!-- for Dictionary -->
     <system:String x:Key="Dictionary-BayoenStar-String">바요엔-스타</system:String>
@@ -50,12 +50,12 @@
     <system:String x:Key="InitialGrid-Message-Update-String">업데이트를 확인합니다.</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Found-String">최신버전으로 업데이트합니다! ! {0} → {1}</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Latest-String">현재 최신버전입니다.</system:String>
-    <system:String x:Key="InitialGrid-Message-Update-Dev-String">개발중인 버전입니다.</system:String>
+    <system:String x:Key="InitialGrid-Message-Update-Dev-String">내가 너무 빨리 왔어?! 내가 너무 빨리 왔군!!</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Empty-String">유효한 릴리즈가 없습니다.</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Fail-String">업데이트에 실패했습니다.</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Auto-String">자동 업데이트</system:String>
     <system:String x:Key="InitialGrid-Message-Download-FileName-String">다운로드중... {0} ({1}/{2})</system:String>
-    <system:String x:Key="InitialGrid-Message-Download-FileProgress-String">{0}% ({1:F2} / {2:F2} MB)</system:String>
+    <system:String x:Key="InitialGrid-Message-Download-FileProgress-String">[EN] {0}% ({1:F2} / {2:F2} MB)</system:String>
     <system:String x:Key="InitialGrid-Message-Download-Completed-String">다운로드 완료!</system:String>
     <system:String x:Key="InitialGrid-Message-Unzip-String">압축푸는 중...</system:String>
     <system:String x:Key="InitialGrid-Message-Database-String">데이터베이스를 불러옵니다.</system:String>
@@ -173,15 +173,26 @@
     <system:String x:Key="SettingWindow-Streaming-ChromaKey-Mini-Header-String">스타 윈도우 크로마키 설정</system:String>
     <!-- 'SettingWindow-Streaming-ChromaKey-Mini-Detail-String' is empty -->
     <system:String x:Key="SettingWindow-Streaming-Restart-Content-String">재시작</system:String>
+    <system:String x:Key="SettingWindow-Advanced-Header-String">고급</system:String>
+    <system:String x:Key="SettingWindow-Advanced-Performance-Header-String">성능</system:String>
+    <system:String x:Key="SettingWindow-Advanced-EnableSlowMode-Header-String">슬로우 모드 켜기</system:String>
+    <system:String x:Key="SettingWindow-Advanced-EnableSlowMode-Detail-String" xml:space="preserve">이 옵션은 저사양 컴퓨터 환경에서 사용하시길 추천드립니다.
+
+    - 게임동작주기를 {0}에서 {1}로 바꿉니다.
+    - 표시주기를 {0}에서 {1}로 바꿉니다.</system:String>
+    <system:String x:Key="SettingWindow-Advanced-Interface-Header-String">인터페이스</system:String>
+    <system:String x:Key="SettingWindow-Advanced-DisableEarlyRefresh-Header-String">빠른갱신 중지</system:String>
+    <system:String x:Key="SettingWindow-Advanced-DisableEarlyRefresh-Detail-String">빠른갱신을 중지합니다.</system:String>
 
     <!-- for LeagueCapture -->
 
     <!-- for TrayIcon -->
     <system:String x:Key="TrayIcon-Menu-Version-Item-String">버전</system:String>
     <system:String x:Key="TrayIcon-Menu-Open-Item-String">바요엔-스타 열기</system:String>
-    <system:String x:Key="TrayIcon-Menu-Debug-Item-String">Debug...</system:String>
-    <system:String x:Key="TrayIcon-Menu-Debug-Window-Item-String">Show DebugWindow...</system:String>
-    <system:String x:Key="TrayIcon-Menu-Debug-Folder-Item-String">Open Folder</system:String>
+    <system:String x:Key="TrayIcon-Menu-Debug-Item-String">[EN] Debug...</system:String>
+    <system:String x:Key="TrayIcon-Menu-Debug-Window-Item-String">[EN] Show DebugWindow...</system:String>
+    <system:String x:Key="TrayIcon-Menu-Debug-Folder-Item-String">[EN] Open Folder</system:String>
+    <system:String x:Key="TrayIcon-Menu-Debug-Restart-Item-String">[EN] Restart</system:String>
     <system:String x:Key="TrayIcon-Menu-Reset-Item-String">카운트 초기화</system:String>
     <system:String x:Key="TrayIcon-Menu-Setting-Item-String">설정...</system:String>
     <system:String x:Key="TrayIcon-Menu-Quit-Item-String">바요엔-스타 종료</system:String>

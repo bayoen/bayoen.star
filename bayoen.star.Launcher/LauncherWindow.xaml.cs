@@ -33,10 +33,16 @@ namespace bayoen.star.Launcher
         {
             this.InitializeComponent();
 
+#if DEBUG
+            this.VersionBlock.Text = $"v{Config.VersionString}";
+#else
+            this.VersionBlock.Text = $"v{Config.VersionShortString}";
+#endif
+
             this.LogoImage.SetBitmap(Config.LogoBitmapList[(new Random().Next(0, Config.LogoBitmapList.Count))]);
 
             this.CloseToKill = true;
-            //this.Background = new SolidColorBrush(Color.FromRgb(25, 25, 25)) { Opacity = 0.95 };
+            
 
             this.Left = (SystemParameters.PrimaryScreenWidth - this.Width) / 2;
             this.Top = (SystemParameters.PrimaryScreenHeight - this.Height) / 2;

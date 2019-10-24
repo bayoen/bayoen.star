@@ -19,11 +19,12 @@
 
     <Grid>
         <Grid Width="148" Margin="0" Background="#191919" HorizontalAlignment="Left">
+            
             <metroControls:MetroButton x:Name="RestartButton"
                                        IsAccented="True"
                                        Text="{DynamicResource SettingWindow-Streaming-Restart-Content-String}"
                                        FontSize="14" FontWeight="Bold" 
-                                       Width="85"
+                                       
                                        Margin="20" Padding="3,0,5,0"
                                        VerticalAlignment="Bottom" HorizontalAlignment="Left"
                                        Click="RestartButton_Click">
@@ -31,13 +32,12 @@
                     <iconPacks:PackIconMaterial Kind="Autorenew" Height="14" Width="14" Margin="0,0,3,0"/>
                 </metroControls:MetroButton.Icon>
             </metroControls:MetroButton>
+            
         </Grid>
 
         <mtc:MetroAnimatedTabControl x:Name="MainTab"
-                                     TabStripPlacement="Left"
-                                     Background="Transparent"
-                                     TabStripMargin="0,5,0,0"
-                                     Focusable="False">
+                                     TabStripPlacement="Left" TabStripMargin="0,5,0,0"
+                                     Background="Transparent" Focusable="False">
 
             <mtc:MetroAnimatedTabControl.Resources>
 
@@ -123,8 +123,8 @@
                                                             Property="TopMost"
                                                             Header="{DynamicResource SettingWindow-General-Sub-TopMost-Header-String}"
                                                             Detail="{DynamicResource SettingWindow-General-Sub-TopMost-Detail-String}"
-                                                            TrueLabel="{DynamicResource Setting-Yes-String}"
-                                                            FalseLabel="{DynamicResource Setting-No-String}"
+                                                            TrueLabel="{DynamicResource Dictionary-Yes-String}"
+                                                            FalseLabel="{DynamicResource Dictionary-No-String}"
                                                             Toggled="TopmostSwitch_Toggled"/>
 
                     </StackPanel>
@@ -205,34 +205,33 @@
             <mtc:MetroTabItem Style="{StaticResource TabSeparator}"/>
 
             <mtc:MetroTabItem x:Name="AdvancedTabItem"
-                              Header="{DynamicResource Setting-Advanced-String}">
+                              Header="{DynamicResource SettingWindow-Advanced-Header-String}">
                 <ScrollViewer>
                     <StackPanel Style="{StaticResource ContainerStackPanel}">
 
                         <TextBlock Style="{StaticResource TextBlockSeparator}"
-                                   Text="{DynamicResource Setting-Advanced-PerformanceHeader-String}"/>
+                                   Text="{DynamicResource SettingWindow-Advanced-Performance-Header-String}"/>
 
                         <metroControls:PropertyToggleSwitch x:Name="EnableRapidModeSwitch"
                                                             Property="EnableRapidMode" 
-                                                            Header="{DynamicResource Setting-Advanced-EnableSlowMode-Header-String}"
-                                                            
-                                                            TrueLabel="{DynamicResource Setting-Yes-String}"
-                                                            FalseLabel="{DynamicResource Setting-No-String}"
-                                                            Toggled="EnableRapidModeSwitch_Toggled"/>
+                                                            Header="{DynamicResource SettingWindow-Advanced-EnableSlowMode-Header-String}"
 
+                                                            TrueLabel="{DynamicResource Dictionary-Yes-String}"
+                                                            FalseLabel="{DynamicResource Dictionary-No-String}"
+                                                            Toggled="EnableRapidModeSwitch_Toggled"/>
                         <TextBox x:Name="EnableRapidModeDetailBox" Visibility="Collapsed"
-                                 Text="{DynamicResource Setting-Advanced-EnableSlowMode-Detail-String}"
+                                 Text="{DynamicResource SettingWindow-Advanced-EnableSlowMode-Detail-String}"
                                  TextChanged="EnableRapidModeDetailBox_TextChanged"/>
 
                         <TextBlock Style="{StaticResource TextBlockSeparator}"
-                                   Text="{DynamicResource Setting-Advanced-InterfaceHeader-String}"/>
+                                   Text="{DynamicResource SettingWindow-Advanced-Interface-Header-String}"/>
 
                         <metroControls:PropertyToggleSwitch x:Name="DisableEarlyRefreshSwitch"
                                                             Property="DisableEarlyRefresh" 
-                                                            Header="{DynamicResource Setting-Advanced-DisableEarlyRefresh-Header-String}"
-                                                            Detail="{DynamicResource Setting-Advanced-DisableEarlyRefresh-Detail-String}"
-                                                            TrueLabel="{DynamicResource Setting-Yes-String}"
-                                                            FalseLabel="{DynamicResource Setting-No-String}"
+                                                            Header="{DynamicResource SettingWindow-Advanced-DisableEarlyRefresh-Header-String}"
+                                                            Detail="{DynamicResource SettingWindow-Advanced-DisableEarlyRefresh-Detail-String}"
+                                                            TrueLabel="{DynamicResource Dictionary-Yes-String}"
+                                                            FalseLabel="{DynamicResource Dictionary-No-String}"
                                                             Toggled="DisableEarlyRefreshSwitch_Toggled"/>
 
                     </StackPanel>

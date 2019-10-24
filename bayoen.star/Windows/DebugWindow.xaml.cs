@@ -26,7 +26,13 @@ namespace bayoen.star.Windows
 
         private void DebugTimer_Tick(object sender, EventArgs e)
         {
-            this.OverlayTimerBlock.Text = $".Interval: {Core.OverlayTimer.Interval.TotalMilliseconds} [ms]";
+            this.OverlayTimerBlock.Text = 
+                 $".Interval: {Core.OverlayTimer.Interval.TotalMilliseconds} [ms]"
+                + $"\n.FloatingVisibility: {Core.OverlayTimer.FloatingVisibility}";
+
+            this.FloatingOverlayBlock.Text =
+                $".Topmost: {Core.FloatingOverlay.Topmost}";
+
 
             this.PPTRectBlock.Text = $".GetWindowStatus(): {PPTRect.GetWindowStatus()}";
 

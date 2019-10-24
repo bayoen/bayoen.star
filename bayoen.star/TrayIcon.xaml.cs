@@ -16,6 +16,8 @@ using System.Windows.Shapes;
 
 using Hardcodet.Wpf.TaskbarNotification;
 
+using bayoen.library.General.Enums;
+
 namespace bayoen.star
 {
     public partial class TrayIcon : TaskbarIcon
@@ -43,7 +45,19 @@ namespace bayoen.star
             DebugFolderMenuItem.Click += (sender, e) => Core.ShowFolder();
             DebugMenuItem.Items.Add(DebugFolderMenuItem);
 
-            this.ContextMenu.Items.Insert(4, DebugMenuItem);
+            MenuItem DebugRestartMenuItem = new MenuItem();
+            DebugRestartMenuItem.SetResourceReference(MenuItem.HeaderProperty, "TrayIcon-Menu-Debug-Restart-Item-String");
+            DebugRestartMenuItem.Click += (sender, e) => Core.Restart(RestartingModes.RestartOnly);
+            DebugMenuItem.Items.Add(DebugRestartMenuItem);
+
+            if (this.ContextMenu.Items.Count > 2)
+            {
+                this.ContextMenu.Items.Insert(this.ContextMenu.Items.Count - 2, DebugMenuItem);
+            }
+            else
+            {
+                this.ContextMenu.Items.Insert(2, DebugMenuItem);
+            }
 #else
             this.MenuHeader.Header = $"{Config.Title} v{Config.Version}";
 #endif

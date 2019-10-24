@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
-    <!-- Localization.fr: French   2019-10-22 21:05 KST -->
+    <!-- Localization.fr: French   2019-10-24 15:16 KST -->
 
     <!-- for Dictionary -->
     <system:String x:Key="Dictionary-BayoenStar-String">bayoen-star</system:String>
@@ -16,7 +16,7 @@
     <system:String x:Key="Dictionary-Online-String">En ligne</system:String>
     <system:String x:Key="Dictionary-Offline-String">Hors ligne</system:String>
     <system:String x:Key="Dictionary-All-String">Tout</system:String>
-    <system:String x:Key="Dictionary-Always-String">Always</system:String>
+    <system:String x:Key="Dictionary-Always-String">[EN] Always</system:String>
     <system:String x:Key="Dictionary-Yes-String">Oui</system:String>
     <system:String x:Key="Dictionary-No-String">Non</system:String>
     <system:String x:Key="Dictionary-ChromaKey-0-String">Aucun</system:String>
@@ -50,14 +50,14 @@
     <system:String x:Key="InitialGrid-Message-Update-String">Vérification des mises à jour</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Found-String">Mise à jour vers la version la plus récente {0} → {1}</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Latest-String">C'est à jour {0}</system:String>
-    <system:String x:Key="InitialGrid-Message-Update-Dev-String">En cours de développement</system:String>
+    <system:String x:Key="InitialGrid-Message-Update-Dev-String">[EN] Am I too soon?! I'm too soon!!</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Empty-String">Il n'y a pas de version valide</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Fail-String">Échec de la mise à jour</system:String>
     <system:String x:Key="InitialGrid-Message-Update-Auto-String">Mise à jour automatique</system:String>
-    <system:String x:Key="InitialGrid-Message-Download-FileName-String">Downloading... {0} ({1}/{2})</system:String>
-    <system:String x:Key="InitialGrid-Message-Download-FileProgress-String">{0}% ({1:F2} / {2:F2} MB)</system:String>
-    <system:String x:Key="InitialGrid-Message-Download-Completed-String">Downloaded!</system:String>
-    <system:String x:Key="InitialGrid-Message-Unzip-String">Unzipping...</system:String>
+    <system:String x:Key="InitialGrid-Message-Download-FileName-String">[EN] Downloading... {0} ({1}/{2})</system:String>
+    <system:String x:Key="InitialGrid-Message-Download-FileProgress-String">[EN] {0}% ({1:F2} / {2:F2} MB)</system:String>
+    <system:String x:Key="InitialGrid-Message-Download-Completed-String">[EN] Downloaded!</system:String>
+    <system:String x:Key="InitialGrid-Message-Unzip-String">[EN] Unzipping...</system:String>
     <system:String x:Key="InitialGrid-Message-Database-String">Chargement de la base de données</system:String>
     <system:String x:Key="InitialGrid-Message-LoadInfo-String">Chargement des informations utilisateurs...{0}</system:String>
     <system:String x:Key="InitialGrid-Message-LoadInfo-Fail-String">Échec du chargement des données utilisateur</system:String>
@@ -136,7 +136,7 @@
     <system:String x:Key="SettingWindow-General-Sub-Header-String">Réglages secondaires</system:String>
     <system:String x:Key="SettingWindow-General-Sub-TopMost-Header-String">Toujours visible</system:String>
     <system:String x:Key="SettingWindow-General-Sub-TopMost-Detail-String">Toujours maintenir la fenêtre principale visible</system:String>
-    <system:String x:Key="SettingWindow-Update-Header-String">Update</system:String>
+    <system:String x:Key="SettingWindow-Update-Header-String">[EN] Update</system:String>
     <system:String x:Key="SettingWindow-Update-General-AutoUpdate-Header-String">Mise à jour automatique</system:String>
     <system:String x:Key="SettingWindow-Update-General-AutoUpdate-Detail-String">Toujours garder 'bayoen-star' à la version la plus récente</system:String>
     <system:String x:Key="SettingWindow-Appearance-Header-String">Apparence</system:String>
@@ -146,7 +146,7 @@
     <system:String x:Key="SettingWindow-Appearance-General-EnglishOverlay-Header-String">Forcer superposition en anglais</system:String>
     <system:String x:Key="SettingWindow-Appearance-General-EnglishOverlay-Detail-String">Présenter les informations de la superposition en anglais, à la place d'une autre langue</system:String>
     <system:String x:Key="SettingWindow-Appearance-Goal-Header-String">Fini</system:String>
-    <system:String x:Key="SettingWindow-Appearance-Goal-PanelImage-Header-String">Change Panel Image</system:String>
+    <system:String x:Key="SettingWindow-Appearance-Goal-PanelImage-Header-String">[EN] Change Panel Image</system:String>
     <!-- 'SettingWindow-Appearance-Goal-PanelImage-Detail-String' is empty -->
     <system:String x:Key="SettingWindow-Appearance-Goal-StarImage-Header-String">Changer l'icône étoile</system:String>
     <!-- 'SettingWindow-Appearance-Goal-StarImage-Detail-String' is empty -->
@@ -159,26 +159,37 @@
     <!-- 'SettingWindow-Appearance-Goal-AchievedSound-2-String' is empty -->
     <!-- 'SettingWindow-Appearance-Goal-AchievedSound-3-String' is empty -->
     <system:String x:Key="SettingWindow-Streaming-Header-String">Streaming</system:String>
-    <system:String x:Key="SettingWindow-Streaming-General-Header-String">Common Settings</system:String>
+    <system:String x:Key="SettingWindow-Streaming-General-Header-String">[EN] Common Settings</system:String>
     <system:String x:Key="SettingWindow-Streaming-General-EnableCapture-Header-String">Régler incrustation couleur</system:String>
     <system:String x:Key="SettingWindow-Streaming-General-EnableCapture-Detail-String">Activer les captures d'écran. Pendant que bayoen star fonctionne, l'écran se capture sera placé derrière la fenêtre Puyo Puyo Tetris.</system:String>
-    <system:String x:Key="SettingWindow-Streaming-ChromaKey-Header-String">Chroma Keys</system:String>
+    <system:String x:Key="SettingWindow-Streaming-ChromaKey-Header-String">[EN] Chroma Keys</system:String>
     <system:String x:Key="SettingWindow-Streaming-ChromaKey-Capture-Header-String">Régler incrustation couleur</system:String>
     <system:String x:Key="SettingWindow-Streaming-ChromaKey-Capture-Detail-String" xml:space="preserve">Sélectionner l'incrustation couleur de la capture. Ensuite, vous devrez utiliser "fenêtre de capture" dans l'application de streaming pour la visualiser durant la diffusion</system:String>
     <system:String x:Key="SettingWindow-Streaming-ChromaKey-Sync-Header-String">Synchroniser l'incrustation couleur</system:String>
     <!-- 'SettingWindow-Streaming-ChromaKey-Sync-Detail-String' is empty -->
     <!-- 'SettingWindow-Streaming-ChromaKey-Mini-Header-String' is empty -->
     <!-- 'SettingWindow-Streaming-ChromaKey-Mini-Detail-String' is empty -->
-    <system:String x:Key="SettingWindow-Streaming-Restart-Content-String">Restart</system:String>
+    <system:String x:Key="SettingWindow-Streaming-Restart-Content-String">[EN] Restart</system:String>
+    <system:String x:Key="SettingWindow-Advanced-Header-String">[EN] Advanced</system:String>
+    <system:String x:Key="SettingWindow-Advanced-Performance-Header-String">[EN] Performance</system:String>
+    <system:String x:Key="SettingWindow-Advanced-EnableSlowMode-Header-String">[EN] Enable Slow Mode</system:String>
+    <system:String x:Key="SettingWindow-Advanced-EnableSlowMode-Detail-String" xml:space="preserve">[EN] We recommend you to use this option for low performance computer.
+
+    - Change the game tracking interval to {0} from {1}.
+    - Change the display interval to {2} from {3}.</system:String>
+    <system:String x:Key="SettingWindow-Advanced-Interface-Header-String">[EN] Interface</system:String>
+    <system:String x:Key="SettingWindow-Advanced-DisableEarlyRefresh-Header-String">[EN] Disable Early Refresh</system:String>
+    <system:String x:Key="SettingWindow-Advanced-DisableEarlyRefresh-Detail-String">[EN] Disable Early Refresh.</system:String>
 
     <!-- for LeagueCapture -->
 
     <!-- for TrayIcon -->
     <system:String x:Key="TrayIcon-Menu-Version-Item-String">Version</system:String>
-    <system:String x:Key="TrayIcon-Menu-Open-Item-String">Open bayoen-star</system:String>
-    <system:String x:Key="TrayIcon-Menu-Debug-Item-String">Debug...</system:String>
-    <system:String x:Key="TrayIcon-Menu-Debug-Window-Item-String">Show DebugWindow...</system:String>
-    <system:String x:Key="TrayIcon-Menu-Debug-Folder-Item-String">Open Folder</system:String>
+    <system:String x:Key="TrayIcon-Menu-Open-Item-String">[EN] Open bayoen-star</system:String>
+    <system:String x:Key="TrayIcon-Menu-Debug-Item-String">[EN] Debug...</system:String>
+    <system:String x:Key="TrayIcon-Menu-Debug-Window-Item-String">[EN] Show DebugWindow...</system:String>
+    <system:String x:Key="TrayIcon-Menu-Debug-Folder-Item-String">[EN] Open Folder</system:String>
+    <system:String x:Key="TrayIcon-Menu-Debug-Restart-Item-String">[EN] Restart</system:String>
     <system:String x:Key="TrayIcon-Menu-Reset-Item-String">Réinitialiser compteur</system:String>
     <system:String x:Key="TrayIcon-Menu-Setting-Item-String">Réglages </system:String>
     <system:String x:Key="TrayIcon-Menu-Quit-Item-String">Quitter bayoen-star</system:String>

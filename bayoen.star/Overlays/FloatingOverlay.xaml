@@ -10,7 +10,7 @@
                        Title="Floating"
                        
                        AllowsTransparency="True" Background="Transparent"
-                       ShowActivated="False" Topmost="false"
+                       ShowActivated="False"
                        
                        ShowInTaskbar="False" WindowStyle="None"
                        
