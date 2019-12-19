@@ -5,6 +5,11 @@ using System.Windows;
 using System.ComponentModel;
 using System.Windows.Threading;
 using bayoen.star.Overlays;
+using System.Windows.Input;
+using System.Windows.Documents;
+using System.Windows.Media;
+
+using bayoen.star.Functions;
 
 namespace bayoen.star.Windows
 {
@@ -14,6 +19,9 @@ namespace bayoen.star.Windows
         {
             this.InitializeComponent();
             this.Title += $": {Config.Title}";
+
+            Control.MakeDraggableControl(this.YellowRectangle, true);
+            Control.MakeDraggableControl(this.GreenRectangle, true);
 
             this.DebugTimer = new DispatcherTimer()
             {
@@ -26,7 +34,10 @@ namespace bayoen.star.Windows
 
         private void DebugTimer_Tick(object sender, EventArgs e)
         {
-            this.OverlayTimerBlock.Text = 
+            this.OptionBlock.Text =
+                $"{Core.Option.ToJson()}";
+
+            this.OverlayTimerBlock.Text =
                  $".Interval: {Core.OverlayTimer.Interval.TotalMilliseconds} [ms]"
                 + $"\n.FloatingVisibility: {Core.OverlayTimer.FloatingVisibility}";
 
@@ -34,7 +45,8 @@ namespace bayoen.star.Windows
                 $".Topmost: {Core.FloatingOverlay.Topmost}";
 
 
-            this.PPTRectBlock.Text = $".GetWindowStatus(): {PPTRect.GetWindowStatus()}";
+            this.PPTRectBlock.Text =
+                $".GetWindowStatus(): {PPTRect.GetWindowStatus()}";
 
         }
 

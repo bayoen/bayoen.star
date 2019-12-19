@@ -11,7 +11,9 @@
                     
                     WindowTitleBrush="#191919"
                     Height="450" Width="800"
-                    MinHeight="400" MinWidth="600">
+                    MinHeight="400" MinWidth="600"
+                    
+                    Loaded="BaseWindow_Loaded">
 
     <windows:BaseWindow.Resources>
 
@@ -25,7 +27,7 @@
                                        Text="{DynamicResource SettingWindow-Streaming-Restart-Content-String}"
                                        FontSize="14" FontWeight="Bold" 
                                        
-                                       Margin="20" Padding="3,0,5,0"
+                                       Margin="20" Padding="3,0,3,0"
                                        VerticalAlignment="Bottom" HorizontalAlignment="Left"
                                        Click="RestartButton_Click">
                 <metroControls:MetroButton.Icon>
@@ -114,11 +116,26 @@
                                                         Detail="{DynamicResource SettingWindow-General-Main-Language-Detail-String}"
                                                         SelectionChanged="LanguageComboBox_SelectionChanged"/>
 
-
-
+                        
                         <TextBlock Style="{StaticResource TextBlockSeparator}"
                                    Text="{DynamicResource SettingWindow-General-Sub-Header-String}"/>
 
+                        <metroControls:PropertyToggleSwitch x:Name="StartMinimizedSwitch"
+                                                            Property="StartMinimized"
+                                                            Header="{DynamicResource SettingWindow-General-Sub-StartMinimized-Header-String}"
+                                                            Detail="{DynamicResource SettingWindow-General-Sub-StartMinimized-Detail-String}"
+                                                            TrueLabel="{DynamicResource Dictionary-Yes-String}"
+                                                            FalseLabel="{DynamicResource Dictionary-No-String}"
+                                                            Toggled="StartMinimizedSwitch_Toggled"/>
+                        
+                        <metroControls:PropertyToggleSwitch x:Name="OpenMiniSwitch"
+                                                            Property="OpenMini"
+                                                            Header="{DynamicResource SettingWindow-General-Sub-OpenMini-Header-String}"
+                                                            Detail="{DynamicResource SettingWindow-General-Sub-OpenMini-Detail-String}"
+                                                            TrueLabel="{DynamicResource Dictionary-Yes-String}"
+                                                            FalseLabel="{DynamicResource Dictionary-No-String}"
+                                                            Toggled="OpenMiniSwitch_Toggled"/>
+                        
                         <metroControls:PropertyToggleSwitch x:Name="TopmostSwitch"
                                                             Property="TopMost"
                                                             Header="{DynamicResource SettingWindow-General-Sub-TopMost-Header-String}"
@@ -147,17 +164,20 @@
                                                             FalseLabel="{DynamicResource Setting-No-String}"
                                                             Toggled="TopmostSwitch_Toggled"/>-->
 
-
-
-                        <metroControls:PropertyComboBox x:Name="ChangeVersionCodeComboBox"
+                        <StackPanel Orientation="Vertical">
+                            <metroControls:PropertyComboBox x:Name="ChangeVersionCodeComboBox"
                                                         Property="ChangeVersion"
-                                                        Header="{DynamicResource SettingWindow-General-Main-Language-Header-String}"
-                                                        Detail="{DynamicResource SettingWindow-General-Main-Language-Detail-String}"
+                                                        Header="Change Version"
+                                                        Detail="Select version to change. Auto-update will be disabled."
                                                         SelectionChanged="ChangeVersionCodeComboBox_SelectionChanged"/>
+                            <ListView x:Name="VersionListView" Style="{StaticResource MetroListView}"
+                                  BorderThickness="0">
+                                <ListViewItem>
+                                    <TextBlock>123123</TextBlock>
+                                </ListViewItem>
+                            </ListView>
 
-                        <ListView>
-                            
-                        </ListView>
+                        </StackPanel>
 
                         <!--<metroControls:PropertyToggleSwitch x:Name="EnglishDisplaySwitch"
                                                             Property="EnglishDisplay" 

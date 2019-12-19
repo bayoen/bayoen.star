@@ -6,6 +6,7 @@
                        
                        xmlns:windows="clr-namespace:bayoen.library.Metro.Windows"
                        xmlns:metroControls="clr-namespace:bayoen.library.Metro.Controls"
+                       xmlns:controls="clr-namespace:bayoen.star.Controls"
                        
                        Title="Floating"
                        
@@ -15,9 +16,21 @@
                        ShowInTaskbar="False" WindowStyle="None"
                        
                        Height="450" Width="800"
-                       MouseLeftButtonDown="OverlayWindow_MouseLeftButtonDown">
+                       MouseLeftButtonDown="OverlayWindow_MouseLeftButtonDown"
+                       MouseRightButtonDown="OverlayWindow_MouseRightButtonDown"
+                       Loaded="OverlayWindow_Loaded">
     <Grid>
+        
         <Image x:Name="TestingImage"
                RenderOptions.BitmapScalingMode="Fant"/>
+
+        <controls:MiniScorePanel x:Name="MiniScorePanel">
+            <controls:MiniScorePanel.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="123"/>
+                    <MenuItem Header="468"/>
+                </ContextMenu>
+            </controls:MiniScorePanel.ContextMenu>
+        </controls:MiniScorePanel>
     </Grid>
 </windows:OverlayWindow>

@@ -2,20 +2,20 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
-    <!-- Localization.pt: Portuguese   2019-10-24 15:16 KST -->
+    <!-- Localization.pt: Portuguese   2019-11-01 18:22 KST -->
 
     <!-- for Dictionary -->
     <system:String x:Key="Dictionary-BayoenStar-String">bayoen-star</system:String>
     <system:String x:Key="Dictionary-PPT-String">PuyoPuyoTetris</system:String>
-    <system:String x:Key="Dictionary-FreePlay-String">[EN] Free Play</system:String>
-    <system:String x:Key="Dictionary-PuzzleLeague-String">[EN] Puzzle League</system:String>
-    <system:String x:Key="Dictionary-Arcade-String">[EN] Arcade</system:String>
-    <system:String x:Key="Dictionary-Adventure-String">[EN] Adventure</system:String>
-    <system:String x:Key="Dictionary-Lobby-String">[EN] Lobby</system:String>
-    <system:String x:Key="Dictionary-Title-String">[EN] Title</system:String>
-    <system:String x:Key="Dictionary-Online-String">[EN] Online</system:String>
-    <system:String x:Key="Dictionary-Offline-String">[EN] Offline</system:String>
-    <system:String x:Key="Dictionary-All-String">[EN] All</system:String>
+    <system:String x:Key="Dictionary-FreePlay-String">Jogo Livre</system:String>
+    <system:String x:Key="Dictionary-PuzzleLeague-String">Puzzle League</system:String>
+    <system:String x:Key="Dictionary-Arcade-String">Arcade</system:String>
+    <system:String x:Key="Dictionary-Adventure-String">Aventura</system:String>
+    <system:String x:Key="Dictionary-Lobby-String">Lobby</system:String>
+    <system:String x:Key="Dictionary-Title-String">Tela de Título</system:String>
+    <system:String x:Key="Dictionary-Online-String">Conectado</system:String>
+    <system:String x:Key="Dictionary-Offline-String">Desconectado</system:String>
+    <system:String x:Key="Dictionary-All-String">Todo</system:String>
     <system:String x:Key="Dictionary-Always-String">[EN] Always</system:String>
     <system:String x:Key="Dictionary-Yes-String">Sim</system:String>
     <system:String x:Key="Dictionary-No-String">Não</system:String>
@@ -29,17 +29,80 @@
     <system:String x:Key="MainWindow-Menu-Mini-Item-String">Mini</system:String>
     <system:String x:Key="MainWindow-Menu-Mini-ToolTip-String">Mostrar bayoen-star mini</system:String>
     <system:String x:Key="MainWindow-Menu-Help-Item-String">Ajuda</system:String>
-    <system:String x:Key="MainWindow-Menu-Help-GitHubPage-Item-String">[EN] Project Site</system:String>
-    <system:String x:Key="MainWindow-Menu-Help-Discord-Item-String">[EN] Join Discord...</system:String>
-    <system:String x:Key="MainWindow-Menu-Help-BayoenStar-Item-String">[EN] bayoen-star?</system:String>
+    <system:String x:Key="MainWindow-Menu-Help-GitHubPage-Item-String">Site do projeto</system:String>
+    <system:String x:Key="MainWindow-Menu-Help-Discord-Item-String">Juntar-se ao Discord</system:String>
+    <system:String x:Key="MainWindow-Menu-Help-BayoenStar-Item-String">Bayoen-star?</system:String>
     <system:String x:Key="MainWindow-Menu-Setting-Item-String">Configurações...</system:String>
-    <system:String x:Key="MainWindow-Status-PuzzleLeague-Detail-String">[EN] ##MyName## in Puzzle League!</system:String>
+    <system:String x:Key="MainWindow-Status-PuzzleLeague-Detail-String">##MyName## na Puzzle League!</system:String>
     <!-- 'MainWindow-Status-FreePlay-Detail-String' is empty -->
     <!-- 'MainWindow-Status-Arcade-Detail-String' is empty -->
     <!-- 'MainWindow-Status-Adventure-Detail-String' is empty -->
     <!-- 'MainWindow-Status-Lobby-Detail-String' is empty -->
     <!-- 'MainWindow-Status-Title-Detail-String' is empty -->
     <system:String x:Key="MainWindow-Counter-Header-String">[EN] Star Counter</system:String>
+
+    <!-- for SettingWindow -->
+    <system:String x:Key="SettingWindow-General-Header-String">Geral</system:String>
+    <system:String x:Key="SettingWindow-General-Main-Header-String">Configurações Principais</system:String>
+    <system:String x:Key="SettingWindow-General-Main-CloseToMinimize-Header-String">Minimizar ao fechar</system:String>
+    <system:String x:Key="SettingWindow-General-Main-CloseToMinimize-Detail-String">[EN] When you close the main window, It is minimized instead of shutting down.</system:String>
+    <system:String x:Key="SettingWindow-General-Main-AutoUpdate-Header-String">Atualizar automaticamente</system:String>
+    <system:String x:Key="SettingWindow-General-Main-AutoUpdate-Detail-String">[EN] Always keep 'bayoen-star' at the most up-to-date version</system:String>
+    <system:String x:Key="SettingWindow-General-Main-Language-Header-String">Idioma (Language)</system:String>
+    <system:String x:Key="SettingWindow-General-Main-Language-Detail-String">Selecione seu idioma preferido. Caso não esteja na lista, por favor nos avise e ajude-nos a traduzi-lo.</system:String>
+    <system:String x:Key="SettingWindow-General-Sub-Header-String">Configurações secundárias</system:String>
+    <system:String x:Key="SettingWindow-General-Sub-StartMinimized-Header-String">[EN] Start Minimized</system:String>
+    <system:String x:Key="SettingWindow-General-Sub-StartMinimized-Detail-String">[EN] Minimize the main window when running the app</system:String>
+    <system:String x:Key="SettingWindow-General-Sub-OpenMini-Header-String">[EN] Open Mini Together</system:String>
+    <system:String x:Key="SettingWindow-General-Sub-OpenMini-Detail-String">[EN] Show the mini window when running the app</system:String>
+    <system:String x:Key="SettingWindow-General-Sub-TopMost-Header-String">[EN] Always on Top</system:String>
+    <system:String x:Key="SettingWindow-General-Sub-TopMost-Detail-String">[EN] Always keep the main window on top.</system:String>
+    <system:String x:Key="SettingWindow-Update-Header-String">[EN] Update</system:String>
+    <system:String x:Key="SettingWindow-Update-General-AutoUpdate-Header-String">[EN] Auto Update</system:String>
+    <system:String x:Key="SettingWindow-Update-General-AutoUpdate-Detail-String">[EN] Always keep 'bayoen-star' at the most up-to-date version</system:String>
+    <system:String x:Key="SettingWindow-Appearance-Header-String">Aparência</system:String>
+    <system:String x:Key="SettingWindow-Appearance-General-Header-String">Configurações comuns</system:String>
+    <system:String x:Key="SettingWindow-Appearance-General-DisableOverlay-Header-String">[EN] Disable Overlay</system:String>
+    <system:String x:Key="SettingWindow-Appearance-General-DisableOverlay-Detail-String">[EN] Turn off overlay. 'bayoen-star' will continue working</system:String>
+    <system:String x:Key="SettingWindow-Appearance-General-EnglishOverlay-Header-String">[EN] Forced English Overlay</system:String>
+    <system:String x:Key="SettingWindow-Appearance-General-EnglishOverlay-Detail-String">[EN] Displays the information in the overlay in English instead of in other language.</system:String>
+    <system:String x:Key="SettingWindow-Appearance-Goal-Header-String">Objetivo</system:String>
+    <system:String x:Key="SettingWindow-Appearance-Goal-PanelImage-Header-String">Alterar imagem do painel</system:String>
+    <!-- 'SettingWindow-Appearance-Goal-PanelImage-Detail-String' is empty -->
+    <system:String x:Key="SettingWindow-Appearance-Goal-StarImage-Header-String">Alterar ícone da estrela</system:String>
+    <!-- 'SettingWindow-Appearance-Goal-StarImage-Detail-String' is empty -->
+    <system:String x:Key="SettingWindow-Appearance-Goal-GameImage-Header-String">Alterar ícone da coroa</system:String>
+    <!-- 'SettingWindow-Appearance-Goal-GameImage-Detail-String' is empty -->
+    <system:String x:Key="SettingWindow-Appearance-Goal-AchievedSound-Header-String">Alterar som de objetivo alcançado</system:String>
+    <!-- 'SettingWindow-Appearance-Goal-AchievedSound-Detail-String' is empty -->
+    <!-- 'SettingWindow-Appearance-Goal-AchievedSound-0-String' is empty -->
+    <!-- 'SettingWindow-Appearance-Goal-AchievedSound-1-String' is empty -->
+    <!-- 'SettingWindow-Appearance-Goal-AchievedSound-2-String' is empty -->
+    <!-- 'SettingWindow-Appearance-Goal-AchievedSound-3-String' is empty -->
+    <system:String x:Key="SettingWindow-Streaming-Header-String">[EN] Streaming</system:String>
+    <system:String x:Key="SettingWindow-Streaming-General-Header-String">[EN] Common Settings</system:String>
+    <system:String x:Key="SettingWindow-Streaming-General-EnableCapture-Header-String">[EN] Enable Capture</system:String>
+    <system:String x:Key="SettingWindow-Streaming-General-EnableCapture-Detail-String">[EN] Enable the capture window. When you run bayoen-star, the capture window will be placed behind the PuyoPuyo Tetris window.</system:String>
+    <system:String x:Key="SettingWindow-Streaming-ChromaKey-Header-String">[EN] Chroma Keys</system:String>
+    <system:String x:Key="SettingWindow-Streaming-ChromaKey-Capture-Header-String">[EN] Set Chroma Keys</system:String>
+    <system:String x:Key="SettingWindow-Streaming-ChromaKey-Capture-Detail-String" xml:space="preserve">[EN] Select the chroma key color of the 'capture window'. Then, you may use 'Window Capture' in your streaming app to display it in your stream</system:String>
+    <system:String x:Key="SettingWindow-Streaming-ChromaKey-Sync-Header-String">[EN] Sync. Chroma Keys</system:String>
+    <!-- 'SettingWindow-Streaming-ChromaKey-Sync-Detail-String' is empty -->
+    <!-- 'SettingWindow-Streaming-ChromaKey-Mini-Header-String' is empty -->
+    <!-- 'SettingWindow-Streaming-ChromaKey-Mini-Detail-String' is empty -->
+    <system:String x:Key="SettingWindow-Streaming-Restart-Content-String">[EN] Restart</system:String>
+    <system:String x:Key="SettingWindow-Advanced-Header-String">[EN] Advanced</system:String>
+    <system:String x:Key="SettingWindow-Advanced-Performance-Header-String">[EN] Performance</system:String>
+    <system:String x:Key="SettingWindow-Advanced-EnableSlowMode-Header-String">[EN] Enable Slow Mode</system:String>
+    <system:String x:Key="SettingWindow-Advanced-EnableSlowMode-Detail-String" xml:space="preserve">[EN] We recommend you to use this option for low performance computer.
+
+    - Change the game tracking interval to {0} from {1}.
+    - Change the display interval to {2} from {3}.</system:String>
+    <system:String x:Key="SettingWindow-Advanced-Interface-Header-String">[EN] Interface</system:String>
+    <system:String x:Key="SettingWindow-Advanced-DisableEarlyRefresh-Header-String">[EN] Disable Early Refresh</system:String>
+    <system:String x:Key="SettingWindow-Advanced-DisableEarlyRefresh-Detail-String">[EN] Disable Early Refresh.</system:String>
+
+    <!-- for LeagueCapture -->
 
     <!-- for InitialGrid -->
     <system:String x:Key="InitialGrid-Title-String">[EN] Initialization</system:String>
@@ -123,65 +186,6 @@
     <system:String x:Key="InitialGrid-Message-Joke-57-String">-</system:String>
     <system:String x:Key="InitialGrid-Message-Joke-58-String">-</system:String>
     <system:String x:Key="InitialGrid-Message-Joke-59-String">-</system:String>
-
-    <!-- for SettingWindow -->
-    <system:String x:Key="SettingWindow-General-Header-String">[EN] General</system:String>
-    <system:String x:Key="SettingWindow-General-Main-Header-String">[EN] Main Settings</system:String>
-    <system:String x:Key="SettingWindow-General-Main-CloseToMinimize-Header-String">[EN] Minimize when closing</system:String>
-    <system:String x:Key="SettingWindow-General-Main-CloseToMinimize-Detail-String">[EN] When you close the main window, It is minimized instead of shutting down.</system:String>
-    <system:String x:Key="SettingWindow-General-Main-AutoUpdate-Header-String">[EN] Auto Update</system:String>
-    <system:String x:Key="SettingWindow-General-Main-AutoUpdate-Detail-String">[EN] Always keep 'bayoen-star' at the most up-to-date version</system:String>
-    <system:String x:Key="SettingWindow-General-Main-Language-Header-String">[EN] Language</system:String>
-    <system:String x:Key="SettingWindow-General-Main-Language-Detail-String">[EN] Select your favorite language. If it is not on the list, please let us know and help us to make it</system:String>
-    <system:String x:Key="SettingWindow-General-Sub-Header-String">[EN] Sub-Settings</system:String>
-    <system:String x:Key="SettingWindow-General-Sub-TopMost-Header-String">[EN] Always on Top</system:String>
-    <system:String x:Key="SettingWindow-General-Sub-TopMost-Detail-String">[EN] Always keep the main window on top.</system:String>
-    <system:String x:Key="SettingWindow-Update-Header-String">[EN] Update</system:String>
-    <system:String x:Key="SettingWindow-Update-General-AutoUpdate-Header-String">[EN] Auto Update</system:String>
-    <system:String x:Key="SettingWindow-Update-General-AutoUpdate-Detail-String">[EN] Always keep 'bayoen-star' at the most up-to-date version</system:String>
-    <system:String x:Key="SettingWindow-Appearance-Header-String">[EN] Appearance</system:String>
-    <system:String x:Key="SettingWindow-Appearance-General-Header-String">[EN] Common Settings</system:String>
-    <system:String x:Key="SettingWindow-Appearance-General-DisableOverlay-Header-String">[EN] Disable Overlay</system:String>
-    <system:String x:Key="SettingWindow-Appearance-General-DisableOverlay-Detail-String">[EN] Turn off overlay. 'bayoen-star' will continue working</system:String>
-    <system:String x:Key="SettingWindow-Appearance-General-EnglishOverlay-Header-String">[EN] Forced English Overlay</system:String>
-    <system:String x:Key="SettingWindow-Appearance-General-EnglishOverlay-Detail-String">[EN] Displays the information in the overlay in English instead of in other language.</system:String>
-    <system:String x:Key="SettingWindow-Appearance-Goal-Header-String">[EN] Goal</system:String>
-    <system:String x:Key="SettingWindow-Appearance-Goal-PanelImage-Header-String">[EN] Change Panel Image</system:String>
-    <!-- 'SettingWindow-Appearance-Goal-PanelImage-Detail-String' is empty -->
-    <system:String x:Key="SettingWindow-Appearance-Goal-StarImage-Header-String">[EN] Change Star Image</system:String>
-    <!-- 'SettingWindow-Appearance-Goal-StarImage-Detail-String' is empty -->
-    <system:String x:Key="SettingWindow-Appearance-Goal-GameImage-Header-String">[EN] Change Game Image</system:String>
-    <!-- 'SettingWindow-Appearance-Goal-GameImage-Detail-String' is empty -->
-    <system:String x:Key="SettingWindow-Appearance-Goal-AchievedSound-Header-String">[EN] Change Goal Achieved Sound</system:String>
-    <!-- 'SettingWindow-Appearance-Goal-AchievedSound-Detail-String' is empty -->
-    <!-- 'SettingWindow-Appearance-Goal-AchievedSound-0-String' is empty -->
-    <!-- 'SettingWindow-Appearance-Goal-AchievedSound-1-String' is empty -->
-    <!-- 'SettingWindow-Appearance-Goal-AchievedSound-2-String' is empty -->
-    <!-- 'SettingWindow-Appearance-Goal-AchievedSound-3-String' is empty -->
-    <system:String x:Key="SettingWindow-Streaming-Header-String">[EN] Streaming</system:String>
-    <system:String x:Key="SettingWindow-Streaming-General-Header-String">[EN] Common Settings</system:String>
-    <system:String x:Key="SettingWindow-Streaming-General-EnableCapture-Header-String">[EN] Enable Capture</system:String>
-    <system:String x:Key="SettingWindow-Streaming-General-EnableCapture-Detail-String">[EN] Enable the capture window. When you run bayoen-star, the capture window will be placed behind the PuyoPuyo Tetris window.</system:String>
-    <system:String x:Key="SettingWindow-Streaming-ChromaKey-Header-String">[EN] Chroma Keys</system:String>
-    <system:String x:Key="SettingWindow-Streaming-ChromaKey-Capture-Header-String">[EN] Set Chroma Keys</system:String>
-    <system:String x:Key="SettingWindow-Streaming-ChromaKey-Capture-Detail-String" xml:space="preserve">[EN] Select the chroma key color of the 'capture window'. Then, you may use 'Window Capture' in your streaming app to display it in your stream</system:String>
-    <system:String x:Key="SettingWindow-Streaming-ChromaKey-Sync-Header-String">[EN] Sync. Chroma Keys</system:String>
-    <!-- 'SettingWindow-Streaming-ChromaKey-Sync-Detail-String' is empty -->
-    <!-- 'SettingWindow-Streaming-ChromaKey-Mini-Header-String' is empty -->
-    <!-- 'SettingWindow-Streaming-ChromaKey-Mini-Detail-String' is empty -->
-    <system:String x:Key="SettingWindow-Streaming-Restart-Content-String">[EN] Restart</system:String>
-    <system:String x:Key="SettingWindow-Advanced-Header-String">[EN] Advanced</system:String>
-    <system:String x:Key="SettingWindow-Advanced-Performance-Header-String">[EN] Performance</system:String>
-    <system:String x:Key="SettingWindow-Advanced-EnableSlowMode-Header-String">[EN] Enable Slow Mode</system:String>
-    <system:String x:Key="SettingWindow-Advanced-EnableSlowMode-Detail-String" xml:space="preserve">[EN] We recommend you to use this option for low performance computer.
-
-    - Change the game tracking interval to {0} from {1}.
-    - Change the display interval to {2} from {3}.</system:String>
-    <system:String x:Key="SettingWindow-Advanced-Interface-Header-String">[EN] Interface</system:String>
-    <system:String x:Key="SettingWindow-Advanced-DisableEarlyRefresh-Header-String">[EN] Disable Early Refresh</system:String>
-    <system:String x:Key="SettingWindow-Advanced-DisableEarlyRefresh-Detail-String">[EN] Disable Early Refresh.</system:String>
-
-    <!-- for LeagueCapture -->
 
     <!-- for TrayIcon -->
     <system:String x:Key="TrayIcon-Menu-Version-Item-String">Versão</system:String>

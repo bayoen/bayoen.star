@@ -24,7 +24,8 @@ namespace bayoen.star.Overlays
         {
             this.InitializeComponent();
 
-            this.TestingImage.SetBitmap(bayoen.star.Properties.Resources.StarCarbyImage);
+            //this.TestingImage.SetBitmap(bayoen.star.Properties.Resources.StarCarbyImage);
+            //Functions.Control.MakeDraggableControl(this.MiniScorePanel, true);
         }
 
         private void OverlayWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -37,6 +38,21 @@ namespace bayoen.star.Overlays
             {
 
             }
+        }
+
+        private void OverlayWindow_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Show();
+            this.MiniScorePanel.ContextMenu.IsOpen = true;
+        }
+
+        private void OverlayWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (!Core.OverlayTimer.IsEnabled)
+            {
+                Core.OverlayTimer.Start();
+            }
+            
         }
     }
 }

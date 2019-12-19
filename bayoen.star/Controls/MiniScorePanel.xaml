@@ -29,9 +29,10 @@
           VerticalAlignment="Center" HorizontalAlignment="Center"
           Visibility="Hidden">
         
-        <controls:MetroImage x:Name="GoalPanelImage"
-                             Height="29" Width="200" Margin="0,0,0,4"
-                             VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Image x:Name="GoalPanelImage"
+               RenderOptions.BitmapScalingMode="Fant"
+               Height="29" Width="200" Margin="0,0,0,4"
+               VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
         <StackPanel Orientation="Horizontal"
                     Margin="0,1,0,0"
@@ -42,9 +43,10 @@
                        FontSize="19" Margin="3,0,6,0"
                        VerticalAlignment="Center"/>
 
-            <controls:MetroImage x:Name="GoalCounterImage"
-                                 Height="20" Width="20" Margin="0,0,0,2"
-                                 VerticalAlignment="Center"/>
+            <Image x:Name="GoalCounterImage"
+                   RenderOptions.BitmapScalingMode="Fant"
+                   Height="20" Width="20" Margin="0,0,0,2"
+                   VerticalAlignment="Center"/>
             
             <TextBlock x:Name="GoalScoreBlock"
                        Text="-" Foreground="{DynamicResource TextBrush}"

@@ -109,9 +109,10 @@
                 <Border Grid.Row="0" Style="{StaticResource AccentedMetroBorder}">
                     <StackPanel Orientation="Horizontal" Margin="{StaticResource ControlGap}">
 
-                        <metroControls:MetroImage x:Name="LogoImage"
-                                                  Height="25" Width="25" Margin="3,0,0,0"
-                                                  VerticalAlignment="Center"/>
+                        <Image x:Name="LogoImage"
+                               RenderOptions.BitmapScalingMode="Fant"
+                               Height="25" Width="25" Margin="3,0,0,0"
+                               VerticalAlignment="Center"/>
 
                         <TextBlock x:Name="WhereAmIBlock" Style="{DynamicResource HeaderBlock}"
                                    Text="bayoen-star is ready!"/>

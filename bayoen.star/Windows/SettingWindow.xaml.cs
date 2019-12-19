@@ -33,10 +33,13 @@ namespace bayoen.star.Windows
             // General
             this.AutoUpdateSwitch.Value = Core.Option.AutoUpdate;
             this.BuildLanguageCodeComboBox();
+
+            this.StartMinimizedSwitch.Value = Core.Option.StartMinimized;
+            this.OpenMiniSwitch.Value = Core.Option.OpenMini;
             this.TopmostSwitch.Value = Core.Option.TopMost;
 
             //// Update
-
+            this.BuildVersionSelector();
             //this.ChangeVersionCodeComboBox
 
             // EnglishDisplay
@@ -71,6 +74,16 @@ namespace bayoen.star.Windows
         private void RestartButton_Click(object sender, RoutedEventArgs e)
         {
             Core.Restart(RestartingModes.RestartWithSetting);
+        }
+
+        private void StartMinimizedSwitch_Toggled(object sender, RoutedEventArgs e)
+        {
+            Core.Option.StartMinimized = this.StartMinimizedSwitch.Value;
+        }
+
+        private void OpenMiniSwitch_Toggled(object sender, RoutedEventArgs e)
+        {
+            Core.Option.OpenMini = this.OpenMiniSwitch.Value;
         }
 
         private void AutoUpdateSwitch_Toggled(object sender, RoutedEventArgs e)
@@ -142,6 +155,14 @@ namespace bayoen.star.Windows
         private void ChangeVersionCodeComboBox_SelectionChanged(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void BaseWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (Core.TrayIcon.ContextMenu.PlacementTarget == null)
+            {
+                Core.TrayIcon.ContextMenu.PlacementTarget = this;
+            }
         }
     }
 }

@@ -99,6 +99,13 @@ namespace bayoen.star.Overlays
             }
         }
 
+        //public static bool UpdateLocation(OverlayWindow window)
+        //{
+        //    // Something
+
+        //    return true;
+        //}
+
         private static double ValidHeight => SystemParameters.PrimaryScreenHeight - (double)OffsetHeight;
         private static double ValidWidth => SystemParameters.PrimaryScreenWidth - (double)OffsetWidth;
 

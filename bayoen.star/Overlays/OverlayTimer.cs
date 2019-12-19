@@ -37,7 +37,18 @@ namespace bayoen.star.Overlays
                 }
                 else if (value == OverlayVisibility.Neutral)
                 {
-                    User32.SetWindowPos((new WindowInteropHelper(Core.FloatingOverlay)).Handle, (IntPtr)HWND.BOTTOM, 0, 0, 0, 0, (uint)(SWP.NOMOVE | SWP.NOSIZE));
+                    IntPtr foregroundHandle = User32.GetForegroundWindow();
+                    IntPtr floatingHandle = new WindowInteropHelper(Core.FloatingOverlay).Handle;
+
+                    if (foregroundHandle == floatingHandle)
+                    {
+                        // Preserve floating window
+                    }
+                    else
+                    {
+                        User32.SetWindowPos((new WindowInteropHelper(Core.FloatingOverlay)).Handle, (IntPtr)HWND.BOTTOM, 0, 0, 0, 0, (uint)(SWP.NOMOVE | SWP.NOSIZE));
+                    }
+                    
                 }
                 else if (value == OverlayVisibility.Active)
                 {

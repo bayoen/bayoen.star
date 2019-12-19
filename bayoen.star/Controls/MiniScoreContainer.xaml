@@ -13,9 +13,10 @@
         </Style>
     </StackPanel.Resources>
 
-    <controls:MetroImage x:Name="SymbolImage"
-                         Height="36" Width="36" Margin="0"
-                         VerticalAlignment="Center"/>
+    <Image x:Name="SymbolImage"
+           RenderOptions.BitmapScalingMode="Fant"
+           Height="36" Width="36" Margin="0"
+           VerticalAlignment="Center"/>
 
     <TextBlock x:Name="ScoreBlock"
                Text="0" Foreground="{DynamicResource TextBrush}"

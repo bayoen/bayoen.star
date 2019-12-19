@@ -22,20 +22,18 @@
     </Grid.ColumnDefinitions>
 
     <TextBlock x:Name="HeaderTextBlock" Grid.Row="0" Grid.Column="0"
+               Text="{Binding Header, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyNumericUpDown}}"
                FontSize="16" FontWeight="ExtraBold"
-               Margin="10,10,5,2.5"
-               Text="{Binding Header, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyNumericUpDown}}"/>
+               Margin="10,10,5,2.5" VerticalAlignment="Bottom"/>
 
     <TextBlock x:Name="DetailTextBlock" Grid.Row="1" Grid.Column="0"
-               FontFamily="12"
                Text="{Binding Detail, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyNumericUpDown}}"
-               Margin="10,2.5,5,10"/>
-
+               FontSize="12"
+               Margin="10,2.5,5,10" VerticalAlignment="Top"/>
 
     <mtc:NumericUpDown x:Name="NumericUpDown" Grid.Row="0" Grid.Column="1"
                        Value="{Binding Value, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyNumericUpDown}}"
-                       Margin="5,10,10,10"
-                       VerticalAlignment="Center"
+                       Margin="5,10,10,10" VerticalAlignment="Center"
                        ValueChanged="NumericUpDown_ValueChanged"/>
 
 </Grid>

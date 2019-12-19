@@ -101,6 +101,34 @@ namespace bayoen.star.Variables
             }
         }
 
+        private bool _startMinimized = false;
+        public bool StartMinimized
+        {
+            get => this._startMinimized;
+            set
+            {
+                if (this._startMinimized == value) return;
+
+
+                this._startMinimized = value;
+                this.Save();
+            }
+        }
+
+        private bool _openMini = false;
+        public bool OpenMini
+        {
+            get => this._openMini;
+            set
+            {
+                if (this._openMini == value) return;
+
+
+                this._openMini = value;
+                this.Save();
+            }
+        }
+
         private bool _topMost = false;
         public bool TopMost
         {

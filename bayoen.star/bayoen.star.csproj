@@ -108,6 +108,7 @@
     <Compile Include="Core.Update.cs" />
     <Compile Include="Core.Variable.cs" />
     <Compile Include="ExtendedMethods\System.IO.Compression.ZipArchive.cs" />
+    <Compile Include="Functions\Control.cs" />
     <Compile Include="Functions\FncJson.cs" />
     <Compile Include="Functions\Mapping.cs" />
     <Compile Include="GameMemory.cs" />

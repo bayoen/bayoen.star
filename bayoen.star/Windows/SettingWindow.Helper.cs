@@ -41,5 +41,10 @@ namespace bayoen.star.Windows
             this.LanguageCodeComboBox.ComboBoxWidth = (languageCodeComboBoxMaxWidth == -1) ? 250 : languageCodeComboBoxMaxWidth + 40;
             this.LanguageCodeComboBox.SelectedIndex = Config.CultureCodes.IndexOf(Core.Option.LanguageCode);
         }
+
+        private void BuildVersionSelector()
+        {
+
+        }
     }
 }

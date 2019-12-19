@@ -52,6 +52,11 @@ namespace bayoen.star.Functions
 
         public void Save(string dst)
         {
+            string root = Path.GetDirectoryName(dst);
+            if (root != "")
+            {
+                if (!Directory.Exists(root)) Directory.CreateDirectory(root);
+            }            
             File.WriteAllText(dst, this.Serialize(), Config.TextEncoding);
         }
 

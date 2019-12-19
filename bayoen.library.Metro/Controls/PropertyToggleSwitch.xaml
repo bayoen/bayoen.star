@@ -27,7 +27,7 @@
                Text="{Binding Header, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyToggleSwitch}}"/>
 
     <TextBlock x:Name="DetailTextBlock" Grid.Row="1" Grid.Column="0"
-               FontFamily="12"
+               FontSize="12"
                Text="{Binding Detail, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyToggleSwitch}}"
                Margin="10,2.5,5,10"/>
 
@@ -35,8 +35,7 @@
                       IsChecked="{Binding Value, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyToggleSwitch}}"
                       OnLabel="{Binding TrueLabel, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyToggleSwitch}}"
                       OffLabel="{Binding FalseLabel, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyToggleSwitch}}"
-                      Margin="5,10,10,10"
-                      VerticalAlignment="Center"
+                      Margin="5,10,10,10" VerticalAlignment="Center"
                       IsCheckedChanged="ToggleSwitch_IsCheckedChanged"/>
 
 </Grid>

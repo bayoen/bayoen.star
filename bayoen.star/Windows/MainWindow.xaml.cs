@@ -32,6 +32,7 @@ namespace bayoen.star.Windows
 #endif
 
             this.InitialLogoImage.SetBitmap(bayoen.star.Properties.Resources.StarCarbyImage);
+            this.InitialAutoUpdateCheckBox.IsChecked = Core.Option.AutoUpdate;
         }
 
         private void MiniButton_Click(object sender, RoutedEventArgs e) => Core.MiniWindow.Show();
@@ -107,11 +108,6 @@ namespace bayoen.star.Windows
 
                 this._progress = value;
             }
-        }
-
-        private void BaseWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.InitialAutoUpdateCheckBox.IsChecked = Core.Option.AutoUpdate;
         }
 
         private void InitialAutoUpdateCheckBox_CheckedChanged(object sender, RoutedEventArgs e)

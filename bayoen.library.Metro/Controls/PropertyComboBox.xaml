@@ -22,21 +22,20 @@
     </Grid.ColumnDefinitions>
 
     <TextBlock x:Name="HeaderTextBlock" Grid.Row="0" Grid.Column="0"
+               Text="{Binding Header, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyComboBox}}"
                FontSize="16" FontWeight="ExtraBold"
-               Margin="10,10,5,2.5"
-               Text="{Binding Header, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyComboBox}}"/>
+               Margin="10,10,5,2.5" VerticalAlignment="Bottom"/>
 
     <TextBlock x:Name="DetailTextBlock" Grid.Row="1" Grid.Column="0"
-               FontFamily="12"
                Text="{Binding Detail, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyComboBox}}"
-               Margin="10,2.5,5,10"/>
+               FontSize="12"
+               Margin="10,2.5,5,10" VerticalAlignment="Top"/>
 
     <ComboBox x:Name="ComboBox" x:FieldModifier="private" Grid.Row="0" Grid.Column="1"
               SelectedIndex="{Binding SelectedIndex, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyComboBox}}"
               Width="{Binding ComboBoxWidth, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyComboBox}}"
               Background="{Binding ComboBoxBackground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PropertyComboBox}}"
-              Margin="5,10,17,10"
-              VerticalAlignment="Center"              
+              Margin="5,10,17,10" VerticalAlignment="Center"
               SelectionChanged="ComboBox_SelectionChanged">
     </ComboBox>
 

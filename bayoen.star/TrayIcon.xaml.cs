@@ -27,8 +27,12 @@ namespace bayoen.star
             this.InitializeComponent();
             this.Icon = bayoen.star.Properties.Resources.StarCarbyPlusIcon;
             this.ToolTipText = Config.Title;
-            this.MenuActivation = PopupActivationMode.LeftOrRightClick;
-            this.ContextMenu.PlacementTarget = Core.MainWindow;
+            this.MenuActivation = PopupActivationMode.RightClick;
+            
+            if (!Core.Option.StartMinimized)
+            {
+                this.ContextMenu.PlacementTarget = Core.MainWindow;
+            }
 
 #if DEBUG
             this.MenuHeader.Header = $"{Config.Title} v{Config.VersionString}";

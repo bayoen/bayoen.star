@@ -3,6 +3,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:mtc="http://metro.mahapps.com/winfx/xaml/controls"
                     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                    xmlns:controls="clr-namespace:bayoen.star.Controls"
                     
                     xmlns:windows="clr-namespace:bayoen.library.Metro.Windows"
                     xmlns:metroControls="clr-namespace:bayoen.library.Metro.Controls"
@@ -32,8 +33,15 @@
                 <Setter Property="Padding" Value="0"/>
             </Style>
         </Grid.Resources>
-        
+
         <WrapPanel Orientation="Horizontal">
+
+            <GroupBox Header="Core.Option">
+                <StackPanel Orientation="Vertical"
+                            Margin="{StaticResource ControlGap}">
+                    <TextBlock x:Name="OptionBlock"/>
+                </StackPanel>
+            </GroupBox>
 
             <GroupBox Header="Core.OverlayTimer">
                 <StackPanel Orientation="Vertical"
@@ -57,6 +65,26 @@
             </GroupBox>
 
         </WrapPanel>
+
+        <Grid x:Name="YellowRectangle">
+
+            <Rectangle Height="100" Width="100"
+                       Fill="Yellow">
+                
+            </Rectangle>
+            
+        </Grid>
+
+        <Grid x:Name="GreenRectangle"
+              Margin="300,0,0,0">
+
+            <Rectangle Height="100" Width="100"
+                       Fill="Green">
+
+            </Rectangle>
+
+        </Grid>
+
     </Grid>
 
 </windows:BaseWindow>

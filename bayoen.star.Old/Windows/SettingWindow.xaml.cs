@@ -60,7 +60,7 @@ namespace bayoen.star.Windows
             this.ChromaKeyComboBox.ItemSource = Core.GetChromaComboBoxItemList();
             this.ChromaKeyComboBox.ComboBoxBackground = Brushes.Black;
             this.ChromaKeyComboBox.ComboBoxWidth = 130;
-            this.ChromaKeyComboBox.SelectedIndex = (int)Core.Project.ChromaKey;            
+            this.ChromaKeyComboBox.SelectedIndex = (int)Core.Project.ChromaKey;
             
 
 

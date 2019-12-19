@@ -11,8 +11,7 @@
                     Title="Main"
                     
                     Height="600" Width="960"
-                    MinWidth="960"
-                    Loaded="BaseWindow_Loaded">
+                    MinWidth="960">
 
     <windows:BaseWindow.Resources>
         <Thickness x:Key="ContainerGap">3</Thickness>
@@ -136,18 +135,19 @@
                        VerticalAlignment="Center"/>
 
             <metroControls:WindowCommandButton x:Name="MiniButton"
-                                          Text="{DynamicResource MainWindow-Menu-Mini-Item-String}"
-                                          FontSize="14"
-                                          Click="MiniButton_Click">
+                                               Text="{DynamicResource MainWindow-Menu-Mini-Item-String}"
+                                               FontSize="14"
+                                               ToolTip="{DynamicResource MainWindow-Menu-Mini-ToolTip-String}"
+                                               Click="MiniButton_Click">
                 <metroControls:WindowCommandButton.Icon>
                     <iconPacks:PackIconFontAwesome Kind="StarSolid" Height="16" Width="16" Margin="2,1,6,0"/>
                 </metroControls:WindowCommandButton.Icon>
             </metroControls:WindowCommandButton>
 
             <metroControls:WindowCommandButton x:Name="MenuButton"
-                                          Text="{DynamicResource MainWindow-Menu-Header-String}"
-                                          FontSize="14"
-                                          Click="MenuButton_Click">
+                                               Text="{DynamicResource MainWindow-Menu-Header-String}"
+                                               FontSize="14"
+                                               Click="MenuButton_Click">
                 
                 <metroControls:WindowCommandButton.Icon>
                     <iconPacks:PackIconOcticons Kind="ThreeBars" Height="16" Width="16" Margin="2,1,6,0"/>
